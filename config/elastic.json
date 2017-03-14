@@ -1,0 +1,15 @@
+{
+  "hosts": [
+    "localhost:9200"
+  ],
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "indices": [
+    "nordlys_dbpedia_2015_10"
+  ],
+  "tti_indices": [
+    "dbpedia_2015_10_types_bm25"
+  ]
+}
