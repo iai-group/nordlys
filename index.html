@@ -4,10 +4,12 @@ title: {{ site.name }}
 ---
 
 <div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
+  Nordlys is a toolkit for entity-oriented and semantic search, built by the IAI group of the University of Stavanger.
+
+  <h1>What is nordlys?</h1>
+  <ul>
+    <li>It is an <strong>open source Python library</strong> that can be integrated into larger applications or can be used for research and experimentation.</li>
+    <li>It provides a <strong>RESTful API</strong> and <strong>command line tools</strong>, through which it can be used as a service, much like a black box.</li>
+    <li>The functionality is also available through a <a href="http://gui.nordlys.cc">graphical web user interface</a>.</li>
   </ul>
 </div>
