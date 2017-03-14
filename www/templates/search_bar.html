@@ -1,0 +1,16 @@
+<div class="jumbotron top-heading">
+	<h1>Nordlys</h1>
+	<div class="col-lg-6">
+		<form id="searchForm" action="{{ url_for('service_ER') }}" method="get"
+              onsubmit="setSelectedERCollection();show('loaderImage');">
+			<div class="input-group">
+				<input type="text" class="form-control" name="query" id="searchInputContainer" maxlength="500"
+					   placeholder="{{ query }}">
+				<input type="text" class="form-control" name="collection" id="searchBarCollection" style="display:none;">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="submit" id="searchButton">Go!</button>
+				</span>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOneER">
+      <h4 class="panel-title">
+        <div role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Index
+        </div>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+
+            <select name="{{ service.select_id_name }}" id="{{ service.select_id_name }}" class="service_select"
+            onchange="requestERServiceWithCollection('{{ query }}');">
+
+                <option value="{{ service.selected_index[0] }}" selected>{{ service.selected_index[1] }}</option>
+                {% for index in service.other_indices %}
+                <option value="{{ index[0] }}">{{ index[1] }}</option>
+                {% endfor %}
+
+            </select>
+
+        </div>
+    </div>
+</div>
