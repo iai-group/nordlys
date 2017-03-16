@@ -1,7 +1,0 @@
-{
-  "collection": "surface_forms_facc",
-  "path": "/data/scratch/ClueWeb12-FACC1-counts/",
-  "path-local": "data/facc-sample",
-  "predicate": "facc12",
-  "lowercase": true
-}

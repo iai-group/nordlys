@@ -1,6 +1,0 @@
-"""
-
-
-@author: Krisztian Balog
-"""
-
