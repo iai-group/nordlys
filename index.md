@@ -18,8 +18,8 @@ It is a  step towards reproducible and extensible semantic search research, and 
 
 ## Contributors:
 
-- [Faegheh Hasibi](http://hasibi.com/) <faegheh.hasibi@ntnu.no>
-- [Krisztian Balog](http://krisztianbalog.com/) <krisztian.balog@uis.no>
+- Faegheh Hasibi <faegheh.hasibi@ntnu.no>
+- Krisztian Balog <krisztian.balog@uis.no>
 - Dario Garigliotti <dario.garigliotti@uis.no>
 - Shuo Zhang <shuo.zhang@uis.no>
 
