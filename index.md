@@ -1,7 +1,25 @@
-Nordlys is a toolkit for entity-oriented and semantic search, built by the IAI group of the University of Stavanger.
+Nordlys is a toolkit for entity-oriented and semantic search.
+It is a  step towards reproducible and extensible semantic search research, and is aimed to facilitate research in this area.
 
-## What is nordlys?
+## What is it great about Nordlys?
 
-  * It is an **open source Python library** that can be integrated into larger applications or can be used for research and experimentation.
-  * It provides a **RESTful API** and **command line tools**, through which it can be used as a service, much like a black box.
-  * The functionality is also available through a [graphical web user interface](http://gui.nordlys.cc).
+- It supports 4 tasks related to entity-oriented search: 
+	- Entity Linking in Queries **(EL)**
+	- Entity Retrieval **(ER)**
+	- Entity Summarization **(ES)**
+	- Target Type Identification **(TTI)**
+- It implements various baseline methods for each of these tasks.
+- It provides an entity catalog **(EC)** service, used for representing DBpedia entities, their mappings to Freebase, and some basic statistics.
+- It can used as a black box through a [RESTful API](http://api.nordlys.cc/).
+- It can be deployed on a local server and used  through **command line**.
+- It can be reached by a [GUI interface](http://gui.nordlys.cc/) and be used to perform user studies on result presentation
+- It is based on the [3-tier architecture](https://en.wikipedia.org/wiki/Multitier_architecture) and is a highly modular, easy to understand code.
+- It is an open source project and is meant to be a continuous effort.
+
+## Contributors:
+
+- [Faegheh Hasibi](http://hasibi.com/) <faegheh.hasibi@ntnu.no>
+- [Krisztian Balog](http://krisztianbalog.com/) <krisztian.balog@uis.no>
+- Dario Garigliotti <dario.garigliotti@uis.no>
+- Shuo Zhang <shuo.zhang@uis.no>
+
