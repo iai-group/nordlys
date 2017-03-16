@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include 'head.html' %}
+
+  <body>
+
+	{% include 'header.html' %}
+
+    <div class="container theme-showcase" role="main">
+
+        {% include 'search_bar.html' %}
+
+         <div id="innerPageContainer">
+
+            <div id="resultsContainer">
+                {% block result_container %}
+                {% endblock %}
+            </div>
+
+         </div>
+
+    </div>
+
+    {% include 'footer.html' %}
+
+    <img id="loaderImage" src="{{ url_for('static', filename='ajax-loader.gif') }}" alt="" style="display:none;">
+
+  </body>
+</html>

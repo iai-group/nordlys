@@ -1,0 +1,424 @@
+/*
+ * Styles
+ */
+
+html {
+    position: relative;
+    min-height: 100%; /* needed for footer */
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* Level 0: Main theme (Bootstrap) container */
+
+
+/* ----------------------------------------------------------------------------------------------- */
+/* Level 1: Search bar */
+.top-heading {
+    padding-top: 0px;
+}
+
+
+/* ----------------------------------------------------------------------------------------------- */
+/* Level 1: our customizable overall container */
+#innerPageContainer {
+    position: relative;
+    overflow: auto; /* trick needed because it only contains floating elements */
+    margin: 0 0 80px; /* equals footer height */
+}
+
+
+/* ---------------------------------------------------------------------------- */
+/* Level 2: Results container */
+#resultsContainer {
+	margin-left: 20px;
+	margin-right: 20px;
+	position: relative;
+    margin-bottom: 100px; /* space between the content and the footer */
+}
+
+#resultsContainerER {
+	position: relative;
+    width: 70%;  /* A little more than tabs/settings desired width */
+
+}
+
+/* ------------------------------------------------------------ */
+/* Level 3: Tabs */
+#serviceTabs {
+    padding-right: 50px;  /* same as settings right padding; calculated with respect to current resultContainer width */
+}
+
+.result-service {
+	background-color: #FFFF00;
+}
+
+#serviceTabs a {
+  font-weight: 500;
+}
+
+
+/* ------------------------------------------------------------ */
+/*  Level 3: Results header, e.g. with collection info */
+.results-header {
+	color: #000000;
+	float: left;
+	margin-right: 20px;
+	height: 50px;
+	margin-top: 10px;
+}
+
+.results-header span {
+    color: #337ab7;
+}
+
+
+/* ------------------------------------------------------------ */
+/*  Level 3: Settings */
+.settings {
+    margin-top: 20px;
+}
+
+.collapsible-service-settings {
+    padding-right: 50px;  /* same as tabs right padding */
+}
+
+.nordlys-custom-button {
+    width: 50px;
+    height: 50px;
+}
+
+
+/* ------------------------------------------------------------ */
+/*  Level 4: Results */
+#results {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 50px;
+	clear: left;
+	position: relative;
+}
+
+
+/* ---------------------------------------------- */
+/*  Level 5: ER Results */
+.er-results {
+	margin-bottom: 20px;
+	float: left;
+}
+
+.er-result {
+	margin-top: 10px;
+	width: 100%;
+}
+
+.er-result a {
+	color: #337ab7;
+}
+
+.er-result a:visited {
+	color: #9932CC;
+}
+
+.er-result-title {
+	color: #337ab7;
+	font-size: 14pt;
+    font-weight: 600;
+}
+
+.er-result-doc-id {
+	color: #0aa25b;  /* Nice green */
+	font-size: 0.9em;
+    font-weight: 500;
+}
+
+.er-result-url {
+	color: #00b33c;
+	font-size: 12pt;
+}
+
+.er-result-url a {
+	color: #0aa25b;
+}
+
+.er-result-snippet {
+	color: #000000;
+	font-size: 0.9em;
+    width: 100%;
+    text-align: justify;
+}
+
+/* ---------------------------------------------- */
+/*  Level 5: EL Results */
+
+.el-results {
+	margin-bottom: 200px;
+	float: left;
+	padding-left: 50px;
+	position: relative;
+}
+
+.el-result {
+	margin-top: 10px;
+	width: 100%;
+	position: relative;
+    margin-bottom: 15px;
+}
+
+.el-result a {
+	color: #0aa25b;  /* Nice green */
+	text-decoration: underline;
+}
+
+.el-result a:visited {
+	color: #9932CC;
+}
+.el-result-title {
+	color: #000000;
+	font-size: 14pt;
+    font-weight: 500;
+    clear: left;
+}
+
+.el-result-score {
+	font-size: 0.9em;
+	margin-left: 20px;
+}
+
+/* EL popups - hover */
+.pop-up {
+    display: none;
+    position: absolute;
+    width: 280px;
+    padding: 20px;
+/*    background: #eeeeee; */
+    background: #337ab7;
+    color: #ffffff;
+    border: 1px solid #1a1a1a;
+    font-size: 90%;
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    border-radius:3px;
+    z-index: 100;
+}
+
+/* ------------------------------------------------------------ */
+/*  Level 4: Pagination */
+#pagination {
+    clear:  left;
+    margin-top: 50px;
+}
+
+
+/* ---------------------------------------------------------------------------- */
+/* Level 2: ER result cards */
+.result-card {
+    position: absolute;
+    top: 0px;
+    right: -850px;  /* TODO this is the key point we need to fix now */
+}
+
+.card {
+  margin: 20px 0;
+}
+
+.card-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.card-pic img {
+  float: none;
+  margin: 0 auto;
+  width: 60%;
+  height: 60%;
+  -webkit-border-radius: 10% !important;
+  -moz-border-radius: 10% !important;
+  border-radius: 10% !important;
+}
+
+.card-header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-header-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.card-header-most-specific-type {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card-header-short-description {
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card-header-homepage {
+  color: #B80000;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.card-header-homepage a {
+  color: #B80000;
+}
+
+.card-properties {
+  margin-top: 10px;
+}
+
+.card-properties ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.card-properties ul li:last-child {
+  border-bottom: none;
+}
+
+.card-properties ul li a {
+  color: #93a395;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-properties ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.card-properties ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.card-properties ul li.active {
+  border-bottom: none;
+}
+
+.card-properties ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+
+/* ---------------------------------------------------------------------------- */
+/* Level 2: TTI results histogram */
+svg {
+    width: 100%;
+    height: 100%;
+    position: center;
+}
+
+.toolTip {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    display: none;
+    width: auto;
+    height: auto;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    color: black;
+    font: 12px sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+
+text {
+    font: 12px sans-serif;
+    color: white;
+}
+
+text.label {
+    font-size: 100%;
+    fill: #337ab7;
+}
+
+text.sublabel {
+    font-size: 80%;
+    fill: #0aa25b;  /* Nice green */
+    font-weight: 600;
+}
+
+text.value {
+    font-size: 120%;
+    fill: white;
+}
+
+.axisHorizontal path{
+    fill: none;
+}
+
+.axisHorizontal .tick line {
+    stroke-width: 1;
+    stroke: rgba(0, 0, 0, 0.2);
+}
+
+.bar {
+    fill: #337ab7;
+    fill-opacity: .9;
+}
+
+#ttiHistogramStyle {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 960px;
+    height: 500px;
+    position: relative;
+}
+
+
+/* ----------------------------------------------------------------------------------------------- */
+/* Level 1: Footer */
+footer {
+    background-color: #337ab7;
+    height: 60px;
+    font-size: 1em;
+    color: #E9E9E9;
+    padding: 10px 0px 0px 10px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    overflow: auto; /* trick needed because it only contains floating elements */
+}
+
+footer .component {
+    width: 50%;
+    float: left;
+}
+
+footer .component .label {
+    font-size: 1em;
+    float: left;
+}
+
+footer .component a {
+    color: #E9E9E9;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+/* ----------------------------------------------------------------------------------------------- */
+/* Level -1: Spinner */
+
+#loaderImage {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin-top: -16px;
+    margin-left: -16px;
+}

@@ -1,0 +1,32 @@
+{% if results %}
+
+    <div id="results" class="results">
+
+        <div class="el-results">
+
+            {% for r in results %}
+
+            <div class="el-result">
+                <div class="el-result-title" id="elRes{{ loop.index0 + 1 }}">
+                    {{ r["el_formatted_result_to_show"] }}
+                    <span class="el-result-score">
+                        {{ r["doc_score"] }}
+                    </span>
+                </div>
+
+                <div class="pop-up" id="elPop{{ loop.index0 + 1 }}">
+                    <h5 id="elPopName{{ loop.index0 + 1 }}">Entity: {{ r["doc_title"] }}</h5>
+                    <p class="el-popup-uri">{{ r["doc_id"] }}</p>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endif %}
+
+
+
+
