@@ -16,10 +16,9 @@ It is a  step towards reproducible and extensible semantic search research, and 
 - It is based on the [3-tier architecture](https://en.wikipedia.org/wiki/Multitier_architecture) and is a highly modular, easy to understand code.
 - It is an open source project and is meant to be a continuous effort.
 
-## Contributors:
+## Contributors
 
-- Faegheh Hasibi <faegheh.hasibi@ntnu.no>
-- Krisztian Balog <krisztian.balog@uis.no>
-- Dario Garigliotti <dario.garigliotti@uis.no>
-- Shuo Zhang <shuo.zhang@uis.no>
-
+- [Faegheh Hasibi](http://hasibi.com/)
+- [Krisztian Balog](krisztianbalog.com)
+- Dario Garigliotti
+- Shuo Zhang
