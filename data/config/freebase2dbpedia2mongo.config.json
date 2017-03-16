@@ -1,0 +1,5 @@
+{
+  "collection": "fb2dbp-2015-10",
+  "mapping_file": "/path/to/dbpedia-2015-10/core-i18n/en/freebase_links_en.ttl.bz2",
+  "mapping_file_39": "/path/to/dbpedia-3.9/freebase_links_en.nt.bz2"
+}

@@ -1,0 +1,4 @@
+{
+  "collection": "word2vec-googlenews",
+  "mapping_file": "/path/to/GoogleNews-vectors-negative300.txt.bz2"
+}

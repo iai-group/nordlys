@@ -1,0 +1,5 @@
+{
+  "index_name": "dbpedia_2015_10_types",
+  "type2entity_file": "/path/to/dbpedia-2015-10.two_columns.txt",
+  "entity_abstracts_file": "/path/to/dbpedia-2015-10/core-i18n/en/short_abstracts_en.ttl.bz2"
+}
