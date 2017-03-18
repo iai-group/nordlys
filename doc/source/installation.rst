@@ -1,27 +1,24 @@
 Installation
 ============
 
-Prerequisites
--------------
-
-  * Python Anaconda distribution
-  * MongoDB
-  * Elasticsearch
-
-
-Installation
-------------
+Nordlys is a general-purpose semantic search toolkit, which can be deployed on a local machine. There is built-in support for certain data collections, including DBpedia and Freebase. You may download these data sets and run a set of scripts for preprocessing and indexing them, as explained below. Alternatively, you may use the data dumps we made available; since those are huge, they are not on git but are available at a separate location (see below).
 
 1. Obtain source code
 ~~~~~~~~~~~~~~~~~~~~~
 
 You can clone the Nordlys repo using the following: ::
 
-  $ git clone git@bitbucket.org:kbalog/nordlys.git
+  $ git clone https://github.com/iai-group/nordlys.git
 
 
 2. Install prerequisites
 ~~~~~~~~~~~~~~~~~~~~~~~~
+
+The prerequisites are:
+
+- Python Anaconda distribution
+- MongoDB
+- Elasticsearch
 
 The easiest way of installing the python prerequisites is using pip: ::
 
@@ -31,61 +28,80 @@ If you don't have pip yet, install it using ::
 
   $ easy_install pip
 
-Notes:
-
-  - On Ubuntu, you might need to install lxml using a package manager ::
+.. note:: On Ubuntu, you might need to install lxml using a package manager ::
 
       $ apt-get install python-lxml
 
 
-3. Install the package locally
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-(You only need to do it if you want to use it from Python code) ::
-
-  $ python setup.py install
-
-
-General usage
--------------
-
-From the command line
-~~~~~~~~~~~~~~~~~~~~~
-
-From the command line, under the nordlys main directory, use the `-m` option to run the modules as scripts. E.g., ::
-
-  $ python -m nordlys.parse.nt_parser
-
-.. todo:: add reference to detailed documentation
-
-From web API
+3. Load data
 ~~~~~~~~~~~~
 
-.. todo:: add example plus reference to detailed documentation
+Load DBpedia to MongoDB
+^^^^^^^^^^^^^^^^^^^^^^^
 
 
-From Python code
-~~~~~~~~~~~~~~~~
+DBpedia is distributed, among other formats, as a set of .ttl.bz2 files.
+We use a selection of these .ttl files, as defined in `data/config/dbpedia2mongo.config.json`.  You can download these files from `DBpedia Website <http://downloads.dbpedia.org/2015-10/core-i18n/en/>`_. We provide a minimal sample from DBpedia under `data/dbpedia-2015-10-sample`, which can be used for testing Nordlys on a local machine.
 
-Just import the modules you need, e.g., ::
+To load these files into mongodb, run ::
+
+    python -m nordlys.core.data.dbpedia.dbpedia2mongo data/config/dbpedia2mongo.config.json
+
+.. note:: You may change the `path` variable in the config file; by default it is set to the sample file directory.
+
+See the :mod:`~nordlys.core.data.dbpedia.dbpedia2mongo` module for details.
+
+Build indices
+^^^^^^^^^^^^^
+
+Once DBpedia is loaded into MongoDB, the following indices can be built:
+
+- **DBpedia index**
+    - Used in ER, EL, and TTI services ::
+
+        python -m nordlys.core.data.dbpedia.indexer_dbpedia data/config/index_dbpedia_2015_10.config.json
+
+- **DBpedia URI-only index** 
+   - Used in ELR method of ER service ::
+
+        python -m nordlys.core.data.dbpedia.indexer_dbpedia_uri data/config/index_dbpedia_2015_10_uri.config.json
+
+- **DBpedia types index** 
+    - Used in TTI service ::
+
+        python -m nordlys.core.data.dbpedia.indexer_dbpedia_types data/config/index_dbpedia_2015_10_types.config.json
 
 
-  from nordlys.entity.entity import Entity
-  from nordlys.entity.freebase.utils import FreebaseUtils
+Load other MongoDB collections
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A set of other collections has been used for different Nordlys services. We detail the commands used for generating these collections, yet they can be all dowloaded from the provided links.
+
+- **Surface form dictionary (DBpedia)**
+    - Used in EL service
+    - Surface form dictionary, extracted from DBpedia entity name variants
+    - `Download link <surface_forms_dbpedia>`_ ::
+
+        python -m nordlys.core.data.dbpedia.dbpedia_surfaceforms2mongo data/config/dbpedia_surfaceforms2mongo.config.json
+
+- **Surface form dictionary (FACC)**
+    - Used in EL service
+    - Surface form dictionary, extracted from FACC collection
+    - `Download link <surface_forms_facc>`_ ::
+
+        python -m nordlys.core.data.facc.facc2mongo data/config/facc2mongo.config.json
+
+- **Freebase to DBpedia mapping**
+    - Used in EL service
+    - Contains mapping of Freebase to DBpedia IDs 
+    - `Download link <fb2dbp-2015-10>`_ ::
+
+        python -m nordlys.core.data.dbpedia.freebase2dbpedia2mongo  data/config/freebase2dbpedia2mongo.config.json
 
 
-Load data
----------
+- **Word2Vec (Google news- 300D)**
+   - Used in LTR methods for EL, ES, and TTI services
+   - Contains mapping of terms to their word-embedding vectors
+   - `Download link <word2vec-googlenews>`_ ::
 
-.. todo:: Explain that you can 1) download the original data files (DBpedia, FACC, etc.) and load them or 2) download the complete data dump from XXX.
-
-Load DBpedia into MongoDB
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-A small sample of DBpedia-2015-10 is shipped with Nordlys, to get you going. Loading the full DBpedia takes several hours. ::
-
-
-  python -m nordlys.core.data.dbpedia.dbpedia2mongo data/config/dbpedia2mongo.config.json
-
-
-.. todo:: create config file for full DBpedia.
+        python -m nordlys.core.data.word2vec.word2vec2mongo data/config/word2vec2mongo.config.json
