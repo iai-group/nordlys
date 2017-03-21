@@ -25,15 +25,15 @@ Endpoint URI
 Example
 ^^^^^^^
 
-- *Request:* http://api.nordlys.cc/er?q=total+recall&model=lm
-
+- *Request:*
+    http://api.nordlys.cc/er?q=total+recall&1st_num_docs=100&model=lm
 - *Response:*
 
   .. code-block::
 
     {
       "query": "total recall",
-      "total_hits": 100", 
+      "total_hits": 1000", 
       "results": {
         "0": {
           "entity": "<dbpedia:Total_Recall_(1990_film)>", 
@@ -49,11 +49,22 @@ Example
 
 Parameters
 ^^^^^^^^^^
-Nordlys currently supports the following approaches for entity retrieval:
 
-- **Elastic:**  The BM25 model, as implemented in Elasticsearch. This is the most efficient that is provided by nordlys (to this date).
-
-- **LM:** Language Modeling [21] approach (with Dirichlet prior smoothing), which employs a single  eld representa- tion of entities.
+- **q** *(required)* is the search query
+- **1st_num_docs** is the number of documents that will be re-ranked using a model. The recommended value (esp. for baseline comparisons) is 1000. Lower values, like 100, are recommended only when efficiency matters *(default: 1000)*
+- **num_docs** is the total number of documents (entities) to return *(default: 100)*
+- **start** is starting offset for ranked documents *(default:0)*
+- **fields_return** is comma-separated list of fields to return for each hit *(default: "")*
+- **model** is name of the retrieval model; accepted values: [bm25 | lm | mlm | prms] *(default: "lm")* 
+   - **BM25**: The BM25 model, as implemented in Elasticsearch. This is the most efficient that is provided by Nordlys (to this date)
+   - **LM**: Language Modeling [1] approach, which employs a single  field representation of entities
+   - **MLM**: The Mixture of Language Models [2], which uses a linear combination of language models built for each field
+   - **PRMS**: The Probabilistic Model for Semistructured Data [3], which uses collection statistics to compute field weights in for MLM model
+- **field** is name of the field used for LM *(default: "catchall")*
+- **fields** is comma-separated list of the fields for PRMS *(default: "catchall")*
+- **field_weights** is comma-separated list of fields and their corresponding weights for MLM (default: "catchall:1")
+- **smoothing_method** is smoothing method for LM-based models; accepted values: jm|dirichlet *(default: "dirichlet")*
+- **smoothing_param** is the value of smoothing parameters (lambda or mu); accepted values: [float or "avg_len"] *(default for jm: 0.1, default for dirichlet: 2000)*
 
 
 2. Entity Linking in Queries (EL)
@@ -70,8 +81,8 @@ Endpoint URI
 Example
 ^^^^^^^
 
-- *Request:* http://api.nordlys.cc/el?q=total+recall+arnold
-
+- *Request:*
+    http://api.nordlys.cc/el?q=total+recall+arnold
 - *Response:*
 
   .. code-block::
@@ -94,6 +105,12 @@ Example
 Parameters
 ^^^^^^^^^^
 
+- **q** *(required)* is the search query
+- **method** is the name of the method; accepted values *(default: "cmns")*
+   - **CMNS**  The baseline method that uses the overall popularity of entities as link targets, implemented based on [5]
+- **threshold** is the entity linking threshold *(default for cmns: 0.1)*
+
+
 3. Target Type Identification (TTI)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -108,8 +125,8 @@ Endpoint URI
 Example
 ^^^^^^^
 
-- *Request:* http://api.nordlys.cc/tti?q=obama
-
+- *Request:* 
+   http://api.nordlys.cc/tti?q=obama
 - *Response:*
 
   .. code-block::
@@ -131,6 +148,11 @@ Example
 Parameters
 ^^^^^^^^^^
 
+- **q** *(required)* is the search query
+- **method** is the name of the method; accepted values: [tc | ec], *(default: "tc")*
+- **num_types** is the number of types to return,
+- **start** is the starting offset for ranked types,
+- **model** is retrieval model, if method is "tc" or "ec"; accepted values: [lm |bm25],
 
 4. Entity Catalog (EC)
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -146,8 +168,8 @@ Endpoint URI
 Example
 ^^^^^^^
 
-- *Request:* http://api.nordlys.cc/ec/<dbpedia:Albert_Einstein>
-
+- *Request:* 
+   http://api.nordlys.cc/ec/<dbpedia:Albert_Einstein>
 - *Response:*
 
   .. code-block::
@@ -170,3 +192,18 @@ Example
 
 Parameters
 ^^^^^^^^^^
+
+- Entity id in the form of "<dbpedia:XXX>", where XXX denotes the DBpedia/Wikipedia ID of an entity
+
+References
+~~~~~~~~~~
+
+[1] Jay M Ponte and W Bruce Croft . 1998. *A Language modeling approach to information retrieval*. In Proc. of SIGIR '98. 275–281.
+
+[2] Paul Ogilvie and Jamie Callan. 2003. *Combining document representations for known-item search*. Proc. of SIGIR '03 (2003), 143–150.
+
+[3] Jinyoung Kim, Xiaobing Xue, and W Bruce Croft . 2009. *A probabilistic retrieval model for semistructured data*. In Proc. of ECIR '09. 228–239.
+
+[4] Faegheh Hasibi, Krisztian Balog, and Svein Erik Bratsberg. 2016. *Exploiting entity linking in  queries for entity retrieval*. In Proc. of ICTIR ’16. 171–180.
+
+[5] Faegheh Hasibi, Krisztian Balog, and Svein Erik Bratsberg. 2015. *Entity linking in  queries: Tasks and Evaluation*. In Proc. of ICTIR ’15. 171–180.
