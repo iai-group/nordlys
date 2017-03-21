@@ -12,12 +12,10 @@ Contents
 
    installation
    api_usage
-   api/nordlys.core.retrieval
-   3-tier_architecture
-   ml_package
-   generating_doc-in_a_nutshell
-   static_page_example
    web_demo
+   3-tier_architecture
+   api/nordlys.core.retrieval
+   ml_package
 
 
 Indices and tables
