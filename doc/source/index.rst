@@ -11,7 +11,7 @@ Contents
    :maxdepth: 2
 
    installation
-   getting_started
+   api_usage
    api/nordlys.core.retrieval
    3-tier_architecture
    ml_package
