@@ -151,6 +151,8 @@ Parameters
 
 - **q** *(required)* is the search query
 - **method** is the name of the method; accepted values: [tc | ec], *(default: "tc")*
+  - **TC**: The Type Centric (TC) method based on [6]. Both BM25 and LM can be used as a retrieval model here.
+  - **EC**: The Entity Centric (EC) method, as described in [6].
 - **num_types** is the number of types to return,
 - **start** is the starting offset for ranked types,
 - **model** is retrieval model, if method is "tc" or "ec"; accepted values: [lm |bm25],
@@ -208,3 +210,5 @@ References
 [4] Faegheh Hasibi, Krisztian Balog, and Svein Erik Bratsberg. 2016. *Exploiting entity linking in  queries for entity retrieval*. In Proc. of ICTIR ’16. 171–180.
 
 [5] Faegheh Hasibi, Krisztian Balog, and Svein Erik Bratsberg. 2015. *Entity linking in  queries: Tasks and Evaluation*. In Proc. of ICTIR ’15. 171–180.
+
+[6] Krisztian Balog, Robert Neumayer. 2012. *Hierarchical target type identification for entity-oriented queries*. In Proc. of CIKM '12. 2391–2394.
