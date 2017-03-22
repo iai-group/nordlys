@@ -13,7 +13,7 @@ Contents
    installation
    api_usage
    web_demo
-   3-tier_architecture
+   architecture
    api/nordlys.core.retrieval
    ml_package
 
