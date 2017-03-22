@@ -25,14 +25,15 @@ Endpoint URI
 Example
 ^^^^^^^
 
-- *Request:*
-    http://api.nordlys.cc/er?q=total+recall&1st_num_docs=100&model=lm
-- *Response:*
+*Request:*
 
-  .. code-block::
+ http://api.nordlys.cc/er?q=total+recall&1st_num_docs=100&model=lm
 
-    {
-      "query": "total recall",
+*Response:*
+
+.. code-block:: python
+
+    {"query": "total recall",}
       "total_hits": 1000", 
       "results": {
         "0": {
@@ -85,7 +86,7 @@ Example
     http://api.nordlys.cc/el?q=total+recall+arnold
 - *Response:*
 
-  .. code-block::
+  .. code-block:: python
 
     {
       "processed_query": "total recall arnold", 
@@ -129,7 +130,7 @@ Example
    http://api.nordlys.cc/tti?q=obama
 - *Response:*
 
-  .. code-block::
+  .. code-block:: python
 
     {
       "query": "obama", 
@@ -172,10 +173,10 @@ Example
    http://api.nordlys.cc/ec/<dbpedia:Albert_Einstein>
 - *Response:*
 
-  .. code-block::
+  .. code-block:: python
 
     {
-        "<dbo:abstract>": ["Albert Einstein was a German-born theoretical physicist .. ],
+        "<dbo:abstract>": ["Albert Einstein was a German-born theoretical physicist ... ],
         "<dbo:academicAdvisor>": ["<dbpedia:Heinrich_Friedrich_Weber>"],
         "<dbo:almaMater>": [
             "<dbpedia:ETH_Zurich>",
