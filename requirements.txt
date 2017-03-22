@@ -1,5 +1,11 @@
-elasticsearch>=2.3.0
-rdflib>=4.2.1
-numpy>=1.11.1
-scikit-learn>=0.18
-jellyfish>=0.5.6
+elasticsearch==5.2.0
+Flask==0.12
+jellyfish==0.5.6
+matplotlib==2.0.0
+numpy==1.12.1
+pymongo==3.4.0
+rdflib==4.2.2
+requests==2.13.0
+scikit-learn==0.18.1
+scipy==0.19.0
+Sphinx==1.5.3
