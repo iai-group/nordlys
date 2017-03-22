@@ -3,7 +3,7 @@ It is a  step towards reproducible and extensible semantic search research, and 
 
 ## What is it great about Nordlys?
 
-- It supports 4 tasks related to entity-oriented search: 
+- It supports 3 tasks related to entity-oriented search: 
 	- Entity Linking in Queries **(EL)**
 	- Entity Retrieval **(ER)**
 	- Target Type Identification **(TTI)**
