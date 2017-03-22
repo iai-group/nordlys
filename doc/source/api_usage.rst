@@ -1,4 +1,4 @@
-API Usage
+API usage
 =========
 
 Nordlys services can be accessed through a RESTfull API. The services are:
