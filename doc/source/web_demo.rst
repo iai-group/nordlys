@@ -49,4 +49,4 @@ For target type identification, we employ the type centric method; e.g.::
 
    Nordlys Web interface - Target Type Identification
 
-.. note:: For detailed information about out API calls see :doc:`api_usage`
+.. note:: For detailed information about our API calls see :doc:`api_usage`
