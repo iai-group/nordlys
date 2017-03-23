@@ -16,11 +16,11 @@ You can clone the Nordlys repo using the following: ::
 
 Before deploying Nordlys, make sure the follwoings are installed on your machine:
 
-- Python Anaconda distribution
-- MongoDB
-- Elasticsearch
+- `Python Anaconda distribution <https://docs.continuum.io/anaconda/install>`_
+- `MongoDB <https://docs.mongodb.com/manual/installation/>`_
+- `Elasticsearch <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/_installation.html>`_
 
-The install Nodlys prerequisites is using pip: ::
+Then install Nodlys prerequisites is using pip: ::
 
   $ pip install -r requirements.txt
 
