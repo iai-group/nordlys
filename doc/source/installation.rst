@@ -20,7 +20,7 @@ Before deploying Nordlys, make sure the follwoings are installed on your machine
 - `MongoDB <https://docs.mongodb.com/manual/installation/>`_
 - `Elasticsearch <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/_installation.html>`_
 
-Then install Nodlys prerequisites is using pip: ::
+Then install Nodlys prerequisites using pip: ::
 
   $ pip install -r requirements.txt
 
