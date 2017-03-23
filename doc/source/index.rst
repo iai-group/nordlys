@@ -17,6 +17,7 @@ Contents
    architecture
    api/nordlys.core.ml.ml
    api/nordlys.services.er
+   api/nordlys.services.el
    
 Indices and tables
 ==================

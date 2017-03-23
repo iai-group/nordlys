@@ -9,8 +9,9 @@ Usage
 
 ::
 
-  python -m nordlys.services.er -c <config_file> -q <query>
+  python -m nordlys.services.er <config_file> -q <query>
 
+If `-q <query>` is passed, it returns the resutls for the specified query and prints them in terminal.
 
 Config parameters
 ------------------
