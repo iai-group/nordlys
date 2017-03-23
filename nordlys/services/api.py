@@ -14,7 +14,11 @@ from nordlys.services.el import EL
 from nordlys.services.er import ER
 from nordlys.services.tti import TTI
 
-# variables
+
+# Constants
+DBPEDIA_INDEX = "nordlys_dbpedia_2015_10"
+
+# Variables
 __entity = Entity()
 app = Flask(__name__)
 
@@ -35,33 +39,29 @@ def index():
     return "This is the Nordlys API."
 
 
-@app.route("/catalog/<collection>/<enxtity_id>")
-def catalog(collection, entity_id):
-    if collection not in MONGO_ENTITY_COLLECTIONS:
-        return error("collection does not exist.")
+@app.route("/ec/<entity_id>")
+def catalog(entity_id):
     entity = __entity.lookup_en(entity_id)
     if entity is None:
         return error("entity_id does not exist.")
     return jsonify(**entity)
 
 
-# /el/<index>?q=xx[&start=xx&field=xx&model=xx&smoothing_method=xx&smoothing_param=xx]
-@app.route("/er/<index>")
-def retrieval(index):
-    if index not in ELASTIC_INDICES:
-        return error("Index does not exist!")
+# /er?q=xx[&start=xx&field=xx&model=xx&smoothing_method=xx&smoothing_param=xx]
+@app.route("/er")
+def retrieval():
     query = request.args.get("q", None)
     if query is None:
         return error("Query is not specified.")
 
     config = {
-        "index_name": index,
+        "index_name": DBPEDIA_INDEX,
         "first_pass": {
             "fields_return": request.args.get("fields_return", None),
             "num_docs": request.args.get("1st_num_docs", None),
         },
         "start": request.args.get("start", 0),
-        "num_docs": request.args.get("num_docs", 100),
+        "num_docs": request.args.get("num_docs", None),
         "model": request.args.get("model", None),
         "field": request.args.get("field", None),
         "fields": request.args.get("fields", None),
@@ -90,7 +90,7 @@ def entity_linking():
     return jsonify(**res)
 
 
-@app.route("/types")
+@app.route("/tti")
 def entity_types():
     query = request.args.get("q", None)
     if query is None:
