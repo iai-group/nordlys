@@ -50,20 +50,6 @@ from nordlys.logic.query.query import Query
 
 
 class EL(object):
-    """Performs entity linking based on the given configuration.
-
-        :param config: entity linking config (JSON config file or a dictionary) of the shape:
-
-        ::
-
-            {
-                "method": name of the method,
-                "threshold": entity linking threshold (varies depending on the method)
-                "query_file": name of query file (JSON),
-                "output_file": name of output file,
-            }
-
-    """
     def __init__(self, config, entity):
         self.__check_config(config)
         self.__config = config
