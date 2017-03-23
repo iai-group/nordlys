@@ -1,10 +1,59 @@
-"""Entity retrieval.
+"""
+Entity Retrieval (ER)
+=====================
 
-entity_retrieval
-----------------
+The command-line endpoint for entity retrieval.
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+Usage
+-----
+
+::
+
+  python -m nordlys.services.er -c <config_file> -q <query>
+
+
+Config parameters
+------------------
+
+- **index_name**: name of the index,
+- **first_pass**: 
+      - **num_docs**: number of documents in first-pass scoring (default: 100)
+      - **field**: field used in first pass retrieval (default: Elastic.FIELD_CATCHALL)
+      - **fields_return**: comma-separated list of fields to return for each hit (default: "")
+- **num_docs**: number of documents to return (default: 100)
+- **start**: starting offset for ranked documents (default:0)
+- **model**: name of retrieval model; accepted values: [lm, mlm, prms] (default: lm)
+- **field**: field name for LM (default: catchall)
+- **fields**: list of fields for PRMS (default: [catchall])
+- **field_weights**: dictionary with fields and corresponding weights for MLM (default: {catchall: 1})
+- **smoothing_method**: accepted values: [jm, dirichlet] (default: dirichlet)
+- **smoothing_param**: value of lambda or mu; accepted values: [float or "avg_len"], (jm default: 0.1, dirichlet default: 2000)
+- **query_file**: name of query file (JSON),
+- **output_file**: name of output file,
+- **run_id**: run id for TREC output
+
+
+Example config
+---------------
+
+.. code:: python
+
+	{"index_name": "dbpedia_2015_10",
+	  "first_pass": {
+	    "num_docs": 1000
+	  },
+	  "model": "prms",
+	  "num_docs": 1000,
+	  "smoothing_method": "dirichlet",
+	  "smoothing_param": 2000,
+	  "fields": ["names", "categories", "attributes", "similar_entity_names", "related_entity_names"],
+	  "query_file": "path/to/queries.json",
+	  "output_file": "path/to/output.txt",
+	  "run_id": "test"
+	}
+------------------------
+
+:Author: Faegheh Hasibi
 """
 import argparse
 from pprint import pprint
@@ -16,35 +65,6 @@ from nordlys.core.utils.file_utils import FileUtils
 
 
 class ER(object):
-    """Performs entity retrieval based on the given configuration.
-
-    :param config: retrieval config (JSON config file or a dictionary) of the shape:
-
-    ::
-
-        {
-            "index_name": name of the index,
-            "first_pass": {
-                "num_docs": number of documents in first-pass scoring (default: 100)
-                "field": field used in first pass retrieval (default: Elastic.FIELD_CATCHALL)
-                "fields_return": comma-separated list of fields to return for each hit (default: "")
-            },
-            "num_docs": number of documents to return (default: 100)
-            "start": starting offset for ranked documents (default:0)
-            "model": name of retrieval model; accepted values: [lm, mlm, prms] (default: lm)
-            "field": field name for LM (default: catchall)
-            "fields": list of fields for PRMS (default: [catchall])
-            "field_weights": dictionary with fields and corresponding weights for MLM (default: {catchall: 1})
-            "smoothing_method": accepted values: [jm, dirichlet] (default: dirichlet)
-            "smoothing_param": value of lambda or mu; accepted values: [float or "avg_len"],
-                                (jm default: 0.1, dirichlet default: 2000)
-
-            "query_file": name of query file (JSON),
-            "output_file": name of output file,
-            "run_id": run id for TREC output
-        }
-    """
-
     def __init__(self, config):
         self.__check_config(config)
         self.__config = config

@@ -9,15 +9,14 @@ Contents
 
 .. toctree::
    :caption: Table of Contents
-   :maxdepth: 5
+   :maxdepth: 2
 
    installation
    api_usage
    web_demo
    architecture
    api/nordlys.core.ml.ml
-   api/nordlys.logic
-   api/nordlys.services
+   api/nordlys.services.er
    
 Indices and tables
 ==================
