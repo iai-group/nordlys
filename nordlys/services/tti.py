@@ -1,10 +1,51 @@
-"""Target Type Identification (TTI).
+"""
 
-tti
----
+Target Type Identification (TTI)
+================================
 
-@author: Dario Garigliotti
-@author: Faegheh Hasibi
+The command-line endpoint for target type indentification.
+
+Usage
+-----
+
+::
+
+  python -m nordlys.services.er <config_file> -q <query>
+
+If `-q <query>` is passed, it returns the resutls for the specified query and prints them in terminal.
+
+Config parameters
+------------------
+
+- **method**: name of TTI method; accepted values: ["tc", "ec"]
+- **num_docs**: number of documents to return
+- **start**: starting offset for ranked documents
+- **model**: retrieval model, if method is "tc" or "ec"; accepted values: ["lm", "bm25"]
+- **index**: if method is "tc", name of the index
+- **ec_k_cutoff**: if method is "ec", rank cut-off of top-K entities for EC TTI
+- **field**: field name for LM model, if method is "tc" or "ec"
+- **smoothing_method**: accepted values: ["jm", "dirichlet"]
+- **smoothing_param**: value of lambda or mu; accepted values: [float or "avg_len"]
+- **query_file**: name of query file (JSON)
+- **output_file**: name of output file
+
+
+Example config
+---------------
+
+.. code:: python
+
+	{"method": "tc",
+	 "num_docs": 1000,
+     "model" : "lm",
+	  "smoothing_method": "dirichlet",
+	  "smoothing_param": 2000,
+	  "query_file": "path/to/queries.json",
+	  "output_file": "path/to/output.txt",
+	}
+------------------------
+
+:Author: Dario Garigliotti
 """
 
 from os.path import expanduser
@@ -34,27 +75,6 @@ DEFAULT_TTI_EC_K_CUTOFF = 20  # Known to be a sufficient cut-off
 
 
 class TTI(object):
-    """Performs query target type identification (TTI) based on the given configuration.
-
-    :param config: TTI config (JSON config file or a dictionary) of the shape:
-
-    ::
-
-        {
-            "method": name of TTI method; accepted values: ["tc", "ec"],
-            "num_docs": number of documents to return,
-            "start": starting offset for ranked documents,
-            "model": retrieval model, if method is "tc" or "ec"; accepted values: ["lm", "bm25"],
-            "index": if method is "tc", name of the index,
-            "ec_k_cutoff": if method is "ec", rank cut-off of top-K entities for EC TTI,
-            "field": field name for LM model, if method is "tc" or "ec",
-            "smoothing_method": accepted values: ["jm", "dirichlet"],
-            "smoothing_param": value of lambda or mu; accepted values: [float or "avg_len"],
-            "query_file": name of query file (JSON),
-            "output_file": name of output file
-        }
-    """
-
     def __init__(self, config):
         self.__check_config(config)
         self.__config = config

@@ -18,7 +18,8 @@ Contents
    api/nordlys.core.ml.ml
    api/nordlys.services.er
    api/nordlys.services.el
-   
+   api/nordlys.services.tti
+      
 Indices and tables
 ==================
 
