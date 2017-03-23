@@ -12,6 +12,5 @@ Submodules
 .. toctree::
 
    nordlys.logic.el.cmns
-   nordlys.logic.el.el
    nordlys.logic.el.ltr
 

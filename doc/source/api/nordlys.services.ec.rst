@@ -1,4 +1,4 @@
-.. automodule:: nordlys.logic.features.ftr_lexical_old
+.. automodule:: nordlys.services.ec
     :members:
     :undoc-members:
     :show-inheritance:

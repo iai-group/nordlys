@@ -13,6 +13,9 @@ Submodules
 
    nordlys.core.data.dbpedia.create_sample
    nordlys.core.data.dbpedia.dbpedia2mongo
-   nordlys.core.data.dbpedia.index_types
+   nordlys.core.data.dbpedia.dbpedia_surfaceforms2mongo
+   nordlys.core.data.dbpedia.freebase2dbpedia2mongo
    nordlys.core.data.dbpedia.indexer_dbpedia
+   nordlys.core.data.dbpedia.indexer_dbpedia_types
+   nordlys.core.data.dbpedia.indexer_dbpedia_uri
 

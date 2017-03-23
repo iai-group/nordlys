@@ -1,4 +1,4 @@
-.. automodule:: nordlys.logic.er.er
+.. automodule:: nordlys.services.api_test
     :members:
     :undoc-members:
     :show-inheritance:

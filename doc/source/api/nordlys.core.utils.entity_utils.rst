@@ -1,4 +1,4 @@
-.. automodule:: nordlys.core.data.dbpedia.indexer_fsdm
+.. automodule:: nordlys.core.utils.entity_utils
     :members:
     :undoc-members:
     :show-inheritance:

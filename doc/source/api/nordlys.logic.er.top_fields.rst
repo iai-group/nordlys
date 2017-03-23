@@ -1,4 +1,4 @@
-.. automodule:: nordlys.core.data.dbpedia.abcd
+.. automodule:: nordlys.logic.er.top_fields
     :members:
     :undoc-members:
     :show-inheritance:

@@ -8,16 +8,17 @@ Contents
 ========
 
 .. toctree::
-   :maxdepth: 2
+   :caption: Table of Contents
+   :maxdepth: 5
 
    installation
    api_usage
    web_demo
    architecture
-   api/nordlys.core.retrieval
-   ml_package
-
-
+   api/nordlys.core.ml.ml
+   api/nordlys.logic
+   api/nordlys.services
+   
 Indices and tables
 ==================
 

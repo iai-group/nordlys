@@ -1,4 +1,4 @@
-.. automodule:: nordlys.core.data.dbpedia.index_types
+.. automodule:: nordlys.services.tti
     :members:
     :undoc-members:
     :show-inheritance:

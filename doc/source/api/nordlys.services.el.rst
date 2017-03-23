@@ -1,4 +1,4 @@
-.. automodule:: nordlys.services.entity_retrieval
+.. automodule:: nordlys.services.el
     :members:
     :undoc-members:
     :show-inheritance:
