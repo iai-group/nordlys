@@ -1,16 +1,20 @@
-<div class="jumbotron top-heading">
-	<h1>Nordlys</h1>
-	<div class="col-lg-6">
-		<form id="searchForm" action="{{ url_for('service_ER') }}" method="get"
-              onsubmit="setSelectedERCollection();show('loaderImage');">
-			<div class="input-group">
+<div class="col-lg-6">
+	<form id="searchForm" method="get"
+		  onsubmit="setActionService();setSelectedERCollection();show('loaderImage');">
+		<div class="input-group">
+			{% if placeholder is defined %}
 				<input type="text" class="form-control" name="query" id="searchInputContainer" maxlength="500"
-					   placeholder="{{ query }}">
-				<input type="text" class="form-control" name="collection" id="searchBarCollection" style="display:none;">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="submit" id="searchButton">Go!</button>
-				</span>
-			</div>
-		</form>
-	</div>
+					   placeholder="{{ placeholder }}">
+			{% elif query is defined %}
+				<input type="text" class="form-control" name="query" id="searchInputContainer" maxlength="500"
+					   value="{{ query }}">
+			{% else %}
+				<input type="text" class="form-control" name="query" id="searchInputContainer" maxlength="500">
+			{% endif %}
+			<input type="text" class="form-control" name="collection" id="searchBarCollection" style="display:none;">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="submit" id="searchButton">Go!</button>
+			</span>
+		</div>
+	</form>
 </div>

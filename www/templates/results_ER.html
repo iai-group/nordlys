@@ -1,7 +1,7 @@
 {% extends "index.html" %} {% block result_container %}
 
-    <div id="resultsContainerER">
-        {% include 'tabs.html' %}
+    <div id="resultsContainerService">
+        {% include 'pills.html' %}
 
         <script>
             activateERTab();
@@ -14,6 +14,6 @@
         {% include 'results_ER_inner.html' %}
     </div>
 
-    {% include 'result_ER_cards.html' %}
+    {% include 'results_ER_cards.html' %}
 
 {% endblock %}

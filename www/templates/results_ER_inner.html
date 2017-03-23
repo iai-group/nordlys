@@ -7,11 +7,15 @@
 
             <div class="er-result">
                 <div class="er-result-title">
-                    <a href="{{ r['doc_url'] }}" target="_blank">{{ r["doc_title"] }}</a>
+                    <a href="#result{{ loop.index0 + 1 }}"
+                       onclick="show_card('resultCard{{ loop.index0 + 1 }}', event);">{{ r["doc_title"] }}</a>
                 </div>
 
                 <div class="er-result-doc-id">
                     {{ r["doc_id"] }}
+                    {% if r["doc_freebase_id"] %}
+                        <span class="er-result-freebase-id">{{ r["doc_freebase_id"] }}</span>
+                    {% endif %}
                 </div>
 
                 <div class="er-result-snippet">

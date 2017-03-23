@@ -15,8 +15,24 @@
                 </div>
 
                 <div class="pop-up" id="elPop{{ loop.index0 + 1 }}">
-                    <h5 id="elPopName{{ loop.index0 + 1 }}">Entity: {{ r["doc_title"] }}</h5>
-                    <p class="el-popup-uri">{{ r["doc_id"] }}</p>
+                    <div class="pop-up-content">
+                        {% if r['doc_picture'] %}
+                            <div class="pop-up-pic">
+                                <img src="{{ r['doc_picture'] }}" class="img-responsive" alt="">
+                            </div>
+                        {% endif %}
+                        <div class="pop-up-header">
+                            <h5 id="elPopName{{ loop.index0 + 1 }}">{{ r["doc_title"] }}</h5>
+
+                            {% if r["doc_type"] %}
+                            <p class="el-popup-type">{{ r["doc_type"] }}</p>
+                            {% else %}
+                            <p class="el-popup-uri">{{ r["doc_id"] }}</p>
+                            {% endif %}
+
+                        </div>
+                        <p class="el-popup-abstract" id="elPopAbstract{{ loop.index0 + 1 }}">{{ r["doc_snippet"] }}</p>
+                    </div>
                 </div>
             </div>
 

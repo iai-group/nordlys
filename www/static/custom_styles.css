@@ -2,20 +2,39 @@
  * Styles
  */
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');  /* Top heading font */
+
 html {
     position: relative;
-    min-height: 100%; /* needed for footer */
+    min-height: 100%;  /* needed for footer */
 }
 
 
 /* ------------------------------------------------------------------------------------------------------------------ */
-/* Level 0: Main theme (Bootstrap) container */
+/* Level 1: My top heading container */
+
+#myTopHeading {
+    padding-top: 40px;
+    padding-left: 57px;  /* Same as for total resulting for ER results, and for footer component */
+    background-image: url("nordlys_background.png");
+    background-size: cover;
+    width: 100%;
+    height: 170px;
+}
 
 
 /* ----------------------------------------------------------------------------------------------- */
-/* Level 1: Search bar */
-.top-heading {
-    padding-top: 0px;
+/* Level 2: Nordlys logo heading */
+#nordlysLogo {
+    padding-left: 10px;  /* Same as missing for total resulting for ER results, and for footer component */
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 3.7em;
+    font-weight: bold;
+	color: #FFFFFF;
+}
+
+#nordlysLogo:hover {
+	color: #99ddcc;
 }
 
 
@@ -23,30 +42,31 @@ html {
 /* Level 1: our customizable overall container */
 #innerPageContainer {
     position: relative;
-    overflow: auto; /* trick needed because it only contains floating elements */
-    margin: 0 0 80px; /* equals footer height */
+    overflow: auto;  /* trick needed because it only contains floating elements */
+    margin: 20px 70px 50px;  /* equals footer height */
+    clear: left;
 }
 
 
 /* ---------------------------------------------------------------------------- */
 /* Level 2: Results container */
 #resultsContainer {
-	margin-left: 20px;
 	margin-right: 20px;
 	position: relative;
-    margin-bottom: 100px; /* space between the content and the footer */
+    margin-bottom: 100px;  /* space between the content and the footer */
 }
 
-#resultsContainerER {
+#resultsContainerService {
 	position: relative;
     width: 70%;  /* A little more than tabs/settings desired width */
-
 }
+
 
 /* ------------------------------------------------------------ */
 /* Level 3: Tabs */
 #serviceTabs {
     padding-right: 50px;  /* same as settings right padding; calculated with respect to current resultContainer width */
+    position: relative;
 }
 
 .result-service {
@@ -55,6 +75,28 @@ html {
 
 #serviceTabs a {
   font-weight: 500;
+  color: #557788;
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,.nav-pills > li > a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius:0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: #557788;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+
+.nav-pills > li {
+    display: inline;
+}
+
+.nav-pills > li > a {
+    border-radius:0px;
+    float: left;
 }
 
 
@@ -69,7 +111,7 @@ html {
 }
 
 .results-header span {
-    color: #337ab7;
+    color: #335555;
 }
 
 
@@ -113,32 +155,38 @@ html {
 }
 
 .er-result a {
-	color: #337ab7;
+	color: #5566AA;
 }
 
 .er-result a:visited {
-	color: #9932CC;
+	color: #5566AA;
 }
 
 .er-result-title {
-	color: #337ab7;
+	color: #5566AA;
 	font-size: 14pt;
     font-weight: 600;
 }
 
 .er-result-doc-id {
-	color: #0aa25b;  /* Nice green */
+	color: #558866;  /* Nice green */
 	font-size: 0.9em;
     font-weight: 500;
 }
 
+.er-result-freebase-id {
+	/* color: #FF6633; */ /* Nice orange */
+	color: #558866;  /* Nice green */
+	padding-left: 5px;
+}
+
 .er-result-url {
-	color: #00b33c;
+	color: #558866;
 	font-size: 12pt;
 }
 
 .er-result-url a {
-	color: #0aa25b;
+	color: #558866;
 }
 
 .er-result-snippet {
@@ -147,6 +195,7 @@ html {
     width: 100%;
     text-align: justify;
 }
+
 
 /* ---------------------------------------------- */
 /*  Level 5: EL Results */
@@ -166,13 +215,14 @@ html {
 }
 
 .el-result a {
-	color: #0aa25b;  /* Nice green */
+	color: #558866;  /* Nice green */
 	text-decoration: underline;
 }
 
 .el-result a:visited {
-	color: #9932CC;
+	color: #558866;
 }
+
 .el-result-title {
 	color: #000000;
 	font-size: 14pt;
@@ -189,16 +239,62 @@ html {
 .pop-up {
     display: none;
     position: absolute;
+    overflow: auto;  /* trick needed because it only contains floating elements */
     width: 280px;
-    padding: 20px;
-/*    background: #eeeeee; */
-    background: #337ab7;
-    color: #ffffff;
-    border: 1px solid #1a1a1a;
+    height: 210;  /* ~ ideal for an almost full abstract shortening at 400 chars */
+    padding: 15px 20px 20px 20px;
+    background: #E8E8E8;  /* Same as footer background */
+    color: #5566AA;
+    border: 1px solid #D0D0D0;  /* Same as footer top border */
     font-size: 90%;
+    font-weight: 500;
     box-shadow: 0 0 3px rgba(0,0,0,.3);
     border-radius:3px;
     z-index: 100;
+}
+
+.pop-up-content {
+    position: relative;
+}
+
+.pop-up-header {
+  float: left;
+}
+
+.pop-up-pic {
+  float: left;
+  padding-left: 10px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+
+.pop-up img {
+  float: left;
+  height: 60px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-color: #000000;
+  -webkit-border-radius: 10% !important;
+  -moz-border-radius: 10% !important;
+  border-radius: 10% !important;
+}
+
+.el-popup-type {
+    color: #335555;
+}
+
+.el-popup-uri {
+    color: #335555;
+}
+
+.el-popup-abstract {
+    margin-top: 10px;
+	color: #000000;
+	font-size: 0.9em;
+    font-weight: 400;
+    width: 100%;
+    text-align: justify;
+    clear: left;
 }
 
 /* ------------------------------------------------------------ */
@@ -206,15 +302,27 @@ html {
 #pagination {
     clear:  left;
     margin-top: 50px;
+    font-weight: 500;
 }
+
+#pagination a {
+    color: #557788;
+    border-color: #557788;
+}
+
+#pagination .active-page {
+    color: #FFFFFF;
+    background-color: #557788;
+}
+
 
 
 /* ---------------------------------------------------------------------------- */
 /* Level 2: ER result cards */
 .result-card {
-    position: absolute;
+    position: fixed;
     top: 0px;
-    right: -850px;  /* TODO this is the key point we need to fix now */
+    right: -770px;
 }
 
 .card {
@@ -222,18 +330,22 @@ html {
 }
 
 .card-sidebar {
-  padding: 20px 0 10px 0;
+  padding: 15px 0 5px 0;
   background: #fff;
+}
+
+.card-pic {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .card-pic img {
   float: none;
   margin: 0 auto;
-  width: 60%;
-  height: 60%;
+  height: 180px;
   -webkit-border-radius: 10% !important;
   -moz-border-radius: 10% !important;
-  border-radius: 10% !important;
+  border-radius: 5% !important;
 }
 
 .card-header {
@@ -242,39 +354,44 @@ html {
 }
 
 .card-header-name {
-  color: #5a7391;
+  color: #000000;
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
 
 .card-header-most-specific-type {
   text-transform: uppercase;
-  color: #5b9bd1;
+  color: #335555;
   font-size: 12px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .card-header-short-description {
-  color: #5b9bd1;
+  color: #000000;
   font-size: 12px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .card-header-homepage {
-  color: #B80000;
+  color: #5566AA;
   font-size: 13px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .card-header-homepage a {
-  color: #B80000;
+  color: #5566AA;
+  padding-left: 5px;
+}
+
+.card-header-homepage a:visited {
+	color: #5566AA;
 }
 
 .card-properties {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .card-properties ul li {
@@ -286,19 +403,19 @@ html {
 }
 
 .card-properties ul li a {
-  color: #93a395;
-  font-size: 14px;
-  font-weight: 400;
+  color: #000000;
+  font-size: 13px;
+  font-weight: 450;
 }
 
 .card-properties ul li a i {
   margin-right: 8px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .card-properties ul li a:hover {
   background-color: #fafcfd;
-  color: #5b9bd1;
+  color: #335555;
 }
 
 .card-properties ul li.active {
@@ -306,7 +423,7 @@ html {
 }
 
 .card-properties ul li.active a {
-  color: #5b9bd1;
+  color: #000000;
   background-color: #f6f9fb;
   border-left: 2px solid #5b9bd1;
   margin-left: -2px;
@@ -315,10 +432,11 @@ html {
 
 /* ---------------------------------------------------------------------------- */
 /* Level 2: TTI results histogram */
-svg {
-    width: 100%;
-    height: 100%;
-    position: center;
+#ttiHistogramStyle {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 960px;
+    height: 500px;
+    position: relative;
 }
 
 .toolTip {
@@ -327,8 +445,8 @@ svg {
     display: none;
     width: auto;
     height: auto;
-    background: none repeat scroll 0 0 white;
-    border: 0 none;
+    background: #E8E8E8;  /* Same as footer background */
+    border: 1px solid #D0D0D0;  /* Same as footer top border */
     border-radius: 8px 8px 8px 8px;
     box-shadow: -3px 3px 15px #888888;
     color: black;
@@ -344,12 +462,12 @@ text {
 
 text.label {
     font-size: 100%;
-    fill: #337ab7;
+    fill: #335555;
 }
 
 text.sublabel {
     font-size: 80%;
-    fill: #0aa25b;  /* Nice green */
+    fill: #558866;  /* Nice green */
     font-weight: 600;
 }
 
@@ -358,7 +476,7 @@ text.value {
     fill: white;
 }
 
-.axisHorizontal path{
+.axisHorizontal path {
     fill: none;
 }
 
@@ -368,31 +486,25 @@ text.value {
 }
 
 .bar {
-    fill: #337ab7;
+    fill: #5566AA;
     fill-opacity: .9;
-}
-
-#ttiHistogramStyle {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 960px;
-    height: 500px;
-    position: relative;
 }
 
 
 /* ----------------------------------------------------------------------------------------------- */
 /* Level 1: Footer */
 footer {
-    background-color: #337ab7;
-    height: 60px;
+    background-color: #E8E8E8;  /* very light grey */
+    border-top: 1px solid #D0D0D0;  /* a bit darker grey */
+    height: 50px;
     font-size: 1em;
-    color: #E9E9E9;
+    font-color: #000000;
     padding: 10px 0px 0px 10px;
     width: 100%;
     position: absolute;
     left: 0px;
     bottom: 0px;
-    overflow: auto; /* trick needed because it only contains floating elements */
+    overflow: auto;  /* trick needed because it only contains floating elements */
 }
 
 footer .component {
@@ -406,18 +518,30 @@ footer .component .label {
 }
 
 footer .component a {
-    color: #E9E9E9;
-    padding-left: 5px;
-    padding-right: 5px;
+    color: #000000;
 }
 
+footer .credits {
+    margin-left: 60px;  /* Same as for heading and search box, and for total resulting for ER results */
+    float: none;
+}
+
+footer .credits .label {
+    font-size: 1em;
+    float: left;
+}
+
+footer .credits a {
+    color: #000000;
+    font-weight: 500;
+}
 
 /* ----------------------------------------------------------------------------------------------- */
 /* Level -1: Spinner */
 
 #loaderImage {
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
     margin-top: -16px;
     margin-left: -16px;

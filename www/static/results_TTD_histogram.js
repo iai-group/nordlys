@@ -1,5 +1,5 @@
 function plot_TTI_histogram(data) {
-    console.log("plot_TTI_histogram: data = " + data);
+//    console.log("plot_TTI_histogram: data = " + data);
 
     var div = d3.select("#ttiHistogram").append("div").attr("class", "toolTip");
 
@@ -69,21 +69,6 @@ function plot_TTI_histogram(data) {
             .attr("width", function(d){
                 return scale(d.value);
             });
-
-    // Appending score on each bar
-//    bar.append("text")
-//            .attr("class", "value")
-//            .attr("y", barHeight / 2)
-//            .attr("dx", -valueMargin + labelWidth) //margin right
-//            .attr("dy", ".35em") //vertical align middle
-//            .attr("text-anchor", "end")
-//            .text(function(d){
-//                return (d.value);
-//            })
-//            .attr("x", function(d){
-//                var width = this.getBBox().width;
-//                return Math.max(width + valueMargin, scale(d.value));
-//            });
 
     bar
             .on("mousemove", function(d){

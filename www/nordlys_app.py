@@ -1,6 +1,6 @@
 """
-app
----
+nordlys_app
+-----------
 
 Web Interface main module.
 
@@ -11,13 +11,13 @@ Web Interface main module.
 
 from requests import ConnectionError, Timeout, get as requests_get
 from json import loads as j_loads
-from urllib.parse import quote  # , quote_plus, unquote_plus
-from operator import itemgetter
+from urllib.parse import quote
 from flask import Flask
 from flask import render_template, request
 
 from www.service_utils import *
-from nordlys.config import ELASTIC_HOSTS, API_HOST, API_PORT, WWW_PORT, WWW_SETTINGS
+from nordlys.config import (ELASTIC_HOSTS, API_HOST, API_PORT, WWW_PORT, WWW_DOMAIN, WWW_SETTINGS,
+                            MONGO_ENTITY_COLLECTIONS)
 
 # ----------
 # ----------
@@ -27,66 +27,27 @@ from nordlys.config import ELASTIC_HOSTS, API_HOST, API_PORT, WWW_PORT, WWW_SETT
 # Web interface
 
 # Logics
-REQUEST_TIMEOUT = 60  # 0.06  # in seconds
+REQUEST_TIMEOUT = 30  # 0.06  # in seconds
 NUM_RESULTS = 10  # Per page, for pagination of ER results
-WWW_PAGINATION_MAX_RESULTS_ER = WWW_SETTINGS.get('pagination_max_results_ER', 1000)
+WWW_PAGINATION_MAX_RESULTS_ER = WWW_SETTINGS.get('pagination_max_results_ER', 100)
 WWW_PAGINATION_MAX_RESULTS_TTI = WWW_SETTINGS.get('pagination_max_results_TTI', 10)
 
 # ----------
 # Nordlys API
 
 PROTOCOL = "http:/"
-# ---
-# Load it from API constants from nordlys.config
-# Server host:port...
 
-# SERVER_HOSTNAME_API = "localhost:8080"  # API
+# Hostnames
+SERVER_HOSTNAME_API = "{}:{}".format(API_HOST, API_PORT)
+SERVER_HOSTNAME_ELASTIC = ELASTIC_HOSTS[0] if len(ELASTIC_HOSTS) > 0 else "152.94.1.85:9200"
 
-SERVER_HOSTNAME_API = "{}:{}".format(API_HOST, API_PORT)  # == "152.94.1.85:5000"  # API
-SERVER_HOSTNAME_ELASTIC = ELASTIC_HOSTS[0] if len(ELASTIC_HOSTS) > 0 else "152.94.1.85:9200"  # Elastic
-
-
-# SERVER_HOSTNAME = "localhost:8080"  # same port as specified in tunneling step if that's the case
-
-
-# ---
 
 # ----------
 # ----------
 # Functions
 
 # ----------
-# API wrapper
-
-# def __api_request(index_name, params, service_label):
-#     """Wraps the access to the Nordlys API. It returns a 3-uple (results, total no. of results, pretty status message).
-# 
-#     :param index_name: name of index.
-#     :param params: request params.
-#     :param service_label: a constant for the required service_label.
-#     :return: a list of docIDs.
-#     """
-#     results = None  # default init, it remainss None if request returns error
-#     total = 0
-#     msg = ""
-# 
-#     url = "/".join([PROTOCOL, SERVER_HOSTNAME_ELASTIC, index_name, "_search"])
-# 
-#     try:
-#         r = requests_get(url, params, timeout=REQUEST_TIMEOUT)  # TODO AJAXify this?
-#         res = j_loads(r.text)
-#         results = [r for r in res.get("hits", {}).get("hits", {})]
-#         total = res.get("hits", {}).get("total", 0)
-# 
-#         # Obtain postprocessed results to render, if needed
-#         results = process_results(results, service_label)
-#     except ConnectionError:
-#         msg = "We're so sorry. There was a connection error :("
-#     except Timeout:
-#         msg = "Timeout while trying to connect to the remote server, or while receiving data from it :("
-# 
-#     return results, total, msg
-
+# API request layer
 
 def __api_request(service_label, params, index_name=None):
     """Wraps the access to the Nordlys API. It returns a 3-uple (results, total no. of results, pretty status message).
@@ -100,9 +61,8 @@ def __api_request(service_label, params, index_name=None):
     total = 0
     msg = ""
 
-    url = ""
+    url = "/".join([PROTOCOL, SERVER_HOSTNAME_API, service_label])
     if service_label == SERVICE_E_RETRIEVAL:
-        url = "/".join([PROTOCOL, SERVER_HOSTNAME_API, "er", index_name])
         url += "?q={}&model={}&start={}&1st_num_docs={}&fields_return={}".format(
             quote(params.get("q", "")),
             params.get("model", "lm"),
@@ -112,15 +72,10 @@ def __api_request(service_label, params, index_name=None):
         )
         url += "&num_docs={}".format(params.get("num_docs", NUM_RESULTS))
 
-    if service_label == SERVICE_E_LINKING:
-        url = "/".join([PROTOCOL, SERVER_HOSTNAME_API, "el"])
+    elif service_label == SERVICE_E_LINKING:
         url += "?q={}".format(quote(params.get("q", "")))
 
     elif service_label == SERVICE_TTI:
-
-        # TODO ideal with API
-
-        url = "/".join([PROTOCOL, SERVER_HOSTNAME_API, "types"])
         url += "?q={}&method={}&num_docs={}&start={}&index={}&field={}".format(
             quote(params.get("q", "")),
             params.get("method", "tc"),
@@ -129,25 +84,17 @@ def __api_request(service_label, params, index_name=None):
             params.get("index", TTI_INDEX_FALLBACK_2015_10),
             params.get("field", "_id")
         )
-
-        # TODO working on local after tunneling Elastic
-
-        # url = "/".join([PROTOCOL, "localhost:8080", index_name, "_search?q={}&fields=_id".format(
-        #     quote(params.get("q", "")))])
-
-        # TODO working on gustav1 directly to Elastic
-        # url = "/".join([PROTOCOL, SERVER_HOSTNAME_ELASTIC, index_name, "_search?q={}&fields=_id".format(
-        #     quote(params.get("q", "")))])
-
     try:
-        print(url)
-        r = requests_get(url, timeout=REQUEST_TIMEOUT)  # TODO AJAXify this?
+        print("Service request' URL: {}".format(url))
+        r = requests_get(url, timeout=REQUEST_TIMEOUT)
+        print(r)
         results = j_loads(r.text)
-        # total = WWW_PAGINATION_MAX_RESULTS_ER
-        total = len(results.get("results", 0))
+        total = results.get("total_hits", 0)
 
         # Obtain postprocessed results to render, if needed
-        results = process_results(results, service_label)
+        entity_collection = MONGO_ENTITY_COLLECTIONS[0] if len(MONGO_ENTITY_COLLECTIONS) > 0 else "dbpedia-2015-10"
+        results = process_results(results, service_label, protocol=PROTOCOL, server_hostname_api=SERVER_HOSTNAME_API,
+                                  entity_collection=entity_collection, request_timeout=REQUEST_TIMEOUT)
 
     except ConnectionError:
         msg = "We're so sorry. There was a connection error :("
@@ -157,36 +104,39 @@ def __api_request(service_label, params, index_name=None):
     return results, total, msg
 
 
-# -------------
-# Other auxiliary functions
-# ...
-
 # -----------------
 # Main Web Service entry point
 
 # Initialization and configuration
 app = Flask(__name__)
 
+@app.after_request
+def add_header(response):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+    response.headers['Cache-Control'] = 'public, max-age=0'
+    return response
 
 # Setting the different routes
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
-#
+# -----------------
+# Root
 @app.route('/')
 def index():
     """Provides the required root app as a template rendering manager"""
-    return render_template('index.html', services=init_services(), query="Search for...")
+    return render_template('index.html', services=init_services(), placeholder="Search for...", domain=WWW_DOMAIN)
 
 
 # -----------------
 # ER service
-@app.route('/service/er', methods=['GET'])
+@app.route('/er', methods=['GET'])
 def service_ER():
     """Provides the required ER service as a template rendering manager."""
 
     # Fall-back init, if the service is run for an empty query
-    rendered = render_template('index.html', services=init_services(), query="Search for...")
+    rendered = render_template('index.html', services=init_services(), placeholder="Search for...", domain=WWW_DOMAIN)
 
     query = request.args.get("query", "")
     if len(query) > 0:
@@ -201,7 +151,6 @@ def service_ER():
             "q": query,
             "model": "lm",
             "start": page * NUM_RESULTS,
-            # "fields": ["_id", "_source"],
             "fields_return": "abstract",
             "1st_num_docs": 100
         }
@@ -231,61 +180,48 @@ def service_ER():
             assert (results is not None)
             rendered = render_template("results_ER.html", query=query, results=results, pagination=pagination,
                                        human_readable_collection=INDEX_2_HUMAN_LABEL.get(index_name, index_name),
-                                       service=init_service(service_label, index_name=index_name))
+                                       service=init_service(service_label, index_name=index_name), domain=WWW_DOMAIN)
         except AssertionError:  # results is None, i.e. there was an error during request
-            rendered = render_template("error.html", error_msg=msg)
+            rendered = render_template("error.html", error_msg=msg, placeholder="Search for...", domain=WWW_DOMAIN)
 
     return rendered
 
 
 # -----------------
 # EL service
-@app.route('/service/el', methods=['GET'])
+@app.route('/el', methods=['GET'])
 def service_EL():
     """Provides the required EL service as a template rendering manager."""
 
     # Fall-back init, if the service is run for an empty query
-    rendered = render_template('index.html', services=init_services(), query="Search for...")
+    rendered = render_template('index.html', services=init_services(), placeholder="Search for...", domain=WWW_DOMAIN)
 
     query = request.args.get("query", "")
     if len(query) > 0:
         service_label = SERVICE_E_LINKING
 
-        # -------
-        # TODO
-        #
-        # Collection?
-        # index_name = None
-
-        # Requesting results
-        # results, msg = __api_request(index_name, query, service)
-
-        params = {
-            "q": query,
-        }
+        params = {"q": query}
         results, total, msg = __api_request(service_label, params)
-
-        # -------
 
         # Template rendering
         try:
             assert (results is not None)
             rendered = render_template("results_EL.html", query=query, results=results,  # TODO more context params?
-                                       service=init_service(service_label))
+                                       service=init_service(service_label), domain=WWW_DOMAIN)
         except AssertionError:  # results is None, i.e. there was an error during request
-            rendered = render_template("error.html", error_msg=msg)
+            rendered = render_template("error.html", error_msg=msg, placeholder="Search for...", domain=WWW_DOMAIN)
 
     return rendered
 
 
 # -----------------
 # TTI service
-@app.route('/service/tti', methods=['GET'])
+@app.route('/tti', methods=['GET'])
 def service_TTI():
     """Provides the required TTI service as a template rendering manager."""
 
     # Fall-back init, if the service is run for an empty query
-    rendered = render_template('index.html', services=init_services(), query="Search for...")
+    rendered = render_template('index.html', services=init_services(), placeholder="Search for...", domain=WWW_DOMAIN)
 
     query = request.args.get("query", "")
     if len(query) > 0:
@@ -312,9 +248,9 @@ def service_TTI():
             assert (results is not None)
             rendered = render_template("results_TTI.html", query=query, results=results,
                                        human_readable_collection=INDEX_2_HUMAN_LABEL.get(index_name, index_name),
-                                       service=init_service(service_label, index_name=index_name))
+                                       service=init_service(service_label, index_name=index_name), domain=WWW_DOMAIN)
         except AssertionError:  # results is None, i.e. there was an error during request
-            rendered = render_template("error.html", error_msg=msg)
+            rendered = render_template("error.html", error_msg=msg, placeholder="Search for...", domain=WWW_DOMAIN)
 
     return rendered
 
@@ -323,5 +259,4 @@ def service_TTI():
 # Main script
 
 if __name__ == '__main__':
-    # app.run(debug=True, port=WWW_PORT)  # TODO working on local
     app.run(host="0.0.0.0", port=WWW_PORT)

@@ -1,0 +1,88 @@
+{% if results %}
+
+    <div id="resultCards">
+
+        {% for r in results %}
+            <div id="resultCard{{ loop.index0 + 1 }}" class="result-card" style="display:none;">
+                <div class="container">
+                    <div class="row card">
+                        <div class="col-md-3" style="border: thin solid #D8D8D8;  border-radius: 5px;">
+                            <div class="card-sidebar">
+                                {% if 'picture' in r['doc_card'] %}
+                                    <div class="card-pic">
+                                        <img src="{{ r['doc_card']['picture'] }}" class="img-responsive" alt="">
+                                    </div>
+                                {% endif %}
+
+                                <div class="card-header">
+                                    <div class="card-header-name">
+                                        {{ r["doc_title"] }}
+                                    </div>
+                                {% if 'type' in r['doc_card'] %}
+                                    <div class="card-header-most-specific-type">
+                                        {{ r['doc_card']['type'] }}
+                                    </div>
+                                {% endif %}
+
+                                {% if 'description' in r['doc_card'] %}
+                                    <div class="card-header-short-description">
+                                        {{ r['doc_card']['description'] }}
+                                    </div>
+                                {% endif %}
+
+                                    <div class="card-header-homepage">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                            <a href="{{ r['doc_url_wikipedia'] }}" target="_blank">
+                                                Wikipedia</a>,
+                                            <a href="{{ r['doc_url_dbpedia'] }}" target="_blank">
+                                                DBpedia</a>{% if 'homepage' in r['doc_card'] %}, <a href="{{ r['doc_card']['homepage'] }}" target="_blank">Homepage</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="card-properties">
+                                    <ul class="nav">
+                                    {% if 'prop_1' in r['doc_card']['properties'] %}
+                                        <li>
+                                            <a href="#result{{ loop.index0 + 1 }}prop1">
+                                            {% if r['doc_card']['properties']['prop_1'][2] %}
+                                                <i class="{{ r['doc_card']['properties']['prop_1'][2] }}" aria-hidden="true"></i>
+                                            {% endif %}
+                                            {{ r['doc_card']['properties']['prop_1'][0] }}: {{ r['doc_card']['properties']['prop_1'][1] }}</a>
+                                        </li>
+                                    {% endif %}
+                                    {% if 'prop_2' in r['doc_card']['properties'] %}
+                                        <li>
+                                            <a href="#result{{ loop.index0 + 1 }}prop2">
+                                            {% if r['doc_card']['properties']['prop_2'][2] %}
+                                                <i class="{{ r['doc_card']['properties']['prop_2'][2] }}" aria-hidden="true"></i>
+                                            {% endif %}
+                                            {{ r['doc_card']['properties']['prop_2'][0] }}: {{ r['doc_card']['properties']['prop_2'][1] }}</a>
+                                        </li>
+                                    {% endif %}
+                                    {% if 'prop_3' in r['doc_card']['properties'] %}
+                                        <li>
+                                            <a href="#result{{ loop.index0 + 1 }}prop3">
+                                            {% if r['doc_card']['properties']['prop_3'][2] %}
+                                                <i class="{{ r['doc_card']['properties']['prop_3'][2] }}" aria-hidden="true"></i>
+                                            {% endif %}
+                                            {{ r['doc_card']['properties']['prop_3'][0] }}: {{ r['doc_card']['properties']['prop_3'][1] }}</a>
+                                        </li>
+                                    {% endif %}
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <center>
+                </center>
+                <br>
+                <br>
+            </div>
+
+        {% endfor %}
+
+    </div>
+{% endif %}
