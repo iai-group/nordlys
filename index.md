@@ -4,8 +4,8 @@ It is a  step towards reproducible and extensible semantic search research, and 
 ## What is it great about Nordlys?
 
 - It supports 3 tasks related to entity-oriented search: 
-	- Entity Linking in Queries **(EL)**
 	- Entity Retrieval **(ER)**
+	- Entity Linking in Queries **(EL)**
 	- Target Type Identification **(TTI)**
 - It implements various baseline methods for each of these tasks.
 - It provides an entity catalog **(EC)** service, used for representing DBpedia entities, their mappings to Freebase, and some basic statistics.
