@@ -151,8 +151,8 @@ Parameters
 
 - **q** *(required)* is the search query
 - **method** is the name of the method; accepted values: [tc | ec], *(default: "tc")*
-  - **TC**: The Type Centric (TC) method based on [6]. Both BM25 and LM can be used as a retrieval model here.
-  - **EC**: The Entity Centric (EC) method, as described in [6].
+    - **TC**: The Type Centric (TC) method based on [6]. Both BM25 and LM can be used as a retrieval model here.
+    - **EC**: The Entity Centric (EC) method, as described in [6].
 - **num_types** is the number of types to return,
 - **start** is the starting offset for ranked types,
 - **model** is retrieval model, if method is "tc" or "ec"; accepted values: [lm |bm25],
