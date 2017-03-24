@@ -16,8 +16,8 @@ Contents
    web_demo
    architecture
    ml
-   er
-   nordlys.services.el
+   el
+   nordlys.services.er
    nordlys.services.tti
       
 Indices and tables
