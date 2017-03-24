@@ -15,8 +15,8 @@ Contents
    api_usage
    web_demo
    architecture
-   nordlys.core.ml.ml
-   nordlys.services.er
+   ml
+   er
    nordlys.services.el
    nordlys.services.tti
       
