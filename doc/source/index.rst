@@ -15,10 +15,10 @@ Contents
    api_usage
    web_demo
    architecture
-   api/nordlys.core.ml.ml
-   api/nordlys.services.er
-   api/nordlys.services.el
-   api/nordlys.services.tti
+   nordlys.core.ml.ml
+   nordlys.services.er
+   nordlys.services.el
+   nordlys.services.tti
       
 Indices and tables
 ==================
