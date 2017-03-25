@@ -8,8 +8,7 @@ Contents
 ========
 
 .. toctree::
-   :caption: Table of Contents
-   :maxdepth: 2
+   :maxdepth: 1
 
    installation
    api_usage
@@ -19,6 +18,7 @@ Contents
    nordlys.services.er
    el
    nordlys.services.tti
+   api/nordlys
       
 Indices and tables
 ==================
