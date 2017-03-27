@@ -28,11 +28,11 @@ Components
 ~~~~~~~~~~~~~
 
 - Core components
-   - :doc:`Retrieval <api/nordlys.core.retrieval>`
+   - :doc:`Retrieval <retrieval_pkg>`
    - :doc:`Machine learning <api/nordlys.core.ml>`
 - Entity-oriented components
-   - :doc:`Entity retrieval <api/nordlys.services.er>`
-   - :doc:`Entity linking <api/nordlys.services.el>`
-   - :doc:`Entity catalog <api/nordlys.services.ec>`
-   - :doc:`Target type identification <api/nordlys.services.tti>`
+   - :doc:`Entity retrieval <er>`
+   - :doc:`Entity linking <el>`
+   - :doc:`Entity catalog <ec>`
+   - :doc:`Target type identification <tti>`
 
