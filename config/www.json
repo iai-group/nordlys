@@ -1,8 +1,9 @@
 {
-  "host": "localhost",
+  "host": "152.94.1.85",
   "port": "5001",
+  "domain": "gui.nordlys.cc",
   "settings": {
-    "pagination_max_results_ER": 1000,
+    "pagination_max_results_ER": 100,
     "pagination_max_results_TTI": 10
   }
 }
