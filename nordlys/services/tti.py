@@ -1,9 +1,8 @@
 """
+Target Type Identification
+==========================
 
-Target Type Identification (TTI)
-================================
-
-The command-line endpoint for target type indentification.
+The command-line application for target type indentification.
 
 Usage
 -----

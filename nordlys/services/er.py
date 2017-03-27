@@ -1,23 +1,24 @@
 """
-Entity Retrieval (ER)
-=====================
+Entity Retrieval
+================
 
-The command-line endpoint for entity retrieval.
+Command-line application for entity retrieval.
 
 Usage
 -----
 
 ::
 
-  python -m nordlys.services.er <config_file> -q <query>
+  python -m nordlys.services.er -c <config_file> -q <query>
 
-If `-q <query>` is passed, it returns the resutls for the specified query and prints them in terminal.
+If `-q <query>` is passed, it returns the results for the specified query and prints them in terminal.
+
 
 Config parameters
 ------------------
 
 - **index_name**: name of the index,
-- **first_pass**: 
+- **first_pass**:
       - **num_docs**: number of documents in first-pass scoring (default: 100)
       - **field**: field used in first pass retrieval (default: Elastic.FIELD_CATCHALL)
       - **fields_return**: comma-separated list of fields to return for each hit (default: "")
@@ -54,7 +55,8 @@ Example config
 	}
 ------------------------
 
-:Author: Faegheh Hasibi
+:Authors: Faegheh Hasibi
+
 """
 import argparse
 from pprint import pprint
@@ -110,9 +112,11 @@ class ER(object):
 
     def __get_top_k(self, ens):
         """Returns top-k results."""
+        pprint(ens)
         sorted_ens = sorted(ens.items(), key=lambda item: item[1]["score"], reverse=True)
         results = {}
-        for i in range(self.__start, self.__start + self.__num_docs):
+        end = min(self.__num_docs, len(ens))
+        for i in range(self.__start, self.__start + end):
             en_id, en = sorted_ens[i][0], sorted_ens[i][1]
             results[i] = {"entity": en_id, "score": en["score"]}
             if en.get("fields", {}) != {}:

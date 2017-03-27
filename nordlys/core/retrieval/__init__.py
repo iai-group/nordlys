@@ -1,60 +1,66 @@
 """
-This package provides basic indexing and scoring functionality based on Elasticsearch. It can be used both for documents and for entities (as the latter are represented as fielded documents).
+Retrieval
+=========
+
+The retrieval package provides basic indexing and scoring functionality based on Elasticsearch.
+It can be used both for documents and for entities (as the latter are represented as fielded documents).
+
 
 Indexing
 --------
 
-.. todo:: Explain indexing (representing entities as fielded documents, mongo to elasticsearch)
-
+Indexing can be done be done by directly reading the content of documents.
 The :mod:`~nordlys.core.retrieval.toy_indexer` module provides a toy example.
 
+When the content of documents is stored in MongoDB (e.g., for DBpedia entities), use the :mod:`~nordlys.core.retrieval.indexer_mongo` module for indexing.
+For further details on how this module can be used, see :mod:`~nordlys.core.data.dbpedia.indexer_dbpedia`.
+
+For indexing Dbpedia entities, we read the content of entiteis form MongoDB aFor DBpedia entities, we store them on MongoDB and
+.. todo:: Explain indexing (representing entities as fielded documents, mongo to elasticsearch)
 
 Notes
 ~~~~~
 
-* There is no need to create a separate *id* field for document IDs. Elasticsearch creates an ``_id`` field by default.
-* You may ignore creating a separate *catch-all* field. Elasticsearch automatically creates a catch-all field (called ``_all``), which is not stored; see the `elasticsearch documentation <https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-all-field.html>`_ for further details.
-* To speed up indexing, use :meth:`~nordlys.core.retrieval.elastic.Elastic.add_docs_bulk`. The optimal number of documents to send in a single bulk depends on the size of documents; you need to figure it out experimentally.
-* For indexing documents from a MongoDB collection, always use the :mod:`~nordlys.core.retrieval.indexer_mongo` module. For example usage of this class, see :mod:`~nordlys.core.data.dbpedia.indexer_fsdm`.
-* We strongly recommend using the default Elasticsearch similarity (currently BM25) for indexing. (`Other similarity functions <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/index-modules-similarity.html>`_ may be also used; in that case the similarity function can updated after indexing.)
+- To speed up indexing, use :meth:`~nordlys.core.retrieval.elastic.Elastic.add_docs_bulk`. The optimal number of documents to send in a single bulk depends on the size of documents; you need to figure it out experimentally.
+- We strongly recommend using the default Elasticsearch similarity (currently BM25) for indexing. (`Other similarity functions <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/index-modules-similarity.html>`_ may be also used; in that case the similarity function can updated after indexing.)
 
 
 Retrieval
 ---------
 
-.. todo:: Explain two-stage retrieval
+Retrieval is done in two stages:
+
+- *First pass*: The top ``N`` documents are retrieved using Elastic's default search method
+- *Second pass*: The (expensive) scoring of the top ``N`` documents is performed (implemented in the Nordlys)
 
 
-Basic retrieval models (LM, MLM, and PRMS) are implemented in the :mod:`~nordlys.core.retrieval.scorer` module. Check these out to get inspiration for writing a new scorer.
+Nodrlys currently supports the following models for second pass retrieval:
+
+- Language modelling (LM) [1]
+- Mixture of Language Modesl (MLM) [2]
+- Probabilistic Model for Semistructured Data (PRMS) [3]
+
+Check out :mod:`~nordlys.core.retrieval.scorer` module to get inspiration for implementing a new retrieval model.
 
 
 Command line usage
 ~~~~~~~~~~~~~~~~~~
 
-::
-
-	python -m nordlys.core.retrieval.retrieval data/config/eg_retrieval.config.json
-
-
-* Config file contain settings for 2-phase retrieval:
-	*  *first_pass*: elastic built-in retrieval
-	*  *second_pass*: nordlys retrieval methods
-* The retrieval model (with its parameters) should be set according to `elastic search <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/index-modules-similarity.html>`_
-* If *second_pass* settings are not set, only first pass retrieval is performed.
-
-
-API usage
-~~~~~~~~~
-
+See :py:mod:`nordlys.core.retrieval.retrieval`
 
 
 Notes
 ~~~~~
 
-* Always use a :class:`~nordlys.core.retrieval.elastic_cache.ElasticCache` object (instead of :class:`~nordlys.core.retrieval.elastic.Elastic`) for getting stats from the index. This class stores index stats (except term frequencies) in the memory, which strongly benefits efficiency.
-* For getting term frequencies, you can call the :meth:`~nordlys.core.retrieval.elastic.Elastic.term_freq` method, but it may negatively affect efficiency. This means that you are reading from the index for each document, field, and term.
-* You can also use :meth:`~nordlys.core.retrieval.elastic.Elastic.term_freqs` to get term frequency for all terms of a document field and cache it in memory. This helps efficiency, but remember that it can fill up the memory quite fast.
-     * The best strategy could be to cache term frequencies for each query (i.e., for every new query, all cache term frequencies should be deleted).
-     * For you can read :meth:`~nordlys.core.retrieval.scorer.ScorerLM.get_lm_term_prob` for example usage.
+- Always use a :class:`~nordlys.core.retrieval.elastic_cache.ElasticCache` object (instead of :class:`~nordlys.core.retrieval.elastic.Elastic`) for getting stats from the index. This class stores index stats in the memory, which highly benefits efficiency.
+- We recommend to create a new :class:`~nordlys.core.retrieval.elastic_cache.ElasticCache` object for each query. This way, you will make effiecnt of your machine's memory.
+
+-------------------
+
+[1] Jay M Ponte and W Bruce Croft . 1998. *A Language modeling approach to information retrieval*. In Proc. of SIGIR '98. 275–281.
+
+[2] Paul Ogilvie and Jamie Callan. 2003. *Combining document representations for known-item search*. Proc. of SIGIR '03 (2003), 143–150.
+
+[3] Jinyoung Kim, Xiaobing Xue, and W Bruce Croft . 2009. *A probabilistic retrieval model for semistructured data*. In Proc. of ECIR '09. 228–239.
 
 """

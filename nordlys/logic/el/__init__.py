@@ -1,6 +1,7 @@
 """
+Entity linking
+==============
 
-
-@author: Krisztian Balog
+This package is the implementation of entity linking.
 """
 

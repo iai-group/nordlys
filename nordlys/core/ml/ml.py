@@ -1,8 +1,9 @@
 """
-Machine Leaning (ML)
-====================
+Machine leaning
+===============
 
-The command-line endpoint for general-purpose machine learning.
+The command-line application for general-purpose machine learning.
+
 
 Usage
 -----
@@ -13,25 +14,25 @@ Usage
 
 
 Config parameters
---------------------
+------------------
 
 - **training_set**: nordlys ML instance file format (MIFF)
 - **test_set**: nordlys ML instance file format (MIFF); if provided then it's always used for testing. Can be left empty if cross-validation is used, in which case the remaining split is used for testing.
 - **cross_validation**:
-      - k: number of folds (default: 10); use -1 for leave-one-out
-      - split_strategy: random or grouped by property (property that is present in both the training and test set files)
-      - splits_file: JSON file with splits (instance_ids); if the file is provided it is used, otherwise it's generated
-      - create_splits: if True, creates the CV splits. Otherwise loads the splits from "split_file" parameter.
+   - k: number of folds (default: 10); use -1 for leave-one-out
+   - split_strategy: name of a property (normally query-id for IR problems). If set, the entities with the same value for that property are kept in the same split. if not set, entities are randomly distributed among splits.
+   - splits_file: JSON file with splits (instance_ids); if the file is provided it is used, otherwise it's generated
+   - create_splits: if True, creates the CV splits. Otherwise loads the splits from "split_file" parameter.
 - **model**: ML model, currently supported values: rf, gbrt
 - **category**: [regression | classification], default: "regression"
 - **parameters**: dict with parameters of the given ML model
-      - If GBRT:
-         - alpha: learning rate, default: 0.1
-         - tree: number of trees, default: 1000
-         - depth: max depth of trees, default: 10% of number of features
-      - If RF:
-         - tree: number of trees, default: 1000
-         - maxfeat: max features of trees, default: 10% of number of features
+   - If GBRT:
+      - alpha: learning rate, default: 0.1
+      - tree: number of trees, default: 1000
+      - depth: max depth of trees, default: 10% of number of features
+   - If RF:
+      - tree: number of trees, default: 1000
+      - maxfeat: max features of trees, default: 10% of number of features
 - **save_model**: the model is saved to this file
 - **load_model**: if True, loads the model
 - **save_feature_imp**: Feature importance is saved to this file
@@ -286,3 +287,4 @@ def main(args):
 
 if __name__ == "__main__":
     main(argv[1:])
+

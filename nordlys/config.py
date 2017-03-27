@@ -4,8 +4,8 @@ config
 
 Global nordlys config.
 
-@author: Krisztian Balog
-@author: Faegheh Hasibi
+:Author: Krisztian Balog
+:Author: Faegheh Hasibi
 """
 
 import os
@@ -57,4 +57,5 @@ API_PORT = int(API_CONFIG["port"])
 WWW_CONFIG = load_nordlys_config("www.json")
 WWW_HOST = WWW_CONFIG["host"]
 WWW_PORT = int(WWW_CONFIG["port"])
+WWW_DOMAIN = WWW_CONFIG["domain"]
 WWW_SETTINGS = WWW_CONFIG["settings"]

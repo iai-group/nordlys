@@ -1,11 +1,10 @@
-"""Entity catalog.
-
-entity_catalog
---------------
+"""
+Entity catalog
+==============
 
 Supports lookup functionality by ID or name.
 
-@author: Faegheh Hasibi
+:Author: Faegheh Hasibi
 """
 import argparse
 from pprint import pprint

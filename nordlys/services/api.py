@@ -1,12 +1,12 @@
 """
 Nordlys API
+===========
 
-This is the main console application for the Nordlys API
+This is the main console application for the Nordlys API.
 
-@author Krisztian Balog
-@author Faegheh Hasibi
-@author Shuo Zhang
+:Authors: Krisztian Balog, Faegheh Hasibi, Shuo Zhang
 """
+
 from flask import Flask, jsonify, request
 from nordlys.config import MONGO_ENTITY_COLLECTIONS, ELASTIC_INDICES
 from nordlys.logic.entity.entity import Entity

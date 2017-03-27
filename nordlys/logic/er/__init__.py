@@ -1,6 +1,7 @@
 """
+Entity retrieval
+================
 
-
-@author: Krisztian Balog
+This is the entity retrieval package.
 """
 

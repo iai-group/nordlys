@@ -1,8 +1,8 @@
 """
-Entity Linking (EL)
-====================
+Entity Linking
+==============
 
-The command-line endpoint for entity linking
+The command-line application for entity linking
 
 Usage
 -----

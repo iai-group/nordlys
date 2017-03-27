@@ -1,7 +1,6 @@
-"""Main entry package for various nordlys services.
+"""
+Services
+========
 
-All modules here can be used
-  - from other modules
-  - from the command line
-  - from the API
+All modules in this package can be used from the command line or from a RESTful API.
 """

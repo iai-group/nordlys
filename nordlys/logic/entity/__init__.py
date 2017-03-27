@@ -1,1 +1,6 @@
-"""TODO add documentation for the entity package."""
+"""
+Entity
+======
+
+This is the entity package.
+"""
