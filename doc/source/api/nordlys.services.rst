@@ -12,7 +12,6 @@ Submodules
 .. toctree::
 
    nordlys.services.api
-   nordlys.services.api_test
    nordlys.services.ec
    nordlys.services.el
    nordlys.services.er

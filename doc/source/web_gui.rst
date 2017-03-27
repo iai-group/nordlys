@@ -1,9 +1,9 @@
-Web interface
+Web-based GUI
 =============
 
-Nordlys is shipped with a web interface, which is built on the `Nordlys API <http://api.nordlys.cc/>`_. It is a wrapper for all functionalities provided by Nordlys toolkit and can be used, e.g., to perform user studies on result presentation.
+Nordlys is shipped with a web-based graphical user interface, which is built on the `Nordlys API <http://api.nordlys.cc/>`_. It is a wrapper for all functionalities provided by Nordlys toolkit and can be used, e.g., to perform user studies on result presentation.
 
-The implementation of Web interface is based on Flask and Bootstrap. Below we describe the functionalities provided by the excerpts from the Web interface with their  interface.  
+The implementation of Web interface is based on Flask and Bootstrap. Below we describe the functionalities provided by the excerpts from the Web interface with their  interface.
 
 .. note:: The interface can be accessed via: http://gui.nordlys.cc/
 
@@ -21,11 +21,11 @@ By clicking on each result, we present an entity card, containing the factual su
 
    Nordlys Web interface - Entity Search
 
-   
+
 Entity linking in queries
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For entity linking in queries, we use the baseline CMNS method, with threshold 0.1. 
+For entity linking in queries, we use the baseline CMNS method, with threshold 0.1.
 For example, we make the following call to the entity linking service of our API::
 
  http://api.nordlys.cc/el?q=arnold+schwarzenegger+total+recall&method=cmns&threshold=0.1
