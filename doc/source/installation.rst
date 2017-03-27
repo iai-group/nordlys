@@ -80,21 +80,21 @@ A set of other collections has been used for different Nordlys services. We deta
 - **Surface form dictionary (DBpedia)**
     - Used in EL service
     - Surface form dictionary, extracted from DBpedia entity name variants
-    - `Download link <surface_forms_dbpedia>`_ ::
+    - `Download link <http://iai.group/downloads/nordlys-v02/surface_forms_dbpedia.tar.bz2>`_ ::
 
         python -m nordlys.core.data.dbpedia.dbpedia_surfaceforms2mongo data/config/dbpedia_surfaceforms2mongo.config.json
 
 - **Surface form dictionary (FACC)**
     - Used in EL service
     - Surface form dictionary, extracted from FACC collection
-    - `Download link <surface_forms_facc>`_ ::
+    - `Download link <http://iai.group/downloads/nordlys-v02/surface_forms_facc.tar.bz2>`_ ::
 
         python -m nordlys.core.data.facc.facc2mongo data/config/facc2mongo.config.json
 
 - **Freebase to DBpedia mapping**
     - Used in EL service
     - Contains mapping of Freebase to DBpedia IDs 
-    - `Download link <fb2dbp-2015-10>`_ ::
+    - `Download link <http://iai.group/downloads/nordlys-v02/fb2dbp-2015-10.tar.bz2>`_ ::
 
         python -m nordlys.core.data.dbpedia.freebase2dbpedia2mongo  data/config/freebase2dbpedia2mongo.config.json
 
@@ -102,6 +102,6 @@ A set of other collections has been used for different Nordlys services. We deta
 - **Word2Vec (Google news- 300D)**
    - Used in LTR methods for EL, ES, and TTI services
    - Contains mapping of terms to their word-embedding vectors
-   - `Download link <word2vec-googlenews>`_ ::
+   - `Download link <http://iai.group/downloads/nordlys-v02/word2vec-googlenews.tar.bz2>`_ ::
 
         python -m nordlys.core.data.word2vec.word2vec2mongo data/config/word2vec2mongo.config.json
