@@ -1,7 +1,7 @@
 Nordlys |release| documentation
 ===============================
 
-Nordlys is a toolkit for entity-oriented and semantic search, built by the IAI group of the University of Stavanger.
+Nordlys is a toolkit for entity-oriented and semantic search, created by the IAI group at the University of Stavanger.
 
 
 Contents
@@ -10,16 +10,15 @@ Contents
 .. toctree::
    :maxdepth: 1
 
+   what_is
    installation
-   api_usage
-   web_demo
+   restful_api
+   web_gui
+   cmd_usage
    architecture
-   ml
-   nordlys.services.er
-   el
-   nordlys.services.tti
-   api/nordlys
-      
+   Python package documentation <api/nordlys>
+
+
 Indices and tables
 ==================
 
