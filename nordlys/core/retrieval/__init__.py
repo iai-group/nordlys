@@ -1,6 +1,6 @@
 """
-Retrieval
-=========
+Retrieval package
+=================
 
 The retrieval package provides basic indexing and scoring functionality based on Elasticsearch.
 It can be used both for documents and for entities (as the latter are represented as fielded documents).
