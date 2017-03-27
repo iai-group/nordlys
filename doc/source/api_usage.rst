@@ -13,17 +13,17 @@ Below we describe the usage for each of the services.
 Nordlys endpoint URL is `http://api.nordlys.cc/ <http://api.nordlys.cc/>`_ .
 
 1. Entity Retrieval (ER)
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 The service presents a ranked list of entities in response to an entity-bearing query. 
 
 Endpoint URI
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 ::
 
    http://api.nordlys.cc/er
 
 Example
-^^^^^^^
+~~~~~~~
 
 *Request:*
 
@@ -49,7 +49,7 @@ Example
 
 
 Parameters
-^^^^^^^^^^
+~~~~~~~~~~~
 
 - **q** *(required)* is the search query
 - **1st_num_docs** is the number of documents that will be re-ranked using a model. The recommended value (esp. for baseline comparisons) is 1000. Lower values, like 100, are recommended only when efficiency matters *(default: 1000)*
@@ -69,18 +69,18 @@ Parameters
 
 
 2. Entity Linking in Queries (EL)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 The service identifies entities in queries and links them to the corresponding entry in the Knowledge base (DBpedia).
 
 Endpoint URI
-^^^^^^^^^^^^
+~~~~~~~~~~~~~
 ::
 
    http://api.nordlys.cc/el
 
 Example
-^^^^^^^
+~~~~~~~
 
 - *Request:*
     http://api.nordlys.cc/el?q=total+recall+arnold
@@ -104,7 +104,7 @@ Example
     }
 
 Parameters
-^^^^^^^^^^
+~~~~~~~~~~
 
 - **q** *(required)* is the search query
 - **method** is the name of the method; accepted values *(default: "cmns")*
@@ -113,18 +113,18 @@ Parameters
 
 
 3. Target Type Identification (TTI)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 The service assigns target types (or categories) to queries from DBpedia type taxonomy.
 
 Endpoint URI
-^^^^^^^^^^^^
+~~~~~~~~~~~~~
 ::
 
    http://api.nordlys.cc/tti
 
 Example
-^^^^^^^
+~~~~~~~
 
 - *Request:* 
    http://api.nordlys.cc/tti?q=obama
@@ -147,7 +147,7 @@ Example
     }
 
 Parameters
-^^^^^^^^^^
+~~~~~~~~~~~
 
 - **q** *(required)* is the search query
 - **method** is the name of the method; accepted values: [tc | ec], *(default: "tc")*
@@ -158,18 +158,18 @@ Parameters
 - **model** is retrieval model, if method is "tc" or "ec"; accepted values: [lm |bm25],
 
 4. Entity Catalog (EC)
-~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 This service is used for representing entities (with IDs, name variants, attributes, and relationships). Additionally, it provides statistics that can be utilized, among others, for result presentation (e.g., identifying prominent properties when generating entity cards).
 
 Endpoint URI
-^^^^^^^^^^^^
+~~~~~~~~~~~~~
 ::
 
    http://api.nordlys.cc/ec
 
 Example
-^^^^^^^
+~~~~~~~
 
 - *Request:* 
    http://api.nordlys.cc/ec/<dbpedia:Albert_Einstein>
@@ -194,12 +194,12 @@ Example
     }
 
 Parameters
-^^^^^^^^^^
+~~~~~~~~~~~
 
 - Entity id in the form of "<dbpedia:XXX>", where XXX denotes the DBpedia/Wikipedia ID of an entity
 
 References
-~~~~~~~~~~
+----------
 
 [1] Jay M Ponte and W Bruce Croft . 1998. *A Language modeling approach to information retrieval*. In Proc. of SIGIR '98. 275–281.
 
