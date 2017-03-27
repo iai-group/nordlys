@@ -24,7 +24,7 @@ Nordlys can be used ...
 - as a :doc:`command line tool <cmd_usage>`
 - as a :doc:`Python package <api/nordlys>`
 
-Components:
+Components
 ~~~~~~~~~~~~~
 
 - Core components
