@@ -25,7 +25,7 @@ Components
 -----------
 
 - Core components
-   - :doc:`Retrieval <api/nordlys.core.retrieval>`
+   - :doc:`Retrieval <retrieval_pkg>`
    - :doc:`Machine learning <api/nordlys.core.ml>`
 - Entity-oriented components
    - :doc:`Entity retrieval <api/nordlys.services.er>`
