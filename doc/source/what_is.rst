@@ -31,5 +31,5 @@ Components
    - :doc:`Entity retrieval <api/nordlys.services.er>`
    - :doc:`Entity linking <el>`
    - :doc:`Entity catalog <ec>`
-   - :doc:`Target type identification <tti>`
+   - :doc:`Target type identification <api/nordlys.services.tti>`
 
