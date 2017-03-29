@@ -10,7 +10,7 @@ Nordlys supports 3 functionalities in the context of entity-oriented search:
 - **Entity linking**: Identifies entities in queries and links them to the corresponding entry in the Knowledge base
 - **Target type identification**:  Detects the target types (or categories) of queries
 
-Check our :doc:`Web interface documetation <web_gui>` for illustration of each of these fucntionalities.
+Check our :doc:`Web interface documentation <web_gui>` for illustration of each of these functionalities.
 
 
 Nordlys can be used ...
