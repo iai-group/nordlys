@@ -1,14 +1,13 @@
 What is Nordlys?
 ================
 
-Nordlys is a toolkit for entity-oriented and semantic search.
-Entities (such as people, organizations, or products) are natural units of current web search engines, and are extracted from Knowledge bases like `DBpedia <http://wiki.dbpedia.org/>`_.
+Entities (such as people, organizations, or products) are meaningful units for organizing information and can provide direct answers to many search queries. Nordlys is a toolkit for entity-oriented and semantic search.
 
 Nordlys supports 3 functionalities in the context of entity-oriented search:
 
-- **Entity retrieval**: Returns a ranked list of entities in response to an entity-bearing query
-- **Entity linking**: Identifies entities in queries and links them to the corresponding entry in the Knowledge base
-- **Target type identification**:  Detects the target types (or categories) of queries
+- **Entity retrieval**: Returns a ranked list of entities in response to a query
+- **Entity linking**: Identifies entities in a query and links them to the corresponding entry in the Knowledge base
+- **Target type identification**:  Detects the target types (or categories) of a query
 
 Check our :doc:`Web interface documentation <web_gui>` for illustration of each of these functionalities.
 
