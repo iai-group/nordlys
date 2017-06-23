@@ -15,10 +15,10 @@ from nordlys.core.utils.file_utils import FileUtils
 
 
 class IndexerDBpediaURI(IndexerDBpedia):
-    def __init__(self, config, collection=MONGO_COLLECTION_DBPEDIA):
+    def __init__(self, config, field_counts, collection=MONGO_COLLECTION_DBPEDIA):
         super(IndexerDBpediaURI, self).__init__(config, collection)
         self.__n = config.get("top_n_fields", 500)
-        self.__fields_file = config.get("fields_file", "output/field_counts.json")
+        self.__field_counts = field_counts
         self.__top_fields = None
 
     def get_top_fields(self):
@@ -27,8 +27,7 @@ class IndexerDBpediaURI(IndexerDBpedia):
               This means that there can more than one field for each rank.
         """
         print("Getting the top-n frequent DBpedia fields ...")
-        field_counts = json.load(open(self.__fields_file))
-        sorted_fields = sorted(field_counts.items(), key=lambda item: item[1], reverse=True)
+        sorted_fields = sorted(self.__field_counts.items(), key=lambda item: item[1], reverse=True)
         print("Number of total fields:", len(sorted_fields))
 
         top_fields = []
@@ -120,11 +119,10 @@ class IndexerDBpediaURI(IndexerDBpedia):
         indexer.build(self.get_doc_content)
 
 
-def field_counts2json(out_file):
+def compute_field_counts():
     """Reads all documents in the Mongo collection and calculates field frequencies.
         i.e. For DBpedia collection, it returns all entity fields.
 
-    :param doc_collection: The name mongo collection stores all documents/entities.
     :return a dictionary of fields and their frequency
     """
     print("Counting fields ...")
@@ -142,9 +140,7 @@ def field_counts2json(out_file):
         i += 1
         if i % 1000000 == 0:
             print("\t", str(int(i / 1000000)), "M entity is processed!")
-
-    json.dump(field_counts, open(out_file, "w"), indent=4, sort_keys=True)
-    print("\tField count file:", out_file)
+    return field_counts
 
 
 def main(args):
@@ -153,11 +149,12 @@ def main(args):
         print("index name might not be correct, please check again!")
         exit(0)
 
-    indexer = IndexerDBpediaURI(config)
-
-    fields_file = config.get("fields_file", "output/field_counts.json")
     if "fields_file" not in config:
-        field_counts2json(fields_file)
+        fields_count = compute_field_counts()
+    else:
+        fields_count = json.load(config["fields_file"])
+
+    indexer = IndexerDBpediaURI(config, fields_count)
 
     indexer.build()
     print("Index build: " + config["index_name"])
