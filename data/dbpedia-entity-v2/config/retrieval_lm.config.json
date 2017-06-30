@@ -1,0 +1,12 @@
+{"index_name": "dbpedia_2015_10",
+  "first_pass": {
+    "num_docs": 1000
+  },
+  "model": "lm",
+  "num_docs": 1000,
+  "smoothing_method": "dirichlet",
+  "smoothing_param": 2000,
+  "query_file": "data/dbpedia-entity-v2/queries_stopped.json",
+  "output_file": "data/dbpedia-entity-v2/runs/lm.run",
+  "run_id": "lm"
+}

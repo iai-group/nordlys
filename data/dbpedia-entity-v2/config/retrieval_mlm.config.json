@@ -1,0 +1,13 @@
+{"index_name": "dbpedia_2015_10",
+  "first_pass": {
+    "num_docs": 1000
+  },
+  "model": "mlm",
+  "num_docs": 1000,
+  "smoothing_method": "dirichlet",
+  "fields": {"names":0.2,  "categories":0.2, "attributes":0.2, "similar_entity_names":0.2, "related_entity_names":0.2},
+  "smoothing_param": 2000,
+  "query_file": "data/dbpedia-entity-v2/queries_stopped.json",
+  "output_file": "data/dbpedia-entity-v2/runs/mlm.run",
+  "run_id": "mlm"
+}

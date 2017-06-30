@@ -1,7 +1,7 @@
 {
     "collection": "dbpedia-2015-10",
     "operation": "build",
-    "path": "data/dbpedia-2015-10-sample/",
+    "path": "data/raw-data/dbpedia-2015-10/",
     "files": [
 		{"filename": "core-i18n/en/anchor_text_en.ttl.bz2"},
 		{"filename": "core-i18n/en/article_categories_en.ttl.bz2"},

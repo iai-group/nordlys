@@ -1,0 +1,5 @@
+{
+  "index_name": "dbpedia_2015_10_types",
+  "type2entity_file": "data/raw-data/dbpedia-2015-10/type2entity-mapping/dbpedia-2015-10-type_to_entity.csv.bz2",
+  "entity_abstracts_file": "data/raw-data/dbpedia-2015-10/core-i18n/en/short_abstracts_en.ttl.bz2"
+}

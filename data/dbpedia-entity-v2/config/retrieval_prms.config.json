@@ -1,0 +1,13 @@
+{"index_name": "dbpedia_2015_10",
+  "first_pass": {
+    "num_docs": 1000
+  },
+  "model": "prms",
+  "num_docs": 1000,
+  "smoothing_method": "dirichlet",
+  "fields": ["names", "categories", "attributes", "similar_entity_names", "related_entity_names"],
+  "smoothing_param": 2000,
+  "query_file": "data/dbpedia-entity-v2/queries_stopped.json",
+  "output_file": "data/dbpedia-entity-v2/runs/prms.run",
+  "run_id": "prms"
+}
