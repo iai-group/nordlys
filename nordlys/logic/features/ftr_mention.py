@@ -1,10 +1,10 @@
 """
-ftr_mention
------------
+FTR Mention
+===========
 
 Implements mention feature.
 
-@author: Krisztian Balog
+:Author: Krisztian Balog
 """
 
 from nordlys.features.feature import Feature

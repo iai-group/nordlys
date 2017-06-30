@@ -7,6 +7,7 @@ This class returns top fields based on document frequency
 :Author: Faegheh Hasibi
 """
 from nordlys.core.retrieval.elastic import Elastic
+from nordlys.config import PLOGGER
 
 
 class TopFields(object):
@@ -27,7 +28,7 @@ class TopFields(object):
         """Returns top-n fields with highest document frequency for the given entity ID."""
         doc_freq = {}
         if self.DEBUG:
-            print("Entity:[" + en + "]")
+            PLOGGER.info("Entity:[" + en + "]")
         for field in self.fields:
             df = self.elastic.doc_freq(en, field)
             if df > 0:
@@ -50,5 +51,5 @@ class TopFields(object):
             if self.DEBUG:
                 print("(" + field + ", " + str(freq) + ")")
         if self.DEBUG:
-            print("\nNumber of fields:", len(top_fields), "\n")
+            PLOGGER.debug("\nNumber of fields:", len(top_fields), "\n")
         return top_fields

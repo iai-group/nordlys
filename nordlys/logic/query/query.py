@@ -1,12 +1,12 @@
 """
-query
------
+Query
+=====
 
 Class for representing a query.
 
 TODO: add preprocessing using
 
-@author: Faegheh Hasibi
+:Author: Faegheh Hasibi
 """
 
 import re

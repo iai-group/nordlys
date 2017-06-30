@@ -1,10 +1,10 @@
 """
-word2vec
----------
+Word2vec
+========
 
 Implements functionalities over the 300-dim GoogleNews word2vec semantic representations of words.
 
-@author: Dario Garigliotti
+:Author: Dario Garigliotti
 """
 
 import argparse

@@ -1,7 +1,10 @@
 """
+Entity Retrieval
+================
+
 Abstract class for entity retrieval.
 
-@author: Krisztian Balog
+:Author: Krisztian Balog
 """
 
 import abc

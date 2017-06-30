@@ -1,6 +1,6 @@
 """
-Field Mapping for ER
-====================
+Field Mapping for ELR
+=====================
 
 Computes PRMS field mapping probabilities.
 

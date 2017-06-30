@@ -1,16 +1,17 @@
 """
-entity
-------
+Entity
+======
 
 Provides access to entity catalogs (DBpedia and surface forms).
 
-@author: Faegheh Hasibi
+:Author: Faegheh Hasibi
 """
 
 import sys
 from nordlys.config import MONGO_HOST, MONGO_DB, MONGO_COLLECTION_DBPEDIA, MONGO_COLLECTION_SF_FACC, \
     MONGO_COLLECTION_FREEBASE2DBPEDIA, MONGO_COLLECTION_SF_DBPEDIA
 from nordlys.core.storage.mongo import Mongo
+import json
 
 
 class Entity(object):
@@ -53,13 +54,13 @@ class Entity(object):
     def lookup_name_facc(self, name):
         """Looks up a name in a surface form dictionary and returns all candidate entities."""
         self.__init_coll_sf_facc()
-        res = self.__coll_sf_facc.find_by_id(name)
+        res = self.__coll_sf_facc.find_by_id(name.lower())
         return res if res else {}
 
     def lookup_name_dbpedia(self, name):
         """Looks up a name in a surface form dictionary and returns all candidate entities."""
         self.__init_coll_sf_dbpedia()
-        res = self.__coll_sf_dbpedia.find_by_id(name)
+        res = self.__coll_sf_dbpedia.find_by_id(name.lower())
         return res if res else {}
 
     def fb_to_dbp(self, fb_id):
@@ -67,3 +68,11 @@ class Entity(object):
         self.__init_coll_fb2dbp()
         res = self.__coll_fb2dbp.find_by_id(fb_id)
         return res["!<owl:sameAs>"] if res else None
+
+    def dbp_to_fb(self, dbp_id):
+        """Converts DBpedia id to Freebase; it returns list of Freebase IDs."""
+        en = self.lookup_en(dbp_id)
+        if en is None:
+            return None
+        return en.get("fb:<owl:sameAs>", None)
+

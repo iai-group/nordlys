@@ -1,11 +1,10 @@
 """
-ftr_lexical
------------
+FTR Lexical
+===========
 
 Implements lexical features (string similarities, IDF scores, ...).
 
-@author: Dario Garigliotti
-@author: Faegheh Hasibi
+:Authors: Dario Garigliotti, Faegheh Hasibi
 """
 
 from __future__ import division
@@ -55,8 +54,8 @@ class FtrLexical(object):
         """Wraps scikit-learn cosine similarity to deal with portability issues.
 
         :param v1: numpy array.
-        :param v1: numpy array.
-        :return: a float value in the range [0, 1]
+        :param v2: another numpy array.
+        :return: a float value in the range [0, 1].
         """
         if np.count_nonzero(v1) == 0 or np.count_nonzero(v2) == 0:
             # whenever at least one of the vectors is all zeros, spatial.distance.cosine will fail by returning nan
@@ -79,16 +78,18 @@ class FtrLexical(object):
         v2 = self.word2vec.get_centroid_vector(s2)
         return self.__cos_sim(v1, v2)
 
-    def agg(self, values, func_name):
+    def agg(self, values, agg_func):
         """Aggregates a list of values.
 
         :param values: a non-empty list of values.
-        :param func_name: an aggregator function; valid values: {"sum", "avg", "max"}
+        :type values: list
+        :param agg_func: the aggregation function name, with value in {"max", "sum", "avg"}. Average by default.
+        :type agg_func: str
         :return: aggregated result
         """
         assert len(values) > 0, "Empty list of values"
-        f = func_name.strip().lower()
-        assert f in self.__AGGREGATIONS, "Aggregation function " + func_name + " is not valid"
+        f = agg_func.strip().lower()
+        assert f in self.__AGGREGATIONS, "Aggregation function " + agg_func + " is not valid"
 
         ret = 0  # just to avoid "Local variable might be referenced before assignment" warning
         if f == self.__MAX:
@@ -106,6 +107,8 @@ class FtrLexical(object):
         :type s1: str
         :param s2: another sequence of terms.
         :type s1: str
+        :param agg_func: the aggregation function name, with value in {"max", "sum", "avg"}. Average by default.
+        :type agg_func: str
         :return: the distance value.
         """
         res = []
@@ -121,7 +124,8 @@ class FtrLexical(object):
         :type s1: str
         :param s2: another sequence of terms.
         :type s1: str
-        :param agg_func: aggregation function name
+        :param agg_func: the aggregation function name, with value in {"max", "sum", "avg"}. Average by default.
+        :type agg_func: str
         :return: the aggregated similarity.
         """
         res = []
@@ -150,6 +154,7 @@ def main(args):
 
     # Testing some functionalities
     w1, w2 = "", ""
+    sim = 0
     if args.sim:
         w1, w2 = args.sim.split(maxsplit=2)
         w1, w2 = w1.strip(), w2.strip()

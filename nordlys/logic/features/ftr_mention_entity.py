@@ -1,14 +1,14 @@
 """
-ftr_mention
------------
+FTR Mention Entity
+==================
 
 Implements mention-entity features.
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 from nordlys.logic.entity.entity import Entity
 from nordlys.config import MONGO_COLLECTION_SF_FACC
+from nordlys.config import PLOGGER
 
 
 class FtrMentionEntity(object):
@@ -34,7 +34,7 @@ class FtrMentionEntity(object):
 
         link_e_m = sum([sf_lookup.get(s, {}).get(e, 0) for s in self.__sources])
         link_m = sum([sum(sf_lookup.get(s, {}).values()) for s in self.__sources])
-        print(link_e_m, link_m)
+        PLOGGER.info(link_e_m, link_m)
         return link_e_m / link_m
 
 

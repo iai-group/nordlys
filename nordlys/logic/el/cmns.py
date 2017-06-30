@@ -1,6 +1,10 @@
-"""Commonness entity linking approach
+"""
+Commonness Entity Linking Approach
+==================================
 
-@author: Faegheh Hasibi
+Class for commonness entity linking approach
+
+:Author: Faegheh Hasibi
 """
 from collections import defaultdict
 
@@ -18,6 +22,7 @@ class Cmns(object):
         self.__cmns_th = cmns_th
         self.__ngrams = None
         self.__ranked_ens = {}
+        self.__mentions = set()
 
     def __get_ngrams(self):
         """Returns n-grams grouped by length.
@@ -59,17 +64,23 @@ class Cmns(object):
         :param n: length of n-gram
         :return: dictionary {(dbp_uri, fb_id):commonness, ..}
         """
-        matched = False
-        for ngram in self.__ngrams[n]:
-            cand_ens = Mention(ngram, self.__entity, self.__cmns_th).get_cand_ens()
-            if len(cand_ens) > 0:
-                matched = True
-                self.__ranked_ens[ngram] = cand_ens
-        if (not matched) and (n > 1):
-            self.rank_ens(n - 1)
-        else:
+        if n == 0:
             return
 
+        for ngram in self.__ngrams[n]:
+            if not self.__is_overlapping(ngram):
+                cand_ens = Mention(ngram, self.__entity, self.__cmns_th).get_cand_ens()
+                if len(cand_ens) > 0:
+                    self.__ranked_ens[ngram] = cand_ens
+                    self.__mentions.add(ngram)
+        self.rank_ens(n - 1)
+
+    def __is_overlapping(self, ngram):
+        """Checks whether the ngram is contained in one of the currently identified mentions."""
+        for mention in self.__mentions:
+            if ngram in mention:
+                return True
+        return False
 
 def main(args):
     entity = Entity()

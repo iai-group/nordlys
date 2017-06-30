@@ -1,10 +1,10 @@
 """
-ltr
----
+LTR
+===
 
-Learning-to-Rank.
+Class for Learning-to-Rank.
 
-@author: Krisztian Balog
+:Author: Krisztian Balog
 """
 
 from nordlys.services.el.el import EL
