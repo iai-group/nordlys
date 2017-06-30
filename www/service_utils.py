@@ -3,7 +3,7 @@
 service_utils
 --------------
 
-@author: Dario Garigliotti
+:Author: Dario Garigliotti
 """
 
 from re import sub as re_sub

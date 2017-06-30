@@ -4,7 +4,7 @@ entity_cards_data
 
 Entity cards data definitions.
 
-@author: Dario Garigliotti
+:Author: Dario Garigliotti
 """
 
 # -----------------

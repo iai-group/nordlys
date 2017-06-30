@@ -2,15 +2,16 @@
 nordlys_app
 -----------
 
-Web Interface main module.
+Web-based Graphical User Interface.
 
-@author: Dario Garigliotti
-@author: Shuo Zhang
-@author: Heng Ding
+:Author: Dario Garigliotti
+:Author: Shuo Zhang
+:Author: Heng Ding
 """
 
 from requests import ConnectionError, Timeout, get as requests_get
 from json import loads as j_loads
+from json.decoder import JSONDecodeError
 from urllib.parse import quote
 from flask import Flask
 from flask import render_template, request
@@ -27,7 +28,7 @@ from nordlys.config import (ELASTIC_HOSTS, API_HOST, API_PORT, WWW_PORT, WWW_DOM
 # Web interface
 
 # Logics
-REQUEST_TIMEOUT = 30  # 0.06  # in seconds
+REQUEST_TIMEOUT = 120  # 0.06  # in seconds
 NUM_RESULTS = 10  # Per page, for pagination of ER results
 WWW_PAGINATION_MAX_RESULTS_ER = WWW_SETTINGS.get('pagination_max_results_ER', 100)
 WWW_PAGINATION_MAX_RESULTS_TTI = WWW_SETTINGS.get('pagination_max_results_TTI', 10)
@@ -100,6 +101,8 @@ def __api_request(service_label, params, index_name=None):
         msg = "We're so sorry. There was a connection error :("
     except Timeout:
         msg = "Timeout while trying to connect to the remote server, or while receiving data from it :("
+    except JSONDecodeError:
+        msg = "There are no results for your query :("
 
     return results, total, msg
 
@@ -259,4 +262,5 @@ def service_TTI():
 # Main script
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=WWW_PORT)
+    app.run(debug=True, port=WWW_PORT)  # TODO NOTE: working on local
+    # app.run(host="0.0.0.0", port=WWW_PORT)
