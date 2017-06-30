@@ -55,7 +55,7 @@ Example config
 	}
 ------------------------
 
-:Authors: Faegheh Hasibi
+:Author: Faegheh Hasibi
 
 """
 import argparse
@@ -112,7 +112,6 @@ class ER(object):
 
     def __get_top_k(self, ens):
         """Returns top-k results."""
-        pprint(ens)
         sorted_ens = sorted(ens.items(), key=lambda item: item[1]["score"], reverse=True)
         results = {}
         end = min(self.__num_docs, len(ens))

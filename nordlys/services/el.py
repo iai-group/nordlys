@@ -47,6 +47,7 @@ from nordlys.core.utils.file_utils import FileUtils
 from nordlys.logic.el.cmns import Cmns
 from nordlys.logic.entity.entity import Entity
 from nordlys.logic.query.query import Query
+# from nordlys.core.utils.logging_utils import PLOGGER
 
 
 class EL(object):
@@ -100,10 +101,10 @@ class EL(object):
 
         results = {}
         for query_id in sorted(queries):
-            print("linking [" + query_id + "] " + queries[query_id])
+            # PLOGGER.info("linking [" + query_id + "] " + queries[query_id])
             results[query_id] = self.link(queries[query_id])
         json.dump(results, open(self.__output_file, "w"), indent=4, sort_keys=True)
-        print("Output file:", self.__output_file)
+        # PLOGGER.info("Output file:", self.__output_file)
 
 
 def arg_parser():
