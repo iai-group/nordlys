@@ -1,14 +1,15 @@
 """
-eval
-----
+Evaluation
+==========
 
 Console application for eval package.
 
-@author: Faegheh Hasibi
+:Author: Faegheh Hasibi
 """
 
 import argparse
 from nordlys.core.eval.query_diff import QueryDiff
+
 
 class Eval(object):
     """Main entry point for eval package.

@@ -1,6 +1,6 @@
 """
-dbpedia2mongo
--------------
+Dbpedia to Mongo
+================
 
 The main entry point for loading DBpedia data into MongoDB.
 
@@ -14,7 +14,8 @@ Parameters in the config file:
     - prefix: prefix to be added to the beginning of the predicate
 
 
-Usage:
+Usage
+-----
 
     nordlys.core.data.dbpedia.dbpedia2mongo <config_file.json>
 
@@ -36,8 +37,7 @@ Example config file:
 }
 
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 
 import sys
@@ -47,6 +47,7 @@ import argparse
 from nordlys.config import MONGO_DB, MONGO_HOST, MONGO_COLLECTION_DBPEDIA
 from nordlys.core.storage.nt2mongo import NTriplesToMongoDB
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 # static keys of config file
 KEY_COLLECTION = "collection"
@@ -95,7 +96,7 @@ class DBpedia2Mongo(object):
                 if dbpedia_file not in existing_files:
                     raise Exception(dbpedia_file + " does not exist.")
         except Exception as e:
-            print("Error in config file: ", e)
+            PLOGGER.error("Error in config file: ", e)
             sys.exit(1)
 
     def build_dbpedia(self):

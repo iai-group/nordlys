@@ -1,15 +1,47 @@
 """
-elastic
--------
+Elastic
+=======
 
-Tools for working with Elasticsearch.
+Utility class for working with Elasticsearch.
 This class is to be instantiated for each index.
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+
+Indexing usage
+--------------
+
+To create an index, first you need to define field mappings and then build the index.
+The sample code for creating an index is provided at :py:mod:`nordlys.core.retrieval.toy_indexer`.
+
+
+Retrieval usage
+---------------
+
+The following statistics can be obtained from this class:
+
+  - Number of documents: :func:`Elastic.num_docs`
+  - Number of fields: :func:`Elastic.num_fields`
+  - Document count: :func:`Elastic.doc_count`
+  - Collection length: :func:`Elastic.coll_length`
+  - Average length: :func:`Elastic.avg_len`
+  - Document length: :func:`Elastic.doc_length`
+  - Document frequency: :func:`Elastic.doc_freq`
+  - Collection frequency: :func:`Elastic.coll_term_freq`
+  - Term frequencies: :func:`Elastic.term_freqs`
+
+
+
+Efficiency considerations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  - For efficiency reasons, we do not store term positions during indexing. To store them, see the corresponding mapping functions :func:`Elastic.analyzed_field`, :func:`Elastic.notanalyzed_field`, :func:`Elastic.notanalyzed_searchable_field`.
+  - Use :py:mod:`ElasticCache <nordlys.core.retrieval.elastic_cache>` for getting index statistics. This module caches the statistics into memory and boosts efficeicny.
+  - Mind that :py:mod:`ElasticCache <nordlys.core.retrieval.elastic_cache>` does not empty the cache!
+
+
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 
-from pprint import pprint
+from pprint import pprint, pformat
 
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
@@ -34,13 +66,16 @@ class Elastic(object):
     def analyzed_field(analyzer=ANALYZER_STOP):
         """Returns the mapping for analyzed fields.
 
+        For efficiency considerations, term positions are not stored. To store term positions, change
+        ``"term_vector": "with_positions_offsets"``
+
         :param analyzer: name of the analyzer; valid options: [ANALYZER_STOP, ANALYZER_STOP_STEM]
         """
         if analyzer not in {Elastic.ANALYZER_STOP, Elastic.ANALYZER_STOP_STEM}:
-            print("Error: Analyzer", analyzer, "is not valid.")
+            # PLOGGER.error("Error: Analyzer", analyzer, "is not valid.")
             exit(0)
         return {"type": "string",
-                "term_vector": "with_positions_offsets",
+                "term_vector": "yes",
                 "analyzer": analyzer}
 
     @staticmethod
@@ -48,15 +83,13 @@ class Elastic(object):
         """Returns the mapping for not-analyzed fields."""
         return {"type": "string",
                 "index": "not_analyzed"}
-        # "similarity": Elastic.SIMILARITY}
 
     @staticmethod
     def notanalyzed_searchable_field():
         """Returns the mapping for not-analyzed fields."""
         return {"type": "string",
-                "term_vector": "with_positions_offsets",
-                "analyzer" : "keyword"}
-                # "index": "not_analyzed"}
+                "term_vector": "yes",
+                "analyzer": "keyword"}
 
     def __gen_similarity(self, model, params=None):
         """Gets the custom similarity function."""
@@ -133,7 +166,7 @@ class Elastic(object):
             if force:
                 self.delete_index()
             else:
-                print("Index already exists. No changes were made.")
+                # PLOGGER.info("Index already exists. No changes were made.")
                 return
 
         # sets general elastic settings
@@ -159,8 +192,8 @@ class Elastic(object):
 
         # creates the index
         self.__es.indices.create(index=self.__index_name, body=body)
-        pprint(body)
-        print("New index <" + self.__index_name + "> is created.")
+        # PLOGGER.info(pformat(body))
+        # PLOGGER.info("New index <" + self.__index_name + "> is created.")
 
     def add_docs_bulk(self, docs):
         """Adds a set of documents to the index in a bulk.
@@ -208,14 +241,41 @@ class Elastic(object):
         :return: dictionary of document IDs with scores
         """
         hits = self.__es.search(index=self.__index_name, q=query, df=field, _source=False, size=num,
-                                fields=fields_return, from_=start)["hits"]["hits"]
+                                fielddata_fields=fields_return, from_=start)["hits"]["hits"]
         results = {}
         for hit in hits:
             results[hit["_id"]] = {"score": hit["_score"], "fields": hit.get("fields", {})}
         return results
 
     def search_complex(self, body, num=10, fields_return="", start=0):
-        """Searches in a given field using the similarity method configured in the index for that field.
+        """
+        Supports complex structured queries, which are sent as a ``body`` field in Elastic search.
+        For detailed information on formulating structured queries, see the
+        `official instructions. <https://www.elastic.co/guide/en/elasticsearch/guide/current/search-in-depth.html>`_
+        Below is an example to search in two particular fields that each must contain a specific term.
+
+        :Example:
+
+        .. code-block:: python
+
+            # [explanation of the query]
+            term_1 = "hello"
+            term_2 = "world"
+            body = {
+                "query": {
+                    "bool": {
+                        "must": [
+                                {
+                            "match": {"title": term_1}
+                                },
+                                {
+                            "match_phrase": {"content": term_2}
+                                }
+                                ]
+                            }
+                        }
+                    }
+
 
         :param body: query body
         :param field: field to search in
@@ -225,7 +285,7 @@ class Elastic(object):
         :return: dictionary of document IDs with scores
         """
         hits = self.__es.search(index=self.__index_name, body=body, _source=False, size=num,
-                                fields=fields_return, from_=start)["hits"]["hits"]
+                                fielddata_fields=fields_return, from_=start)["hits"]["hits"]
         results = {}
         for hit in hits:
             results[hit["_id"]] = {"score": hit["_score"], "fields": hit.get("fields", {})}
@@ -248,10 +308,27 @@ class Elastic(object):
 
         :param doc_id: document ID
         :param field: field name
+        :param term_stats: if True, returns term statistics
+        :return: Term vector dictionary
         """
         tv = self.__es.termvectors(index=self.__index_name, doc_type=self.DOC_TYPE, id=doc_id, fields=field,
                                    term_statistics=term_stats)
         return tv.get("term_vectors", {}).get(field, {}).get("terms", {})
+
+    def _get_multi_termvectors(self, doc_ids, field, term_stats=False):
+        """Returns multiple term vectors for a given document field (similar to a single term vector)
+
+        :param doc_ids: document ID
+        :param field: field name
+        :param term_stats: if True, returns term statistics
+        :return: {'doc_id': {tv}, ..}
+        """
+        tv_all = self.__es.mtermvectors(index=self.__index_name, doc_type=self.DOC_TYPE, ids=",".join(doc_ids),
+                                        fields=field, term_statistics=term_stats)
+        result = {}
+        for tv in tv_all["docs"]:
+            result[tv["_id"]] = tv.get("term_vectors", {}).get(field, {}).get("terms", {})
+        return result
 
     def _get_coll_termvector(self, term, field):
         """Returns a term vector containing collection stats of a term."""
@@ -292,14 +369,11 @@ class Elastic(object):
 
     def coll_term_freq(self, term, field, tv=None):
         """ Returns collection term frequency for the given field."""
-        coll_tv = self._get_coll_termvector(term, field)
+        coll_tv = tv if tv else self._get_coll_termvector(term, field)
         return coll_tv.get(term, {}).get("ttf", 0)
 
     def term_freqs(self, doc_id, field, tv=None):
-        """Returns term frequencies for a given document and field.
-
-        :return dictionary of terms with their frequencies; {doc_id: freq, ...}
-        """
+        """Returns term frequencies of all terms for a given document and field."""
         doc_tv = tv if tv else self._get_termvector(doc_id, field)
         term_freqs = {}
         for term, val in doc_tv.items():
@@ -312,12 +386,13 @@ class Elastic(object):
 
 
 if __name__ == "__main__":
+    # example usage of index statistics
+    doc_id = 1
     field = "content"
     term = "gonna"
-    doc_id = 4
-
     es = Elastic("toy_index")
-    pprint(es.search("gonna", "content"))
+    pprint(es._get_termvector(doc_id, field=field, term_stats=True))
+    pprint(es.search(term, field))
     print("================= Stats =================")
     print("[FIELD]: %s [TERM]: %s" % (field, term))
     print("- Number of documents: %d" % es.num_docs())
@@ -331,46 +406,3 @@ if __name__ == "__main__":
     print("- Collection frequency: %d" % es.coll_term_freq(term, field))
     print("- Term frequencies:")
     pprint(es.term_freqs(doc_id, field))
-
-    # Example of URI-only index
-    es = Elastic("dbpedia_2015_10_uri")
-    en_id = "<dbpedia:129th_meridian_east>" # "<dbpedia:Danielle_Steel>"
-    f = "catchall"
-    body = {"query": {"bool": {"must": {"term": {"catchall": en_id}}}}}
-    print(es.search_complex(body, 2))
-    print("doc freq:", es.doc_freq(en_id, f))
-    print("coll term freq:", es.coll_term_freq(en_id, f))
-    print("coll len:", es.coll_length(f))
-
-    # example of complex queries
-    person_id = "you"
-    body = {
-        "query": {
-            "bool": {
-                "must": {
-                    "term": {"content": person_id}
-                }
-            }
-        }
-    }
-    # search docs containing both person_id and a
-    a = "me"
-    body = {"query": {
-        "bool": {
-            "must": [
-                {
-                    "match": {"content": person_id}
-                },
-                {
-                    "match_phrase": {"catchall": a}
-                }
-            ]
-        }
-    }}
-
-    body = {"query": {
-        "match_phrase": {"catchall": "string"}
-    }}
-    print(es.search_complex(body))
-    print(es.term_freqs(1, "content"))
-

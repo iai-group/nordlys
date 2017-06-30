@@ -1,6 +1,6 @@
 """
-instances
----------
+Instances
+=========
 
 Instances used for Machine learning algorithms.
 
@@ -9,8 +9,7 @@ Instances used for Machine learning algorithms.
         - When using TSV, instance properties, target, and features are loaded from separate files
     - Generates a list of instances in JSON or RankLib format
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 
 import csv
@@ -19,6 +18,7 @@ from sys import argv
 
 from collections import defaultdict
 from nordlys.core.ml.instance import Instance
+from nordlys.config import PLOGGER
 
 
 class Instances(object):
@@ -124,7 +124,7 @@ class Instances(object):
         :param json_file: (string)
         :return Instances object
         """
-        print("Reading JSON file " + json_file + " ...")
+        PLOGGER.info("Reading JSON file " + json_file + " ...")
         json_data = open(json_file)
         data = json.load(json_data)
         instance_list = []
@@ -159,7 +159,7 @@ class Instances(object):
             # print "Writing JSON format of instances ..."
             out = open(json_file, "w")
             json.dump(inss_json, out, indent=4)
-            print("JSON output:\t" + json_file)
+            PLOGGER.info("JSON output:\t" + json_file)
         return inss_json
 
     def to_str(self, file_name=None):
@@ -185,7 +185,7 @@ class Instances(object):
                     out = ""
         if out_file is not None:
             out_file.write(out)
-            print("String output:\t" + file_name)
+            PLOGGER.info("String output:\t" + file_name)
             return None
         return out
 
@@ -211,7 +211,7 @@ class Instances(object):
         """
         # If no entity matches query
         if len(self.__instances) == 0:
-            print("No instance is created!!")
+            PLOGGER.info("No instance is created!!")
             open(file_name, "w").write("")
             return ""
 
@@ -236,7 +236,7 @@ class Instances(object):
             sorted_instances = sorted(self.get_all(), key=lambda ins: int(ins.get_property(qid_prop)))
 
         counter = 0
-        print("Converting instances to ranklib format ...")
+        PLOGGER.info("Converting instances to ranklib format ...")
         for ins in sorted_instances:
             out += ins.to_libsvm(features, qid_prop) + "\n"
             counter += 1
@@ -246,7 +246,7 @@ class Instances(object):
                 out = ""
                 # print "Converting is done until instance " + str(ins.id)
         out_file.write(out)
-        print("Libsvm output:\t" + file_name)
+        PLOGGER.info("Libsvm output:\t" + file_name)
 
     def add_qids(self, prop):
         """
@@ -279,7 +279,7 @@ def main(args):
     # inss.add_features_from_tsv(feat_file_3, ["feature5", "feature6"])
     # one with target value
     inss.add_target_from_tsv(args[2])
-    print(inss.to_str())
+    PLOGGER.info(inss.to_str())
     inss.to_json("data/maff.json")
 
 

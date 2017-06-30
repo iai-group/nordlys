@@ -1,10 +1,11 @@
 """
-trec_run
---------
+Trec run
+========
 
 Utility module for working with TREC runfiles.
 
-Usage:
+Usage
+-----
 
 Get statistics about a runfile
   ``trec_run <run_file> -o stat``
@@ -14,14 +15,14 @@ Filter runfile to contain only documents from a given set
   ``trec_run <run_file> -o filter -d <doc_ids_file> -f <output_file> -n <num_results>``
 
 
-@author: Krisztian Balog
-@author: Dario Garigliotti
+:Authors: Krisztian Balog, Dario Garigliotti
 """
 
 import argparse
 from math import exp
 from nordlys.core.retrieval.retrieval_results import RetrievalResults
 from nordlys.core.storage.parser.uri_prefix import URIPrefix
+from nordlys.config import PLOGGER
 
 
 class TrecRun(object):
@@ -126,8 +127,8 @@ class TrecRun(object):
 
     def print_stat(self):
         """Prints simple statistics."""
-        print("#queries:  " + str(len(self.__results)))
-        print("#results: " + str(sum(v.num_docs() for k, v in self.__results.items())))
+        PLOGGER.info("#queries:  " + str(len(self.__results)))
+        PLOGGER.info("#results: " + str(sum(v.num_docs() for k, v in self.__results.items())))
 
 
 def arg_parser():
@@ -148,7 +149,7 @@ def main(args):
         run.print_stat()
     elif args.operation == "filter":
         if len(args.doc_ids_file) == 0 or len(args.output_file) == 0:
-            print("doc_ids_file or output_file missing")
+            PLOGGER.info("doc_ids_file or output_file missing")
         else:
             run.filter(args.doc_ids_file, args.output_file)
 

@@ -1,12 +1,10 @@
 """
-query_diff
-----------
+Query Differences
+=================
 
 Computes query-level differences between two runs.
 
-@author: Shuo Zhang
-@author: Krisztian Balog
-@author: Dario Garigliotti
+:Authors: Shuo Zhang, Krisztian Balog, Dario Garigliotti
 """
 
 from nordlys.core.eval.trec_eval import TrecEval

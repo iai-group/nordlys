@@ -1,11 +1,10 @@
 """
-file_utils
-----------
+File Utils
+==========
 
 Utility methods for file handling.
 
-@author: Krisztian Balog
-@author: Faegheh Hasibi
+:Authors: Krisztian Balog, Faegheh Hasibi
 """
 
 import bz2
@@ -53,7 +52,7 @@ class FileUtils(object):
 
         # opens config file
         try:
-            return json.load(open(config))
+            return json.load(open(op.expanduser(config)))
         except Exception as e:
             print("Error loading config file: ", e)
             sys.exit(1)

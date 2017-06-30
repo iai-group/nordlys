@@ -1,11 +1,10 @@
 """
-trec_eval
----------
+Trec Evaluation
+===============
 
 Wrapper for trec_eval.
 
-@author: Dario Garigliotti
-@author: Shuo Zhang
+:Authors: Dario Garigliotti, Shuo Zhang
 """
 
 from subprocess import Popen, PIPE

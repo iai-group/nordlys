@@ -1,13 +1,12 @@
 """
-retrieval_results
------------------
+Retrieval Results
+=================
 
 Result list representation.
 
   - for each hit it holds score and both internal and external doc_ids
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 
 import operator

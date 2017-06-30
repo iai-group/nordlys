@@ -1,4 +1,8 @@
-"""Loads Dbpedia surface forms to MongoDB.
+"""
+Dbpedia Surface Forms to Mongo
+==============================
+
+Loads Dbpedia surface forms to MongoDB.
 
 Surface forms are extracted from the following scources:
  - Redirect pages
@@ -6,8 +10,7 @@ Surface forms are extracted from the following scources:
  - Entity name (i.e. <rdfs:label> predicate)
  - Other entity names (i.e. <foaf:name> predicate)
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 
 import argparse
@@ -17,6 +20,7 @@ from nordlys.config import MONGO_DB, MONGO_HOST, MONGO_COLLECTION_DBPEDIA
 from nordlys.core.storage.mongo import Mongo
 from nordlys.core.utils.entity_utils import EntityUtils
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 
 # static key values
@@ -43,7 +47,7 @@ class DBpediaSurfaceforms2Mongo(object):
             if KEY_LOWERCASE not in config:
                 config[KEY_LOWERCASE] = True
         except Exception as e:
-            print("Error in config file: ", e)
+            PLOGGER.error("Error in config file: ", e)
             sys.exit(1)
 
     def __add_surface_form(self, surface_form, predicate, entity_id):
@@ -99,8 +103,7 @@ class DBpediaSurfaceforms2Mongo(object):
                         self.__add_surface_form(surface_form, foaf_name_predicate, entity_id)
             i += 1
             if i % 1000 == 0:
-                print(str(i // 1000) + "K entities processed")
-
+                PLOGGER.error(str(i // 1000) + "K entities processed")
 
 def arg_parser():
     parser = argparse.ArgumentParser()

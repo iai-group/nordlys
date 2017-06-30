@@ -1,11 +1,10 @@
 """
-word2vec2mongo
+Word2vec to Mongo
 --------------
 
 Loads Word2Vec to MongoDB.
 
-@author: Faegheh Hasibi
-@author: Dario Garigliotti
+:Authors: Faegheh Hasibi, Dario Garigliotti
 """
 
 import argparse
@@ -15,6 +14,7 @@ from sys import exit
 from nordlys.config import MONGO_HOST, MONGO_DB, MONGO_COLLECTION_WORD2VEC
 from nordlys.core.storage.mongo import Mongo
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 KEY_COLLECTION = "collection"
 KEY_MAPPING_FILE = "mapping_file"
@@ -38,7 +38,7 @@ class Word2VecToMongo(object):
             if not op.exists(config[KEY_MAPPING_FILE]):
                 raise Exception("Mapping file path does not exist.")
         except Exception as e:
-            print("Error in config file: ", e)
+            PLOGGER.error("Error in config file: ", e)
             exit(1)
         return config
 
@@ -67,10 +67,8 @@ class Word2VecToMongo(object):
             self.__mongo.add(term, {'vector': vector})
             i += 1
             if i % 1000 == 0:
-                print(str(i / 1000) + "K lines are loaded.")
+                PLOGGER.info(str(i / 1000) + "K lines are loaded.")
                 # break
-                pass
-
 
 def arg_parser():
     parser = argparse.ArgumentParser()

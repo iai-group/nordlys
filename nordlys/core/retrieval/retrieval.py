@@ -26,8 +26,9 @@ Config parameters
 - **start**: starting offset for ranked documents (default:0)
 - **model**: name of retrieval model; accepted values: [lm, mlm, prms] (default: lm)
 - **field**: field name for LM (default: catchall)
-- **fields**: list of fields for PRMS (default: [catchall])
-- **field_weights**: dictionary with fields and corresponding weights for MLM (default: {catchall: 1})
+- **fields**: single field name for LM (default: catchall)
+              list of fields for PRMS (default: [catchall])
+              dictionary with fields and corresponding weights for MLM (default: {catchall: 1})
 - **smoothing_method**: accepted values: [jm, dirichlet] (default: dirichlet)
 - **smoothing_param**: value of lambda or mu; accepted values: [float or "avg_len"], (jm default: 0.1, dirichlet default: 2000)
 - **query_file**: name of query file (JSON),
@@ -55,17 +56,20 @@ Example config
 	}
 ------------------------
 
-:Authors: - Krisztian Balog
-          - Faegheh Hasibi
+:Authors: Krisztian Balog, Faegheh Hasibi
 """
 import argparse
 import json
 import sys
 
+import time
+from pprint import pprint
+
 from nordlys.core.retrieval.elastic import Elastic
 from nordlys.core.retrieval.elastic_cache import ElasticCache
 from nordlys.core.retrieval.scorer import Scorer, ScorerLM
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 
 class Retrieval(object):
@@ -113,14 +117,6 @@ class Retrieval(object):
             if config.get("num_docs", None) is None:
                 config["num_docs"] = 100
 
-            if config.get("model", None) is None:
-                config["model"] = None
-            if config.get("field", None) is None:
-                config["field"] = Elastic.FIELD_CATCHALL
-            if config.get("fields", None) is None:
-                config["fields"] = [Elastic.FIELD_CATCHALL]
-            if config.get("field_weights", None) is None:
-                config["field_weights"] = {Elastic.FIELD_CATCHALL: 1}
             if config["model"] in Retrieval.LM_MODELS:
                 if config.get("smoothing_method", None) is None:
                     config["smoothing_method"] = ScorerLM.DIRICHLET
@@ -131,9 +127,37 @@ class Retrieval(object):
                         config["smoothing_param"] = 0.1
                     else:
                         raise Exception("Smoothing method is not supported.")
+
+            if config["model"] == "lm":
+                if config.get("fields", None) is None:
+                    config["fields"] = Elastic.FIELD_CATCHALL
+                elif type(config["fields"]) != str:
+                    raise Exception("Only a single field is required for LM.")
+            if config["model"] == "mlm":
+                if config.get("fields", None) is None:
+                    config["fields"] = {Elastic.FIELD_CATCHALL: 1}
+                elif type(config["fields"]) != dict:
+                    raise Exception("A dictionary of fields and their weights is required for MLM.")
+            if config["model"] == "prms":
+                if config.get("fields", None) is None:
+                    config["fields"] = [Elastic.FIELD_CATCHALL]
+                elif type(config["fields"]) != list:
+                    raise Exception("A list of fields is required for PRMS.")
         except Exception as e:
-            print("Error in config file: ", e)
+            PLOGGER.error("Error in config file: ", e)
             sys.exit(1)
+
+    def __get_fields(self):
+        """Returns the name of all fields that will be used in the retrieval model."""
+        fields = []
+        if type(self.__config["fields"]) == str:
+            fields.append(self.__config["fields"])
+        elif type(self.__config["fields"]) == dict:
+            fields = self.__config["fields"].keys()
+        else:
+            fields = self.__config["fields"]
+        return fields
+
 
     def _first_pass_scoring(self, analyzed_query):
         """Returns first-pass scoring of documents.
@@ -141,25 +165,9 @@ class Retrieval(object):
         :param analyzed_query: analyzed query
         :return: RetrievalResults object
         """
-        print("\tFirst pass scoring... ", )
-        # todo: add support for other similarities
-        # body = {"query": {
-        #     "bool": {
-        #         "should": [
-        #             {"match": {
-        #                 "catchall": {
-        #                     "query": analyzed_query
-        #                 }}},
-        #             {"match": {
-        #                 "names": {
-        #                     "query": analyzed_query,
-        #                     "boost": 3
-        #                 }}}]}}}
-        # self.__elastic.update_similarity(self.__first_pass_model, self.__first_pass_model_params)
+        PLOGGER.debug("\tFirst pass scoring... ", )
         res1 = self.__elastic.search(analyzed_query, self.__first_pass_field, num=self.__first_pass_num_docs,
                                      fields_return=self.__first_pass_fields_return)
-        # res1 = self.__elastic.search_complex(body=body, num=self.__first_pass_num_docs,
-        #                              fields_return=self.__first_pass_fields_return)
         return res1
 
     def _second_pass_scoring(self, res1, scorer):
@@ -169,11 +177,14 @@ class Retrieval(object):
         :param scorer: scorer object
         :return: RetrievalResults object
         """
-        print("\tSecond pass scoring... ", )
+        PLOGGER.debug("\tSecond pass scoring... ", )
+        for field in self.__get_fields():
+            self.__elastic.multi_termvector(list(res1.keys()), field)
+
         res2 = {}
         for doc_id in res1.keys():
             res2[doc_id] = {"score": scorer.score_doc(doc_id), "fields": res1[doc_id].get("fields", {})}
-        print("done")
+        PLOGGER.debug("done")
         return res2
 
     def retrieve(self, query, scorer=None):
@@ -182,7 +193,7 @@ class Retrieval(object):
 
         # 1st pass retrieval
         res1 = self._first_pass_scoring(query)
-        if self.__model is None:
+        if self.__model == "bm25":
             return res1
 
         # 2nd pass retrieval
@@ -200,20 +211,20 @@ class Retrieval(object):
 
         # retrieves documents
         for query_id in sorted(queries):
-            print("scoring [" + query_id + "] " + queries[query_id])
+            PLOGGER.info("scoring [" + query_id + "] " + queries[query_id])
             results = self.retrieve(queries[query_id])
             out.write(self.trec_format(results, query_id, self.__num_docs))
         out.close()
-        print("Output file:", self.__output_file)
+        PLOGGER.info("Output file:" + self.__output_file)
 
     def trec_format(self, results, query_id, max_rank=100):
         """Outputs results in TREC format"""
         out_str = ""
         rank = 1
-        for doc_id, score in sorted(results.items(), key=lambda x: x[1], reverse=True):
+        for doc_id, score in sorted(results.items(), key=lambda x: x[1]["score"], reverse=True):
             if rank > max_rank:
                 break
-            out_str += query_id + "\tQ0\t" + doc_id + "\t" + str(rank) + "\t" + str(score) + "\t" + self.__run_id + "\n"
+            out_str += query_id + "\tQ0\t" + doc_id + "\t" + str(rank) + "\t" + str(score["score"]) + "\t" + self.__run_id + "\n"
             rank += 1
         return out_str
 
@@ -225,26 +236,33 @@ def arg_parser():
     return args
 
 
-def main(args):
+def get_config():
     example_config = {"index_name": "toy_index",
-                      # "query_file": "data/queries/test_queries.json",
+                      "query_file": "data/dbpedia-entity-v1/queries/test_queries2.json",
                       "first_pass": {
-                          "num_docs": 1000,
+                          "num_docs": 10,
                           "field": "content",
                           # "model": "LMJelinekMercer",
                           # "model_params": {"lambda": 0.1}
                       },
-                      "second_pass": {
-                          "field": "content",
-                          "model": "lm",
-                          "smoothing_method": "jm",
-                          "smoothing_param": 0.1
-                      },
+                      "fields": "content",
+                      "model": "lm",
+                      "smoothing_method": "jm",
+                      "smoothing_param": 0.1,
                       "output_file": "output/test_retrieval.txt"
                       }
-    config = FileUtils.load_config(args.config) if args.config != "" else example_config
+    return example_config
+
+
+def main(args):
+    s_t = time.time()  # start time
+
+    config = FileUtils.load_config(args.config) if args.config != "" else get_config()
     r = Retrieval(config)
     r.batch_retrieval()
+
+    e_t = time.time()  # end time
+    print("Execution time(min):\t" + str((e_t - s_t) / 60) + "\n")
 
 
 if __name__ == "__main__":

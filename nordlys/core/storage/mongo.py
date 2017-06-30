@@ -1,16 +1,16 @@
 """
-mongo
------
+Mongo
+=====
 
 Tools for working with MongoDB.
 
-@author: Krisztian Balog
-@author: Faegheh Hasibi
+:Authors: Krisztian Balog, Faegheh Hasibi
 """
 
 import argparse
 from nordlys.config import MONGO_DB, MONGO_HOST
 from pymongo import MongoClient
+from nordlys.config import PLOGGER
 
 
 class Mongo(object):
@@ -23,7 +23,7 @@ class Mongo(object):
         self.__collection = self.__db[collection]
         self.__db_name = db
         self.__collection_name = collection
-        print("Connected to " + self.__db_name + "." + self.__collection_name)
+        # PLOGGER.info("Connected to " + self.__db_name + "." + self.__collection_name)
 
     @staticmethod
     def __escape(s):
@@ -68,7 +68,7 @@ class Mongo(object):
                                      {'$set': c},
                                      upsert=True)
         except Exception as e:
-            print("\nError (doc_id: " + str(doc_id) + ")\n" + str(e))
+            PLOGGER.error("\nError (doc_id: " + str(doc_id) + ")\n" + str(e))
 
     def set(self, doc_id, field, value):
         """Sets the value of a given document field (overwrites previously stored content)."""
@@ -105,7 +105,7 @@ class Mongo(object):
                                                   : {'$each': value}}},
                                      upsert=True)
         except Exception as e:
-            print("\nError (doc_id: " + str(doc_id) + "), field: " + field + "\n" + str(e))
+            PLOGGER.error("\nError (doc_id: " + str(doc_id) + "), field: " + field + "\n" + str(e))
 
     def append_dict(self, doc_id, field, dictkey, value):
         """Appends the value to a given field that stores a dict.
@@ -151,7 +151,7 @@ class Mongo(object):
     def drop(self):
         """Deletes the contents of the given collection (including indices)."""
         self.__collection.drop()
-        print(self.__collection_name + " dropped")
+        PLOGGER.info(self.__collection_name + " dropped")
 
     def get_num_docs(self):
         """Returns total number of documents in the mongo collection."""
@@ -160,15 +160,15 @@ class Mongo(object):
 
     @staticmethod
     def print_doc(doc):
-        print("_id: " + doc[Mongo.ID_FIELD])
+        PLOGGER.info("_id: " + doc[Mongo.ID_FIELD])
         for key, value in doc.items():
             if key == Mongo.ID_FIELD: continue  # ignore the id key
             if type(value) is list:
-                print(key + ":")
+                PLOGGER.info(key + ":")
                 for v in value:
-                    print("\t" + str(v))
+                    PLOGGER.info("\t" + str(v))
             else:
-                print(key + ": " + str(value))
+                PLOGGER.info(key + ": " + str(value))
 
 
 def main():
@@ -187,7 +187,7 @@ def main():
     # currently, a single operation (lookup) is supported
     res = mongo.find_by_id(doc_id)
     if res is None:
-        print("Document ID " + doc_id + " cannot be found")
+        PLOGGER.info("Document ID " + doc_id + " cannot be found")
     else:
         mongo.print_doc(res)
 

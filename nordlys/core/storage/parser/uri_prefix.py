@@ -1,6 +1,10 @@
-"""URI prefixing.
+"""
+URI Prefixing
+=============
 
-@author: Krisztian Balog
+URI prefixing.
+
+:Author: Krisztian Balog
 """
 
 import json

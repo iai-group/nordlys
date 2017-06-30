@@ -1,6 +1,6 @@
 """
-freebase2dbpedia2mongo
-----------------------
+Freebase to Dbpedia to Mongo
+============================
 
 Generates a Mongo collection for mapping Freebase IDs to DBpedia
 
@@ -10,7 +10,7 @@ To generate one-to-one mapping, we therefore perform the followings:
 
 Note: Even with the above pre-processing, some Freebase IDs (specifically, 560) remain that are mapped to multiple DBpedia IDs.
 
-@author: Faegheh Hasibi
+:Author: Faegheh Hasibi
 """
 import argparse
 import os
@@ -24,6 +24,7 @@ from nordlys.core.storage.parser.nt_parser import Triple
 from nordlys.core.storage.parser.uri_prefix import URIPrefix
 from nordlys.core.utils.entity_utils import EntityUtils
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 
 # static keys of config file
@@ -55,7 +56,7 @@ class Freebase2DBpedia2Mongo(object):
             if not(os.path.exists(config[KEY_MAPPING_FILE])) or not(os.path.exists(config[KEY_MAPPING_FILE_39])):
                 raise Exception("Mapping file path does not exist.")
         except Exception as e:
-            print("Error in config file: ", e)
+            PLOGGER.error("Error in config file: ", e)
             sys.exit(1)
         return config
 
@@ -64,7 +65,7 @@ class Freebase2DBpedia2Mongo(object):
         Only proper DBpedia entities are considered; i.e. redirect and disambiguation pages are ignored.
         """
         fb2dbp_file = self.__fb2dbp_file_39 if is_39 else self.__fb2dbp_file
-        print("Processing " + fb2dbp_file + "...")
+        PLOGGER.info("Processing " + fb2dbp_file + "...")
 
         t = Triple()
         p = NTriplesParser(t)
@@ -95,8 +96,7 @@ class Freebase2DBpedia2Mongo(object):
                         fb2dbp_mapping[fb_id].add(dbp_id)
                 i += 1
                 if i % 1000 == 0:
-                    print(str(i // 1000) + "K lines are processed!")
-
+                    PLOGGER.info(str(i // 1000) + "K lines are processed!")
         return fb2dbp_mapping
 
     def load_fb2dbp_mapping(self):
@@ -113,11 +113,11 @@ class Freebase2DBpedia2Mongo(object):
                     mappings[fb_id].append(dbp_id_39)
                 else:
                     mappings[fb_id] = list(dbp_ids)
-                    print(fb_id, "3.9", dbp_id_39, "2015", dbp_ids)
+                    PLOGGER.info(fb_id, "3.9", dbp_id_39, "2015", dbp_ids)
             else:
                 mappings[fb_id] = list(dbp_ids)
 
-        print(len(mappings))
+        PLOGGER.info(len(mappings))
         return mappings
 
     def build_collection(self, mappings):
@@ -132,7 +132,7 @@ class Freebase2DBpedia2Mongo(object):
                 mongo.append_set(fb_id, predicate, [dbp_id])
             i += 1
             if i % 1000 == 0:
-                print(str(i // 1000) + "K entities are added!")
+                PLOGGER.info(str(i // 1000) + "K entities are added!")
 
 
 def arg_parser():

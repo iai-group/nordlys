@@ -1,8 +1,10 @@
 """
+DBpedia Types Indexer
+=====================
+
 Build an index of DBpedia types from entity abstracts.
 
-@author: Krisztian Balog
-@author: Dario Garigliotti
+:Authors: Krisztian Balog, Dario Garigliotti
 """
 
 import os
@@ -17,6 +19,9 @@ from nordlys.core.storage.parser.nt_parser import Triple
 from nordlys.core.storage.parser.uri_prefix import URIPrefix
 from nordlys.core.utils.file_utils import FileUtils
 from nordlys.core.retrieval.elastic import Elastic
+from nordlys.config import DATA_DIR
+from nordlys.config import PLOGGER
+
 
 ID_KEY = "id"  # not used
 CONTENT_KEY = "content"
@@ -25,7 +30,7 @@ DEFAULT_INDEX_NAME = "dbpedia_types"
 DBO_PREFIX = "<dbo:"
 
 BULK_LEN = 1
-MAX_BULKING_DOC_SIZE = 30000000  # max doc len when bulking, in chars (recommended: 5 to 15 MB :P)
+MAX_BULKING_DOC_SIZE = 30000000  # max doc len when bulking, in chars (recommended: 5 to 15 MB)
 AVG_SHORT_ABSTRACT_LEN = 216  # according to all entities appearing in DBpedia-2015-10 entity-to-type mapping
 
 
@@ -54,7 +59,7 @@ class IndexerDBpediaTypes(object):
         t = Triple()
         p = NTriplesParser(t)
         lines_counter = 0
-        print("Loading entity abstracts from {}".format(filename))
+        PLOGGER.info("Loading entity abstracts from {}".format(filename))
         for line in FileUtils.read_file_as_list(filename):
             # basic line parsing
             line = line.decode("utf-8") if isinstance(line, bytes) else line
@@ -69,7 +74,8 @@ class IndexerDBpediaTypes(object):
             subj = prefix.get_prefixed(t.subject())
             obj = ""
             if type(t.object()) is URIRef:
-                print("Error: it is URIRef the parsed obj")
+                # PLOGGER.error("Error: it is URIRef the parsed obj")
+                pass
             else:
                 obj = t.object().encode("utf-8")
                 if len(obj) == 0:
@@ -78,7 +84,7 @@ class IndexerDBpediaTypes(object):
 
             lines_counter += 1
             if lines_counter % 10000 == 0:
-                print("\t{}K lines processed".format(lines_counter // 1000))
+                PLOGGER.info("\t{}K lines processed".format(lines_counter // 1000))
 
     def __make_type_doc(self, entities, last_type):
         """Gets the document representation of a type to be indexed, from its entity short abstracts."""
@@ -87,7 +93,7 @@ class IndexerDBpediaTypes(object):
 
         if len(content) > MAX_BULKING_DOC_SIZE:
 
-            print("Type {} has content larger than allowed: {}.".format(last_type, len(content)))
+            PLOGGER.info("Type {} has content larger than allowed: {}.".format(last_type, len(content)))
 
             # we randomly sample a subset of Y entity abstracts, s.t. Y * AVG_SHORT_ABSTRACT_LEN <= MAX_BULKING_DOC_SIZE
             amount_abstracts_to_sample = min(floor(MAX_BULKING_DOC_SIZE / AVG_SHORT_ABSTRACT_LEN), len(entities))
@@ -126,6 +132,7 @@ class IndexerDBpediaTypes(object):
         types_counter = 0
         with FileUtils.open_file_by_type(self.__type2entity_file) as f:
             for line in f:
+                line = line.decode()  # o.w. line is made of bytes
                 if not line.startswith("<"):  # bad-formed lines in dataset
                     continue
                 subj, obj = line.rstrip().split()
@@ -163,31 +170,31 @@ class IndexerDBpediaTypes(object):
         # index the last type
         types_counter += 1
 
-        print("\n\tFound {}-th (last) type: {}\t\t with # of entities: {}".format(types_counter, last_type,
+        PLOGGER.info("\n\tFound {}-th (last) type: {}\t\t with # of entities: {}".format(types_counter, last_type,
                                                                                   len(entities)))
 
         types_bulk[last_type] = self.__make_type_doc(entities, last_type)
         self.__elastic.add_docs_bulk(types_bulk)  # a tiny bulk :)
         # no need to reset neither entities nor types_bulk :P
-        print("Indexing a bulk of {} docs (types)... OK.".format(BULK_LEN))
+        PLOGGER.info("Indexing a bulk of {} docs (types)... OK.".format(BULK_LEN))
 
 
 def main(args):
     config = FileUtils.load_config(args.config)
 
-    type2entity_file = os.path.expanduser(config.get("type2entity_file", ""))
+    type2entity_file = os.path.expanduser(os.path.join(DATA_DIR, config.get("type2entity_file", "")))
     if not os.path.isfile(type2entity_file):
-        print("invalid path to type-to-entity source file: ", type2entity_file)
+        # PLOGGER.error("invalid path to type-to-entity source file: ", type2entity_file)
         exit(1)
 
-    entity_abstracts_file = os.path.expanduser(config.get("entity_abstracts_file", ""))
+    entity_abstracts_file = os.path.expanduser(os.path.join(DATA_DIR, config.get("entity_abstracts_file", "")))
     if not os.path.isfile(entity_abstracts_file):
-        print("invalid path to entity abstracts source file: ", entity_abstracts_file)
+        # PLOGGER.error("invalid path to entity abstracts source file: ", entity_abstracts_file)
         exit(1)
 
     indexer = IndexerDBpediaTypes(config, type2entity_file, entity_abstracts_file)
     indexer.build_index(force=True)
-    print("Index build: <{}>".format(indexer.name))
+    PLOGGER.info("Index build: <{}>".format(indexer.name))
 
 
 def arg_parser(description=None):

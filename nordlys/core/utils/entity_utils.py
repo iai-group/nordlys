@@ -1,10 +1,10 @@
 """
-entity_utils
-----------
+Entity Utils
+============
 
 Utility methods for working with entities.
 
-@author: Faegheh Hasibi
+:Author: Faegheh Hasibi
 """
 from urllib.parse import unquote
 

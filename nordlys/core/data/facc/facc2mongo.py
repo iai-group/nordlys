@@ -1,14 +1,13 @@
 """
-facc2mongo
-----------
+Facc to Mongo
+=============
 
 Adds entity surface forms from the Freebase Annotated ClueWeb Corpora (FACC).
 
 The input to this script is (name variant, Freebase entity, count) triples.
 See `data/facc1/README.md` for the preparation of FACC data in such format.
 
-@author: Krisztian Balog
-@author: Faegheh Hasibi
+:Authors: Krisztian Balog, Faegheh Hasibi
 """
 
 import argparse
@@ -18,6 +17,7 @@ import sys
 from nordlys.config import MONGO_HOST, MONGO_DB, MONGO_COLLECTION_SF_FACC
 from nordlys.core.storage.mongo import Mongo
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 # static key values
 KEY_COLLECTION = "collection"
@@ -50,7 +50,7 @@ class FACCToMongo(object):
             if KEY_LOWERCASE not in config:
                 config[KEY_LOWERCASE] = True
         except Exception as e:
-            print("Error in config file: ", e)
+            PLOGGER.error("Error in config file: ", e)
             sys.exit(1)
 
     def __add_surface_form(self, surface_form, freebase_uri, count):
@@ -68,7 +68,7 @@ class FACCToMongo(object):
 
     def __add_file(self, tsv_filename):
         """Adds name variants from an FACC tsv file."""
-        print("Adding name variants from '" + tsv_filename + "'...")
+        PLOGGER.info("Adding name variants from '" + tsv_filename + "'...")
         infile = open(tsv_filename, "r")
         for line in infile:
             f = line.rstrip().split("\t")
@@ -84,7 +84,7 @@ class FACCToMongo(object):
             for fn in files:
                 if fn.endswith(".tsv"):
                     self.__add_file(os.path.join(path, fn))
-
+        PLOGGER.info("Collection " + self.__collection + " is built.")
          
 def main(args):
     config = FileUtils.load_config(args.config)

@@ -1,10 +1,11 @@
 """
-trec_qrels
-----------
+Trec Qrels
+==========
 
 Utility module for working with TREC qrels files.
 
-Usage:
+Usage
+-----
 
 Get statistics about a qrels file
   ``trec_qrels <qrels_file> -o stat``
@@ -18,10 +19,11 @@ Filter qrels to contain only queries from a given set
   ``trec_qrels <qrels_file> -o filter_qs -q <query_ids_file> -f <output_file>``
 
 
-@author: Krisztian Balog
+:Author: Krisztian Balog
 """
 
 import argparse
+from nordlys.config import PLOGGER
 
 
 class TrecQrels(object):
@@ -134,12 +136,12 @@ def main(args):
         qrels.print_stat()
     elif args.operation == CHOICE_FILTER_DOCS:
         if len(args.doc_ids_file) == 0 or len(args.output_file) == 0:
-            print("doc_ids_file or output_file missing")
+            PLOGGER.info("doc_ids_file or output_file missing")
         else:
             qrels.filter_by_doc_ids(args.doc_ids_file, args.output_file)
     elif args.operation == CHOICE_FILTER_QS:
         if len(args.query_ids_file) == 0 or len(args.output_file) == 0:
-            print("query_ids_file or output_file missing")
+            PLOGGER.info("query_ids_file or output_file missing")
         else:
             qrels.filter_by_query_ids(args.query_ids_file, args.output_file)
 

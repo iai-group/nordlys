@@ -1,6 +1,6 @@
 """
-instance
---------
+Instance
+========
 
 Instance class.
 
@@ -16,10 +16,11 @@ Instance properties:
 This is the base instance class.
 Specific type of instances can inherit form class and add more properties to the base class.
 
-@author: Faegheh Hasibi
+:Author: Faegheh Hasibi
 """
 
 import json
+from nordlys.config import PLOGGER
 
 
 class Instance(object):
@@ -116,7 +117,7 @@ class Instance(object):
         """
         json_ins = {self.__id: {"target": self.target, "features": self.__features, "properties": self.__properties}}
         if file_name is not None:
-            print("writing instance \"" + str(self.__id) + "\" to " + file_name + "...")
+            PLOGGER.info("writing instance \"" + str(self.__id) + "\" to " + file_name + "...")
             out = open(file_name, "w")
             json.dump(json_ins, out, indent=4)
         return json_ins
@@ -166,7 +167,7 @@ def main():
     ins.q_id = "q1"
     ins.q_content = "test query"
     ins_file = "../../src/output/instance.txt"
-    print(ins.to_json(ins_file))
+    PLOGGER.info(ins.to_json(ins_file))
 
 
 if __name__ == "__main__":

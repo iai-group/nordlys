@@ -66,9 +66,7 @@ Example config
 
 ------------------------
 
-:Authors: - Faegheh Hasibi
-          - Krisztian Balog
-
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 
 from sys import exit, argv
@@ -80,6 +78,7 @@ from sklearn.ensemble import (GradientBoostingRegressor, GradientBoostingClassif
 
 from nordlys.core.ml.instances import Instances
 from nordlys.core.ml.cross_validation import CrossValidation
+from nordlys.config import PLOGGER
 
 
 class ML(object):
@@ -96,7 +95,7 @@ class ML(object):
             try:
                 self.__config = json.load(open(config_file))
             except Exception as e:
-                print("Error loading config file: ", e)
+                PLOGGER.error("Error loading config file: ", e)
                 exit(1)
 
             # check params and set default values
@@ -115,7 +114,7 @@ class ML(object):
                         raise Exception("test_set is missing")
 
             except Exception as e:
-                print("Error in config file: ", e)
+                PLOGGER.error("Error in config file: ", e)
                 exit(1)
 
     def gen_model(self, num_features=None):
@@ -130,13 +129,13 @@ class ML(object):
             default_depth = round(num_features / 10.0) if num_features is not None else None
             depth = self.__config["parameters"].get("depth", default_depth)
 
-            print("\nTraining instances using GBRT ...")
-            print("\tNumber of trees:\t" + str(tree) + "\n\tDepth of trees:\t" + str(depth))
+            PLOGGER.info("\nTraining instances using GBRT ...")
+            PLOGGER.info("\tNumber of trees:\t" + str(tree) + "\n\tDepth of trees:\t" + str(depth))
             if self.__config.get("category", "regression") == "regression":
-                print("\tTraining regressor")
+                PLOGGER.info("\tTraining regressor")
                 model = GradientBoostingRegressor(n_estimators=tree, max_depth=depth, learning_rate=alpha)
             else:
-                print("\tTraining the classifier")
+                PLOGGER.info("\tTraining the classifier")
                 model = GradientBoostingClassifier(n_estimators=tree, max_depth=depth, learning_rate=alpha)
 
         elif self.__config["model"].lower() == "rf":
@@ -144,13 +143,13 @@ class ML(object):
             default_maxfeat = round(num_features / 10.0) if num_features is not None else None
             max_feat = self.__config["parameters"].get("maxfeat", default_maxfeat)
 
-            print("Training instances using RF ...")
-            print("\tNumber of trees:\t" + str(tree) + "\n\tMax features:\t" + str(max_feat))
+            PLOGGER.info("Training instances using RF ...")
+            PLOGGER.info("\tNumber of trees:\t" + str(tree) + "\n\tMax features:\t" + str(max_feat))
             if self.__config.get("category", "regression") == "regression":
-                print("\tTraining regressor")
+                PLOGGER.info("\tTraining regressor")
                 model = RandomForestRegressor(n_estimators=tree, max_features=max_feat)
             else:
-                print("\tTraining classifier")
+                PLOGGER.info("\tTraining classifier")
                 model = RandomForestClassifier(n_estimators=tree, max_features=max_feat)
         return model
 
@@ -163,7 +162,7 @@ class ML(object):
 
         features = instances.get_all()[0].features
         features_names = sorted(features.keys())
-        print("Number of features:\t" + str(len(features_names)))
+        PLOGGER.info("Number of features:\t" + str(len(features_names)))
         # Converts instances to Scikit-learn format : (n_samples, n_features)
         n_samples = len(instances.get_all())
         train_x = numpy.zeros((n_samples, len(features_names)))
@@ -181,11 +180,11 @@ class ML(object):
         # write the trained model to the file
         if "save_model" in self.__config:
             # @todo if CV is used we need to append the fold no. to the filename
-            print("Writing trained model to {} ...".format(self.__config["save_model"]))
+            PLOGGER.info("Writing trained model to {} ...".format(self.__config["save_model"]))
             pickle.dump(model, open(self.__config["save_model"], "wb"))
 
         if "save_feature_imp" in self.__config:
-            print(self.analyse_features(model, features_names))
+            PLOGGER.info(self.analyse_features(model, features_names))
         return model
 
     def analyse_features(self, model, feature_names):
@@ -218,7 +217,7 @@ class ML(object):
         :param model: trained model
         :return: Instances
         """
-        print("Testing instances ... ")
+        PLOGGER.info("Testing instances ... ")
         if len(instances.get_all()) > 0:
             features_names = sorted(instances.get_all()[0].features.keys())
             for ins in instances.get_all():
@@ -238,11 +237,11 @@ class ML(object):
         """
         with open(self.__config["output_file"], "w") as f:
             f.write("id\tscore\n")  # output to file
-            print("id\ttarget\tscore\n")
+            PLOGGER.info("id\ttarget\tscore\n")
             for ins in instances.get_all():
                 f.write(ins.id + "\t" + "{0:.30f}".format(ins.score) + "\n")  # output to file
                 # print(ins.id + "\t" + str(ins.target) + "\t" + "{0:.30f}".format(ins.score))  # print also to console
-        print("Output saved in: " + self.__config["output_file"])
+        PLOGGER.info("Output saved in: " + self.__config["output_file"])
 
     def run(self):
         # load training instances
@@ -273,7 +272,7 @@ class ML(object):
 
 
 def print_usage():
-    print(argv[0] + " <config_file>")
+    PLOGGER.info(argv[0] + " <config_file>")
     exit()
 
 

@@ -1,11 +1,10 @@
 """
-plot_diff
----------
+Plot Differences
+================
 
 Plots a series of scores which represent differences.
 
-@author: Shuo Zhang
-@author: Krisztian Balog
+:Authors: Shuo Zhang, Krisztian Balog
 """
 from matplotlib.backends.backend_pdf import PdfPages
 import matplotlib.pylab as plt

@@ -1,10 +1,11 @@
 """
-create_sample
--------------
+Create Sample
+=============
 
 Samples a set of entities from the (raw) DBpedia collection.
 
-Usage:
+Usage
+-----
 
 nordlys.data.dbpedia.create_sample <path_to_dbpedia> <entities_file> <output_dir>
 
@@ -12,8 +13,7 @@ nordlys.data.dbpedia.create_sample <path_to_dbpedia> <entities_file> <output_dir
   - entities_file: file with the set of entities to be included in the sample (one entity URI per line)
   - output_dir: sample will be placed in this directory (e.g., .../dbpedia-2015-10-sample/)
 
-@author Krisztian Balog
-@author Natalia Shepeleva
+:Authors: Krisztian Balog, Natalia Shepeleva
 """
 
 
@@ -24,6 +24,7 @@ from rdflib.plugins.parsers.ntriples import ParseError
 from nordlys.core.storage.nt2mongo import Triple
 from nordlys.core.storage.parser.uri_prefix import URIPrefix
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 
 class CreateDBpediaSample(object):
@@ -49,7 +50,7 @@ class CreateDBpediaSample(object):
         p = NTriplesParser(t)
         infile = os.path.join(self.path_to_dbpedia, dir, file)
         outfile = os.path.join(self.output_dir, dir, file)
-        print("Processing file " + file + " ...")
+        PLOGGER.info("Processing file " + file + " ...")
         i = 0
         with FileUtils.open_file_by_type(infile) as fin:
             fout = FileUtils.open_file_by_type(outfile, mode="w")  # output file will be of the same type as the input
@@ -65,7 +66,7 @@ class CreateDBpediaSample(object):
                     fout.write(line)
                 i += 1
                 if i % 100000 == 0:
-                    print(str(i // 1000) + "K lines processed")
+                    PLOGGER.info(str(i // 1000) + "K lines processed")
             fout.close()
 
     def __sample_dir(self, dir, ext):
@@ -74,14 +75,14 @@ class CreateDBpediaSample(object):
         :param dir: directory (relative to path_to_dbpedia)
         :param ext: file extensions considered
         """
-        print("Processing directory " + dir + " ...")
+        PLOGGER.info("Processing directory " + dir + " ...")
         # make sure the dir exists under the output directory
         outdir = os.path.join(self.output_dir, dir)
         if not os.path.exists(outdir):
             os.makedirs(outdir)
         # make a local of each file from that directory with the given extension
         for root, dirs, files in os.walk(os.path.join(self.path_to_dbpedia, dir)):
-            print(root)
+            PLOGGER.info(root)
             for file in files:
                 if file.endswith(ext):
                     self.__sample_file(dir, file)

@@ -1,8 +1,8 @@
 """
-Retrieval package
-=================
+Retrieval
+=========
 
-The retrieval package provides basic indexing and scoring functionality based on Elasticsearch.
+The retrieval package provides basic indexing and scoring functionality based on Elasticsearch (v2.3).
 It can be used both for documents and for entities (as the latter are represented as fielded documents).
 
 
@@ -23,6 +23,7 @@ Notes
 
 - To speed up indexing, use :meth:`~nordlys.core.retrieval.elastic.Elastic.add_docs_bulk`. The optimal number of documents to send in a single bulk depends on the size of documents; you need to figure it out experimentally.
 - We strongly recommend using the default Elasticsearch similarity (currently BM25) for indexing. (`Other similarity functions <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/index-modules-similarity.html>`_ may be also used; in that case the similarity function can updated after indexing.)
+- Our default setting is *not* to store term positions in the index (for efficiency considerations).
 
 
 Retrieval
@@ -34,7 +35,7 @@ Retrieval is done in two stages:
 - *Second pass*: The (expensive) scoring of the top ``N`` documents is performed (implemented in the Nordlys)
 
 
-Nodrlys currently supports the following models for second pass retrieval:
+Nordlys currently supports the following models for second pass retrieval:
 
 - Language modelling (LM) [1]
 - Mixture of Language Modesl (MLM) [2]
@@ -57,10 +58,10 @@ Notes
 
 -------------------
 
-[1] Jay M Ponte and W Bruce Croft . 1998. *A Language modeling approach to information retrieval*. In Proc. of SIGIR '98. 275–281.
+[1] Jay M Ponte and W Bruce Croft. 1998. *A Language modeling approach to information retrieval*. In Proc. of SIGIR '98.
 
-[2] Paul Ogilvie and Jamie Callan. 2003. *Combining document representations for known-item search*. Proc. of SIGIR '03 (2003), 143–150.
+[2] Paul Ogilvie and Jamie Callan. 2003. *Combining document representations for known-item search*. Proc. of SIGIR '03.
 
-[3] Jinyoung Kim, Xiaobing Xue, and W Bruce Croft . 2009. *A probabilistic retrieval model for semistructured data*. In Proc. of ECIR '09. 228–239.
+[3] Jinyoung Kim, Xiaobing Xue, and W Bruce Croft. 2009. *A probabilistic retrieval model for semistructured data*. In Proc. of ECIR '09.
 
 """

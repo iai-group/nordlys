@@ -1,6 +1,10 @@
-"""NTriples parser with URI prefixing
+"""
+NTriples Parser
+===============
 
-@author: Krisztian Balog
+NTriples parser with URI prefixing
+
+:Author: Krisztian Balog
 """
 
 import sys
@@ -8,6 +12,7 @@ import logging
 from nordlys.core.storage.parser.uri_prefix import URIPrefix
 from rdflib.plugins.parsers.ntriples import NTriplesParser
 from rdflib.term import URIRef
+from nordlys.config import PLOGGER
 
 
 class Triple(object):
@@ -77,8 +82,8 @@ class NTParser(object):
         logging.basicConfig(level="ERROR")  # no warnings from the rdf parser
 
     def parse_file(self, filename, triplehandler):
-        """Parses file and calls callback function with the parsed triple""" 
-        print("Processing " + filename + "...")
+        """Parses file and calls callback function with the parsed triple"""
+        PLOGGER.info("Processing " + filename + "...")
         
         prefix = URIPrefix()
         t = Triple(prefix)
@@ -95,17 +100,17 @@ class NTParser(object):
                 triplehandler.triple_parsed(t)
                                 
                 i += 1
-                if i % 10000 == 0: 
-                    print(str(i / 1000) + "K lines processed")
+                if i % 10000 == 0:
+                    PLOGGER.info(str(i / 1000) + "K lines processed")
 
 
 class TripleHandlerPrinter(TripleHandler):
     """Example triple handler that only prints whatever it received."""
     
     def triple_parsed(self, triple):
-        print("S: " + triple.subject() + " ==> " + triple.subject_prefixed())
-        print("  P: " + triple.predicate() + " ==> " + triple.predicate_prefixed())
-        print("  O: " + triple.object() + " ==> " + triple.object_prefixed())
+        PLOGGER.info("S: " + triple.subject() + " ==> " + triple.subject_prefixed())
+        PLOGGER.info("  P: " + triple.predicate() + " ==> " + triple.predicate_prefixed())
+        PLOGGER.info("  O: " + triple.object() + " ==> " + triple.object_prefixed())
 
 
 def main(argv): 

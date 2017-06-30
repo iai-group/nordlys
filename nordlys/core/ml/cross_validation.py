@@ -1,5 +1,5 @@
 """
-cross_validation
+Cross Validation
 ----------------
 
 Cross-validation support.
@@ -7,8 +7,7 @@ Cross-validation support.
 We assume that instances (i) are uniquely identified by an instance ID and (ii) they have id and score properties.
 We access them using the Instances class.
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 
 from os.path import isfile

@@ -1,18 +1,17 @@
 """
-scorer
-------
+Scorer
+======
 
 Various retrieval models for scoring a individual document for a given query.
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
+:Authors: Faegheh Hasibi, Krisztian Balog
 """
 import math
-import abc
 import sys
 
 from nordlys.core.retrieval.elastic import Elastic
 from nordlys.core.retrieval.elastic_cache import ElasticCache
+from nordlys.config import PLOGGER
 
 
 class Scorer(object):
@@ -48,13 +47,13 @@ class Scorer(object):
         """
         model = config.get("model", None)
         if model == "lm":
-            print("\tLM scoring ... ")
+            PLOGGER.debug("\tLM scoring ... ")
             return ScorerLM(elastic, query, config)
         elif model == "mlm":
-            print("\tMLM scoring ...")
+            PLOGGER.debug("\tMLM scoring ...")
             return ScorerMLM(elastic, query, config)
         elif model == "prms":
-            print("\tPRMS scoring ...")
+            PLOGGER.debug("\tPRMS scoring ...")
             return ScorerPRMS(elastic, query, config)
         elif model is None:
             return None
@@ -72,7 +71,7 @@ class ScorerLM(Scorer):
 
     def __init__(self, elastic, query, params):
         super(ScorerLM, self).__init__(elastic, query, params)
-        self._field = params.get("field", Elastic.FIELD_CATCHALL)
+        self._field = params.get("fields", Elastic.FIELD_CATCHALL)
         self._smoothing_method = params.get("smoothing_method", self.JM).lower()
         if self._smoothing_method == self.DIRICHLET:
             self._smoothing_param = params.get("smoothing_param", 2000)
@@ -80,7 +79,7 @@ class ScorerLM(Scorer):
             self._smoothing_param = params.get("smoothing_param", 0.1)
         # self._smoothing_param = params.get("smoothing_param", None)
         else:
-            print(self._smoothing_method + " smoothing method is not supported!")
+            PLOGGER.error(self._smoothing_method + " smoothing method is not supported!")
             sys.exit(0)
 
         self._tf = {}
@@ -139,8 +138,8 @@ class ScorerLM(Scorer):
         """
         len_d_f = self._elastic.doc_length(doc_id, field)
         len_C_f = self._elastic.coll_length(field)
-        tf_t_d_f = self.__get_term_freq(doc_id, field, t) if tf_t_d_f is None else tf_t_d_f
         tf_t_C_f = self._elastic.coll_term_freq(t, field) if tf_t_C_f is None else tf_t_C_f
+        tf_t_d_f = self.__get_term_freq(doc_id, field, t) if tf_t_d_f is None else tf_t_d_f
         if self.SCORER_DEBUG:
             print("\t\tt = {}\t f = {}".format(t, field))
             print("\t\t\tDoc:  tf(t,f) = {}\t|f| = {}".format(tf_t_d_f, len_d_f))
@@ -219,8 +218,8 @@ class ScorerMLM(ScorerLM):
 
     def __init__(self, elastic, query, params):
         super(ScorerMLM, self).__init__(elastic, query, params)
-        self._field_weights = params.get("field_weights", {})
-        if "field_weights" not in params:
+        self._field_weights = params.get("fields", {})
+        if "fields" not in params:
             raise Exception("Field weights are not defined for MLM scoring!")
 
     def get_mlm_term_prob(self, doc_id, t):
@@ -397,9 +396,9 @@ if __name__ == "__main__":
     query = "gonna friends"
     doc_id = "4"
     es = ElasticCache("toy_index")
-    params = {"field": "content",
-              "field_weights": {"title": 0.2, "content": 0.8},
-              "fields": ["content", "title"]
+    params = {"fields": "content",
+              "__fields": {"title": 0.2, "content": 0.8},
+              "__fields": ["content", "title"]
               }
     score = ScorerPRMS(es, query, params).score_doc(doc_id)
     print(score)

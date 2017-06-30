@@ -1,6 +1,6 @@
 """
-nt2mongo
---------
+NTriples to Mongo
+=================
 
 Loads NTriples RDF file into MongoDB.
 
@@ -22,12 +22,10 @@ IMPORTANT:
   the predicate. If it can be a problem (e.g., DBpedia uses <rdf:type> for 
   both mapping-based types and YAGO types) then use predicate prefixing!
 
-@author: Faegheh Hasibi
-@author: Krisztian Balog
-@author: Natalia Shepeleva
+:Authors: Faegheh Hasibi, Krisztian Balog， Natalia Shepeleva
 """
 
-import logging
+# import logging
 from rdflib.plugins.parsers.ntriples import NTriplesParser
 from rdflib.plugins.parsers.ntriples import ParseError
 from rdflib.term import URIRef
@@ -35,6 +33,7 @@ from nordlys.core.storage.mongo import Mongo
 from nordlys.core.storage.parser.nt_parser import Triple
 from nordlys.core.storage.parser.uri_prefix import URIPrefix
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 
 class NTriplesToMongoDB(object):
@@ -43,7 +42,7 @@ class NTriplesToMongoDB(object):
         self.__prefix = URIPrefix()
         self.__m_id = None
         self.__m_contents = None
-        logging.basicConfig(level="ERROR")  # no warnings from the rdf parser
+        # logging.basicConfig(level="ERROR")  # no warnings from the rdf parser
 
     def _next_triple(self, subj, pred, obj):
         """Processes a triple.
@@ -81,7 +80,7 @@ class NTriplesToMongoDB(object):
         :param predicate_prefix: prefix to be added to predicates.
         :param subjects_redirecter: redirects dict.
         """
-        print("Processing " + filename + "...")
+        PLOGGER.info("Processing " + filename + "...")
 
         t = Triple()
         p = NTriplesParser(t)
@@ -122,7 +121,7 @@ class NTriplesToMongoDB(object):
 
                 i += 1
                 if i % 100000 == 0:
-                    print(str(i // 1000) + "K lines processed from " + filename)
+                    PLOGGER.info(str(i // 1000) + "K lines processed from " + filename)
 
         # process last triple
         self._write_to_mongo()

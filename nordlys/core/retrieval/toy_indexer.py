@@ -1,21 +1,20 @@
 """
-toy_indexer
------------
+Toy Indexer
+===========
 
 Toy indexing example for testing purposes.
 
-@author: Krisztian Balog
-@author: Faegheh Hasibi
+:Authors: Krisztian Balog, Faegheh Hasibi
 """
 from nordlys.core.retrieval.retrieval import Retrieval
 from nordlys.core.retrieval.elastic import Elastic
+# from nordlys.core.utils.logging_utils import PLOGGER
 
 
 def main():
     index_name = "toy_index"
 
     mappings = {
-        # "id": Elastic.notanalyzed_field(),
         "title": Elastic.analyzed_field(),
         "content": Elastic.analyzed_field(),
     }
@@ -41,10 +40,7 @@ def main():
     elastic = Elastic(index_name)
     elastic.create_index(mappings, force=True)
     elastic.add_docs_bulk(docs)
-    print("index has been built")
-
-    # for docid, doc in docs.items():
-    #     elastic.add_doc(docid, doc)
+    # PLOGGER.info("index has been built")
 
 
 if __name__ == "__main__":

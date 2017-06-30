@@ -1,12 +1,24 @@
 """
-elastic_cache
--------------
+Elastic Cache
+=============
 
-This is a cache for elastic index stats; a layer between an index and scorer.
+This is a cache for elastic index stats; a layer between an index and retrieval.
+The statistics (such as document and term frequencies) are first read from the index and stayed in the memory for further usages.
 
-@author: Faegheh Hasibi
+
+Usage hints
+-----------
+
+  - Only one instance of Elastic cache needs to be created.
+  - If running out of memory, a new instance of ElasticCache must be created.
+  - The class caches term vectors. To further boost efficiency, one can load term vectors for multiple documents using :func:`ElasticCache.multi_termvector`.
+
+
+:Authors: Faegheh Hasibi
+
 """
 from collections import defaultdict
+
 from nordlys.core.retrieval.elastic import Elastic
 
 
@@ -21,20 +33,27 @@ class ElasticCache(Elastic):
         self.__coll_length = {}
         self.__avg_len = {}
         self.__doc_length = defaultdict(dict)
+        self.__doc_freq = defaultdict(dict)
+        self.__coll_term_freq = defaultdict(dict)
         self.__tv = defaultdict(dict)
         self.__coll_tv = defaultdict(dict)
 
     def __get_termvector(self, doc_id, field):
         """Returns a term vector for a given document and field."""
+        if self.__coll_tv.get(doc_id, {}).get(field, None):
+            return self.__coll_tv[doc_id][field]
         if self.__tv.get(doc_id, {}).get(field, None) is None:
             self.__tv[doc_id][field] = self._get_termvector(doc_id, field)
         return self.__tv[doc_id][field]
 
     def __get_coll_termvector(self, term, field):
         """Returns a term vector containing collection stats of a term."""
-        if self.__coll_tv.get(term, {}).get(field, None) is None:
-            self.__coll_tv[term][field] = self._get_coll_termvector(term, field)
-        return self.__coll_tv[term][field]
+        body = {"query": {"bool": {"must": {"term": {field: term}}}}}
+        hits = self.search_complex(body, num=1)
+        doc_id = next(iter(hits.keys())) if len(hits) > 0 else None
+        if self.__coll_tv.get(doc_id, {}).get(field, None) is None:
+            self.__coll_tv[doc_id][field] = self._get_termvector(doc_id, field, term_stats=True) if doc_id else {}
+        return self.__coll_tv[doc_id][field]
 
     def num_docs(self):
         """Returns the number of documents in the index."""
@@ -74,13 +93,17 @@ class ElasticCache(Elastic):
 
     def doc_freq(self, term, field, tv=None):
         """Returns document frequency for the given term and field."""
-        tv = self.__get_coll_termvector(term, field)
-        return super(ElasticCache, self).doc_freq(term, field, tv=tv)
+        if self.__doc_freq.get(field, {}).get(term, None) is None:
+            tv = self.__get_coll_termvector(term, field)
+            self.__doc_freq[field][term] = super(ElasticCache, self).doc_freq(term, field, tv=tv)
+        return self.__doc_freq[field][term]
 
     def coll_term_freq(self, term, field, tv=None):
         """ Returns collection term frequency for the given field."""
-        tv = self.__get_coll_termvector(term, field)
-        return super(ElasticCache, self).coll_term_freq(term, field, tv=tv)
+        if self.__coll_term_freq.get(field, {}).get(term, None) is None:
+            tv = self.__get_coll_termvector(term, field)
+            self.__coll_term_freq[field][term] = super(ElasticCache, self).coll_term_freq(term, field, tv=tv)
+        return self.__coll_term_freq[field][term]
 
     def term_freqs(self, doc_id, field, tv=None):
         """Returns term frequencies for a given document and field."""
@@ -90,3 +113,15 @@ class ElasticCache(Elastic):
     def term_freq(self, doc_id, field, term):
         """Returns frequency of a term in a given document and field."""
         return self.term_freqs(doc_id, field).get(term, 0)
+
+    def multi_termvector(self, doc_ids, field, batch=50):
+        """Returns term vectors for a given document and field."""
+        i = 0
+        while i < len(doc_ids):
+            j = i + batch if i + batch <= len(doc_ids) else len(doc_ids)
+            tvs = self._get_multi_termvectors(doc_ids[i:j], field)
+            for doc_id, tv in tvs.items():
+                if tv != {}:
+                    self.__tv[doc_id][field] = tv
+            i += batch
+

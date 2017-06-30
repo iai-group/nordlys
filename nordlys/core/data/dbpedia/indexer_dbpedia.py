@@ -1,10 +1,10 @@
 """
-indexer_dbpedia
----------------
+DBpedia Indexer
+===============
 
 Builds FSDM-based index for DBpedia.
 
-@author: Faegheh Hasibi
+:Author: Faegheh Hasibi
 """
 import argparse
 import json
@@ -15,6 +15,7 @@ from nordlys.core.retrieval.elastic import Elastic
 from nordlys.core.retrieval.indexer_mongo import IndexerMongo
 from nordlys.core.storage.mongo import Mongo
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 
 class IndexerDBpedia(object):
@@ -135,7 +136,7 @@ def main(args):
     config = FileUtils.load_config(args.config)
     indexer = IndexerDBpedia(config)
     indexer.build()
-    print("Index build: " + config["index_name"])
+    PLOGGER.info("Index build: " + config["index_name"])
     # indexer.create_sample_file()
 
 

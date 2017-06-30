@@ -1,6 +1,10 @@
-"""Generates URI-only DBpedia index.
+"""
+DBpedia URI Indexer
+===================
 
-@author: Faegheh Hasibi
+Generates URI-only DBpedia index.
+
+:Author: Faegheh Hasibi
 """
 import argparse
 import json
@@ -12,6 +16,7 @@ from nordlys.core.retrieval.elastic import Elastic
 from nordlys.core.retrieval.indexer_mongo import IndexerMongo
 from nordlys.core.storage.mongo import Mongo
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.config import PLOGGER
 
 
 class IndexerDBpediaURI(IndexerDBpedia):
@@ -26,9 +31,9 @@ class IndexerDBpediaURI(IndexerDBpedia):
         NOTE: Rank of fields with the same frequency is equal.
               This means that there can more than one field for each rank.
         """
-        print("Getting the top-n frequent DBpedia fields ...")
+        PLOGGER.info("Getting the top-n frequent DBpedia fields ...")
         sorted_fields = sorted(self.__field_counts.items(), key=lambda item: item[1], reverse=True)
-        print("Number of total fields:", len(sorted_fields))
+        PLOGGER.info("Number of total fields:", len(sorted_fields))
 
         top_fields = []
         rank, prev_count, i = 0, 0, 0
@@ -125,7 +130,7 @@ def compute_field_counts():
 
     :return a dictionary of fields and their frequency
     """
-    print("Counting fields ...")
+    PLOGGER.info("Counting fields ...")
     dbpedia_coll = Mongo(MONGO_HOST, MONGO_DB, MONGO_COLLECTION_DBPEDIA).find_all()
     i = 0
     field_counts = dict()
@@ -139,14 +144,14 @@ def compute_field_counts():
                 field_counts[field] = 1
         i += 1
         if i % 1000000 == 0:
-            print("\t", str(int(i / 1000000)), "M entity is processed!")
+            PLOGGER.info("\t", str(int(i / 1000000)), "M entity is processed!")
     return field_counts
 
 
 def main(args):
     config = FileUtils.load_config(args.config)
     if "_uri" not in config["index_name"]:
-        print("index name might not be correct, please check again!")
+        PLOGGER.error("index name might not be correct, please check again!")
         exit(0)
 
     if "fields_file" not in config:
@@ -157,7 +162,7 @@ def main(args):
     indexer = IndexerDBpediaURI(config, fields_count)
 
     indexer.build()
-    print("Index build: " + config["index_name"])
+    PLOGGER.info("Index build: " + config["index_name"])
     # indexer.create_sample_file()
 
 
