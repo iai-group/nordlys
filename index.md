@@ -3,7 +3,7 @@ Entities (such as people, organizations, or products) are meaningful units for o
 
 ## Functionality
 
-Nordlys currently supports three entity-oriented search tasks, which are core components in semantic search:
+Nordlys currently supports four entity-oriented tasks, which are core components in semantic search:
 
 - Entity cataloging
 - Entity retrieval
