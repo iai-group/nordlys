@@ -7,9 +7,10 @@ Global nordlys config.
 :Author: Krisztian Balog
 :Author: Faegheh Hasibi
 """
-
+import logging
 import os
 from nordlys.core.utils.file_utils import FileUtils
+from nordlys.core.utils.logging_utils import PrintHandler
 
 
 def load_nordlys_config(file_name):
@@ -59,3 +60,15 @@ WWW_HOST = WWW_CONFIG["host"]
 WWW_PORT = int(WWW_CONFIG["port"])
 WWW_DOMAIN = WWW_CONFIG["domain"]
 WWW_SETTINGS = WWW_CONFIG["settings"]
+
+# config for RequestLogger
+LOGGING_PATH = os.sep.join([BASE_DIR, "logs"])
+# config for PrintLogger (PLOGGER)
+LOGGING_LEVEL = logging.INFO
+logging.basicConfig(level=logging.DEBUG)
+logging.getLogger("urllib3").setLevel(logging.WARNING)
+logging.getLogger("elasticsearch").setLevel(logging.WARNING)
+PLOGGER = logging.getLogger("nordlys")
+PLOGGER.addHandler(PrintHandler(LOGGING_LEVEL).ch)
+PLOGGER.setLevel(LOGGING_LEVEL)
+PLOGGER.propagate = 0
