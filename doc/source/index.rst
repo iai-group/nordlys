@@ -39,6 +39,7 @@ Contents
    cmd_usage
    architecture
    Python package documentation <api/nordlys>
+   contact
 
 
 Indices and tables
@@ -51,4 +52,4 @@ Indices and tables
 Authors
 ========
 
-`Faegheh Hasibi <hasibi.com>`_, `Krisztian Balog <krisztianbalog.com>`, Dario Garigliotti, Shuo Zhang
+
