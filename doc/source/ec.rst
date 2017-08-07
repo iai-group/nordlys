@@ -1,4 +1,3 @@
-"""
 Entity catalog
 ==============
 
@@ -21,4 +20,3 @@ Examples
 
 
 :Author: Faegheh Hasibi
-"""
