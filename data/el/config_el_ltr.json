@@ -1,0 +1,20 @@
+{
+    "model": "rf",
+    "category": "regression",
+	"parameters":{
+		"alpha": 0.1,
+		"tree": 10,
+		"depth": 5
+	},
+	"query_file": "",
+	"training_set": "data/el/train.json",
+	"test_set": "data/el/test.json",
+	"model_file": "data/el/model.txt",
+    "output_file": "data/ml_sample/output.json",
+    "cross_validation":{
+		"create_splits": true,
+		"splits_file": "data/ml_sample/splits.json",
+        "k": 5,
+        "split_strategy": "q_id"
+	}
+}
