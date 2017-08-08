@@ -1,34 +1,58 @@
 Entity Linking
-==============
+================
 
-The command-line application for entity linking
+Identifying named entities in queries and linking them to the corresponding entry in the knowledge base is known as the task of entity linking in queries (ELQ). Given a query q, return one or multiple interpretations of the query, each interpretation consists of a set of mention-entity pairs.
+
+Entity retrieval is a core building block of semantic search.  Given a search query, entity retrieval is the task of returning a ranked list of entities from an underlying knowledge base.
+
+The following ELQ methods are implemented in Nordlys:
+
+- **CMNS**:  Thee baseline method that performs entity linking based on the overall popularity of entities as link targets, i.e., the commonness feature [:ref:`Hasibi et al., 2015 <ref_Hasibi2015>`].
+
+-  **CMNS-greedy**: A generative retrieval model proposed in [:ref:`Hasibi et al., 2015 <ref_Hasibi2015>`], that combines the commonness score with the textual similarity between the query and the entity [:ref:`Ogilvie and Callan, 2003 <ref_Ogilvie2003>`].
+
+- **LTR-greedy**: The recommended method (with respect to both efficiency and effectiveness) by Hasibi et al. [:ref:`Hasibi et al., 2016 <ref_Hasibi2017>`], which employs a learning-to-rank model with various textual and semantic similarity features.
 
 Usage
 -----
 
-::
+- :doc:`Command line usage <api/nordlys.services.el>`
+- :ref:`API usage <api_el>`
 
-  python -m nordlys.services.er -c <config_file> -q <query>
 
-If `-q <query>` is passed, it returns the resutls for the specified query and prints them in terminal.
-
-Config parameters
+Benchmark results
 -----------------
 
-- **method**: name of the method
-    - **CMNS**  The baseline method that uses the overall popularity of entities as link targets
-- **threshold**: entity linking threshold; varies depending on the method *(default for cmns: 0.1)*
-- **query_file**: name of query file (JSON)
-- **output_file**: name of output file
+Below, we present the results on the `Y-ERD collection <https://github.com/hasibi/EntityLinkingInQueries-ELQ>`_ [:ref:`Hasibi et al., 2015 <ref_Hasibi2015>`].
 
-Example config
----------------
 
-.. code:: python
++-------------+---------+----------+----------+
+| Method      | P       | R        | F        |
++=============+=========+==========+==========+
+| MLM-greedy  | 0.709   | 0.709    | 0.709    |
++-------------+---------+----------+----------+
+| LTLR-greedy | 0.786   | 0.787    | 0.787    |
++-------------+---------+----------+----------+
 
-	{
-	  "method": "cmns",
-	  "threshold": 0.1,
-	  "query_file": "path/to/queries.json"
-	  "output_file": "path/to/output.json"
-	}
+
+The corresponding files may be found under `el`. Specifically:
+
+  - ``y_erd-queries.json`` contains the search queries (using stopped versions from [:ref:`Hasibi et al., 2017 <ref_Hasibi2017>`])
+  - ``y_erd.tsv`` the Y-ERD collection with entity ID normalized to DBpedia 2015-10.
+  - ``config.json`` holds the config file for the LTR-greedy method
+
+
+References
+----------
+
+.. _ref_Hasibi2015:
+
+- Faegheh Hasibi, Krisztian Balog, Svein Erik Bratsberg. 2015. **Entity Linking in Queries: Tasks and Evaluation**. In: *ACM SIGIR International Conference on the Theory of Information Retrieval (ICTIR ’15)*. [`PDF <http://hasibi.com/files/ictir2015-elq.pdf>`_]
+
+.. _ref_Hasibi2017:
+
+- Faegheh Hasibi, Krisztian Balog, Svein Erik Bratsberg. 2017. **Entity Linking in Queries: Efficiency vs. Effectiveness**. In: *39th European Conference on Information Retrieval (ECIR ’17)*. [`PDF <http://hasibi.com/files/ecir2017-elq.pdf>`_]
+
+.. _ref_Ogilvie2003:
+
+- Paul Ogilvie and Jamie Callan. 2003. **Combining Document Representations for Known-Item Search**. In: *26th annual international ACM SIGIR conference on Research and development in information retrieval (SIGIR '03)*.

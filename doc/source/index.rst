@@ -11,7 +11,7 @@ Entities (such as people, organizations, or products) are meaningful units for o
 Nordlys supports 3 functionalities in the context of entity-oriented search:
 
 - :doc:`Entity retrieval <er>`: Returns a ranked list of entities in response to a query
-- **Entity linking**: Identifies entities in a query and links them to the corresponding entry in the Knowledge base
+- :doc:`Entity linking <el>`: Identifies entities in a query and links them to the corresponding entry in the Knowledge base
 - :doc:`Target type identification <tti>`:  Detects the target types (or categories) of a query
 
 Check our :doc:`Web interface documentation <web_gui>` for illustration of each of these functionalities.
