@@ -19,7 +19,7 @@ Config parameters
 
 - **index_name**: name of the index,
 - **first_pass**:
-      - **num_docs**: number of documents in first-pass scoring (default: 100)
+      - **1st_num_docs**: number of documents in first-pass scoring (default: 100)
       - **field**: field used in first pass retrieval (default: Elastic.FIELD_CATCHALL)
       - **fields_return**: comma-separated list of fields to return for each hit (default: "")
 - **num_docs**: number of documents to return (default: 100)
@@ -43,7 +43,7 @@ Example config
 
 	{"index_name": "dbpedia_2015_10",
 	  "first_pass": {
-	    "num_docs": 1000
+	    "1st_num_docs": 1000
 	  },
 	  "model": "prms",
 	  "num_docs": 1000,
@@ -80,7 +80,7 @@ class Retrieval(object):
         self.check_config(config)
         self.__config = config
         self.__index_name = config["index_name"]
-        self.__first_pass_num_docs = int(config["first_pass"]["num_docs"])
+        self.__first_pass_num_docs = int(config["first_pass"]["1st_num_docs"])
         self.__first_pass_field = config["first_pass"]["field"]
         self.__first_pass_fields_return = config["first_pass"]["fields_return"]
         self.__first_pass_model = config["first_pass"]["model"]
@@ -103,8 +103,8 @@ class Retrieval(object):
             # Checks first pass parameters
             if config.get("first_pass", None) is None:
                 config["first_pass"] = {}
-            if config["first_pass"].get("num_docs", None) is None:
-                config["first_pass"]["num_docs"] = 1000
+            if config["first_pass"].get("1st_num_docs", None) is None:
+                config["first_pass"]["1st_num_docs"] = 1000
             if config["first_pass"].get("field", None) is None:
                 config["first_pass"]["field"] = Elastic.FIELD_CATCHALL
             if config["first_pass"].get("fields_return", None) is None:
@@ -117,7 +117,7 @@ class Retrieval(object):
             if config.get("num_docs", None) is None:
                 config["num_docs"] = 100
 
-            if config["model"] in Retrieval.LM_MODELS:
+            if config.get("model", None) in Retrieval.LM_MODELS:
                 if config.get("smoothing_method", None) is None:
                     config["smoothing_method"] = ScorerLM.DIRICHLET
                 if config.get("smoothing_param", None) is None:
@@ -128,17 +128,17 @@ class Retrieval(object):
                     else:
                         raise Exception("Smoothing method is not supported.")
 
-            if config["model"] == "lm":
+            if config.get("model", None) == "lm":
                 if config.get("fields", None) is None:
                     config["fields"] = Elastic.FIELD_CATCHALL
                 elif type(config["fields"]) != str:
                     raise Exception("Only a single field is required for LM.")
-            if config["model"] == "mlm":
+            if config.get("model", None) == "mlm":
                 if config.get("fields", None) is None:
                     config["fields"] = {Elastic.FIELD_CATCHALL: 1}
                 elif type(config["fields"]) != dict:
                     raise Exception("A dictionary of fields and their weights is required for MLM.")
-            if config["model"] == "prms":
+            if config.get("model", None) == "prms":
                 if config.get("fields", None) is None:
                     config["fields"] = [Elastic.FIELD_CATCHALL]
                 elif type(config["fields"]) != list:

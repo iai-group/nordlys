@@ -9,7 +9,7 @@ See :mod:`~nordlys.core.data.dbpedia.indexer_fsdm` for an example usage of this 
 
 :Author: Faegheh Hasibi
 """
-from nordlys.config import MONGO_COLLECTION_DBPEDIA, MONGO_HOST, MONGO_DB
+from nordlys.config import MONGO_COLLECTION_DBPEDIA, MONGO_HOST, MONGO_DB, PLOGGER
 from nordlys.core.retrieval.elastic import Elastic
 from nordlys.core.storage.mongo import Mongo
 # from nordlys.core.utils.logging_utils import PLOGGER
@@ -32,7 +32,7 @@ class IndexerMongo(object):
         :param callback_get_doc_content: a function that get a documet from mongo and return the content for indexing
         :param bulk_size: Number of documents to be added to the index as a bulk
         """
-        # PLOGGER.info("Building " + self.__index_name + " ...")
+        PLOGGER.info("Building " + self.__index_name + " ...")
         elastic = Elastic(self.__index_name)
         elastic.create_index(self.__mappings, model=self.__model, force=True)
 
@@ -51,7 +51,7 @@ class IndexerMongo(object):
             if i % bulk_size == 0:
                 elastic.add_docs_bulk(docs)
                 docs = dict()
-                # PLOGGER.info(str(i / 1000) + "K documents indexed")
+                PLOGGER.info(str(i / 1000) + "K documents indexed")
         # indexing the last bulk of documents
         elastic.add_docs_bulk(docs)
-        # PLOGGER.info("Finished indexing (" + str(i) + " documents in total)")
+        PLOGGER.info("Finished indexing (" + str(i) + " documents in total)")

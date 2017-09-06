@@ -40,7 +40,9 @@ class Instances(object):
                 self.add_instance(ins)
 
         elif type(instances) == dict:
-            self.__instances = instances
+            for ins_id, fields in instances.items():
+                instance = Instance.from_json(ins_id, fields)
+                self.add_instance(instance)
 
     def append_instances(self, ins_list):
         """Appends the list of Instances objects.
@@ -145,7 +147,6 @@ class Instances(object):
             property_dict[ins.get_property(property)].append(ins)
         return property_dict
 
-    # todo: find efficient way of writing json file
     def to_json(self, json_file=None):
         """ Converts all instances to JSON and writes it to the file
 
@@ -158,7 +159,7 @@ class Instances(object):
         if json_file is not None:
             # print "Writing JSON format of instances ..."
             out = open(json_file, "w")
-            json.dump(inss_json, out, indent=4)
+            json.dump(inss_json, out, indent=4, sort_keys=True)
             PLOGGER.info("JSON output:\t" + json_file)
         return inss_json
 
@@ -188,6 +189,33 @@ class Instances(object):
             PLOGGER.info("String output:\t" + file_name)
             return None
         return out
+
+    def to_treceval(self, file_name, qid_prop="qid", docid_prop="en_id"):
+        """
+        Generates a TREC style run file
+        - If there is an entity ranked more than once for the same query, the one with higher score is kept.
+
+        :param file_name: File to write TREC file
+        :param qid_prop: Name of instance property to be used as query ID (1st column)
+        :param docid_prop: Name of instance property to be used as document ID (3rd column)
+        """
+        unique_entries = defaultdict(dict)
+        # sort and rank entities
+        for ins in self.get_all():
+            if ins.score is not None:
+                qid, doc_id = ins.get_property(qid_prop), ins.get_property(docid_prop)
+                score = unique_entries.get(qid, {}).get(doc_id, None)
+                if (score is None) or (score < ins.score):
+                    unique_entries[qid][doc_id] = ins.score
+
+        out_str = ""
+        for qid, docs in sorted(unique_entries.items()):
+            rank = 1
+            for doc_id, score in sorted(docs.items(), key=lambda x:x[1], reverse=True):
+                out_str += qid + "\tQ0\t" + doc_id + "\t" + str(rank) + "\t" + "{0:.5f}".format(score) + "\tnordlys\n"
+                rank += 1
+        open(file_name, "w").write(out_str)
+        PLOGGER.info("Trec-eval output:\t" + file_name)
 
     def to_libsvm(self, file_name=None, qid_prop=None):
         """

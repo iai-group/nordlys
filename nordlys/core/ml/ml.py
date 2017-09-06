@@ -33,9 +33,9 @@ Config parameters
    - If RF:
       - tree: number of trees, default: 1000
       - maxfeat: max features of trees, default: 10% of number of features
-- **save_model**: the model is saved to this file
+- **model_file**: the model is saved to this file
 - **load_model**: if True, loads the model
-- **save_feature_imp**: Feature importance is saved to this file
+- **feature_imp_file**: Feature importance is saved to this file
 - **output_file**: where output is written; default output format: TSV with with instance_id and (estimated) target
 
 
@@ -54,7 +54,7 @@ Example config
 		},
 		"training_set": "path/to/train.json",
 		"test_set": "path/to/test.json",
-		"save_model": "path/to/model.txt",
+		"model_file": "path/to/model.txt",
 	    "output_file": "path/to/output.json",
 	    "cross_validation":{
 			"create_splits": true,
@@ -68,54 +68,44 @@ Example config
 
 :Authors: Faegheh Hasibi, Krisztian Balog
 """
-
-from sys import exit, argv
-import json
+import argparse
+from sys import exit
 import numpy
 import pickle
-from sklearn.ensemble import (GradientBoostingRegressor, GradientBoostingClassifier,
-                              RandomForestRegressor, RandomForestClassifier)
+from sklearn.ensemble import (GradientBoostingRegressor, GradientBoostingClassifier, RandomForestRegressor,
+                              RandomForestClassifier)
 
 from nordlys.core.ml.instances import Instances
 from nordlys.core.ml.cross_validation import CrossValidation
 from nordlys.config import PLOGGER
+from nordlys.core.utils.file_utils import FileUtils
 
 
 class ML(object):
-    def __init__(self, config_file):
-        """Loads config file, checks params, and sets default values.
+    def __init__(self, config):
+        self.__check_config(config)
+        self.__config = config
 
-        :param config_file: JSON config file
-        """
-        # todo: create config checker and update init
-        if type(config_file) == dict:
-            self.__config = config_file
-        else:
-            # load config file
-            try:
-                self.__config = json.load(open(config_file))
-            except Exception as e:
-                PLOGGER.error("Error loading config file: ", e)
-                exit(1)
+    @staticmethod
+    def __check_config(config):
+        """Checks config parameters and set default values."""
+        try:
+            # if "training_set" not in config:
+            #     raise Exception("training_set is missing")
+            # if "output_file" not in config:
+            #     raise Exception("output_file is missing")
+            if "cross_validation" in config:
+                if "splits_file" not in config["cross_validation"]:
+                    raise Exception("splits_file is missing")
+                if "k" not in config["cross_validation"]:
+                    config["cross_validation"]["k"] = 10
+            # else:
+            #     if "test_set" not in config:
+            #         raise Exception("test_set is missing")
 
-            # check params and set default values
-            try:
-                if "training_set" not in self.__config:
-                    raise Exception("training_set is missing")
-                if "output_file" not in self.__config:
-                    raise Exception("output_file is missing")
-                if "cross_validation" in self.__config:
-                    if "splits_file" not in self.__config["cross_validation"]:
-                        raise Exception("splits_file is missing")
-                    if "k" not in self.__config["cross_validation"]:
-                        self.__config["cross_validation"]["k"] = 10
-                else:
-                    if "test_set" not in self.__config:
-                        raise Exception("test_set is missing")
-
-            except Exception as e:
-                PLOGGER.error("Error in config file: ", e)
-                exit(1)
+        except Exception as e:
+            PLOGGER.error("Error in config file: ", e)
+            exit(1)
 
     def gen_model(self, num_features=None):
         """ Reads parameters and generates a model to be trained.
@@ -123,19 +113,20 @@ class ML(object):
         :param num_features: int, number of features
         :return untrained ranker/classifier
         """
+        model = None
         if self.__config["model"].lower() == "gbrt":
             alpha = self.__config["parameters"].get("alpha", 0.1)
             tree = self.__config["parameters"].get("tree", 1000)
             default_depth = round(num_features / 10.0) if num_features is not None else None
             depth = self.__config["parameters"].get("depth", default_depth)
 
-            PLOGGER.info("\nTraining instances using GBRT ...")
-            PLOGGER.info("\tNumber of trees:\t" + str(tree) + "\n\tDepth of trees:\t" + str(depth))
+            PLOGGER.info("Training instances using GBRT ...")
+            PLOGGER.info("Number of trees: " + str(tree) + "\tDepth of trees: " + str(depth))
             if self.__config.get("category", "regression") == "regression":
-                PLOGGER.info("\tTraining regressor")
+                PLOGGER.info("Training regressor")
                 model = GradientBoostingRegressor(n_estimators=tree, max_depth=depth, learning_rate=alpha)
             else:
-                PLOGGER.info("\tTraining the classifier")
+                PLOGGER.info("Training the classifier")
                 model = GradientBoostingClassifier(n_estimators=tree, max_depth=depth, learning_rate=alpha)
 
         elif self.__config["model"].lower() == "rf":
@@ -144,12 +135,12 @@ class ML(object):
             max_feat = self.__config["parameters"].get("maxfeat", default_maxfeat)
 
             PLOGGER.info("Training instances using RF ...")
-            PLOGGER.info("\tNumber of trees:\t" + str(tree) + "\n\tMax features:\t" + str(max_feat))
+            PLOGGER.info("Number of trees: " + str(tree) + "\tMax features: " + str(max_feat))
             if self.__config.get("category", "regression") == "regression":
-                PLOGGER.info("\tTraining regressor")
+                PLOGGER.info("Training regressor")
                 model = RandomForestRegressor(n_estimators=tree, max_features=max_feat)
             else:
-                PLOGGER.info("\tTraining classifier")
+                PLOGGER.info("Training classifier")
                 model = RandomForestClassifier(n_estimators=tree, max_features=max_feat)
         return model
 
@@ -162,6 +153,7 @@ class ML(object):
 
         features = instances.get_all()[0].features
         features_names = sorted(features.keys())
+        PLOGGER.info("Number of instances:\t" + str(len(instances.get_all())))
         PLOGGER.info("Number of features:\t" + str(len(features_names)))
         # Converts instances to Scikit-learn format : (n_samples, n_features)
         n_samples = len(instances.get_all())
@@ -178,13 +170,13 @@ class ML(object):
         model.fit(train_x, train_y)
 
         # write the trained model to the file
-        if "save_model" in self.__config:
+        if "model_file" in self.__config:
             # @todo if CV is used we need to append the fold no. to the filename
-            PLOGGER.info("Writing trained model to {} ...".format(self.__config["save_model"]))
-            pickle.dump(model, open(self.__config["save_model"], "wb"))
+            PLOGGER.info("Writing trained model to {} ...".format(self.__config["model_file"]))
+            pickle.dump(model, open(self.__config["model_file"], "wb"))
 
-        if "save_feature_imp" in self.__config:
-            PLOGGER.info(self.analyse_features(model, features_names))
+        if "feature_imp_file" in self.__config:
+            print(self.analyse_features(model, features_names))
         return model
 
     def analyse_features(self, model, feature_names):
@@ -207,7 +199,7 @@ class ML(object):
         for feat, importance in sorted_importances:
             feat_imp_str += feat + "\t" + str(importance) + "\n"
         feat_imp_str += "=========================================="
-        open(self.__config["save_feature_imp"], "w").write(feat_imp_str)
+        open(self.__config["feature_imp_file"], "w").write(feat_imp_str)
         return feat_imp_str
 
     def apply_model(self, instances, model):
@@ -217,7 +209,7 @@ class ML(object):
         :param model: trained model
         :return: Instances
         """
-        PLOGGER.info("Testing instances ... ")
+        PLOGGER.info("Applying model ... ")
         if len(instances.get_all()) > 0:
             features_names = sorted(instances.get_all()[0].features.keys())
             for ins in instances.get_all():
@@ -239,8 +231,7 @@ class ML(object):
             f.write("id\tscore\n")  # output to file
             PLOGGER.info("id\ttarget\tscore\n")
             for ins in instances.get_all():
-                f.write(ins.id + "\t" + "{0:.30f}".format(ins.score) + "\n")  # output to file
-                # print(ins.id + "\t" + str(ins.target) + "\t" + "{0:.30f}".format(ins.score))  # print also to console
+                f.write(ins.id + "\t" + "{0:.5f}".format(ins.score) + "\n")  # output to file
         PLOGGER.info("Output saved in: " + self.__config["output_file"])
 
     def run(self):
@@ -268,22 +259,24 @@ class ML(object):
             inss = self.apply_model(ins_test, model)
 
         # output results (which are stored in inss)
-        self.output(inss)
+        inss.to_json(self.__config["output_file"])
+        # inss.to_treceval(self.__config["output_file"])
+        # self.output(inss)
 
 
-def print_usage():
-    PLOGGER.info(argv[0] + " <config_file>")
-    exit()
+def arg_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("config", help="config file", type=str)
+    args = parser.parse_args()
+    return args
 
 
 def main(args):
-    if len(args) < 1:
-        print_usage()
-
-    ml = ML(args[0])
+    config = FileUtils.load_config(args.config)
+    ml = ML(config)
     ml.run()
 
 
 if __name__ == "__main__":
-    main(argv[1:])
+    main(arg_parser())
 

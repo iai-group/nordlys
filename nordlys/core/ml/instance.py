@@ -37,6 +37,7 @@ class Instance(object):
         self.__features = {} if features is None else features
         self.__properties = {} if properties is None else properties
         self.target = target
+        self.score = ""
 
     @property
     def id(self):
@@ -102,6 +103,8 @@ class Instance(object):
         for key, value in fields.items():
             if key == "target":
                 instance.target = value
+            elif key == "score":
+                instance.score = value
             elif key == "properties":
                 instance.__properties = value
             elif key == "features":
@@ -115,7 +118,10 @@ class Instance(object):
         :param file_name: (string)
         :return JSON dump of the instance.
         """
-        json_ins = {self.__id: {"target": self.target, "features": self.__features, "properties": self.__properties}}
+        json_ins = {self.__id: {"target": self.target,
+                                "score": self.score,
+                                "features": self.__features,
+                                "properties": self.__properties}}
         if file_name is not None:
             PLOGGER.info("writing instance \"" + str(self.__id) + "\" to " + file_name + "...")
             out = open(file_name, "w")
@@ -123,14 +129,14 @@ class Instance(object):
         return json_ins
 
     def to_str(self, feature_set=None):
-        """ Converts instances to string.
+        """Converts instances to string.
 
         :param feature_set: features to be included in the output format
         :return (string) tab separated string: ins_id target ftr_1    ftr_2   ...   ftr_n   properties
         """
         if feature_set is None:
             feature_set = sorted(self.__features.keys())
-        out = str(self.__id) + "\t" + str(self.target) + "\t"
+        out = str(self.__id) + "\t" + str(self.target) + "\t" + str(self.score) + "\t"
         for feature in feature_set:
             out += feature + ":" + str(self.__features[feature]) + "\t"
         for field in sorted(self.__properties.keys()):

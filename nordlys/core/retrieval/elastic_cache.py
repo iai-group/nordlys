@@ -3,19 +3,20 @@ Elastic Cache
 =============
 
 This is a cache for elastic index stats; a layer between an index and retrieval.
-The statistics (such as document and term frequencies) are first read from the index and stayed in the memory for further usages.
+The statistics (such as document and term frequencies) are first read from the index and stay in the memory for further
+usages.
+
 
 
 Usage hints
 -----------
 
   - Only one instance of Elastic cache needs to be created.
-  - If running out of memory, a new instance of ElasticCache must be created.
-  - The class caches term vectors. To further boost efficiency, one can load term vectors for multiple documents using :func:`ElasticCache.multi_termvector`.
+  - If running out of memory, you need to create a new object of ElasticCache.
+  - The class also caches termvectors. To further boost efficiency, you can load term vectors for multiple documents using :func:`ElasticCache.multi_termvector`.
 
 
-:Authors: Faegheh Hasibi
-
+:Author: Faegheh Hasibi
 """
 from collections import defaultdict
 

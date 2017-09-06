@@ -33,7 +33,7 @@ class IndexerDBpediaURI(IndexerDBpedia):
         """
         PLOGGER.info("Getting the top-n frequent DBpedia fields ...")
         sorted_fields = sorted(self.__field_counts.items(), key=lambda item: item[1], reverse=True)
-        PLOGGER.info("Number of total fields:", len(sorted_fields))
+        PLOGGER.info("Number of total fields: " + str(len(sorted_fields)))
 
         top_fields = []
         rank, prev_count, i = 0, 0, 0
@@ -144,7 +144,7 @@ def compute_field_counts():
                 field_counts[field] = 1
         i += 1
         if i % 1000000 == 0:
-            PLOGGER.info("\t", str(int(i / 1000000)), "M entity is processed!")
+            PLOGGER.info("\t" + str(int(i / 1000000)) + "M entity is processed!")
     return field_counts
 
 
@@ -163,7 +163,6 @@ def main(args):
 
     indexer.build()
     PLOGGER.info("Index build: " + config["index_name"])
-    # indexer.create_sample_file()
 
 
 def arg_parser():

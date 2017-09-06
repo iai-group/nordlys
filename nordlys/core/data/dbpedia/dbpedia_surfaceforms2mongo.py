@@ -103,7 +103,7 @@ class DBpediaSurfaceforms2Mongo(object):
                         self.__add_surface_form(surface_form, foaf_name_predicate, entity_id)
             i += 1
             if i % 1000 == 0:
-                PLOGGER.error(str(i // 1000) + "K entities processed")
+                PLOGGER.info(str(i // 1000) + "K entities processed")
 
 def arg_parser():
     parser = argparse.ArgumentParser()

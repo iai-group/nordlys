@@ -22,17 +22,25 @@ from nordlys.core.retrieval.elastic import Elastic
 from nordlys.config import DATA_DIR
 from nordlys.config import PLOGGER
 
+# -------
+# Constants
 
+# About index
 ID_KEY = "id"  # not used
 CONTENT_KEY = "content"
+
+# Distinguished strings
 ABSTRACTS_SEPARATOR = "\n"
-DEFAULT_INDEX_NAME = "dbpedia_types"
 DBO_PREFIX = "<dbo:"
 
+# Sizes
 BULK_LEN = 1
-MAX_BULKING_DOC_SIZE = 30000000  # max doc len when bulking, in chars (recommended: 5 to 15 MB)
+MAX_BULKING_DOC_SIZE = 20000000  # max doc len when bulking, in chars (i.e., 20MB)
 AVG_SHORT_ABSTRACT_LEN = 216  # according to all entities appearing in DBpedia-2015-10 entity-to-type mapping
 
+
+# -------
+# Indexer class
 
 class IndexerDBpediaTypes(object):
     __DOC_TYPE = "doc"  # we don't make use of types
@@ -41,14 +49,14 @@ class IndexerDBpediaTypes(object):
         CONTENT_KEY: Elastic.analyzed_field(),
     }
 
-    def __init__(self, config, type2entity_file, entity_abstracts_file):
-        self.__elastic = None  # the index (Elastic) object
+    def __init__(self, config):
+        self.__elastic = None
         self.__config = config
         self.__model = config.get("model", Elastic.BM25)
-        self.__index_name = "{}_{}".format(config.get("index_name", DEFAULT_INDEX_NAME), self.__model.lower())
-        self.__type2entity_file = type2entity_file
+        self.__index_name = config["index_name"]
+        self.__type2entity_file = config["type2entity_file"]
         self.__entity_abstracts = {}
-        self.__load_entity_abstracts(entity_abstracts_file)
+        self.__load_entity_abstracts(config["entity_abstracts_file"])
 
     @property
     def name(self):
@@ -85,6 +93,9 @@ class IndexerDBpediaTypes(object):
             lines_counter += 1
             if lines_counter % 10000 == 0:
                 PLOGGER.info("\t{}K lines processed".format(lines_counter // 1000))
+                pass
+
+        PLOGGER.info("\n### Loading entity abstracts... Done.")
 
     def __make_type_doc(self, entities, last_type):
         """Gets the document representation of a type to be indexed, from its entity short abstracts."""
@@ -148,22 +159,24 @@ class IndexerDBpediaTypes(object):
                     # moving to new type, so:
                     # create a doc for this type, with all the abstracts for its entities, and store it in a bulk
                     types_counter += 1
-                    # print("\n\tFound {}-th type: {}\t\t with # of entities: {}".format(types_counter, last_type,
-                    #                                                                    len(entities)))
+                    # PLOGGER.info("\n\tFound {}-th type: {}\t\t with # of entities: {}".format(types_counter,
+                    #                                                                           last_type,
+                    #                                                                           len(entities)))
                     types_bulk[last_type] = self.__make_type_doc(entities, last_type)
                     entities = []  # important to reset it
 
                     if types_counter % BULK_LEN == 0:  # index the bulk of BULK_LEN docs
                         self.__elastic.add_docs_bulk(types_bulk)
-                        types_bulk.clear()  # important to reset it
-                        # print("Indexing a bulk of {} docs (types)... OK.".format(BULK_LEN))
+                        types_bulk.clear()  # NOTE: important to reset it
+                        PLOGGER.info("\tIndexing a bulk of {} docs (types)... OK. "
+                                     "{} types already indexed.".format(BULK_LEN, types_counter))
 
                 last_type = type
                 entities.append(entity)
 
                 lines_counter += 1
                 if lines_counter % 10000 == 0:
-                    # print("\t{}K lines processed".format(lines_counter // 1000))
+                    # PLOGGER.info("\t{}K lines processed".format(lines_counter // 1000))
                     pass
                 pass
 
@@ -171,28 +184,28 @@ class IndexerDBpediaTypes(object):
         types_counter += 1
 
         PLOGGER.info("\n\tFound {}-th (last) type: {}\t\t with # of entities: {}".format(types_counter, last_type,
-                                                                                  len(entities)))
+                                                                                         len(entities)))
 
         types_bulk[last_type] = self.__make_type_doc(entities, last_type)
         self.__elastic.add_docs_bulk(types_bulk)  # a tiny bulk :)
         # no need to reset neither entities nor types_bulk :P
-        PLOGGER.info("Indexing a bulk of {} docs (types)... OK.".format(BULK_LEN))
+        # PLOGGER.info("Indexing a bulk of {} docs (types)... OK.".format(BULK_LEN))
 
+        PLOGGER.info("\n### Indexing all {} found docs (types)... Done.".format(types_counter))
+
+
+# -------
+# Main script
 
 def main(args):
     config = FileUtils.load_config(args.config)
 
-    type2entity_file = os.path.expanduser(os.path.join(DATA_DIR, config.get("type2entity_file", "")))
-    if not os.path.isfile(type2entity_file):
-        # PLOGGER.error("invalid path to type-to-entity source file: ", type2entity_file)
+    type2entity_file = os.path.expanduser(os.path.join(config.get("type2entity_file", "")))
+    entity_abstracts_file = os.path.expanduser(os.path.join(config.get("entity_abstracts_file", "")))
+    if (not os.path.isfile(type2entity_file)) or (not os.path.isfile(entity_abstracts_file)):
         exit(1)
 
-    entity_abstracts_file = os.path.expanduser(os.path.join(DATA_DIR, config.get("entity_abstracts_file", "")))
-    if not os.path.isfile(entity_abstracts_file):
-        # PLOGGER.error("invalid path to entity abstracts source file: ", entity_abstracts_file)
-        exit(1)
-
-    indexer = IndexerDBpediaTypes(config, type2entity_file, entity_abstracts_file)
+    indexer = IndexerDBpediaTypes(config)
     indexer.build_index(force=True)
     PLOGGER.info("Index build: <{}>".format(indexer.name))
 

@@ -28,8 +28,10 @@ class Scorer(object):
         # These terms are filtered out later in the score_doc functions.
         if self._query:
             self._query_terms = elastic.analyze_query(self._query).split()
+        else:
+            self._query_terms = []
 
-    # def score_doc(self, doc_id, start=0):
+    # def score_doc(self, doc_id):
     #     """Scorer method to be implemented in each subclass."""
     #     # should use elastic scoring
     #     query = self._elastic.analyze_query(self._query)
@@ -72,7 +74,7 @@ class ScorerLM(Scorer):
     def __init__(self, elastic, query, params):
         super(ScorerLM, self).__init__(elastic, query, params)
         self._field = params.get("fields", Elastic.FIELD_CATCHALL)
-        self._smoothing_method = params.get("smoothing_method", self.JM).lower()
+        self._smoothing_method = params.get("smoothing_method", self.DIRICHLET).lower()
         if self._smoothing_method == self.DIRICHLET:
             self._smoothing_param = params.get("smoothing_param", 2000)
         elif self._smoothing_method == ScorerLM.JM:
