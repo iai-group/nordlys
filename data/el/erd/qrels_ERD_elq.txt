@@ -1,0 +1,100 @@
+TREC-1
+TREC-10	1	<dbpedia:California>
+TREC-11	1	<dbpedia:Cass_County,_Missouri>
+TREC-12
+TREC-13	1	<dbpedia:Condominium>	<dbpedia:Florida>
+TREC-14	1	<dbpedia:Culpeper_National_Cemetery>
+TREC-15
+TREC-16
+TREC-17	1	<dbpedia:Discovery_Channel>
+TREC-17	1	<dbpedia:Discovery_Channel_(Canada)>
+TREC-18
+TREC-19
+TREC-2
+TREC-20	1	<dbpedia:Dutchess_County,_New_York>
+TREC-21
+TREC-22	1	<dbpedia:East_Ridge_High_School_(Florida)>
+TREC-22	1	<dbpedia:East_Ridge_High_School_(Kentucky)>
+TREC-22	1	<dbpedia:East_Ridge_High_School_(Minnesota)>
+TREC-23
+TREC-24
+TREC-25	1	<dbpedia:ER_(TV_series)>
+TREC-26
+TREC-27
+TREC-28	1	<dbpedia:French_Lick_Resort_Casino>
+TREC-29
+TREC-3
+TREC-30
+TREC-31
+TREC-32
+TREC-33
+TREC-34	1	<dbpedia:Illinois>
+TREC-35
+TREC-36	1	<dbpedia:Indiana>
+TREC-37	1	<dbpedia:Indiana>
+TREC-38
+TREC-39
+TREC-4
+TREC-40	1	<dbpedia:Iowa>
+TREC-41
+TREC-42	1	<dbpedia:Kansas_City,_Missouri>
+TREC-43	1	<dbpedia:Kenmore_Appliances>
+TREC-44
+TREC-45	1	<dbpedia:India>
+TREC-46
+TREC-47
+TREC-48	1	<dbpedia:Madam_C._J._Walker>
+TREC-49	1	<dbpedia:Brazil>
+TREC-5
+TREC-50	1	<dbpedia:United_States>
+TREC-51	1	<dbpedia:Martha_Stewart>	<dbpedia:ImClone_Systems>
+TREC-52	1	<dbpedia:Mayo_Clinic>	<dbpedia:Jacksonville,_Florida>
+TREC-53	1	<dbpedia:Milwaukee_Journal_Sentinel>
+TREC-54	1	<dbpedia:Mother's_Day>
+TREC-55	1	<dbpedia:Barack_Obama>
+TREC-56	1	<dbpedia:Orange_County_Convention_Center>
+TREC-57	1	<dbpedia:Pacific_Northwest_National_Laboratory>
+TREC-58
+TREC-59
+TREC-6
+TREC-60	1	<dbpedia:PlayStation_2>
+TREC-61	1	<dbpedia:Owen_Brewster>
+TREC-62	1	<dbpedia:Rincón,_Puerto_Rico>
+TREC-63	1	<dbpedia:Ritz-Carlton_Hotel_Company>	<dbpedia:Lake_Las_Vegas>
+TREC-64
+TREC-65	1	<dbpedia:Rocky_Mountain_News>
+TREC-66
+TREC-67
+TREC-68
+TREC-69	1	<dbpedia:Sonoma_County,_California>
+TREC-7	1	<dbpedia:Bowflex>
+TREC-70	1	<dbpedia:Nile>
+TREC-71
+TREC-72	1	<dbpedia:Texas>	<dbpedia:United_States_Border_Patrol>
+TREC-73	1	<dbpedia:The_Beatles>
+TREC-74	1	<dbpedia:The_Music_Man_(1962_film)>
+TREC-74	1	<dbpedia:The_Music_Man>
+TREC-74	1	<dbpedia:The_Music_Man_(2003_film)>
+TREC-75	1	<dbpedia:The_Secret_Garden_(1987_film)>
+TREC-75	1	<dbpedia:The_Secret_Garden_(musical)>
+TREC-75	1	<dbpedia:The_Secret_Garden>
+TREC-75	1	<dbpedia:The_Secret_Garden_(1949_film)>
+TREC-75	1	<dbpedia:The_Secret_Garden_(1993_film)>
+TREC-76	1	<dbpedia:Tennessee>	<dbpedia:Highway_Patrol_(TV_series)>
+TREC-77
+TREC-78
+TREC-79
+TREC-8	1	<dbpedia:Brooks_Brothers>
+TREC-80
+TREC-81	1	<dbpedia:University_of_Phoenix>
+TREC-82	1	<dbpedia:Yellowstone_National_Park>
+TREC-83	1	<dbpedia:United_States_Capitol>
+TREC-84
+TREC-85	1	<dbpedia:USS_Yorktown_(CV-10)>	<dbpedia:Charleston,_South_Carolina>
+TREC-86	1	<dbpedia:Virginia_Department_of_Motor_Vehicles>
+TREC-87
+TREC-88
+TREC-89
+TREC-9
+TREC-90
+TREC-91

@@ -1,0 +1,2409 @@
+trec-2010-100_1
+trec-2010-100_2
+trec-2010-101_1	1	<dbpedia:The_Music_Man>
+trec-2010-102_2	1	<dbpedia:Barack_Obama>
+trec-2010-103_1
+trec-2010-103_2
+trec-2010-104_1	1	<dbpedia:Hoboken,_New_Jersey>
+trec-2010-104_2	1	<dbpedia:Hoboken,_New_Jersey>
+trec-2010-105_1	1	<dbpedia:Orange_County_Convention_Center>
+trec-2010-105_2	1	<dbpedia:Orange_County_Convention_Center>
+trec-2010-106_1
+trec-2010-106_2
+trec-2010-108_1
+trec-2010-109_1	1	<dbpedia:Microsoft_Windows>
+trec-2010-109_2	1	<dbpedia:Windows_Defender>
+trec-2010-10_1
+trec-2010-10_2
+trec-2010-110_1
+trec-2010-110_2
+trec-2010-111_1	1	<dbpedia:United_States_presidential_inauguration>	<dbpedia:Barack_Obama>	<dbpedia:Rick_Warren>
+trec-2010-111_2	1	<dbpedia:Rick_Warren>
+trec-2010-112_1	1	<dbpedia:Rincón,_Puerto_Rico>
+trec-2010-112_2	1	<dbpedia:Rincón,_Puerto_Rico>
+trec-2010-113_2
+trec-2010-114_2
+trec-2010-115_1
+trec-2010-115_2
+trec-2010-117_1
+trec-2010-117_2
+trec-2010-118_2	1	<dbpedia:Barack_Obama>
+trec-2010-119_1	1	<dbpedia:Atari>
+trec-2010-119_2	1	<dbpedia:Atari>
+trec-2010-11_1
+trec-2010-11_2
+trec-2010-120_1
+trec-2010-120_2
+trec-2010-121_1	1	<dbpedia:The_Music_Man>
+trec-2010-121_2	1	<dbpedia:The_Music_Man>
+trec-2010-122_1	1	<dbpedia:GPS_navigation_device>
+trec-2010-122_2	1	<dbpedia:Garmin>
+trec-2010-123_1
+trec-2010-123_2
+trec-2010-124_1	1	<dbpedia:Patriots_Point>
+trec-2010-124_2	1	<dbpedia:USS_Yorktown_(CV-10)>
+trec-2010-125_1
+trec-2010-125_2
+trec-2010-126_1	1	<dbpedia:Evergreen_Solar>
+trec-2010-127_1
+trec-2010-127_2
+trec-2010-128_1
+trec-2010-128_2
+trec-2010-129_1
+trec-2010-129_2
+trec-2010-12_1	1	<dbpedia:Kohler_Company>
+trec-2010-12_2
+trec-2010-130_1
+trec-2010-130_2	1	<dbpedia:Sprint_Nextel>
+trec-2010-131_1
+trec-2010-131_2
+trec-2010-132_1	1	<dbpedia:Disneyland>
+trec-2010-132_2	1	<dbpedia:Disneyland>
+trec-2010-133_1
+trec-2010-133_2
+trec-2010-134_1
+trec-2010-134_2
+trec-2010-135_1
+trec-2010-135_2	1	<dbpedia:Evergreen_Solar>
+trec-2010-136_1
+trec-2010-136_2
+trec-2010-137_1
+trec-2010-137_2
+trec-2010-138_1
+trec-2010-138_2
+trec-2010-139_1
+trec-2010-139_2
+trec-2010-13_1
+trec-2010-13_2
+trec-2010-141_1
+trec-2010-141_2
+trec-2010-142_2	1	<dbpedia:Michigan>
+trec-2010-143_2	1	<dbpedia:Barack_Obama>
+trec-2010-144_1
+trec-2010-145_1	1	<dbpedia:American_Standard_Brands>
+trec-2010-145_2	1	<dbpedia:Kohler_Company>
+trec-2010-146_1	1	<dbpedia:Atari>
+trec-2010-146_2	1	<dbpedia:Atari_Games>
+trec-2010-147_1	1	<dbpedia:Afghanistan>
+trec-2010-147_2	1	<dbpedia:Afghanistan>
+trec-2010-148_1
+trec-2010-148_2	1	<dbpedia:Arizona>
+trec-2010-149_2
+trec-2010-14_1
+trec-2010-14_2
+trec-2010-150_1
+trec-2010-150_2
+trec-2010-15_2	1	<dbpedia:French_Lick_Resort_Casino>
+trec-2010-16_1	1	<dbpedia:Disneyland>
+trec-2010-16_2	1	<dbpedia:Disneyland>
+trec-2010-17_1
+trec-2010-17_2
+trec-2010-18_1
+trec-2010-18_2
+trec-2010-19_1
+trec-2010-19_2
+trec-2010-1_1
+trec-2010-1_2
+trec-2010-20_2
+trec-2010-21_1	1	<dbpedia:Comcast>
+trec-2010-21_2
+trec-2010-22_2	1	<dbpedia:BBC>	<dbpedia:Walking_with_Dinosaurs>
+trec-2010-23_2	1	<dbpedia:PlayStation_2>
+trec-2010-24_1
+trec-2010-24_2
+trec-2010-25_1	1	<dbpedia:Bay_Area_Rapid_Transit>
+trec-2010-25_2	1	<dbpedia:Bay_Area_Rapid_Transit>
+trec-2010-26_1
+trec-2010-26_2
+trec-2010-27_1	1	<dbpedia:Volvo>
+trec-2010-27_2	1	<dbpedia:Volvo_Trucks>
+trec-2010-28_1	1	<dbpedia:AutoZone>
+trec-2010-29_1
+trec-2010-29_2
+trec-2010-2_1	1	<dbpedia:Hoboken,_New_Jersey>
+trec-2010-2_2	1	<dbpedia:Hoboken,_New_Jersey>
+trec-2010-30_1	1	<dbpedia:Mitchell_College>
+trec-2010-30_2	1	<dbpedia:Mitchell_College>
+trec-2010-31_1
+trec-2010-31_2
+trec-2010-32_1
+trec-2010-32_2
+trec-2010-33_1	1	<dbpedia:Starbucks>
+trec-2010-33_2	1	<dbpedia:Starbucks>
+trec-2010-34_1	1	<dbpedia:ESPN>	<dbpedia:National_Basketball_Association>
+trec-2010-34_2	1	<dbpedia:National_Basketball_Association>
+trec-2010-35_1
+trec-2010-35_2
+trec-2010-36_1	1	<dbpedia:The_Sun_(United_Kingdom)>
+trec-2010-36_2	1	<dbpedia:The_Sun_(United_Kingdom)>
+trec-2010-37_1
+trec-2010-37_2
+trec-2010-38_1
+trec-2010-38_2
+trec-2010-39_1
+trec-2010-39_2
+trec-2010-3_1
+trec-2010-40_1
+trec-2010-40_2
+trec-2010-41_1
+trec-2010-41_2	1	<dbpedia:Petrohawk>
+trec-2010-42_1	1	<dbpedia:ER_(TV_series)>
+trec-2010-42_2	1	<dbpedia:ER_(TV_series)>
+trec-2010-43_1
+trec-2010-43_2
+trec-2010-44_1	1	<dbpedia:Madagascar_(2005_film)>
+trec-2010-44_2
+trec-2010-45_1
+trec-2010-45_2
+trec-2010-46_1
+trec-2010-46_2
+trec-2010-47_1	1	<dbpedia:Pink_Floyd_–_The_Wall>
+trec-2010-47_2	1	<dbpedia:Pink_Floyd_–_The_Wall>
+trec-2010-48_1
+trec-2010-48_2
+trec-2010-49_1
+trec-2010-4_1	1	<dbpedia:Neil_Young>
+trec-2010-4_2	1	<dbpedia:Neil_Young>
+trec-2010-50_1
+trec-2010-50_2
+trec-2010-51_1
+trec-2010-51_2
+trec-2010-52_1	1	<dbpedia:The_Purpose_Driven_Life>	<dbpedia:Rick_Warren>
+trec-2010-52_2	1	<dbpedia:John_McCain>	<dbpedia:Barack_Obama>
+trec-2010-53_1	1	<dbpedia:GPS_navigation_device>
+trec-2010-53_2
+trec-2010-54_1
+trec-2010-54_2
+trec-2010-55_1	1	<dbpedia:Bobcat_Company>
+trec-2010-55_2	1	<dbpedia:Bobcat_Company>
+trec-2010-56_1
+trec-2010-56_2	1	<dbpedia:Arizona>
+trec-2010-57_2
+trec-2010-58_1
+trec-2010-58_2
+trec-2010-59_1	1	<dbpedia:David_Beckham>
+trec-2010-59_2
+trec-2010-5_1
+trec-2010-5_2
+trec-2010-60_1
+trec-2010-60_2	1	<dbpedia:The_Container_Store>
+trec-2010-61_1
+trec-2010-61_2
+trec-2010-62_1
+trec-2010-62_2	1	<dbpedia:National_Institutes_of_Health>
+trec-2010-63_1	1	<dbpedia:Las_Vegas>
+trec-2010-63_2	1	<dbpedia:Atlantic_City,_New_Jersey>
+trec-2010-64_1	1	<dbpedia:The_Pampered_Chef>
+trec-2010-64_2	1	<dbpedia:The_Pampered_Chef>
+trec-2010-65_2
+trec-2010-66_1
+trec-2010-66_2
+trec-2010-67_1	1	<dbpedia:Glenn_L._Martin_Company>
+trec-2010-67_2
+trec-2010-68_1
+trec-2010-68_2
+trec-2010-69_1
+trec-2010-69_2
+trec-2010-6_1	1	<dbpedia:Euclid_Trucks>
+trec-2010-6_2	1	<dbpedia:Euclid_Trucks>
+trec-2010-71_1	1	<dbpedia:Mitchell_College>
+trec-2010-71_2	1	<dbpedia:Mitchell_College>
+trec-2010-72_2
+trec-2010-73_2
+trec-2010-74_1	1	<dbpedia:Transportation_Security_Administration>
+trec-2010-75_1
+trec-2010-75_2	1	<dbpedia:Michigan>
+trec-2010-76_1
+trec-2010-76_2
+trec-2010-77_1
+trec-2010-77_2	1	<dbpedia:William_Shakespeare>
+trec-2010-78_1	1	<dbpedia:Windows_Defender>
+trec-2010-78_2	1	<dbpedia:Windows_Defender>
+trec-2010-79_1
+trec-2010-79_2
+trec-2010-7_1
+trec-2010-7_2
+trec-2010-80_1
+trec-2010-80_2
+trec-2010-81_1
+trec-2010-81_2
+trec-2010-82_1
+trec-2010-82_2
+trec-2010-83_1
+trec-2010-83_2
+trec-2010-84_1	1	<dbpedia:Discovery_Channel>
+trec-2010-84_2
+trec-2010-85_1
+trec-2010-85_2
+trec-2010-86_1	1	<dbpedia:Mitchell_College>
+trec-2010-87_1
+trec-2010-87_2
+trec-2010-88_1	1	<dbpedia:Rick_Warren>
+trec-2010-88_2	1	<dbpedia:Rick_Warren>
+trec-2010-89_1
+trec-2010-89_2
+trec-2010-8_1	1	<dbpedia:Defender_(video_game)>
+trec-2010-8_2	1	<dbpedia:Defender_(video_game)>
+trec-2010-90_1
+trec-2010-90_2
+trec-2010-91_1	1	<dbpedia:Hughes_Communications>
+trec-2010-91_2
+trec-2010-92_1	1	<dbpedia:United_States>
+trec-2010-92_2	1	<dbpedia:United_States>
+trec-2010-93_1	1	<dbpedia:Arizona>
+trec-2010-93_2	1	<dbpedia:Arizona>
+trec-2010-94_1	1	<dbpedia:Disneyland>
+trec-2010-94_2	1	<dbpedia:Disneyland>
+trec-2010-95_1
+trec-2010-95_2
+trec-2010-96_1	1	<dbpedia:American_Standard_Brands>
+trec-2010-96_2
+trec-2010-97_1
+trec-2010-97_2
+trec-2010-98_1	1	<dbpedia:Star_Trek>
+trec-2010-98_2	1	<dbpedia:Star_Trek:_Voyager>
+trec-2010-99_1	1	<dbpedia:Volvo_Trucks>
+trec-2010-99_2	1	<dbpedia:Volvo_XC90>
+trec-2010-9_1
+trec-2010-9_2
+trec-2011-10_1
+trec-2011-10_2
+trec-2011-10_3
+trec-2011-10_4
+trec-2011-11_1	1	<dbpedia:Hawaii>
+trec-2011-11_2	1	<dbpedia:Hawaii>
+trec-2011-11_3	1	<dbpedia:Condominium>	<dbpedia:Hawaii>
+trec-2011-11_4	1	<dbpedia:Condominium>	<dbpedia:Hawaii>
+trec-2011-12_1
+trec-2011-12_2
+trec-2011-12_3	1	<dbpedia:Maryland>
+trec-2011-12_4
+trec-2011-13_1
+trec-2011-13_2
+trec-2011-13_3
+trec-2011-13_4
+trec-2011-14_1
+trec-2011-14_2
+trec-2011-14_3
+trec-2011-14_4
+trec-2011-14_5
+trec-2011-14_6
+trec-2011-14_7
+trec-2011-14_8
+trec-2011-15_1	1	<dbpedia:Hardee's>
+trec-2011-15_2	1	<dbpedia:Hardee's>
+trec-2011-15_3	1	<dbpedia:Hardee's>
+trec-2011-16_2	1	<dbpedia:Hardee's>
+trec-2011-17_1	1	<dbpedia:W._R._Berkley>
+trec-2011-17_2	1	<dbpedia:W._R._Berkley>
+trec-2011-17_3	1	<dbpedia:W._R._Berkley>
+trec-2011-18_1
+trec-2011-18_2
+trec-2011-18_3
+trec-2011-19_1	1	<dbpedia:Iwo_Jima>
+trec-2011-19_2	1	<dbpedia:Iwo_Jima>
+trec-2011-19_3	1	<dbpedia:Iwo_Jima>
+trec-2011-1_1	1	<dbpedia:Peace_Corps>
+trec-2011-1_2	1	<dbpedia:Peace_Corps>
+trec-2011-1_3	1	<dbpedia:Peace_Corps>
+trec-2011-20_1	1	<dbpedia:Dooney_&_Bourke>
+trec-2011-20_2	1	<dbpedia:Dooney_&_Bourke>
+trec-2011-20_3	1	<dbpedia:Dooney_&_Bourke>
+trec-2011-21_1	1	<dbpedia:Dooney_&_Bourke>
+trec-2011-21_2	1	<dbpedia:Dooney_&_Bourke>
+trec-2011-21_3	1	<dbpedia:Dooney_&_Bourke>
+trec-2011-22_1
+trec-2011-22_2	1	<dbpedia:National_Health_Service_(England)>
+trec-2011-23_1
+trec-2011-23_2	1	<dbpedia:DuPont>
+trec-2011-24_1	1	<dbpedia:DuPont>
+trec-2011-24_2	1	<dbpedia:DuPont>
+trec-2011-24_3	1	<dbpedia:DuPont>
+trec-2011-24_4
+trec-2011-25_1
+trec-2011-25_2
+trec-2011-25_3
+trec-2011-26_1
+trec-2011-26_2
+trec-2011-26_3
+trec-2011-27_1
+trec-2011-27_2
+trec-2011-28_1
+trec-2011-28_2
+trec-2011-28_3
+trec-2011-29_1
+trec-2011-29_3
+trec-2011-2_1
+trec-2011-2_2
+trec-2011-30_1
+trec-2011-30_2
+trec-2011-30_3
+trec-2011-31_1	1	<dbpedia:Greenland,_New_Hampshire>	<dbpedia:New_Hampshire>
+trec-2011-31_2	1	<dbpedia:Greenland,_New_Hampshire>
+trec-2011-32_1	1	<dbpedia:Greenland,_New_Hampshire>	<dbpedia:New_Hampshire>
+trec-2011-32_3
+trec-2011-33_1
+trec-2011-33_2
+trec-2011-34_1
+trec-2011-34_2
+trec-2011-34_3
+trec-2011-34_4
+trec-2011-35_1	1	<dbpedia:Skagit_Valley>
+trec-2011-35_10	1	<dbpedia:Skagit_Valley>
+trec-2011-35_2
+trec-2011-35_3
+trec-2011-35_4	1	<dbpedia:Skagit_Valley>
+trec-2011-35_5	1	<dbpedia:Skagit_Valley>
+trec-2011-35_6	1	<dbpedia:Skagit_Valley>
+trec-2011-35_7	1	<dbpedia:Skagit_Valley>
+trec-2011-35_8	1	<dbpedia:Skagit_County,_Washington>
+trec-2011-35_9	1	<dbpedia:Skagit_Valley>
+trec-2011-36_1
+trec-2011-36_2
+trec-2011-36_3
+trec-2011-37_1
+trec-2011-37_2
+trec-2011-37_3
+trec-2011-37_4
+trec-2011-37_5
+trec-2011-38_1
+trec-2011-38_2
+trec-2011-38_3
+trec-2011-39_1	1	<dbpedia:Houston_Community_College_System>
+trec-2011-39_2	1	<dbpedia:Houston_Community_College_System>
+trec-2011-3_1
+trec-2011-3_2
+trec-2011-40_1
+trec-2011-40_2	1	<dbpedia:Houston_Community_College_System>
+trec-2011-40_3	1	<dbpedia:Houston_Community_College_System>
+trec-2011-41_1	1	<dbpedia:Jay-Z>
+trec-2011-41_2	1	<dbpedia:Jay-Z>
+trec-2011-41_3	1	<dbpedia:Jay-Z>
+trec-2011-42_1
+trec-2011-42_2
+trec-2011-43_1	1	<dbpedia:IMG_(company)>
+trec-2011-43_2	1	<dbpedia:IMG_(company)>
+trec-2011-43_3	1	<dbpedia:IMG_(company)>	<dbpedia:Vijay_Singh>
+trec-2011-44_1	1	<dbpedia:Merrill_Lynch>
+trec-2011-44_2	1	<dbpedia:Merrill_Lynch>
+trec-2011-44_3	1	<dbpedia:Merrill_Lynch>
+trec-2011-45_1	1	<dbpedia:Merrill_Lynch>
+trec-2011-45_2	1	<dbpedia:Merrill_Lynch>
+trec-2011-45_3	1	<dbpedia:Merrill_Lynch>
+trec-2011-45_4	1	<dbpedia:Merrill_Lynch>
+trec-2011-45_5	1	<dbpedia:Merrill_Lynch>
+trec-2011-46_1
+trec-2011-46_2	1	<dbpedia:Isabelle_Dinoire>
+trec-2011-46_3	1	<dbpedia:Isabelle_Dinoire>
+trec-2011-47_1
+trec-2011-47_2
+trec-2011-47_3
+trec-2011-48_1	1	<dbpedia:Irving_Berlin>
+trec-2011-48_2	1	<dbpedia:Irving_Berlin>
+trec-2011-48_3	1	<dbpedia:Irving_Berlin>
+trec-2011-48_4	1	<dbpedia:Irving_Berlin>
+trec-2011-49_1	1	<dbpedia:Cunard_Line>
+trec-2011-49_2	1	<dbpedia:Carnival_Cruise_Lines>	<dbpedia:United_Kingdom>
+trec-2011-49_3	1	<dbpedia:Cunard_Line>
+trec-2011-49_4	1	<dbpedia:Cunard_Line>
+trec-2011-4_1
+trec-2011-4_2	1	<dbpedia:Patient_UK>
+trec-2011-4_3
+trec-2011-50_1	1	<dbpedia:Harry_Potter_and_the_Goblet_of_Fire>
+trec-2011-50_1	1	<dbpedia:Harry_Potter_and_the_Goblet_of_Fire_(film)>
+trec-2011-50_2	1	<dbpedia:Harry_Potter_and_the_Goblet_of_Fire>
+trec-2011-50_3	1	<dbpedia:Harry_Potter_and_the_Goblet_of_Fire>
+trec-2011-50_4	1	<dbpedia:Harry_Potter_and_the_Goblet_of_Fire>
+trec-2011-51_1	1	<dbpedia:Jasper_Fforde>
+trec-2011-51_2	1	<dbpedia:Jasper_Fforde>
+trec-2011-51_3	1	<dbpedia:Jasper_Fforde>	<dbpedia:Thursday_Next>
+trec-2011-52_1	1	<dbpedia:Guinness>
+trec-2011-52_2	1	<dbpedia:Guinness>
+trec-2011-52_3	1	<dbpedia:Guinness>
+trec-2011-52_4	1	<dbpedia:Guinness>
+trec-2011-52_5	1	<dbpedia:Guinness>
+trec-2011-53_1	1	<dbpedia:Guinness>
+trec-2011-53_2
+trec-2011-53_3	1	<dbpedia:Guinness>
+trec-2011-53_4	1	<dbpedia:Guinness>	<dbpedia:Ireland>
+trec-2011-53_5	1	<dbpedia:Guinness>	<dbpedia:Ireland>
+trec-2011-53_6	1	<dbpedia:Guinness>
+trec-2011-53_7	1	<dbpedia:United_Kingdom>
+trec-2011-54_1	1	<dbpedia:United_States>
+trec-2011-54_2
+trec-2011-54_3	1	<dbpedia:United_States>
+trec-2011-54_4	1	<dbpedia:United_States>
+trec-2011-55_1
+trec-2011-55_2
+trec-2011-55_3
+trec-2011-55_4
+trec-2011-55_5
+trec-2011-55_6
+trec-2011-55_7
+trec-2011-56_1	1	<dbpedia:Chanel>
+trec-2011-56_2	1	<dbpedia:Chanel>
+trec-2011-56_3	1	<dbpedia:Chanel>
+trec-2011-56_4	1	<dbpedia:Chanel>
+trec-2011-56_5	1	<dbpedia:Chanel>
+trec-2011-56_6	1	<dbpedia:Chanel>
+trec-2011-57_1
+trec-2011-57_2
+trec-2011-57_3
+trec-2011-58_1
+trec-2011-58_2
+trec-2011-58_4	1	<dbpedia:World_Snooker_Championship>
+trec-2011-58_5	1	<dbpedia:World_Snooker_Championship>
+trec-2011-58_6
+trec-2011-58_7
+trec-2011-59_1
+trec-2011-59_2	1	<dbpedia:Marsupilami_(1993_TV_series)>
+trec-2011-59_3
+trec-2011-5_1	1	<dbpedia:Medicare_(United_States)>
+trec-2011-5_2	1	<dbpedia:Medicare_(United_States)>
+trec-2011-60_1
+trec-2011-60_3
+trec-2011-60_4
+trec-2011-60_5
+trec-2011-60_6	1	<dbpedia:Australia>	<dbpedia:Marsupilami>
+trec-2011-60_8
+trec-2011-60_9	1	<dbpedia:Marsupilami_(1993_TV_series)>
+trec-2011-61_1	1	<dbpedia:Alan_Greenspan>
+trec-2011-61_2
+trec-2011-62_1
+trec-2011-62_2
+trec-2011-62_3
+trec-2011-63_1
+trec-2011-63_2
+trec-2011-63_3
+trec-2011-63_4
+trec-2011-63_5
+trec-2011-64_1
+trec-2011-64_2	1	<dbpedia:United_States>	<dbpedia:Australia>
+trec-2011-64_3
+trec-2011-65_1
+trec-2011-65_2
+trec-2011-65_3
+trec-2011-65_4
+trec-2011-66_1
+trec-2011-66_2	1	<dbpedia:Australia>
+trec-2011-66_3	1	<dbpedia:Australia>	<dbpedia:United_States>
+trec-2011-66_4	1	<dbpedia:Australia>
+trec-2011-66_5	1	<dbpedia:Australia>
+trec-2011-66_6
+trec-2011-67_1	1	<dbpedia:Lincoln_Steffens>
+trec-2011-67_3	1	<dbpedia:Lincoln_Steffens>
+trec-2011-68_1	1	<dbpedia:Jack_Nicholson>
+trec-2011-68_2	1	<dbpedia:Jack_Nicholson>
+trec-2011-68_3	1	<dbpedia:Jack_Nicholson>
+trec-2011-68_4	1	<dbpedia:Jack_Nicholson>
+trec-2011-68_5	1	<dbpedia:Jack_Nicholson>
+trec-2011-69_1
+trec-2011-69_2
+trec-2011-6_1	1	<dbpedia:Paramount_Pictures>
+trec-2011-6_2	1	<dbpedia:Paramount_Pictures>
+trec-2011-70_1
+trec-2011-70_2
+trec-2011-71_1
+trec-2011-71_2
+trec-2011-71_3
+trec-2011-72_1
+trec-2011-72_2
+trec-2011-73_1
+trec-2011-73_2
+trec-2011-74_1
+trec-2011-74_2
+trec-2011-75_1
+trec-2011-75_2
+trec-2011-75_3
+trec-2011-76_1
+trec-2011-76_3
+trec-2011-7_1
+trec-2011-7_2
+trec-2011-7_3
+trec-2011-8_1
+trec-2011-8_2
+trec-2011-8_3
+trec-2011-8_4
+trec-2011-8_5
+trec-2011-8_6
+trec-2011-8_7
+trec-2011-8_8
+trec-2011-9_1
+trec-2011-9_2
+trec-2011-9_3	1	<dbpedia:United_States>
+trec-2012-10_1
+trec-2012-11_1
+trec-2012-11_2
+trec-2012-11_3
+trec-2012-11_4
+trec-2012-11_5
+trec-2012-11_6
+trec-2012-11_7
+trec-2012-11_8
+trec-2012-11_9
+trec-2012-12_1	1	<dbpedia:Kursk>	<dbpedia:RT_(TV_network)>
+trec-2012-12_2	1	<dbpedia:RT_(TV_network)>
+trec-2012-13_1
+trec-2012-13_2
+trec-2012-14_1
+trec-2012-14_2
+trec-2012-15_1
+trec-2012-15_2
+trec-2012-16_1	1	<dbpedia:Barents_Sea>	<dbpedia:Kursk>
+trec-2012-16_2	1	<dbpedia:Barents_Sea>	<dbpedia:Kursk>
+trec-2012-16_3	1	<dbpedia:Barents_Sea>	<dbpedia:Kursk>
+trec-2012-17_1	1	<dbpedia:Government_of_India>	<dbpedia:Miss_Universe>
+trec-2012-17_2	1	<dbpedia:Government_of_India>	<dbpedia:Miss_Universe>
+trec-2012-18_1	1	<dbpedia:Miss_Universe>
+trec-2012-18_2	1	<dbpedia:Miss_Universe>
+trec-2012-18_3
+trec-2012-19_2
+trec-2012-1_1
+trec-2012-1_2
+trec-2012-20_1	1	<dbpedia:Port_Arthur,_Tasmania>
+trec-2012-20_2
+trec-2012-21_1
+trec-2012-21_2
+trec-2012-21_3
+trec-2012-21_4
+trec-2012-22_1	1	<dbpedia:Australia>
+trec-2012-22_2	1	<dbpedia:Martin_Bryant>	<dbpedia:Port_Arthur,_Tasmania>
+trec-2012-22_4
+trec-2012-22_5	1	<dbpedia:Australia>
+trec-2012-23_1	1	<dbpedia:Martin_Bryant>	<dbpedia:Port_Arthur,_Tasmania>
+trec-2012-23_2	1	<dbpedia:Martin_Bryant>	<dbpedia:Port_Arthur,_Tasmania>
+trec-2012-24_1	1	<dbpedia:France_national_football_team>	<dbpedia:FIFA_World_Cup>
+trec-2012-24_2	1	<dbpedia:France_national_football_team>
+trec-2012-24_3	1	<dbpedia:Brazil_national_football_team>	<dbpedia:France_national_football_team>
+trec-2012-25_1	1	<dbpedia:France>
+trec-2012-25_2	1	<dbpedia:France_national_football_team>	<dbpedia:FIFA_World_Cup>
+trec-2012-25_3	1	<dbpedia:France_national_football_team>	<dbpedia:FIFA_World_Cup>
+trec-2012-25_4	1	<dbpedia:France_national_football_team>	<dbpedia:FIFA_World_Cup>
+trec-2012-25_5	1	<dbpedia:France_national_football_team>
+trec-2012-25_6	1	<dbpedia:FIFA_World_Cup>
+trec-2012-25_7	1	<dbpedia:France_national_football_team>	<dbpedia:FIFA_World_Cup>
+trec-2012-26_1	1	<dbpedia:France_national_football_team>	<dbpedia:FIFA_World_Cup>
+trec-2012-26_1	1	<dbpedia:France>	<dbpedia:FIFA_World_Cup>
+trec-2012-26_2	1	<dbpedia:France>	<dbpedia:FIFA_World_Cup>
+trec-2012-26_3	1	<dbpedia:France>	<dbpedia:FIFA_World_Cup>
+trec-2012-27_1
+trec-2012-27_2
+trec-2012-27_3	1	<dbpedia:FIFA_World_Cup>
+trec-2012-28_1	1	<dbpedia:France>	<dbpedia:FIFA_World_Cup>
+trec-2012-28_2	1	<dbpedia:France_national_football_team>	<dbpedia:FIFA_World_Cup>
+trec-2012-28_2	1	<dbpedia:France>	<dbpedia:FIFA_World_Cup>
+trec-2012-28_3	1	<dbpedia:France_national_football_team>	<dbpedia:FIFA_World_Cup>
+trec-2012-28_3	1	<dbpedia:France>	<dbpedia:FIFA_World_Cup>
+trec-2012-29_1
+trec-2012-29_2
+trec-2012-29_3	1	<dbpedia:Beverly_Hills,_California>
+trec-2012-29_4
+trec-2012-29_5
+trec-2012-2_1
+trec-2012-2_2
+trec-2012-2_3
+trec-2012-2_4
+trec-2012-2_5
+trec-2012-30_1
+trec-2012-31_1
+trec-2012-31_2
+trec-2012-31_3
+trec-2012-32_2
+trec-2012-33_1
+trec-2012-33_2
+trec-2012-34_1
+trec-2012-34_2	1	<dbpedia:New_York_Stock_Exchange>
+trec-2012-35_1	1	<dbpedia:Merck_&_Co.>
+trec-2012-35_2	1	<dbpedia:Merck_&_Co.>
+trec-2012-35_3	1	<dbpedia:Merck_&_Co.>
+trec-2012-35_4	1	<dbpedia:Merck_&_Co.>
+trec-2012-36_1	1	<dbpedia:Merck_&_Co.>
+trec-2012-36_2	1	<dbpedia:Merck_&_Co.>
+trec-2012-36_3	1	<dbpedia:Merck_&_Co.>
+trec-2012-37_1	1	<dbpedia:Merck_&_Co.>
+trec-2012-37_2	1	<dbpedia:Merck_&_Co.>	<dbpedia:United_States>
+trec-2012-38_1	1	<dbpedia:Akira_Kurosawa>
+trec-2012-38_2	1	<dbpedia:Akira_Kurosawa>
+trec-2012-39_1	1	<dbpedia:Akira_Kurosawa>
+trec-2012-39_2	1	<dbpedia:Akira_Kurosawa>	<dbpedia:India>
+trec-2012-39_3	1	<dbpedia:Akira_Kurosawa>
+trec-2012-39_4	1	<dbpedia:Akira_Kurosawa>
+trec-2012-3_1
+trec-2012-3_2
+trec-2012-40_1
+trec-2012-40_2
+trec-2012-41_2
+trec-2012-41_3
+trec-2012-42_1
+trec-2012-42_2
+trec-2012-42_3
+trec-2012-42_4
+trec-2012-42_5
+trec-2012-42_6
+trec-2012-43_1
+trec-2012-43_2
+trec-2012-43_3
+trec-2012-44_1
+trec-2012-44_2
+trec-2012-44_3
+trec-2012-45_1
+trec-2012-45_2
+trec-2012-46_2
+trec-2012-47_1
+trec-2012-47_2
+trec-2012-47_3
+trec-2012-48_1
+trec-2012-48_2
+trec-2012-49_1
+trec-2012-49_2
+trec-2012-49_3
+trec-2012-4_1	1	<dbpedia:Pocono_Mountains>
+trec-2012-4_2	1	<dbpedia:Pocono_Mountains>
+trec-2012-4_3	1	<dbpedia:Pocono_Mountains>
+trec-2012-4_4	1	<dbpedia:Pocono_Mountains>
+trec-2012-50_2
+trec-2012-50_3
+trec-2012-50_4
+trec-2012-51_1
+trec-2012-51_2
+trec-2012-52_1
+trec-2012-52_2
+trec-2012-52_3
+trec-2012-52_4
+trec-2012-52_5
+trec-2012-52_6
+trec-2012-53_1
+trec-2012-53_2
+trec-2012-54_1
+trec-2012-54_2
+trec-2012-55_1
+trec-2012-55_2	1	<dbpedia:United_Kingdom>
+trec-2012-55_3	1	<dbpedia:United_Kingdom>
+trec-2012-55_4	1	<dbpedia:United_Kingdom>
+trec-2012-56_1
+trec-2012-56_2
+trec-2012-56_3
+trec-2012-56_4
+trec-2012-56_5
+trec-2012-56_6
+trec-2012-57_1
+trec-2012-57_2
+trec-2012-57_3	1	<dbpedia:United_Kingdom>
+trec-2012-57_4
+trec-2012-57_5	1	<dbpedia:United_Kingdom>
+trec-2012-58_1
+trec-2012-58_2
+trec-2012-59_1
+trec-2012-59_2
+trec-2012-5_1	1	<dbpedia:Pocono_Mountains>
+trec-2012-5_2	1	<dbpedia:Pocono_Mountains>
+trec-2012-5_3	1	<dbpedia:Pocono_Mountains>
+trec-2012-60_1
+trec-2012-60_2
+trec-2012-61_1
+trec-2012-62_1
+trec-2012-62_2
+trec-2012-63_1
+trec-2012-63_2
+trec-2012-63_3
+trec-2012-64_1
+trec-2012-64_2
+trec-2012-64_3
+trec-2012-64_4
+trec-2012-64_5
+trec-2012-65_1
+trec-2012-65_2
+trec-2012-66_1
+trec-2012-66_2
+trec-2012-67_1
+trec-2012-67_2	1	<dbpedia:Merck_Manual_of_Diagnosis_and_Therapy>
+trec-2012-68_1
+trec-2012-68_2
+trec-2012-6_1	1	<dbpedia:Pennsylvania>	<dbpedia:Pocono_Mountains>
+trec-2012-6_10	1	<dbpedia:Pocono_Mountains>
+trec-2012-6_2	1	<dbpedia:Pennsylvania>	<dbpedia:Pocono_Mountains>
+trec-2012-6_3	1	<dbpedia:Pennsylvania>	<dbpedia:Pocono_Mountains>
+trec-2012-6_4	1	<dbpedia:Camelbeach_Waterpark>	<dbpedia:Pocono_Mountains>
+trec-2012-6_5	1	<dbpedia:Camelbeach_Waterpark>	<dbpedia:Pocono_Mountains>
+trec-2012-6_6	1	<dbpedia:Pocono_Mountains>
+trec-2012-6_7	1	<dbpedia:Pocono_Mountains>
+trec-2012-6_8	1	<dbpedia:Pocono_Mountains>
+trec-2012-6_9
+trec-2012-70_1
+trec-2012-70_2
+trec-2012-71_1
+trec-2012-71_2
+trec-2012-71_3
+trec-2012-71_4
+trec-2012-71_5	1	<dbpedia:United_Kingdom>
+trec-2012-72_1
+trec-2012-72_2
+trec-2012-73_2
+trec-2012-74_1
+trec-2012-74_2	1	<dbpedia:United_Kingdom>
+trec-2012-74_3
+trec-2012-75_1
+trec-2012-75_2	1	<dbpedia:United_Kingdom>
+trec-2012-76_1
+trec-2012-76_2
+trec-2012-77_1
+trec-2012-77_2	1	<dbpedia:United_Kingdom>
+trec-2012-78_1
+trec-2012-78_2
+trec-2012-79_1
+trec-2012-79_2
+trec-2012-7_1	1	<dbpedia:Pocono_Mountains>
+trec-2012-7_2
+trec-2012-7_3	1	<dbpedia:Philadelphia>
+trec-2012-80_1
+trec-2012-80_2	1	<dbpedia:Kenya>	<dbpedia:Swahili_coast>
+trec-2012-81_1
+trec-2012-81_2	1	<dbpedia:Kenya>
+trec-2012-82_1
+trec-2012-82_2	1	<dbpedia:Kenya>
+trec-2012-83_1	1	<dbpedia:Kenya>
+trec-2012-83_2	1	<dbpedia:Kenya>	<dbpedia:Swahili_coast>
+trec-2012-83_3	1	<dbpedia:Allrecipes.com>
+trec-2012-83_4
+trec-2012-84_1
+trec-2012-84_2	1	<dbpedia:Kenya>
+trec-2012-85_1
+trec-2012-85_2
+trec-2012-85_3
+trec-2012-86_2
+trec-2012-87_1
+trec-2012-87_2
+trec-2012-87_3	1	<dbpedia:Thomas_Edison>
+trec-2012-88_1
+trec-2012-88_2
+trec-2012-89_1
+trec-2012-89_2
+trec-2012-89_3
+trec-2012-8_2
+trec-2012-90_1
+trec-2012-90_2
+trec-2012-90_3
+trec-2012-90_4
+trec-2012-91_2
+trec-2012-91_3
+trec-2012-91_4
+trec-2012-91_6
+trec-2012-92_2
+trec-2012-93_1
+trec-2012-93_2	1	<dbpedia:Connecticut>
+trec-2012-94_2
+trec-2012-94_3
+trec-2012-94_4
+trec-2012-95_1
+trec-2012-95_2
+trec-2012-95_3
+trec-2012-97_1
+trec-2012-97_3
+trec-2012-98_1
+trec-2012-9_1
+trec-2012-9_2
+trec-2013-100_1
+trec-2013-101_1
+trec-2013-102_1
+trec-2013-103_1
+trec-2013-104_1	1	<dbpedia:Internal_Revenue_Service>
+trec-2013-105_1	1	<dbpedia:USS_Abraham_Lincoln_(CVN-72)>
+trec-2013-105_1	1	<dbpedia:USS_Abraham_Lincoln_(SSBN-602)>
+trec-2013-106_1	1	<dbpedia:Washington_Dulles_International_Airport>
+trec-2013-107_1
+trec-2013-108_1	1	<dbpedia:Boston_Pops_Orchestra>
+trec-2013-109_1
+trec-2013-10_1
+trec-2013-10_2
+trec-2013-110_1	1	<dbpedia:Vanuatu>
+trec-2013-112_1
+trec-2013-113_1
+trec-2013-115_1
+trec-2013-116_1
+trec-2013-117_1
+trec-2013-118_1
+trec-2013-119_1
+trec-2013-11_1
+trec-2013-11_2
+trec-2013-11_3
+trec-2013-11_4
+trec-2013-11_5
+trec-2013-120_1	1	<dbpedia:Philadelphia>
+trec-2013-121_1	1	<dbpedia:Philadelphia>
+trec-2013-122_1
+trec-2013-123_1
+trec-2013-124_1	1	<dbpedia:God>
+trec-2013-125_1	1	<dbpedia:God>
+trec-2013-126_1	1	<dbpedia:Africa>
+trec-2013-127_1
+trec-2013-128_1	1	<dbpedia:European_Union>
+trec-2013-129_1
+trec-2013-12_1	1	<dbpedia:Kansas_City_metropolitan_area>
+trec-2013-12_2	1	<dbpedia:Kansas_City,_Missouri>
+trec-2013-12_3	1	<dbpedia:Kansas_City_Chiefs>
+trec-2013-130_1	1	<dbpedia:JPMorgan_Chase>
+trec-2013-131_1	1	<dbpedia:United_States>
+trec-2013-132_1
+trec-2013-133_1
+trec-2013-13_1	1	<dbpedia:Kansas_City,_Missouri>
+trec-2013-13_2	1	<dbpedia:Kansas_City_International_Airport>
+trec-2013-13_3	1	<dbpedia:Kansas_City,_Missouri>
+trec-2013-13_4	1	<dbpedia:Kansas_City,_Missouri>
+trec-2013-13_5	1	<dbpedia:Kansas_City,_Missouri>
+trec-2013-13_6	1	<dbpedia:Kansas_City,_Missouri>
+trec-2013-13_7	1	<dbpedia:Kansas_City,_Missouri>
+trec-2013-13_8	1	<dbpedia:Kansas_City,_Missouri>
+trec-2013-14_1	1	<dbpedia:United_Kingdom>
+trec-2013-14_2	1	<dbpedia:United_Kingdom>
+trec-2013-14_3
+trec-2013-14_4	1	<dbpedia:United_Kingdom>
+trec-2013-15_1
+trec-2013-15_2
+trec-2013-16_1
+trec-2013-16_2
+trec-2013-17_1	1	<dbpedia:JPMorgan_Chase>
+trec-2013-17_2	1	<dbpedia:JPMorgan_Chase>
+trec-2013-17_3	1	<dbpedia:JPMorgan_Chase>
+trec-2013-17_4	1	<dbpedia:JPMorgan_Chase>
+trec-2013-17_5	1	<dbpedia:JPMorgan_Chase>	<dbpedia:Microsoft>
+trec-2013-18_1	1	<dbpedia:JPMorgan_Chase>
+trec-2013-18_2	1	<dbpedia:JPMorgan_Chase>
+trec-2013-18_3	1	<dbpedia:JPMorgan_Chase>
+trec-2013-18_4	1	<dbpedia:JPMorgan_Chase>
+trec-2013-18_5	1	<dbpedia:JPMorgan_Chase>
+trec-2013-18_6	1	<dbpedia:JPMorgan_Chase>
+trec-2013-18_7	1	<dbpedia:JPMorgan_Chase>
+trec-2013-18_8
+trec-2013-18_9
+trec-2013-19_1	1	<dbpedia:JPMorgan_Chase>
+trec-2013-19_2	1	<dbpedia:JPMorgan_Chase>	<dbpedia:Google>
+trec-2013-19_3	1	<dbpedia:JPMorgan_Chase>
+trec-2013-19_4	1	<dbpedia:JPMorgan_Chase>
+trec-2013-19_5	1	<dbpedia:JPMorgan_Chase>
+trec-2013-1_1
+trec-2013-1_2
+trec-2013-20_1	1	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-20_10	1	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-20_11	1	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-20_2
+trec-2013-20_3
+trec-2013-20_4
+trec-2013-20_5	1	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-20_6	1	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-20_7
+trec-2013-20_8
+trec-2013-20_9	1	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-21_10
+trec-2013-21_11
+trec-2013-21_12
+trec-2013-21_2	1	<dbpedia:National_Collegiate_Athletic_Association>	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-21_4	1	<dbpedia:National_Collegiate_Athletic_Association>
+trec-2013-21_5
+trec-2013-21_6	1	<dbpedia:National_Collegiate_Athletic_Association>	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-21_7	1	<dbpedia:National_Collegiate_Athletic_Association>	<dbpedia:NCAA_Men's_Division_I_Basketball_Championship>
+trec-2013-21_8
+trec-2013-21_9
+trec-2013-22_1
+trec-2013-22_10
+trec-2013-22_11
+trec-2013-22_12
+trec-2013-22_2	1	<dbpedia:Connie_Culp>
+trec-2013-22_3	1	<dbpedia:Connie_Culp>
+trec-2013-22_4
+trec-2013-22_5	1	<dbpedia:Isabelle_Dinoire>
+trec-2013-22_7
+trec-2013-22_8	1	<dbpedia:Isabelle_Dinoire>
+trec-2013-22_9
+trec-2013-23_1	1	<dbpedia:Washington_Dulles_International_Airport>
+trec-2013-23_2	1	<dbpedia:Washington_Dulles_International_Airport>
+trec-2013-23_3	1	<dbpedia:Dulles,_Virginia>
+trec-2013-23_4	1	<dbpedia:Dulles,_Virginia>
+trec-2013-24_1	1	<dbpedia:Washington_Dulles_International_Airport>
+trec-2013-24_2	1	<dbpedia:Washington_Dulles_International_Airport>	<dbpedia:Virginia>
+trec-2013-24_3	1	<dbpedia:Washington_Dulles_International_Airport>	<dbpedia:Virginia>
+trec-2013-25_1	1	<dbpedia:Boston_Pops_Orchestra>
+trec-2013-25_2	1	<dbpedia:Boston_Pops_Orchestra>
+trec-2013-26_1
+trec-2013-26_2	1	<dbpedia:Boston_Pops_Orchestra>
+trec-2013-26_3	1	<dbpedia:Boston_Pops_Orchestra>
+trec-2013-26_4	1	<dbpedia:Boston_Pops_Orchestra>
+trec-2013-26_5	1	<dbpedia:Boston_Pops_Orchestra>
+trec-2013-26_6	1	<dbpedia:Boston_Pops_Orchestra>
+trec-2013-27_1	1	<dbpedia:Jeopardy!>
+trec-2013-27_2	1	<dbpedia:Jeopardy!>
+trec-2013-27_3	1	<dbpedia:Jeopardy!>
+trec-2013-28_1	1	<dbpedia:Jeopardy!>
+trec-2013-28_2	1	<dbpedia:Jeopardy!>
+trec-2013-29_1	1	<dbpedia:Jeopardy!>
+trec-2013-29_2	1	<dbpedia:Jeopardy!>
+trec-2013-29_3	1	<dbpedia:Jeopardy!>
+trec-2013-2_1
+trec-2013-2_2
+trec-2013-2_3
+trec-2013-2_4
+trec-2013-2_5
+trec-2013-2_6
+trec-2013-2_7
+trec-2013-2_8
+trec-2013-30_1	1	<dbpedia:Churchill_Downs>
+trec-2013-30_2	1	<dbpedia:Churchill_Downs>
+trec-2013-31_1	1	<dbpedia:Churchill_Downs>
+trec-2013-31_2	1	<dbpedia:Churchill_Downs>
+trec-2013-31_4	1	<dbpedia:Churchill_Downs>
+trec-2013-31_5	1	<dbpedia:Kentucky_Derby_Museum>
+trec-2013-31_6	1	<dbpedia:Churchill_Downs>
+trec-2013-31_7
+trec-2013-31_8
+trec-2013-31_9	1	<dbpedia:Churchill_Downs>
+trec-2013-32_1	1	<dbpedia:Churchill_Downs>
+trec-2013-32_2	1	<dbpedia:Churchill_Downs>
+trec-2013-32_3	1	<dbpedia:Churchill_Downs>
+trec-2013-32_4	1	<dbpedia:Churchill_Downs>	<dbpedia:Kentucky_Derby_Museum>
+trec-2013-33_1
+trec-2013-33_2
+trec-2013-33_3
+trec-2013-33_4
+trec-2013-34_1
+trec-2013-34_2
+trec-2013-34_3
+trec-2013-34_4
+trec-2013-35_1
+trec-2013-35_2
+trec-2013-35_3
+trec-2013-36_1
+trec-2013-36_2
+trec-2013-36_3
+trec-2013-36_4
+trec-2013-36_5
+trec-2013-36_6
+trec-2013-36_7
+trec-2013-36_8
+trec-2013-36_9
+trec-2013-37_1	1	<dbpedia:State_University_of_New_York>
+trec-2013-37_2	1	<dbpedia:State_University_of_New_York>
+trec-2013-38_1	1	<dbpedia:State_University_of_New_York>
+trec-2013-38_2	1	<dbpedia:University_at_Albany,_SUNY>
+trec-2013-38_4	1	<dbpedia:University_at_Albany,_SUNY>
+trec-2013-38_5	1	<dbpedia:State_University_of_New_York_at_Plattsburgh>
+trec-2013-39_1	1	<dbpedia:State_University_of_New_York>
+trec-2013-39_2	1	<dbpedia:State_University_of_New_York>
+trec-2013-39_3	1	<dbpedia:State_University_of_New_York>
+trec-2013-39_4	1	<dbpedia:University_at_Albany,_SUNY>
+trec-2013-39_5	1	<dbpedia:Albany_Medical_Center_Hospital>	<dbpedia:New_York>
+trec-2013-3_1
+trec-2013-3_2
+trec-2013-3_3
+trec-2013-40_1
+trec-2013-40_2
+trec-2013-40_3
+trec-2013-40_4
+trec-2013-40_5
+trec-2013-41_1	1	<dbpedia:Barack_Obama>
+trec-2013-41_2	1	<dbpedia:Barack_Obama>
+trec-2013-42_1
+trec-2013-42_2
+trec-2013-42_3
+trec-2013-43_1
+trec-2013-43_2
+trec-2013-43_3
+trec-2013-43_4
+trec-2013-44_1
+trec-2013-44_2
+trec-2013-44_3
+trec-2013-45_1	1	<dbpedia:Red_Bull>
+trec-2013-45_2	1	<dbpedia:Red_Bull>
+trec-2013-45_3	1	<dbpedia:Red_Bull>
+trec-2013-46_1	1	<dbpedia:Red_Bull>
+trec-2013-46_2	1	<dbpedia:Red_Bull>
+trec-2013-46_3
+trec-2013-46_4	1	<dbpedia:Red_Bull>
+trec-2013-46_5	1	<dbpedia:Red_Bull>
+trec-2013-46_6	1	<dbpedia:Red_Bull>
+trec-2013-46_7	1	<dbpedia:Red_Bull>
+trec-2013-46_8	1	<dbpedia:United_States>	<dbpedia:Red_Bull>
+trec-2013-47_1
+trec-2013-47_2
+trec-2013-47_3
+trec-2013-48_1
+trec-2013-48_2
+trec-2013-48_3
+trec-2013-48_4	1	<dbpedia:United_Kingdom>
+trec-2013-48_5
+trec-2013-48_6
+trec-2013-49_1
+trec-2013-49_2
+trec-2013-4_1
+trec-2013-4_3
+trec-2013-50_1
+trec-2013-50_2
+trec-2013-50_4
+trec-2013-50_5
+trec-2013-50_6
+trec-2013-50_7
+trec-2013-50_8
+trec-2013-51_1
+trec-2013-51_2
+trec-2013-52_1
+trec-2013-52_2
+trec-2013-52_3	1	<dbpedia:Switzerland>
+trec-2013-52_4
+trec-2013-52_5	1	<dbpedia:United_States>
+trec-2013-52_6
+trec-2013-52_7
+trec-2013-53_1
+trec-2013-53_2
+trec-2013-54_1
+trec-2013-54_2
+trec-2013-54_3
+trec-2013-55_1
+trec-2013-55_2
+trec-2013-56_1
+trec-2013-56_2
+trec-2013-57_1
+trec-2013-57_10
+trec-2013-57_11	1	<dbpedia:Asia>
+trec-2013-57_12
+trec-2013-57_13
+trec-2013-57_14
+trec-2013-57_15
+trec-2013-57_16
+trec-2013-57_17
+trec-2013-57_18
+trec-2013-57_19
+trec-2013-57_2
+trec-2013-57_3	1	<dbpedia:East_Asia>
+trec-2013-57_4	1	<dbpedia:East_Asia>
+trec-2013-57_5	1	<dbpedia:East_Asia>
+trec-2013-57_6
+trec-2013-57_7
+trec-2013-57_8
+trec-2013-57_9
+trec-2013-58_1	1	<dbpedia:Europe>
+trec-2013-58_2
+trec-2013-58_3	1	<dbpedia:European_Union>	<dbpedia:Greece>
+trec-2013-58_4	1	<dbpedia:European_Union>	<dbpedia:Portugal>
+trec-2013-58_5	1	<dbpedia:European_Union>	<dbpedia:Spain>
+trec-2013-59_1
+trec-2013-59_2
+trec-2013-5_1
+trec-2013-5_2
+trec-2013-5_3
+trec-2013-60_1	1	<dbpedia:Portugal>
+trec-2013-60_2	1	<dbpedia:Spain>
+trec-2013-60_3	1	<dbpedia:Spain>
+trec-2013-60_4	1	<dbpedia:Ireland>
+trec-2013-60_5	1	<dbpedia:Ireland>
+trec-2013-60_6
+trec-2013-60_7	1	<dbpedia:Cyprus>
+trec-2013-61_1
+trec-2013-61_2
+trec-2013-61_3
+trec-2013-61_4
+trec-2013-62_1
+trec-2013-62_2
+trec-2013-62_3
+trec-2013-62_4
+trec-2013-62_5
+trec-2013-62_6	1	<dbpedia:Getaway>
+trec-2013-62_7	1	<dbpedia:Getaway>
+trec-2013-63_1
+trec-2013-63_2
+trec-2013-63_3
+trec-2013-63_5
+trec-2013-63_6
+trec-2013-63_7
+trec-2013-63_8
+trec-2013-63_9
+trec-2013-64_1
+trec-2013-64_2
+trec-2013-65_1
+trec-2013-65_2
+trec-2013-65_3
+trec-2013-65_4
+trec-2013-66_2
+trec-2013-66_3
+trec-2013-67_1	1	<dbpedia:God>
+trec-2013-67_2
+trec-2013-67_3
+trec-2013-67_4
+trec-2013-68_1
+trec-2013-68_2
+trec-2013-68_3
+trec-2013-68_4	1	<dbpedia:United_States>
+trec-2013-69_1	1	<dbpedia:Africa>
+trec-2013-69_2	1	<dbpedia:Africa>
+trec-2013-69_3
+trec-2013-69_4
+trec-2013-6_1
+trec-2013-6_2
+trec-2013-6_3	1	<dbpedia:United_Kingdom>
+trec-2013-6_4	1	<dbpedia:United_Kingdom>
+trec-2013-6_5	1	<dbpedia:United_Kingdom>
+trec-2013-6_6	1	<dbpedia:United_States>
+trec-2013-70_1	1	<dbpedia:Africa>
+trec-2013-70_2	1	<dbpedia:Africa>
+trec-2013-70_3	1	<dbpedia:Africa>
+trec-2013-70_4	1	<dbpedia:Africa>
+trec-2013-70_5	1	<dbpedia:Africa>
+trec-2013-71_1
+trec-2013-71_2
+trec-2013-71_3
+trec-2013-71_4
+trec-2013-71_5
+trec-2013-71_6
+trec-2013-71_7
+trec-2013-71_8
+trec-2013-71_9
+trec-2013-72_1
+trec-2013-72_10
+trec-2013-72_11
+trec-2013-72_12
+trec-2013-72_13
+trec-2013-72_2
+trec-2013-72_3
+trec-2013-72_4
+trec-2013-72_5
+trec-2013-72_6
+trec-2013-72_7
+trec-2013-72_8
+trec-2013-72_9
+trec-2013-73_1
+trec-2013-73_2
+trec-2013-73_3
+trec-2013-74_1
+trec-2013-74_2
+trec-2013-74_3
+trec-2013-74_4
+trec-2013-74_5
+trec-2013-74_6
+trec-2013-75_1
+trec-2013-75_2
+trec-2013-75_3
+trec-2013-75_4
+trec-2013-75_5
+trec-2013-75_6
+trec-2013-75_7
+trec-2013-76_1
+trec-2013-76_2
+trec-2013-76_3	1	<dbpedia:United_Kingdom>
+trec-2013-77_1
+trec-2013-77_2	1	<dbpedia:United_Nations>
+trec-2013-77_3	1	<dbpedia:United_Nations>
+trec-2013-77_4
+trec-2013-77_5
+trec-2013-77_6
+trec-2013-78_1
+trec-2013-78_2
+trec-2013-79_1
+trec-2013-79_2
+trec-2013-7_2
+trec-2013-7_4
+trec-2013-7_5
+trec-2013-7_6
+trec-2013-7_7
+trec-2013-7_8
+trec-2013-80_1
+trec-2013-81_1
+trec-2013-81_2
+trec-2013-82_1
+trec-2013-82_2
+trec-2013-83_1
+trec-2013-83_2
+trec-2013-83_3
+trec-2013-83_4
+trec-2013-83_5
+trec-2013-83_6
+trec-2013-84_1
+trec-2013-84_2	1	<dbpedia:Hawaii>
+trec-2013-85_1
+trec-2013-85_2	1	<dbpedia:Los_Angeles>
+trec-2013-85_3	1	<dbpedia:Los_Angeles>
+trec-2013-86_1	1	<dbpedia:New_York_City>
+trec-2013-86_2	1	<dbpedia:Chicago>
+trec-2013-86_3	1	<dbpedia:Washington,_D.C.>
+trec-2013-87_1	1	<dbpedia:United_States>
+trec-2013-87_10	1	<dbpedia:Boston>
+trec-2013-87_11	1	<dbpedia:New_York_City>
+trec-2013-87_12	1	<dbpedia:New_York_City>	<dbpedia:Philadelphia>
+trec-2013-87_13	1	<dbpedia:Philadelphia>	<dbpedia:Washington,_D.C.>
+trec-2013-87_14	1	<dbpedia:Philadelphia>
+trec-2013-87_15	1	<dbpedia:Washington,_D.C.>
+trec-2013-87_16	1	<dbpedia:New_York_City>	<dbpedia:Philadelphia>
+trec-2013-87_17	1	<dbpedia:New_York_City>	<dbpedia:Philadelphia>
+trec-2013-87_18	1	<dbpedia:New_York_City>	<dbpedia:Philadelphia>
+trec-2013-87_2	1	<dbpedia:Boston>	<dbpedia:New_York>
+trec-2013-87_3	1	<dbpedia:Bing_Maps>
+trec-2013-87_4
+trec-2013-87_5	1	<dbpedia:Bing_Maps>
+trec-2013-87_6	1	<dbpedia:Hartford,_Connecticut>
+trec-2013-87_7	1	<dbpedia:Hartford,_Connecticut>
+trec-2013-87_8	1	<dbpedia:Hartford,_Connecticut>
+trec-2013-87_9	1	<dbpedia:Boston>	<dbpedia:Hartford,_Connecticut>
+trec-2013-88_1
+trec-2013-89_1	1	<dbpedia:Ron_Howard>
+trec-2013-8_1
+trec-2013-8_2
+trec-2013-8_3
+trec-2013-8_4
+trec-2013-91_1
+trec-2013-92_1
+trec-2013-93_1	1	<dbpedia:Black_History_Month>
+trec-2013-94_1	1	<dbpedia:Black_History_Month>
+trec-2013-95_1	1	<dbpedia:New_York_City>
+trec-2013-96_1
+trec-2013-97_1
+trec-2013-98_1
+trec-2013-99_1	1	<dbpedia:Kansas>
+trec-2013-9_1
+trec-2013-9_2
+trec-2013-9_3
+trec-2013-9_4
+yahoo-101_1
+yahoo-101_2
+yahoo-101_3	1	<dbpedia:Dockers>
+yahoo-101_4	1	<dbpedia:Kristen_Stewart>
+yahoo-101_5	1	<dbpedia:Area_codes_503_and_971>
+yahoo-101_6	1	<dbpedia:Area_codes_503_and_971>
+yahoo-101_7
+yahoo-101_8
+yahoo-101_9
+yahoo-104_1
+yahoo-104_3	1	<dbpedia:Yahoo!_Games>
+yahoo-104_5	1	<dbpedia:Go-oo>
+yahoo-104_6	1	<dbpedia:Google>
+yahoo-104_7
+yahoo-106_1	1	<dbpedia:Brian_Stann>
+yahoo-112_1	1	<dbpedia:BJ's_Wholesale_Club>
+yahoo-112_1	1	<dbpedia:BJ's_Restaurant_&_Brewery>
+yahoo-112_2
+yahoo-113_1
+yahoo-113_2
+yahoo-113_3
+yahoo-113_4	1	<dbpedia:Kelly_Carlson>
+yahoo-113_5
+yahoo-113_6
+yahoo-113_7
+yahoo-114_1
+yahoo-114_2
+yahoo-116_1
+yahoo-117_1	1	<dbpedia:Kris_Jenner>
+yahoo-117_2
+yahoo-117_3	1	<dbpedia:John_McCain>
+yahoo-118_1	1	<dbpedia:Microsoft_Surface>
+yahoo-119_1	1	<dbpedia:Netflix>
+yahoo-120_1
+yahoo-121_1
+yahoo-123_1	1	<dbpedia:Peninsula_School_District>
+yahoo-125_1	1	<dbpedia:New_York_City>	<dbpedia:Times_Square_Church>
+yahoo-126_10	1	<dbpedia:London>	<dbpedia:Yahoo!>
+yahoo-126_11	1	<dbpedia:Yahoo!>
+yahoo-126_2	1	<dbpedia:IPhone>
+yahoo-126_3	1	<dbpedia:IPhone_5>
+yahoo-126_4	1	<dbpedia:Jim_Mora_(broadcaster)>
+yahoo-126_4	1	<dbpedia:Jim_L._Mora>
+yahoo-126_4	1	<dbpedia:Jim_E._Mora>
+yahoo-126_6
+yahoo-126_7	1	<dbpedia:Yahoo!>
+yahoo-126_8	1	<dbpedia:Yahoo!_Mail>
+yahoo-126_9	1	<dbpedia:Yahoo!_Mail>
+yahoo-127_1	1	<dbpedia:Grandville,_Michigan>
+yahoo-127_2	1	<dbpedia:Drudge_Report>
+yahoo-128_1
+yahoo-128_2
+yahoo-128_4	1	<dbpedia:University_of_Cambridge>
+yahoo-128_5	1	<dbpedia:Department_of_Engineering,_University_of_Cambridge>
+yahoo-128_6	1	<dbpedia:University_of_Cambridge>
+yahoo-129_1
+yahoo-129_2	1	<dbpedia:Irvine,_California>
+yahoo-130_1	1	<dbpedia:LinkedIn>
+yahoo-131_1	1	<dbpedia:AOL>
+yahoo-131_2	1	<dbpedia:AOL_Mail>
+yahoo-132_1	1	<dbpedia:Detroit>
+yahoo-132_2	1	<dbpedia:Laurel_Park_Place>
+yahoo-135_1	1	<dbpedia:Cebu_Pacific>
+yahoo-135_2	1	<dbpedia:Cebu_Pacific>
+yahoo-136_1	1	<dbpedia:Halo_4>
+yahoo-137_1	1	<dbpedia:Hope_Solo>
+yahoo-138_1	1	<dbpedia:Honda_Accord>
+yahoo-138_10	1	<dbpedia:Chevrolet_Equinox>
+yahoo-138_11	1	<dbpedia:Buick_LaCrosse>
+yahoo-138_12	1	<dbpedia:Ford_Taurus>
+yahoo-138_13	1	<dbpedia:Toyota_Camry>
+yahoo-138_14	1	<dbpedia:Toyota_Camry>
+yahoo-138_15	1	<dbpedia:Mazda_CX-5>
+yahoo-138_16	1	<dbpedia:Ford_Mustang>
+yahoo-138_17	1	<dbpedia:Chevrolet_Malibu>
+yahoo-138_18	1	<dbpedia:Chevrolet_Malibu>
+yahoo-138_19	1	<dbpedia:Chevrolet_Malibu>
+yahoo-138_2	1	<dbpedia:Nissan_Altima>
+yahoo-138_3	1	<dbpedia:Nissan_Altima>
+yahoo-138_4	1	<dbpedia:Honda_Accord>
+yahoo-138_5	1	<dbpedia:Honda_Accord>
+yahoo-138_7	1	<dbpedia:Honda_Accord>
+yahoo-138_8	1	<dbpedia:Kia_Optima>
+yahoo-138_9
+yahoo-139_1
+yahoo-139_2
+yahoo-139_3	1	<dbpedia:Dwyane_Wade>
+yahoo-139_4	1	<dbpedia:Elizabeth_Banks>
+yahoo-139_5	1	<dbpedia:Illinois_State_Lottery>
+yahoo-139_6	1	<dbpedia:LensCrafters>
+yahoo-139_7
+yahoo-139_8
+yahoo-13_1	1	<dbpedia:Lark_Voorhies>
+yahoo-13_10	1	<dbpedia:Facebook>
+yahoo-13_11
+yahoo-13_12	1	<dbpedia:Yahoo!_Mail>
+yahoo-13_13	1	<dbpedia:Yahoo!>
+yahoo-13_15	1	<dbpedia:India>	<dbpedia:Yahoo!_Mail>
+yahoo-13_16	1	<dbpedia:Yahoo!_Mail>
+yahoo-13_17	1	<dbpedia:Facebook>
+yahoo-13_2
+yahoo-13_3	1	<dbpedia:Yahoo!>
+yahoo-13_4
+yahoo-13_5
+yahoo-13_6	1	<dbpedia:Washington's_Birthday>
+yahoo-13_7
+yahoo-13_8
+yahoo-13_9
+yahoo-140_1	1	<dbpedia:Bob_Dole>
+yahoo-140_10
+yahoo-140_11	1	<dbpedia:Shia_LaBeouf>
+yahoo-140_2
+yahoo-140_3	1	<dbpedia:Adam_Levine>
+yahoo-140_4	1	<dbpedia:Dancing_with_the_Stars_(U.S._TV_series)>
+yahoo-140_5
+yahoo-140_6
+yahoo-140_7	1	<dbpedia:Jeb_Bush>
+yahoo-140_8	1	<dbpedia:Bentley_School>
+yahoo-140_9	1	<dbpedia:Jack_Pardee>
+yahoo-143_1
+yahoo-144_1	1	<dbpedia:Springfield,_Missouri>
+yahoo-147_1	1	<dbpedia:Bandar_Pusat_Jengka>	<dbpedia:Universiti_Teknologi_MARA>
+yahoo-148_1	1	<dbpedia:Gmail>
+yahoo-148_2
+yahoo-149_1	1	<dbpedia:ESPN>
+yahoo-14_1	1	<dbpedia:The_Mickey_Mouse_Club>
+yahoo-150_1	1	<dbpedia:Barack_Obama>
+yahoo-150_2
+yahoo-151_1
+yahoo-155_1	1	<dbpedia:Tumblr>
+yahoo-155_2	1	<dbpedia:Tumblr>
+yahoo-155_3	1	<dbpedia:Tumblr>
+yahoo-155_4	1	<dbpedia:Tumblr>
+yahoo-157_1
+yahoo-15_1
+yahoo-160_1
+yahoo-163_1
+yahoo-164_1
+yahoo-164_2
+yahoo-164_3	1	<dbpedia:Dirty_Jobs>
+yahoo-165_1	1	<dbpedia:Converse_(shoe_company)>
+yahoo-167_1	1	<dbpedia:Oklahoma_School_of_Science_and_Mathematics>
+yahoo-168_1	1	<dbpedia:Windows_2000>
+yahoo-168_2	1	<dbpedia:Pennsylvania>
+yahoo-169_1	1	<dbpedia:White_House>
+yahoo-169_2	1	<dbpedia:Texas>
+yahoo-16_1
+yahoo-16_2
+yahoo-16_3
+yahoo-170_1	1	<dbpedia:Valerie_Eliot>
+yahoo-171_1	1	<dbpedia:Kentucky>
+yahoo-173_1	1	<dbpedia:Virginia>
+yahoo-176_1	1	<dbpedia:Samsung>
+yahoo-178_1	1	<dbpedia:A&E_(TV_channel)>
+yahoo-179_1	1	<dbpedia:Comcast>
+yahoo-17_1	1	<dbpedia:Starship_Troopers_2:_Hero_of_the_Federation>
+yahoo-180_1
+yahoo-184_1	1	<dbpedia:Danica_Patrick>
+yahoo-184_2
+yahoo-184_3	1	<dbpedia:Oksana_Baiul>
+yahoo-184_4
+yahoo-185_1
+yahoo-186_1
+yahoo-186_2	1	<dbpedia:LINC>
+yahoo-186_3	1	<dbpedia:LINC>
+yahoo-186_4	1	<dbpedia:Indeed.com>
+yahoo-187_1
+yahoo-188_1
+yahoo-189_1	1	<dbpedia:Casa_de_Campo>
+yahoo-189_2
+yahoo-189_3	1	<dbpedia:Best_Buy>
+yahoo-18_1	1	<dbpedia:Esther_Phillips>
+yahoo-18_2	1	<dbpedia:Facebook>
+yahoo-18_3
+yahoo-18_4
+yahoo-18_5	1	<dbpedia:Texas>
+yahoo-190_1
+yahoo-190_2	1	<dbpedia:Gucci>
+yahoo-192_1	1	<dbpedia:Elizabeth_Capell,_Countess_of_Essex>
+yahoo-192_2
+yahoo-192_3
+yahoo-192_4	1	<dbpedia:Universal_Sports>
+yahoo-196_1	1	<dbpedia:Hamas>
+yahoo-196_2	1	<dbpedia:Kim_Kardashian>
+yahoo-196_3
+yahoo-196_4
+yahoo-196_5
+yahoo-197_1	1	<dbpedia:Industrial_and_Commercial_Bank_of_China>
+yahoo-197_10	1	<dbpedia:Penélope_Cruz>
+yahoo-197_12	1	<dbpedia:Iran>
+yahoo-197_13	1	<dbpedia:Xbox_360>
+yahoo-197_14	1	<dbpedia:XM_Satellite_Radio>
+yahoo-197_15
+yahoo-197_16
+yahoo-197_17
+yahoo-197_18
+yahoo-197_19
+yahoo-197_2	1	<dbpedia:Penticton>
+yahoo-197_3	1	<dbpedia:Penticton>
+yahoo-197_4	1	<dbpedia:Penticton>
+yahoo-197_5	1	<dbpedia:Penticton>
+yahoo-197_6	1	<dbpedia:Penticton>
+yahoo-197_7	1	<dbpedia:Penticton>
+yahoo-197_8	1	<dbpedia:Penticton_Herald>
+yahoo-197_9	1	<dbpedia:The_Pentagon>
+yahoo-198_1	1	<dbpedia:Justin_Bieber>
+yahoo-199_1
+yahoo-199_2	1	<dbpedia:Heidi_Klum>
+yahoo-1_1
+yahoo-1_2	1	<dbpedia:Amazon.com>
+yahoo-1_4	1	<dbpedia:Douglas_Harriman_Kennedy>
+yahoo-1_5	1	<dbpedia:Aetna>
+yahoo-200_1	1	<dbpedia:River_Phoenix>
+yahoo-200_2
+yahoo-200_3	1	<dbpedia:Movember>
+yahoo-201_1	1	<dbpedia:Billy_Scott_(singer)>
+yahoo-201_2	1	<dbpedia:Myrtle_Beach,_South_Carolina>
+yahoo-201_3	1	<dbpedia:Myrtle_Beach,_South_Carolina>
+yahoo-201_4
+yahoo-201_5	1	<dbpedia:Myrtle_Beach,_South_Carolina>
+yahoo-202_1	1	<dbpedia:CNN_Sports_Illustrated>
+yahoo-204_1	1	<dbpedia:Firefox>
+yahoo-205_1	1	<dbpedia:Black_Friday_(shopping)>	<dbpedia:Walmart>
+yahoo-205_2	1	<dbpedia:Black_Friday_(shopping)>
+yahoo-207_1
+yahoo-209_2	1	<dbpedia:University_of_Southern_California>
+yahoo-20_1	1	<dbpedia:The_Big_Bang_Theory>
+yahoo-20_2	1	<dbpedia:Mike_Ditka>
+yahoo-20_3
+yahoo-20_4	1	<dbpedia:J._C._Penney>
+yahoo-20_5	1	<dbpedia:Walmart>
+yahoo-20_6
+yahoo-210_1	1	<dbpedia:Burlington,_Wisconsin>
+yahoo-210_2
+yahoo-211_1
+yahoo-213_1	1	<dbpedia:MSN>
+yahoo-215_1	1	<dbpedia:Bass_Pro_Shops>
+yahoo-216_1
+yahoo-219_1	1	<dbpedia:Mexico>	<dbpedia:Yahoo!>
+yahoo-219_3	1	<dbpedia:Twitter>
+yahoo-21_1	1	<dbpedia:W._C._Handy>
+yahoo-21_2	1	<dbpedia:Williamstown,_Vermont>
+yahoo-21_3
+yahoo-220_1	1	<dbpedia:Samsung_Galaxy_S_III>
+yahoo-220_3	1	<dbpedia:IPhone_5>
+yahoo-223_1	1	<dbpedia:Southwest_Airlines>
+yahoo-226_1	1	<dbpedia:Deborah_Raffin>
+yahoo-226_2
+yahoo-226_4	1	<dbpedia:Life_of_Pi>
+yahoo-226_5	1	<dbpedia:Héctor_Camacho>
+yahoo-229_1
+yahoo-229_3
+yahoo-229_4	1	<dbpedia:AT&T>
+yahoo-22_1	1	<dbpedia:Pandora_Radio>
+yahoo-22_2
+yahoo-232_1	1	<dbpedia:Katy_Perry>
+yahoo-233_2	1	<dbpedia:OoVoo>
+yahoo-235_1	1	<dbpedia:Oprah's_Lifeclass>
+yahoo-235_2	1	<dbpedia:TED_(conference)>
+yahoo-235_2	1	<dbpedia:Ted_(film)>
+yahoo-235_3
+yahoo-235_4
+yahoo-235_5
+yahoo-235_6	1	<dbpedia:Newport_Beach,_California>
+yahoo-235_7	1	<dbpedia:Newport_Beach,_California>
+yahoo-235_8	1	<dbpedia:Corona_del_Mar,_Newport_Beach>
+yahoo-236_1
+yahoo-236_2	1	<dbpedia:Party_City>
+yahoo-236_3	1	<dbpedia:Bath_&_Body_Works>
+yahoo-236_4
+yahoo-236_5
+yahoo-236_6	1	<dbpedia:Yellow_pages>
+yahoo-237_1	1	<dbpedia:Webster's_Dictionary>
+yahoo-237_2
+yahoo-237_3	1	<dbpedia:Gmail>
+yahoo-237_4	1	<dbpedia:Monster.com>
+yahoo-237_5	1	<dbpedia:Google>
+yahoo-237_6
+yahoo-238_1
+yahoo-239_1	1	<dbpedia:WeeWorld>
+yahoo-240_3	1	<dbpedia:AOL>
+yahoo-240_4	1	<dbpedia:Buffalo_Wild_Wings>
+yahoo-242_1
+yahoo-243_1	1	<dbpedia:Anne_Hathaway>
+yahoo-243_2
+yahoo-243_3
+yahoo-244_1	1	<dbpedia:Juventus_F.C.>
+yahoo-245_1	1	<dbpedia:Yahoo!>
+yahoo-245_2
+yahoo-245_3
+yahoo-245_4
+yahoo-245_5
+yahoo-245_6
+yahoo-245_7
+yahoo-246_1	1	<dbpedia:North_Korea>
+yahoo-246_2	1	<dbpedia:Oprah_Winfrey>
+yahoo-246_3	1	<dbpedia:Jacó,_Costa_Rica>
+yahoo-246_4	1	<dbpedia:Costa_Rica>
+yahoo-246_5	1	<dbpedia:Costa_Rica>	<dbpedia:Four_Seasons_Hotels_and_Resorts>
+yahoo-246_6	1	<dbpedia:Costa_Rica>
+yahoo-248_1	1	<dbpedia:Carol_Burnett>
+yahoo-248_11	1	<dbpedia:Michigan>
+yahoo-248_13	1	<dbpedia:Miss_Universe>
+yahoo-248_14	1	<dbpedia:Mister_Rogers'_Neighborhood>
+yahoo-248_15
+yahoo-248_16
+yahoo-248_17
+yahoo-248_3	1	<dbpedia:Yahoo!>
+yahoo-248_4
+yahoo-248_5	1	<dbpedia:Death_of_a_Salesman>
+yahoo-248_6	1	<dbpedia:Pennsylvania_State_University>
+yahoo-248_7	1	<dbpedia:José_Rizal>
+yahoo-248_8
+yahoo-24_1	1	<dbpedia:KGRS>
+yahoo-24_2	1	<dbpedia:Southeastern_Community_College_(Iowa)>
+yahoo-250_1	1	<dbpedia:Israel>
+yahoo-251_2	1	<dbpedia:Michael_Cuddyer>
+yahoo-251_3	1	<dbpedia:Michael_Curry>
+yahoo-251_4
+yahoo-251_5	1	<dbpedia:Yahoo!>
+yahoo-251_6	1	<dbpedia:Brenda_Song>
+yahoo-251_7	1	<dbpedia:Los_Angeles>
+yahoo-251_8	1	<dbpedia:Los_Angeles>
+yahoo-251_9	1	<dbpedia:Los_Angeles>
+yahoo-252_1	1	<dbpedia:LegalZoom>
+yahoo-254_1	1	<dbpedia:Makita>
+yahoo-254_2	1	<dbpedia:Santander_Brasil>
+yahoo-254_3
+yahoo-254_4
+yahoo-254_5	1	<dbpedia:Bodog>
+yahoo-255_1	1	<dbpedia:Twinkie>
+yahoo-256_1
+yahoo-257_2	1	<dbpedia:Apple_Inc.>
+yahoo-258_1	1	<dbpedia:Hugh_Grant>
+yahoo-25_1
+yahoo-260_1	1	<dbpedia:Florida>
+yahoo-261_1
+yahoo-261_2
+yahoo-261_3
+yahoo-262_1
+yahoo-264_1	1	<dbpedia:The_Fayetteville_Observer>
+yahoo-265_1
+yahoo-266_1
+yahoo-266_2	1	<dbpedia:Office_Depot>
+yahoo-266_3	1	<dbpedia:Aqueduct_Racetrack>
+yahoo-266_4	1	<dbpedia:Pakistan>
+yahoo-266_6
+yahoo-267_1	1	<dbpedia:Payless_ShoeSource>
+yahoo-268_1
+yahoo-269_1	1	<dbpedia:MapQuest>
+yahoo-26_1	1	<dbpedia:Karl_Rove>
+yahoo-26_2
+yahoo-270_1	1	<dbpedia:AlterNet>
+yahoo-270_2
+yahoo-270_3
+yahoo-271_1
+yahoo-271_2	1	<dbpedia:The_Great_Gatsby_(1974_film)>
+yahoo-271_3
+yahoo-271_4
+yahoo-273_1	1	<dbpedia:James_Harden>	<dbpedia:Houston_Rockets>
+yahoo-273_2
+yahoo-273_3	1	<dbpedia:Dick's_Sporting_Goods>
+yahoo-273_4	1	<dbpedia:Adidas>
+yahoo-273_5	1	<dbpedia:Macy's>
+yahoo-274_1	1	<dbpedia:Lexington_County,_South_Carolina>
+yahoo-275_1	1	<dbpedia:Facebook>
+yahoo-277_1	1	<dbpedia:Mark_Cuban>	<dbpedia:Donald_Trump>
+yahoo-278_1
+yahoo-279_2
+yahoo-279_3	1	<dbpedia:Indian_reservation>
+yahoo-27_1	1	<dbpedia:Toys_%22R%22_Us>
+yahoo-27_2	1	<dbpedia:New_York>
+yahoo-27_3	1	<dbpedia:New_York>
+yahoo-281_2	1	<dbpedia:Sam_Elliott>
+yahoo-282_1	1	<dbpedia:Newport_Beach,_California>
+yahoo-283_1
+yahoo-289_1	1	<dbpedia:Boston_Red_Sox>
+yahoo-289_2
+yahoo-289_3	1	<dbpedia:YouTube>
+yahoo-291_1	1	<dbpedia:Black_Friday_(shopping)>	<dbpedia:Walmart>
+yahoo-292_1	1	<dbpedia:Taylor_Lautner>
+yahoo-293_1	1	<dbpedia:BBVA_Compass>
+yahoo-293_2	1	<dbpedia:CPS_Energy>
+yahoo-294_1	1	<dbpedia:Microsoft>
+yahoo-294_2	1	<dbpedia:Alcoholics_Anonymous>
+yahoo-295_1	1	<dbpedia:Yahoo!_Music>
+yahoo-296_1
+yahoo-298_1	1	<dbpedia:Lowe's>
+yahoo-298_2	1	<dbpedia:Lowe's>
+yahoo-29_1
+yahoo-29_2	1	<dbpedia:BB&T>
+yahoo-29_3
+yahoo-29_4
+yahoo-29_5
+yahoo-29_6	1	<dbpedia:YouTube>
+yahoo-2_1
+yahoo-300_1	1	<dbpedia:Romania>
+yahoo-300_3	1	<dbpedia:Red_Giant_Software>
+yahoo-301_1
+yahoo-302_1
+yahoo-302_2
+yahoo-303_1	1	<dbpedia:Stage_Stores_Inc.>
+yahoo-305_1	1	<dbpedia:Arsenal_F.C.>
+yahoo-305_2
+yahoo-305_3	1	<dbpedia:Premier_League>
+yahoo-307_1
+yahoo-307_2	1	<dbpedia:Walmart>
+yahoo-307_3
+yahoo-307_4
+yahoo-307_5
+yahoo-308_1	1	<dbpedia:Mediacom>
+yahoo-308_2	1	<dbpedia:1st_Source>
+yahoo-308_3	1	<dbpedia:Ford_Motor_Company>
+yahoo-309_1	1	<dbpedia:YouTube>
+yahoo-30_1
+yahoo-310_2	1	<dbpedia:EBay>
+yahoo-311_2	1	<dbpedia:AutoTrader.com>
+yahoo-311_3
+yahoo-311_4	1	<dbpedia:Costco>
+yahoo-311_5	1	<dbpedia:Target_Corporation>
+yahoo-311_6
+yahoo-312_1	1	<dbpedia:Bret_Michaels>
+yahoo-313_1	1	<dbpedia:Hulu>
+yahoo-313_2
+yahoo-315_1	1	<dbpedia:Bon_Jovi>
+yahoo-317_3
+yahoo-319_1	1	<dbpedia:Black_Friday_(shopping)>	<dbpedia:IPad_2>
+yahoo-320_1
+yahoo-321_1	1	<dbpedia:Pinterest>
+yahoo-321_3	1	<dbpedia:Yellow_pages>
+yahoo-321_5	1	<dbpedia:Hamilton_Beach_Brands>
+yahoo-321_7	1	<dbpedia:Vermontville,_Michigan>
+yahoo-321_8	1	<dbpedia:Vermont_Country_Store>
+yahoo-322_2	1	<dbpedia:Adele>
+yahoo-322_3	1	<dbpedia:Adventure_Time>
+yahoo-322_4	1	<dbpedia:Adventure_Time>
+yahoo-322_5	1	<dbpedia:Rule_34_(novel)>
+yahoo-323_1	1	<dbpedia:Giant_Eagle>
+yahoo-324_1	1	<dbpedia:Charter_Communications>
+yahoo-325_1	1	<dbpedia:Michael_Jordan>
+yahoo-325_2	1	<dbpedia:Kanye_West>
+yahoo-326_1
+yahoo-327_1	1	<dbpedia:W._L._Weller>
+yahoo-327_2	1	<dbpedia:YouTube>
+yahoo-327_3	1	<dbpedia:Queen_Latifah>
+yahoo-327_4	1	<dbpedia:OVGuide>
+yahoo-328_1	1	<dbpedia:Dish_Network>
+yahoo-32_1	1	<dbpedia:Ford_Fiesta>
+yahoo-330_1	1	<dbpedia:Hu_Jintao>
+yahoo-333_1
+yahoo-333_2
+yahoo-334_1	1	<dbpedia:EBay>
+yahoo-334_2	1	<dbpedia:United_Parcel_Service>
+yahoo-334_3	1	<dbpedia:Coldwater,_Ohio>
+yahoo-335_1	1	<dbpedia:Microsoft_Windows>
+yahoo-336_10
+yahoo-336_11
+yahoo-336_2	1	<dbpedia:Héctor_Camacho>
+yahoo-336_3	1	<dbpedia:The_Price_Is_Right>
+yahoo-336_4	1	<dbpedia:Here_Comes_Honey_Boo_Boo>
+yahoo-336_5	1	<dbpedia:Wanda_Jackson>
+yahoo-336_6
+yahoo-336_7
+yahoo-336_8
+yahoo-336_9	1	<dbpedia:Yahoo!>
+yahoo-338_1
+yahoo-33_1	1	<dbpedia:North_Korea>
+yahoo-33_2	1	<dbpedia:Maria_Sharapova>
+yahoo-340_1	1	<dbpedia:Jamie_Grace>
+yahoo-340_2
+yahoo-340_3	1	<dbpedia:Clayton_State_University>
+yahoo-340_4	1	<dbpedia:Guy_Fieri>
+yahoo-340_5
+yahoo-340_6
+yahoo-341_2	1	<dbpedia:Mackenzie_Foy>
+yahoo-341_3	1	<dbpedia:MacKenzie-Childs>
+yahoo-341_4	1	<dbpedia:Hernando_County,_Florida>
+yahoo-341_5	1	<dbpedia:Spring_Hill,_Florida>
+yahoo-346_1	1	<dbpedia:Midwestern_United_States>	<dbpedia:Wonderware>
+yahoo-346_2
+yahoo-347_1	1	<dbpedia:Save_Mart_Supermarkets>
+yahoo-348_1
+yahoo-349_1
+yahoo-349_2	1	<dbpedia:Denise_Richards>
+yahoo-351_1
+yahoo-351_2
+yahoo-352_1
+yahoo-352_2	1	<dbpedia:Evan_Rachel_Wood>
+yahoo-352_3	1	<dbpedia:Pascual_Pérez_(baseball)>
+yahoo-352_4
+yahoo-353_1	1	<dbpedia:Cinque_Terre>
+yahoo-354_2
+yahoo-354_3	1	<dbpedia:Héctor_Camacho>
+yahoo-355_1	1	<dbpedia:Twitter>
+yahoo-356_1
+yahoo-357_1	1	<dbpedia:Facebook>
+yahoo-358_1
+yahoo-358_2
+yahoo-35_1	1	<dbpedia:AMC_(TV_channel)>	<dbpedia:Breaking_Bad>
+yahoo-360_1	1	<dbpedia:Hayden_Panettiere>
+yahoo-360_2	1	<dbpedia:Lindsay_Lohan>
+yahoo-361_2	1	<dbpedia:WDBJ>
+yahoo-361_3	1	<dbpedia:WQUT>
+yahoo-366_1	1	<dbpedia:Cate_Blanchett>
+yahoo-366_2
+yahoo-367_1	1	<dbpedia:Apple_Inc.>
+yahoo-369_1
+yahoo-370_1	1	<dbpedia:Nicholas_Hoult>
+yahoo-370_2
+yahoo-370_3
+yahoo-370_4	1	<dbpedia:Philadelphia>	<dbpedia:Saint_Joseph's_University>
+yahoo-371_1	1	<dbpedia:Coldwell_Banker>
+yahoo-371_2
+yahoo-371_3
+yahoo-371_4	1	<dbpedia:Vibram>
+yahoo-371_5	1	<dbpedia:Rykä>
+yahoo-371_6	1	<dbpedia:Nike,_Inc.>
+yahoo-371_8	1	<dbpedia:Big_Lots>
+yahoo-372_1	1	<dbpedia:Africa>
+yahoo-375_1	1	<dbpedia:Les_Misérables>
+yahoo-375_1	1	<dbpedia:Les_Misérables_(musical)>
+yahoo-375_1	1	<dbpedia:Les_Misérables_(2012_film)>
+yahoo-375_2	1	<dbpedia:Lamborghini_Reventón>
+yahoo-376_2
+yahoo-379_1
+yahoo-379_3	1	<dbpedia:Climax_mine>
+yahoo-379_4	1	<dbpedia:Climax_mine>	<dbpedia:Leadville,_Colorado>
+yahoo-379_5	1	<dbpedia:Google_Earth>
+yahoo-379_7	1	<dbpedia:Bob_Berg>
+yahoo-37_1	1	<dbpedia:Steve_Nash>
+yahoo-37_2	1	<dbpedia:George_Lucas>
+yahoo-37_3	1	<dbpedia:Green_Day>	<dbpedia:The_Twilight_Saga:_Breaking_Dawn_–_Part_2>
+yahoo-380_1	1	<dbpedia:USAA>
+yahoo-382_1	1	<dbpedia:Blic>
+yahoo-382_2	1	<dbpedia:Kurir>
+yahoo-382_3
+yahoo-383_1
+yahoo-383_2	1	<dbpedia:The_Detroit_News>
+yahoo-383_3
+yahoo-384_1	1	<dbpedia:Philippine_Daily_Inquirer>
+yahoo-385_1	1	<dbpedia:Domino's_Pizza>
+yahoo-385_10	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_11	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_12	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_2	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_3	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_4
+yahoo-385_5	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_6	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_7	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_8	1	<dbpedia:Papa_John's_Pizza>
+yahoo-385_9	1	<dbpedia:Papa_John's_Pizza>
+yahoo-389_1
+yahoo-389_2	1	<dbpedia:The_Christian_Science_Monitor>
+yahoo-390_1
+yahoo-390_2
+yahoo-392_1	1	<dbpedia:Samsung>
+yahoo-393_2	1	<dbpedia:Sears>
+yahoo-394_1	1	<dbpedia:Carlyle,_Illinois>
+yahoo-394_2	1	<dbpedia:Google>	<dbpedia:YouTube>
+yahoo-395_1
+yahoo-395_2	1	<dbpedia:Darrell_Royal>
+yahoo-395_3	1	<dbpedia:Diane_Sawyer>
+yahoo-395_4
+yahoo-395_5	1	<dbpedia:Eva_Longoria>
+yahoo-397_1	1	<dbpedia:CNN>
+yahoo-398_1
+yahoo-398_2
+yahoo-398_3	1	<dbpedia:Hillary_Rodham_Clinton>
+yahoo-398_4	1	<dbpedia:Mayim_Bialik>
+yahoo-39_1	1	<dbpedia:Zig_Ziglar>
+yahoo-3_1	1	<dbpedia:Nordstrom>
+yahoo-400_1	1	<dbpedia:Buffalo_Wild_Wings>
+yahoo-400_2
+yahoo-400_3
+yahoo-400_4
+yahoo-402_1	1	<dbpedia:Downtown_San_Antonio>
+yahoo-405_1	1	<dbpedia:California_Department_of_Motor_Vehicles>
+yahoo-405_2	1	<dbpedia:Edens_Edge>
+yahoo-405_4	1	<dbpedia:Barnes_&_Noble_Nook>
+yahoo-405_6	1	<dbpedia:Yahoo!_News>
+yahoo-407_1	1	<dbpedia:Bobby_Hebert>
+yahoo-407_2	1	<dbpedia:Loretta_Swit>
+yahoo-407_3	1	<dbpedia:Mariano_Rivera>
+yahoo-408_1
+yahoo-409_1
+yahoo-409_2
+yahoo-409_3	1	<dbpedia:Kohl's>
+yahoo-409_4
+yahoo-409_5
+yahoo-409_6
+yahoo-40_1	1	<dbpedia:Joint_POW/MIA_Accounting_Command>
+yahoo-410_1
+yahoo-411_1	1	<dbpedia:Charlie_Sheen>	<dbpedia:Lindsay_Lohan>
+yahoo-413_1	1	<dbpedia:Greeley,_Colorado>
+yahoo-415_1	1	<dbpedia:Google_Translate>
+yahoo-416_1	1	<dbpedia:Website>
+yahoo-417_1
+yahoo-418_1
+yahoo-418_2	1	<dbpedia:University_of_Illinois_at_Springfield>
+yahoo-420_1	1	<dbpedia:Lance_Armstrong>
+yahoo-421_1
+yahoo-422_2	1	<dbpedia:Tufts_University>
+yahoo-422_3
+yahoo-425_1	1	<dbpedia:Miley_Cyrus>
+yahoo-425_10
+yahoo-425_2
+yahoo-425_3
+yahoo-425_4	1	<dbpedia:Ted_Nugent>
+yahoo-425_5	1	<dbpedia:Top_Gun>
+yahoo-425_6	1	<dbpedia:Ellen_Douglas>
+yahoo-425_8
+yahoo-425_9	1	<dbpedia:Victoria_Jackson>
+yahoo-426_1
+yahoo-426_2
+yahoo-426_3
+yahoo-426_4	1	<dbpedia:J._C._Penney>
+yahoo-426_5	1	<dbpedia:Cavenders>
+yahoo-426_6	1	<dbpedia:Fathead_(brand)>
+yahoo-427_1
+yahoo-428_1	1	<dbpedia:AOL_Mail>
+yahoo-42_1	1	<dbpedia:Jet_Airways>
+yahoo-430_2
+yahoo-431_1	1	<dbpedia:Langham_Creek_High_School>
+yahoo-432_1	1	<dbpedia:Iron_Sky>
+yahoo-433_1
+yahoo-433_2	1	<dbpedia:Selena_Gomez>
+yahoo-435_1
+yahoo-435_2
+yahoo-435_4
+yahoo-435_5
+yahoo-435_6	1	<dbpedia:Björk>
+yahoo-436_1	1	<dbpedia:Kmart>
+yahoo-436_3
+yahoo-436_4	1	<dbpedia:Black_Friday_(shopping)>
+yahoo-436_5
+yahoo-436_6	1	<dbpedia:Walmart>
+yahoo-436_7	1	<dbpedia:Target_Corporation>
+yahoo-436_8
+yahoo-436_9	1	<dbpedia:Walmart>
+yahoo-437_1
+yahoo-438_1
+yahoo-439_1	1	<dbpedia:Christchurch>
+yahoo-43_1	1	<dbpedia:Craigslist>	<dbpedia:Dallas–Fort_Worth_metroplex>
+yahoo-43_2	1	<dbpedia:Craigslist>
+yahoo-43_3	1	<dbpedia:Yahoo!_Calendar>
+yahoo-43_4	1	<dbpedia:Jim_Durham>
+yahoo-43_5	1	<dbpedia:Luxembourg>
+yahoo-441_1	1	<dbpedia:Liverpool_Echo>
+yahoo-441_2	1	<dbpedia:Liverpool_Echo>
+yahoo-443_1	1	<dbpedia:Ner>
+yahoo-447_1
+yahoo-448_1	1	<dbpedia:NBC>
+yahoo-448_2	1	<dbpedia:Facebook>	<dbpedia:Yahoo!>
+yahoo-44_1
+yahoo-44_2
+yahoo-450_1	1	<dbpedia:YouTube>
+yahoo-452_1	1	<dbpedia:Dora_the_Explorer>
+yahoo-452_2
+yahoo-452_3
+yahoo-454_1	1	<dbpedia:Dick_Clark>
+yahoo-455_1	1	<dbpedia:Davenport_Lyons>
+yahoo-455_2	1	<dbpedia:Bradley_Cooper>
+yahoo-455_3	1	<dbpedia:Copa_Airlines>
+yahoo-455_4	1	<dbpedia:United_Airlines>
+yahoo-456_2
+yahoo-456_3	1	<dbpedia:The_Forum_of_Fargo-Moorhead>
+yahoo-456_4	1	<dbpedia:Grand_Forks_Herald>
+yahoo-456_6	1	<dbpedia:Billings_Gazette>
+yahoo-458_1
+yahoo-458_2	1	<dbpedia:Liz_Claiborne>
+yahoo-458_3	1	<dbpedia:Kohl's>
+yahoo-458_4	1	<dbpedia:Bed_Bath_&_Beyond>
+yahoo-458_6	1	<dbpedia:Snopes.com>
+yahoo-458_8	1	<dbpedia:Chase_(bank)>
+yahoo-458_9	1	<dbpedia:Second_Reformed_Dutch_Church_of_Kingston>
+yahoo-459_1
+yahoo-45_1	1	<dbpedia:Expedia>	<dbpedia:Orbitz>
+yahoo-45_2	1	<dbpedia:AARP>
+yahoo-461_10	1	<dbpedia:South_Padre_Island>
+yahoo-461_11	1	<dbpedia:South_Park>
+yahoo-461_2	1	<dbpedia:Porter_Hardware>
+yahoo-461_3	1	<dbpedia:Porter_Hardware>
+yahoo-461_6	1	<dbpedia:Jennifer_Lawrence>
+yahoo-461_7
+yahoo-461_8
+yahoo-461_9
+yahoo-462_1	1	<dbpedia:Perez_Hilton>
+yahoo-462_3	1	<dbpedia:Chris_Brown_(American_entertainer)>	<dbpedia:Rihanna>
+yahoo-462_4	1	<dbpedia:Monica_Potter>
+yahoo-463_1	1	<dbpedia:Trans-Siberian_Orchestra>
+yahoo-463_2
+yahoo-463_3	1	<dbpedia:Subaru>
+yahoo-463_4	1	<dbpedia:Bass_Pro_Shops>
+yahoo-464_1
+yahoo-465_1	1	<dbpedia:AutoZone>
+yahoo-465_2	1	<dbpedia:AutoZone>
+yahoo-466_1	1	<dbpedia:Buckhead_(Atlanta)>
+yahoo-467_1
+yahoo-467_2
+yahoo-468_1	1	<dbpedia:Branson_Airport>
+yahoo-468_10
+yahoo-468_11
+yahoo-468_2	1	<dbpedia:The_Home_Depot>
+yahoo-468_3	1	<dbpedia:Walmart>
+yahoo-468_4	1	<dbpedia:Kindle_Fire>
+yahoo-468_5	1	<dbpedia:Bass_Pro_Shops>
+yahoo-468_6	1	<dbpedia:Cabela's>
+yahoo-468_7	1	<dbpedia:Wilsons_Leather>
+yahoo-468_8
+yahoo-468_9
+yahoo-470_1
+yahoo-470_2
+yahoo-470_3
+yahoo-470_4	1	<dbpedia:Merrill_Lynch>
+yahoo-471_1	1	<dbpedia:Norfolk_County,_Massachusetts>
+yahoo-474_1	1	<dbpedia:National_Oceanic_and_Atmospheric_Administration>
+yahoo-474_10	1	<dbpedia:Yahoo!_Maps>
+yahoo-474_2
+yahoo-474_3	1	<dbpedia:Bing>
+yahoo-474_5	1	<dbpedia:MapQuest>
+yahoo-474_6	1	<dbpedia:MapQuest>	<dbpedia:Yahoo!>
+yahoo-474_7	1	<dbpedia:MapQuest>	<dbpedia:Yahoo!>
+yahoo-474_8	1	<dbpedia:MapQuest>	<dbpedia:Yahoo!>
+yahoo-475_1
+yahoo-475_2	1	<dbpedia:QVC>
+yahoo-475_3	1	<dbpedia:PPG_Industries>
+yahoo-475_4	1	<dbpedia:Mohawk_Industries>
+yahoo-477_1
+yahoo-479_2
+yahoo-479_3	1	<dbpedia:Emily_Squires>
+yahoo-47_1	1	<dbpedia:La_Grange,_Texas>
+yahoo-47_2	1	<dbpedia:La_Grange,_Texas>
+yahoo-47_3	1	<dbpedia:La_Grange,_Texas>
+yahoo-482_1	1	<dbpedia:Area_code_309>	<dbpedia:Illinois>
+yahoo-482_2
+yahoo-483_2
+yahoo-485_2	1	<dbpedia:State_of_Decay_(video_game)>
+yahoo-486_1	1	<dbpedia:Charleston,_South_Carolina>
+yahoo-486_2
+yahoo-486_3
+yahoo-487_1	1	<dbpedia:Naked_Juice>
+yahoo-488_1
+yahoo-489_1
+yahoo-489_2
+yahoo-489_3
+yahoo-489_5
+yahoo-489_6
+yahoo-48_1
+yahoo-48_2
+yahoo-490_1	1	<dbpedia:Kalamazoo,_Michigan>
+yahoo-490_2	1	<dbpedia:Portage,_Michigan>	<dbpedia:YMCA>
+yahoo-490_3	1	<dbpedia:Grand_Rapids,_Michigan>
+yahoo-490_4	1	<dbpedia:JW_Marriott_Grand_Rapids>
+yahoo-490_5	1	<dbpedia:Kalamazoo,_Michigan>
+yahoo-490_6	1	<dbpedia:Bruno_Mars>
+yahoo-490_7	1	<dbpedia:Allrecipes.com>
+yahoo-490_8	1	<dbpedia:Allrecipes.com>
+yahoo-490_9	1	<dbpedia:The_Lumineers>
+yahoo-491_1	1	<dbpedia:King_of_New_York>
+yahoo-491_10	1	<dbpedia:Moonshiners_(TV_series)>
+yahoo-491_2	1	<dbpedia:Game_of_Thrones>
+yahoo-491_3	1	<dbpedia:Game_of_Thrones_(season_3)>
+yahoo-491_4
+yahoo-491_5	1	<dbpedia:Gregg_Allman>
+yahoo-491_6	1	<dbpedia:Lake_Hope_State_Park>
+yahoo-491_7	1	<dbpedia:Flipping_Out>
+yahoo-491_8	1	<dbpedia:Flipping_Out>
+yahoo-491_9	1	<dbpedia:Moonshiners_(TV_series)>
+yahoo-492_1	1	<dbpedia:Electronic_Arts>	<dbpedia:NCAA_Football_series>
+yahoo-492_2	1	<dbpedia:Pitch_Perfect>
+yahoo-492_3	1	<dbpedia:Superman_(TV_series)>
+yahoo-492_4	1	<dbpedia:Dean_Cain>
+yahoo-492_5	1	<dbpedia:Zoo_Atlanta>
+yahoo-492_6	1	<dbpedia:Mark_Sanchez>
+yahoo-492_7	1	<dbpedia:Mark_Sanchez>
+yahoo-493_1	1	<dbpedia:Ryan_Gosling>
+yahoo-493_10	1	<dbpedia:National_Football_League>
+yahoo-493_11	1	<dbpedia:Ohio_State_University>
+yahoo-493_12	1	<dbpedia:OkCupid>
+yahoo-493_13	1	<dbpedia:College_Board>
+yahoo-493_14	1	<dbpedia:Sarah_Jessica_Parker>
+yahoo-493_15	1	<dbpedia:Milan_Lucic>
+yahoo-493_16	1	<dbpedia:Milan_Lucic>
+yahoo-493_17	1	<dbpedia:Carolina_Panthers>
+yahoo-493_18	1	<dbpedia:Charlotte,_North_Carolina>
+yahoo-493_19	1	<dbpedia:Timeflies>
+yahoo-493_2	1	<dbpedia:Channing_Tatum>
+yahoo-493_20	1	<dbpedia:Facebook>
+yahoo-493_21
+yahoo-493_3	1	<dbpedia:Channing_Tatum>
+yahoo-493_4	1	<dbpedia:Ryan_Gosling>
+yahoo-493_5	1	<dbpedia:Ryan_Reynolds>
+yahoo-493_6	1	<dbpedia:Ryan_Reynolds>
+yahoo-493_7
+yahoo-493_8	1	<dbpedia:Entourage_(TV_series)>
+yahoo-493_9	1	<dbpedia:Cascada>
+yahoo-494_1	1	<dbpedia:Portland,_Oregon>
+yahoo-494_10	1	<dbpedia:Crate_&_Barrel>
+yahoo-494_11
+yahoo-494_2	1	<dbpedia:Nashville_(2012_TV_series)>
+yahoo-494_3	1	<dbpedia:Connie_Britton>
+yahoo-494_4	1	<dbpedia:American_Broadcasting_Company>
+yahoo-494_5
+yahoo-494_6	1	<dbpedia:Amanda_Bynes>
+yahoo-494_7	1	<dbpedia:Portland,_Oregon>
+yahoo-494_8
+yahoo-494_9
+yahoo-495_1
+yahoo-495_10	1	<dbpedia:Nashville,_Tennessee>
+yahoo-495_11
+yahoo-495_12	1	<dbpedia:Miley_Cyrus>
+yahoo-495_13	1	<dbpedia:Nashville,_Tennessee>
+yahoo-495_14	1	<dbpedia:Nashville,_Tennessee>
+yahoo-495_2	1	<dbpedia:Nashville,_Tennessee>	<dbpedia:Charity_shop>
+yahoo-495_3	1	<dbpedia:Goodwill_Industries>	<dbpedia:Nashville,_Tennessee>
+yahoo-495_4	1	<dbpedia:Nashville,_Tennessee>
+yahoo-495_5
+yahoo-495_6	1	<dbpedia:Nashville,_Tennessee>
+yahoo-495_7
+yahoo-495_8	1	<dbpedia:Nikki_Danielle_Moore>
+yahoo-495_9
+yahoo-496_2	1	<dbpedia:Century_Theatres>
+yahoo-496_3	1	<dbpedia:Century_Theatres>	<dbpedia:San_Francisco>
+yahoo-496_4	1	<dbpedia:San_Francisco>
+yahoo-498_1	1	<dbpedia:Rotten_Tomatoes>
+yahoo-499_1	1	<dbpedia:The_Bachelor_(U.S._TV_series)>
+yahoo-499_2	1	<dbpedia:The_East_(film)>
+yahoo-499_4	1	<dbpedia:Tool_(band)>
+yahoo-499_5	1	<dbpedia:Steve_Guttenberg>
+yahoo-499_6	1	<dbpedia:Redbox>
+yahoo-499_7	1	<dbpedia:Caddo_Lake>	<dbpedia:Texas>
+yahoo-49_1
+yahoo-4_1	1	<dbpedia:ReverbNation>
+yahoo-500_1	1	<dbpedia:Salem,_New_Hampshire>
+yahoo-500_2	1	<dbpedia:White_House_Down>
+yahoo-500_3	1	<dbpedia:Loews_Cineplex_Entertainment>	<dbpedia:Methuen,_Massachusetts>
+yahoo-500_4	1	<dbpedia:Lawrence,_Massachusetts>
+yahoo-500_5	1	<dbpedia:Lawrence,_Massachusetts>
+yahoo-501_1	1	<dbpedia:Lean_Cuisine>
+yahoo-501_10
+yahoo-501_11	1	<dbpedia:The_Bling_Ring>
+yahoo-501_12
+yahoo-501_13
+yahoo-501_14	1	<dbpedia:GNC_(store)>
+yahoo-501_15	1	<dbpedia:Netflix>
+yahoo-501_16	1	<dbpedia:Moviefone>
+yahoo-501_2
+yahoo-501_3
+yahoo-501_4
+yahoo-501_5
+yahoo-501_6	1	<dbpedia:Paula_Deen>
+yahoo-501_7	1	<dbpedia:The_Girl_with_the_Dragon_Tattoo_(2011_film)>
+yahoo-501_8	1	<dbpedia:Rooney_Mara>
+yahoo-501_9	1	<dbpedia:The_Voice_(U.S._season_4)>
+yahoo-502_1	1	<dbpedia:Clearview_Cinemas>	<dbpedia:Morristown,_New_Jersey>
+yahoo-502_10	1	<dbpedia:Chelsea_F.C.>	<dbpedia:Fernando_Torres>
+yahoo-502_11	1	<dbpedia:Fernando_Torres>
+yahoo-502_12	1	<dbpedia:Michael_Essien>
+yahoo-502_13	1	<dbpedia:Luka_Modrić>
+yahoo-502_14
+yahoo-502_15	1	<dbpedia:David_Beckham>
+yahoo-502_16	1	<dbpedia:Jack_Wilshere>
+yahoo-502_17	1	<dbpedia:Theo_Walcott>
+yahoo-502_18
+yahoo-502_19	1	<dbpedia:Teemu_Tainio>
+yahoo-502_2	1	<dbpedia:Madison,_New_Jersey>
+yahoo-502_3	1	<dbpedia:Madison,_New_Jersey>
+yahoo-502_4	1	<dbpedia:MSN>
+yahoo-502_5	1	<dbpedia:GMC_(automobile)>
+yahoo-502_6	1	<dbpedia:Didier_Drogba>
+yahoo-502_7	1	<dbpedia:Neymar>
+yahoo-502_8	1	<dbpedia:Santos_FC>
+yahoo-502_9	1	<dbpedia:Wikipedia>
+yahoo-503_1	1	<dbpedia:Sodexo>
+yahoo-503_2	1	<dbpedia:Subaru_Forester>
+yahoo-503_3	1	<dbpedia:Houston_Zoo>
+yahoo-503_4	1	<dbpedia:Yahoo!_Finance>
+yahoo-504_1
+yahoo-504_2
+yahoo-504_3	1	<dbpedia:Inside_Out_(2011_film)>
+yahoo-505_1	1	<dbpedia:Carmike_Cinemas>
+yahoo-506_1	1	<dbpedia:Ed_Begley,_Jr.>
+yahoo-506_2
+yahoo-507_1	1	<dbpedia:The_Little_Rascals_(film)>
+yahoo-507_10
+yahoo-507_12
+yahoo-507_13
+yahoo-507_14
+yahoo-507_15
+yahoo-507_16
+yahoo-507_18
+yahoo-507_19
+yahoo-507_2	1	<dbpedia:Comadre_(band)>
+yahoo-507_20
+yahoo-507_21
+yahoo-507_22
+yahoo-507_23	1	<dbpedia:Long_Beach,_California>
+yahoo-507_24	1	<dbpedia:Gmail>
+yahoo-507_3
+yahoo-507_5	1	<dbpedia:Angeles_National_Forest>
+yahoo-507_6
+yahoo-507_7
+yahoo-507_8
+yahoo-507_9
+yahoo-508_1
+yahoo-508_2
+yahoo-508_3	1	<dbpedia:Under_the_Dome_(TV_series)>
+yahoo-508_4	1	<dbpedia:The_Goodwin_Games>
+yahoo-508_5	1	<dbpedia:Chris_Diamantopoulos>
+yahoo-508_6	1	<dbpedia:Into_the_Woods>
+yahoo-508_7	1	<dbpedia:Jackson_Hurst>
+yahoo-509_1	1	<dbpedia:Area_code_775>
+yahoo-509_2
+yahoo-509_3	1	<dbpedia:Anthony,_Texas>	<dbpedia:Wet_N'_Wild_Waterworld>
+yahoo-509_4	1	<dbpedia:El_Paso,_Texas>
+yahoo-509_5	1	<dbpedia:El_Paso,_Texas>
+yahoo-509_6
+yahoo-509_7
+yahoo-509_8
+yahoo-510_1	1	<dbpedia:Glock>
+yahoo-510_12
+yahoo-510_13
+yahoo-510_14
+yahoo-510_15
+yahoo-510_16	1	<dbpedia:HauteLook>
+yahoo-510_17	1	<dbpedia:Expedia>
+yahoo-510_19	1	<dbpedia:Disney_Store>
+yahoo-510_2
+yahoo-510_20	1	<dbpedia:Sephora>
+yahoo-510_21
+yahoo-510_4	1	<dbpedia:Sirius_XM_Radio>
+yahoo-510_6	1	<dbpedia:PayPal>
+yahoo-510_7	1	<dbpedia:Burger_King>
+yahoo-510_8	1	<dbpedia:Victoria's_Secret>
+yahoo-511_1	1	<dbpedia:Google_Images>
+yahoo-511_3	1	<dbpedia:Moviefone>
+yahoo-512_1	1	<dbpedia:Lancaster,_California>
+yahoo-512_2	1	<dbpedia:Lancaster,_California>
+yahoo-513_1	1	<dbpedia:Target_Corporation>
+yahoo-513_2	1	<dbpedia:Roku>
+yahoo-513_3	1	<dbpedia:AMC_Theatres>
+yahoo-513_4	1	<dbpedia:Man_of_Steel_(film)>
+yahoo-513_5	1	<dbpedia:Man_of_Steel_(film)>
+yahoo-514_1	1	<dbpedia:La_criada_bien_criada>
+yahoo-514_2
+yahoo-514_3
+yahoo-514_4
+yahoo-515_1	1	<dbpedia:Premium_Rush>
+yahoo-516_10
+yahoo-516_11	1	<dbpedia:G.I._Joe:_Retaliation>
+yahoo-516_12	1	<dbpedia:Pottery_Barn>
+yahoo-516_13	1	<dbpedia:Gymboree>
+yahoo-516_14	1	<dbpedia:Gymboree>
+yahoo-516_15	1	<dbpedia:Bank_of_Hawaii>
+yahoo-516_16	1	<dbpedia:Wells_Fargo>
+yahoo-516_19	1	<dbpedia:Hawaiian_Electric_Industries>
+yahoo-516_2	1	<dbpedia:Hawaii_Kai,_Hawaii>	<dbpedia:Longs_Drugs>
+yahoo-516_20	1	<dbpedia:Exxon>
+yahoo-516_24
+yahoo-516_3	1	<dbpedia:Waimānalo,_Hawaii>
+yahoo-516_4
+yahoo-516_5
+yahoo-516_6	1	<dbpedia:Fandango_(ticket_service)>
+yahoo-516_7	1	<dbpedia:Kāhala,_Hawaii>
+yahoo-516_8	1	<dbpedia:Fandango_(ticket_service)>
+yahoo-516_9	1	<dbpedia:Kaneohe,_Hawaii>
+yahoo-517_1	1	<dbpedia:Yahoo!_Movies>
+yahoo-517_2
+yahoo-517_3	1	<dbpedia:Epicurious>
+yahoo-517_4	1	<dbpedia:Epic_(film)>
+yahoo-517_5	1	<dbpedia:Ben_Carson>
+yahoo-518_2	1	<dbpedia:Roku>
+yahoo-518_3	1	<dbpedia:Angel_Porrino>
+yahoo-518_4
+yahoo-518_5
+yahoo-518_6
+yahoo-518_7	1	<dbpedia:The_Glades_(TV_series)>
+yahoo-518_8	1	<dbpedia:Kristen_Renton>
+yahoo-519_1	1	<dbpedia:Tron:_Legacy>
+yahoo-519_2	1	<dbpedia:Olivia_Wilde>
+yahoo-519_3	1	<dbpedia:Miami_Heat>	<dbpedia:Indiana_Pacers>
+yahoo-519_4
+yahoo-519_5
+yahoo-519_6	1	<dbpedia:Pat_Riley>
+yahoo-519_7
+yahoo-519_8
+yahoo-51_1
+yahoo-521_1	1	<dbpedia:Half_Price_Books>
+yahoo-521_2	1	<dbpedia:Internet_Movie_Database>
+yahoo-521_3	1	<dbpedia:Little_Treasure>	<dbpedia:Louisville,_Kentucky>
+yahoo-521_4
+yahoo-523_1	1	<dbpedia:Rocky_Balboa>
+yahoo-523_10	1	<dbpedia:M.I.A._(artist)>
+yahoo-523_11	1	<dbpedia:Christine_O'Donnell>
+yahoo-523_12	1	<dbpedia:Saturday_Night_Live>
+yahoo-523_13	1	<dbpedia:New_York>
+yahoo-523_14
+yahoo-523_15
+yahoo-523_17	1	<dbpedia:The_Black_Eyed_Peas>	<dbpedia:Taboo_(rapper)>
+yahoo-523_18	1	<dbpedia:Vanessa_Bayer>
+yahoo-523_19	1	<dbpedia:Scarlett_Johansson>
+yahoo-523_2	1	<dbpedia:Timothy_McVeigh>
+yahoo-523_20
+yahoo-523_21
+yahoo-523_22
+yahoo-523_23	1	<dbpedia:Concord,_North_Carolina>
+yahoo-523_24	1	<dbpedia:Capital_One>
+yahoo-523_25	1	<dbpedia:Subway_(restaurant)>
+yahoo-523_26	1	<dbpedia:BBC_One>	<dbpedia:Sherlock_(TV_series)>
+yahoo-523_3	1	<dbpedia:Terry_Nichols>
+yahoo-523_4	1	<dbpedia:Dan_Rather>
+yahoo-523_5	1	<dbpedia:Connie_Chung>
+yahoo-523_6	1	<dbpedia:Ellen_DeGeneres>
+yahoo-523_7	1	<dbpedia:Louise_Lasser>
+yahoo-523_8	1	<dbpedia:Kristen_Wiig>
+yahoo-523_9	1	<dbpedia:LMFAO>
+yahoo-524_1	1	<dbpedia:Yukon,_Oklahoma>
+yahoo-524_2	1	<dbpedia:Oklahoma_City>
+yahoo-524_4	1	<dbpedia:Amanda_Bynes>
+yahoo-524_5
+yahoo-524_6	1	<dbpedia:Silver_Linings_Playbook>
+yahoo-525_1
+yahoo-525_2	1	<dbpedia:Now_You_See_Me_(film)>
+yahoo-525_3	1	<dbpedia:World_War_Z_(film)>
+yahoo-525_4	1	<dbpedia:Now_You_See_Me_(film)>
+yahoo-525_5	1	<dbpedia:World_War_Z_(film)>
+yahoo-526_1	1	<dbpedia:Portland,_Oregon>
+yahoo-52_1	1	<dbpedia:Charlie_Sheen>
+yahoo-53_1	1	<dbpedia:Facebook>
+yahoo-55_1	1	<dbpedia:Amazon.com>	<dbpedia:Black_Friday_(shopping)>
+yahoo-59_1	1	<dbpedia:Craigslist>	<dbpedia:Mississippi>
+yahoo-5_1	1	<dbpedia:Skype>
+yahoo-5_2	1	<dbpedia:Mac_OS>	<dbpedia:Skype>
+yahoo-64_1	1	<dbpedia:Lolo_Jones>
+yahoo-66_1	1	<dbpedia:Sunbeam_Products>
+yahoo-67_1	1	<dbpedia:Cyndi_Lauper>
+yahoo-67_2	1	<dbpedia:Cyndi_Lauper>
+yahoo-67_3	1	<dbpedia:Macy's>
+yahoo-67_4
+yahoo-67_5
+yahoo-68_2
+yahoo-69_1
+yahoo-6_1	1	<dbpedia:The_Courier-Journal>	<dbpedia:Louisville,_Kentucky>
+yahoo-6_10	1	<dbpedia:Atlantic_Coast_Conference>
+yahoo-6_11	1	<dbpedia:Big_East_Conference_(1979–2013)>
+yahoo-6_2	1	<dbpedia:College_football>
+yahoo-6_3	1	<dbpedia:The_Post-Standard>
+yahoo-6_4	1	<dbpedia:Democrat_and_Chronicle>	<dbpedia:Rochester,_New_York>
+yahoo-6_5	1	<dbpedia:Onondaga_Community_College>
+yahoo-6_6	1	<dbpedia:American_Hockey_League>
+yahoo-6_7	1	<dbpedia:Times_Union_(Albany)>
+yahoo-6_8	1	<dbpedia:Minneapolis>	<dbpedia:Star_Tribune>
+yahoo-6_9	1	<dbpedia:Southeastern_Conference>
+yahoo-70_1	1	<dbpedia:Philadelphia_Eagles>
+yahoo-70_2	1	<dbpedia:Dallas_Cowboys>	<dbpedia:Barack_Obama>
+yahoo-71_1
+yahoo-71_2
+yahoo-72_1	1	<dbpedia:MSN>
+yahoo-72_3
+yahoo-73_1	1	<dbpedia:Capital_One>
+yahoo-73_2	1	<dbpedia:Dolly_Parton>
+yahoo-73_3
+yahoo-73_4	1	<dbpedia:Capital_One>
+yahoo-74_1	1	<dbpedia:Dick_Morris>
+yahoo-74_2
+yahoo-74_3	1	<dbpedia:SWV>
+yahoo-74_4	1	<dbpedia:The_Home_Depot>
+yahoo-74_5	1	<dbpedia:Halloween>
+yahoo-74_6
+yahoo-74_7
+yahoo-74_8
+yahoo-77_1
+yahoo-78_1	1	<dbpedia:Genting_Highlands>
+yahoo-78_10	1	<dbpedia:Adobe_Acrobat>
+yahoo-78_11	1	<dbpedia:Adobe_Acrobat>
+yahoo-78_12	1	<dbpedia:Adobe_Acrobat>	<dbpedia:Microsoft_Word>
+yahoo-78_13	1	<dbpedia:Google>
+yahoo-78_14	1	<dbpedia:Google_Maps>
+yahoo-78_15	1	<dbpedia:Google_Search>
+yahoo-78_16	1	<dbpedia:Google_Maps>
+yahoo-78_17	1	<dbpedia:Kelana_Jaya>
+yahoo-78_18
+yahoo-78_19	1	<dbpedia:Golden_Screen_Cinemas>
+yahoo-78_2
+yahoo-78_20	1	<dbpedia:Kuala_Lumpur>
+yahoo-78_21	1	<dbpedia:Malaysia>
+yahoo-78_22	1	<dbpedia:Golden_Screen_Cinemas>
+yahoo-78_3
+yahoo-78_4
+yahoo-78_5	1	<dbpedia:Adobe_Acrobat>
+yahoo-78_6	1	<dbpedia:Adobe_Acrobat>
+yahoo-78_7	1	<dbpedia:Adobe_Acrobat>
+yahoo-78_8	1	<dbpedia:Adobe_Acrobat>
+yahoo-78_9	1	<dbpedia:Adobe_Acrobat>
+yahoo-79_1	1	<dbpedia:Jay_Cutler_(American_football)>
+yahoo-79_2	1	<dbpedia:Led_Zeppelin>
+yahoo-80_1
+yahoo-81_1	1	<dbpedia:Booth_Newspapers>
+yahoo-83_1
+yahoo-83_2
+yahoo-84_1
+yahoo-84_2	1	<dbpedia:Steals_and_Deals>
+yahoo-84_3	1	<dbpedia:Tim_Tebow>
+yahoo-84_4	1	<dbpedia:Yahoo!_Travel>
+yahoo-84_5	1	<dbpedia:Tim_Burton>
+yahoo-84_6	1	<dbpedia:Tim_Burton>
+yahoo-84_7	1	<dbpedia:Corpse_Bride>	<dbpedia:Tim_Burton>
+yahoo-84_8	1	<dbpedia:Tim_Burton>
+yahoo-85_1	1	<dbpedia:Japan>
+yahoo-86_1
+yahoo-86_2
+yahoo-88_1
+yahoo-88_2
+yahoo-89_1	1	<dbpedia:Google_Translate>
+yahoo-89_2	1	<dbpedia:Google_Translate>
+yahoo-8_1	1	<dbpedia:Yahoo!_Mail>
+yahoo-90_1
+yahoo-90_2	1	<dbpedia:CVS_Pharmacy>
+yahoo-91_2	1	<dbpedia:Los_Angeles_Lakers>
+yahoo-91_3
+yahoo-92_1	1	<dbpedia:YouTube>
+yahoo-93_10	1	<dbpedia:Citigroup>
+yahoo-93_11	1	<dbpedia:Citigroup>
+yahoo-93_12	1	<dbpedia:Citigroup>
+yahoo-93_13	1	<dbpedia:Citigroup>
+yahoo-93_14	1	<dbpedia:Citigroup>
+yahoo-93_15	1	<dbpedia:Citigroup>
+yahoo-93_16	1	<dbpedia:Citigroup>
+yahoo-93_17
+yahoo-93_18
+yahoo-93_2	1	<dbpedia:Bangladesh>
+yahoo-93_21	1	<dbpedia:YouTube>
+yahoo-93_22	1	<dbpedia:YouTube>
+yahoo-93_4	1	<dbpedia:Circuit_City>
+yahoo-93_5	1	<dbpedia:Citibank>
+yahoo-93_6	1	<dbpedia:Citigroup>
+yahoo-93_7	1	<dbpedia:Citigroup>
+yahoo-93_8	1	<dbpedia:Citizens_Republic_Bancorp>
+yahoo-93_9	1	<dbpedia:Citigroup>
+yahoo-94_1
+yahoo-95_1	1	<dbpedia:Virginia_International_Tattoo>
+yahoo-96_1	1	<dbpedia:Microsoft_Word>
+yahoo-96_2	1	<dbpedia:Nokia_Lumia_920>
+yahoo-97_1	1	<dbpedia:United_States_Postal_Service>
+yahoo-99_1	1	<dbpedia:Honda_Pilot>
+yahoo-99_2	1	<dbpedia:Honda_Pilot>
+yahoo-99_3	1	<dbpedia:Honda_Pilot>
+yahoo-9_1	1	<dbpedia:Google>

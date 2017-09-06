@@ -1,0 +1,29 @@
+{
+	"method": "ltr",
+	"threshold": 0.1, 
+	"gen_training_set": false,
+	"gen_model": false,
+	"step": "linking",
+	"ground_truth": "data/el/yerd/YERD-2015_10.tsv",
+	"kb_snapshot": "data/el/snapshot_2015_10.txt",
+	"query_file": "data/el/erd/queries_ERD.json",
+
+	"training_set": "data/el/train_YERD.json",
+	"test_set": "data/el/test_ERD.json",
+	"model_file": "data/el/model.txt",
+	"feature_imp_file": "data/el/feature_imp.txt",
+    "output_file": "data/el/output.txt",
+	"cross_validation":{
+		"create_splits": false,
+		"splits_file": "data/el/splits.json",
+        "k": 5,
+        "split_strategy": "session"
+	},
+	"model": "rf",
+    "category": "regression",
+	"parameters":{
+		"alpha": 0.1,
+		"tree": 1000,
+		"maxfeat": 2
+	}
+}
