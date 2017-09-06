@@ -1,6 +1,6 @@
 """
-Entity Linking SERVICE
-======================
+Entity Linking
+===============
 
 The command-line application for entity linking
 
