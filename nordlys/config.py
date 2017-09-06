@@ -23,10 +23,15 @@ def load_nordlys_config(file_name):
         return FileUtils.load_config(os.sep.join([config_path, file_name]))
 
 
+# global variable for entity linking
+KB_SNAPSHOT = None
+
+# Nordlys DIRs
 NORDLYS_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.sep.join([BASE_DIR, "data"])
 LIB_DIR = os.sep.join([BASE_DIR, "lib"])
+
 
 # config for MongoDB
 MONGO_CONFIG = load_nordlys_config("mongo.json")
