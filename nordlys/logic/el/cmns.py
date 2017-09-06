@@ -24,6 +24,20 @@ class Cmns(object):
         self.__ranked_ens = {}
         self.__mentions = set()
 
+    def link(self):
+        """Links the query to the entity.
+
+        dictionary {mention: (en_id, score), ..}
+        """
+        self.rank_ens()
+        linked_ens = self.disambiguate()
+        return linked_ens
+
+    def rank_ens(self):
+        """Detects mention and rank entities for each mention"""
+        self.__get_ngrams()
+        self.__recursive_rank_ens(len(self.__query.query.split()))
+
     def __get_ngrams(self):
         """Returns n-grams grouped by length.
 
@@ -34,32 +48,11 @@ class Cmns(object):
             for ngram in self.__query.get_ngrams():
                 self.__ngrams[len(ngram.split())].append(ngram)
 
-    def link(self):
-        """Links the query to the entity.
-
-        dictionary {mention: (en_id, score), ..}
-        """
-        self.__get_ngrams()
-        self.rank_ens(len(self.__query.query.split()))
-        linked_ens = self.disambiguate()
-        return linked_ens
-
-    def disambiguate(self):
-        """Selects only one entity per mention.
-
-        :return dictionary {mention: (en_id, score), ..}
-        """
-        linked_ens = {}
-        for men, ens in self.__ranked_ens.items():
-            sorted_ens = sorted(ens.items(), key=lambda x: x[1], reverse=True)
-            linked_ens[men] = sorted_ens[0]
-        return linked_ens
-
-    def rank_ens(self, n):
+    def __recursive_rank_ens(self, n):
         """Generates list of entities for each mention in the query.
 
         The algorithm starts from the longest possible n-gram and gets all matched entities.
-        If no entities founs, the algorithm recurse and tries to find entities with (n-1)-gram.
+        If no entities found, the algorithm recurse and tries to find entities with (n-1)-gram.
 
         :param n: length of n-gram
         :return: dictionary {(dbp_uri, fb_id):commonness, ..}
@@ -73,7 +66,19 @@ class Cmns(object):
                 if len(cand_ens) > 0:
                     self.__ranked_ens[ngram] = cand_ens
                     self.__mentions.add(ngram)
-        self.rank_ens(n - 1)
+        self.__recursive_rank_ens(n - 1)
+
+    def disambiguate(self):
+        """Selects only one entity per mention.
+
+        :return [{"mention": xx, "entity": yy, "score": zz}, ...] #dictionary {mention: (en_id, score), ..}
+        """
+        linked_ens = []  # {}
+        for men, ens in self.__ranked_ens.items():
+            sorted_ens = sorted(ens.items(), key=lambda x: x[1], reverse=True)
+            linked_ens.append({"mention": men, "entity": sorted_ens[0][0], "score": sorted_ens[0][1]})
+            # linked_ens[men] = sorted_ens[0]
+        return linked_ens
 
     def __is_overlapping(self, ngram):
         """Checks whether the ngram is contained in one of the currently identified mentions."""

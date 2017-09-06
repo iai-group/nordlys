@@ -14,7 +14,7 @@ import re
 
 class Query(object):
 
-    def __init__(self, query, qid=None):
+    def __init__(self, query, qid=""):
         self.__qid = qid
         self.__raw_query = query
         self.__query = None  # holds preprocessed query

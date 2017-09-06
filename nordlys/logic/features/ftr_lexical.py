@@ -9,8 +9,6 @@ Implements lexical features (string similarities, IDF scores, ...).
 
 from __future__ import division
 import argparse
-# import jellyfish as jf
-from math import sqrt
 from statistics import mean
 from scipy import spatial
 import numpy as np

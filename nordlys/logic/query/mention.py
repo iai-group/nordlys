@@ -8,6 +8,7 @@ Class for entity mentions (used for entity linking)
 - Computes commonness for a mention-entity pairs
 """
 import sys
+from pprint import pprint
 
 from nordlys.logic.entity.entity import Entity
 
@@ -23,14 +24,25 @@ class Mention(object):
 
         :return: {en:cmn_score}
         """
-        all_matches = self.__entity.lookup_name_facc(self.__mention)
-        facc_matches = self.__get_facc_matches(all_matches)
+        facc_matches = self.__get_facc_matches(self.__entity.lookup_name_facc(self.__mention))
         cand_ens = self.__filter_uncommon_ens(facc_matches) if self.__cmns_th else facc_matches
 
-        # todo: add dbpedia entities after rebuilding surface form dictionary
-        # dbpedia_matches = self.__get_dbpedia_ens(all_matches)
-        # cand_ens.update(dbpedia_matches)
+        dbpedia_matches = self.__get_dbpedia_matches(self.__entity.lookup_name_dbpedia(self.__mention))
+        for en_id in dbpedia_matches:
+            if en_id not in facc_matches:
+                cand_ens[en_id] = 0
+            else:
+                cand_ens[en_id] = facc_matches[en_id]
         return cand_ens
+
+    def __get_dbpedia_matches(self, matches):
+        """Returns list of DBpedia matches."""
+        dbp_ens = []
+        for field, match in matches.items():
+            if field == "_id":
+                continue
+            dbp_ens += list(match.keys())
+        return set(dbp_ens)
 
     def __get_facc_matches(self, matches):
         """Returns entities matching the mention according to FACC.
@@ -75,12 +87,6 @@ class Mention(object):
             if cmns >= self.__cmns_th:
                 filtered_ens[en] = cmns
         return filtered_ens
-
-    def __get_dbpedia_ens(self, matches):
-        """Returns entities matching the mention according to DBpedia."""
-        # todo: write the function after rebuilding sf_coll
-        return {}
-
 
 
 def main(args):
