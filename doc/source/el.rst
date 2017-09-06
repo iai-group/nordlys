@@ -37,9 +37,8 @@ Below, we present the results on the `Y-ERD collection <https://github.com/hasib
 
 The corresponding files may be found under `el`. Specifically:
 
-  - ``y_erd-queries.json`` contains the search queries (using stopped versions from [:ref:`Hasibi et al., 2017 <ref_Hasibi2017>`])
-  - ``y_erd.tsv`` the Y-ERD collection with entity ID normalized to DBpedia 2015-10.
-  - ``config.json`` holds the config file for the LTR-greedy method
+  - ``config_ltr.json`` holds the config file for the LTR-greedy method
+  - ``model.txt`` is the trained model used for LTR-greedy model
 
 
 References

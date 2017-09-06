@@ -126,25 +126,28 @@ Example
 ~~~~~~~
 
 - **Request:**
-    http://api.nordlys.cc/el?q=total+recall+arnold
+    http://api.nordlys.cc/el?q=total+recall
 - **Response:**
 
   .. code-block:: python
 
-    {
-      "processed_query": "total recall arnold",
-      "query": "total recall arnold",
-      "results": {
-        "recall arnold": [
-          "<dbpedia:Arnold_Schwarzenegger>",
-          1.0
-        ],
-        "total recall": [
-          "<dbpedia:Total_Recall_(1990_film)>",
-          0.8167730173199635
-        ]
-      }
-    }
+	{
+	  "processed_query": "total recall", 
+	  "query": "total recall", 
+	  "results": [
+	    {
+	      "entity": "<dbpedia:Total_Recall_(1990_film)>", 
+	      "mention": "total recall", 
+	      "score": 0.4013333333333334
+	    }, 
+	    {
+	      "entity": "<dbpedia:Total_Recall_(2012_film)>", 
+	      "mention": "total recall", 
+	      "score": 0.315
+	    }
+	  ]
+	}
+	
 
 Parameters
 ~~~~~~~~~~
@@ -158,11 +161,16 @@ The following table lists the parameters needed in the request URL for entity li
 +-----------------+------------------------------------------------------------+
 | method          | The name of method; Accepted values *(default: "cmns")*    |
 |                 |                                                            |
-|                 |  * CMNS: The baseline method that uses the overall.        |
+|                 |  * cmns: The baseline method that uses the overall.        |
 |                 |    popularity of entities as link targets, implemented     |
-|                 |    based on [5].                                           |
+|                 |    based on [5].                                           | 
+|                 |                                                            | 
+|                 |  * ltr: The learning-to-rank model, implemented based on   |
+|                 |    the LTR-greedy in [9]. Note that the implemented method |
+|                 |    is slightly different from [9] (due to efficiency       |
+|                 |    reasons).                                               |
 +-----------------+------------------------------------------------------------+
-| threshold       | The entity linking threshold *(default for cmns: 0.1)*.    |
+| threshold       | The entity linking threshold *(default: 0.1)*.             |
 +-----------------+------------------------------------------------------------+
 
 
@@ -450,3 +458,6 @@ References
 [7] Shuo Zhang and Krisztian Balog. *Design Patterns for Fusion-Based Object Retrieval*. In Proc. of ECIR '17. 684-690. `[BIB] <http://krisztianbalog.com/showpub.php?id=Zhang:2017:DPF>`_ `[PDF] <http://krisztianbalog.com/files/ecir2017-fusion.pdf>`_
 
 [8] Darío Garigliotti, Faegheh Hasibi, and Krisztian Balog. *Target Type Identification for Entity-Bearing Queries*. In Proc. of SIGIR '17. `[BIB] <http://krisztianbalog.com/showpub.php?id=Garigliotti:2017:TTI>`_ `[PDF] <http://krisztianbalog.com/files/sigir2017-qt.pdf>`_
+
+[9] Faegheh Hasibi, Krisztian Balog, and Svein Erik Bratsberg. 2017. *Entity linking in  queries: Efficiency vs. Effectiveness*. In Proc. of ECIR ’17. 40-53. `[BIB] <http://krisztianbalog.com/showpub.php?id=Hasibi:2017:ELQ>`_ `[PDF] <http://krisztianbalog.com/files/ecir2017-erd.pdf>`_
+
