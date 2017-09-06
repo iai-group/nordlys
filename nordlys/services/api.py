@@ -8,8 +8,10 @@ This is the main console application for the Nordlys API.
 """
 
 from flask import Flask, jsonify, request
-from nordlys.config import MONGO_ENTITY_COLLECTIONS, ELASTIC_INDICES
+
+from nordlys.core.retrieval.elastic_cache import ElasticCache
 from nordlys.logic.entity.entity import Entity
+from nordlys.logic.features.feature_cache import FeatureCache
 from nordlys.services.el import EL
 from nordlys.services.er import ER
 from nordlys.services.tti import TTI
@@ -17,14 +19,13 @@ from nordlys.services.tti import TTI
 from nordlys.core.utils.logging_utils import RequestHandler
 import logging, traceback
 from time import strftime
-from nordlys.config import LOGGING_PATH, PLOGGER
-
-
-# Constants
-DBPEDIA_INDEX = "nordlys_dbpedia_2015_10"
+from nordlys.config import LOGGING_PATH, PLOGGER, ELASTIC_INDICES
 
 # Variables
+DBPEDIA_INDEX = ELASTIC_INDICES[0]
 __entity = Entity()
+__elastic = ElasticCache(DBPEDIA_INDEX)
+__fcache = FeatureCache()
 app = Flask(__name__)
 
 
@@ -93,22 +94,16 @@ def retrieval():
     if query is None:
         return error("Query is not specified.")
 
-    config = {
-        "index_name": DBPEDIA_INDEX,
-        "first_pass": {
-            "fields_return": request.args.get("fields_return", None),
-            "num_docs": request.args.get("1st_num_docs", None),
-        },
-        "start": request.args.get("start", 0),
-        "num_docs": request.args.get("num_docs", None),
-        "model": request.args.get("model", None),
-        "field": request.args.get("field", None),
-        "fields": request.args.get("fields", None),
-        "field_weights": request.args.get("field_weights", None),
-        "smoothing_method": request.args.get("smoothing_method", None),
-        "smoothing_param": request.args.get("smoothing_param", None),
-    }
-    er = ER(config)
+    config = {"first_pass": {}}
+    for param in ["fields_return", "1st_num_docs"]:
+        if request.args.get(param, None) is not None:
+            config["first_pass"][param] = request.args.get(param)
+
+    for param in ["index_name", "start", "num_docs", "model", "fields", "smoothing_method", "smoothing_param"]:
+        if request.args.get(param, None) is not None:
+            config[param] = request.args.get(param)
+
+    er = ER(config, __elastic)
     res = er.retrieve(query)
     return jsonify(**res)
 
@@ -123,7 +118,7 @@ def entity_linking():
         "method": request.args.get("method", None),
         "threshold": request.args.get("threshold", 0.1)
     }
-    el = EL(config, __entity)
+    el = EL(config, __entity, __elastic, __fcache)
     res = el.link(query)
     PLOGGER.debug(res)
     return jsonify(**res)
@@ -136,7 +131,8 @@ def entity_types():
         return error("Query is not specified.")
 
     config = dict()
-    for param in ["method", "num_docs", "start", "model", "ec_cutoff", "field", "smoothing_method", "smoothing_param"]:
+    params = ["method", "num_docs", "start", "model", "ec_cutoff", "field", "smoothing_method", "smoothing_param"]
+    for param in params:
         if request.args.get(param, None) is not None:
             config[param] = request.args.get(param)
     tti = TTI(config)
@@ -168,4 +164,4 @@ if __name__ == "__main__":
     logger = logging.getLogger('nordlys.requests')
     logger.addHandler(handler.fh)
     logger.setLevel(logging.DEBUG)
-    app.run(host="127.0.0.1")
+    app.run(host="0.0.0.0")

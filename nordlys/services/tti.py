@@ -107,7 +107,7 @@ class TTI(object):
         self.__tc_config = {  # only for TC TTI
             "index_name": self.__config["index"],
             "first_pass": {
-                "num_docs": DEFAULT_1ST_PASS_NUM_DOCS,
+                "1st_num_docs": DEFAULT_1ST_PASS_NUM_DOCS,
                 "field": DEFAULT_1ST_PASS_FIELD
             },
         }
@@ -181,8 +181,9 @@ class TTI(object):
 
         if model == TTI_MODEL_BM25:
             PLOGGER.info("TTI, TC, BM25")
-            scorer = Scorer.get_scorer(elastic, query, self.__tc_config)
-            types = Retrieval(self.__tc_config).retrieve(query, scorer)
+            self.__tc_config["model"] = "bm25"
+            # scorer = Scorer.get_scorer(elastic, query, self.__tc_config)
+            types = Retrieval(self.__tc_config).retrieve(query)
 
         elif model == TTI_MODEL_LM:
             PLOGGER.debug("TTI, TC, LM")

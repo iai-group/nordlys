@@ -61,40 +61,49 @@ Example config
 import argparse
 from pprint import pprint
 
+from nordlys.config import ELASTIC_INDICES
+from nordlys.core.retrieval.elastic import Elastic
 from nordlys.core.retrieval.elastic_cache import ElasticCache
 from nordlys.core.retrieval.retrieval import Retrieval
 from nordlys.core.retrieval.scorer import Scorer
 from nordlys.core.utils.file_utils import FileUtils
 
+# Constants
+DBPEDIA_INDEX = ELASTIC_INDICES[0]
+
 
 class ER(object):
-    def __init__(self, config):
+    def __init__(self, config, elastic=None):
         self.__check_config(config)
         self.__config = config
         self.__num_docs = int(config["num_docs"])
         self.__start = int(config["start"])
         self.__er = Retrieval(config)
 
+        self.__elastic = elastic
+
     @staticmethod
     def __check_config(config):
         """Checks config parameters and set default values."""
-        if config.get("first_pass", {}).get("num_docs", None) is None:
-            config["first_pass"]["num_docs"] = 1000
+        config["index_name"] = DBPEDIA_INDEX
+        if config.get("first_pass", None) is None:
+            config["first_pass"] = {}
+        if config["first_pass"].get("1st_num_docs", None) is None:
+            config["first_pass"]["1st_num_docs"] = 1000
+        if config["first_pass"].get("fields_return", None) is None:
+            config["first_pass"]["fields_return"] = ""
         if config.get("num_docs", None) is None:
-            config["num_docs"] = config["first_pass"]["num_docs"]
+            config["num_docs"] = config["first_pass"]["1st_num_docs"]
         if config.get("start", None) is None:
             config["start"] = 0
+        if config.get("model", None) is None:
+            config["model"] = "lm"
         # Todo: Check the ELR params
         return config
 
     def __get_scorer(self, query):
         """Factory method to get entity retrieval method."""
-        model = self.__config.get("model", None)
-        # if model == "elr":
-        #     scorer = ELR(self.__config)
-        # else:  # from core.retrieval
-        elastic = ElasticCache(self.__config["index_name"])
-        scorer = Scorer.get_scorer(elastic, query, self.__config)
+        scorer = Scorer.get_scorer(self.__elastic, query, self.__config)
         return scorer
 
     def retrieve(self, query):
@@ -139,7 +148,7 @@ def arg_parser():
 
 def main(args):
     config = FileUtils.load_config(args.config)
-    er = ER(config)
+    er = ER(config, ElasticCache(DBPEDIA_INDEX))
 
     if args.query:
         res = er.retrieve(args.query)
