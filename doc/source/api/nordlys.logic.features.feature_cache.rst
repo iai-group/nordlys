@@ -1,7 +1,7 @@
-nordlys.core.retrieval.elastic_cache module
+nordlys.logic.features.feature_cache module
 ===========================================
 
-.. automodule:: nordlys.core.retrieval.elastic_cache
+.. automodule:: nordlys.logic.features.feature_cache
     :members:
     :undoc-members:
     :show-inheritance:

@@ -13,4 +13,5 @@ Submodules
 
    nordlys.core.utils.entity_utils
    nordlys.core.utils.file_utils
+   nordlys.core.utils.logging_utils
 

@@ -1,7 +1,7 @@
-nordlys.core.data.word2vec.word2vec2mongo module
+nordlys.logic.features.ftr_entity_mention module
 ================================================
 
-.. automodule:: nordlys.core.data.word2vec.word2vec2mongo
+.. automodule:: nordlys.logic.features.ftr_entity_mention
     :members:
     :undoc-members:
     :show-inheritance:

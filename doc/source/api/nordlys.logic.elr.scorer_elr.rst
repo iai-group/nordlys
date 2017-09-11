@@ -1,7 +1,7 @@
-nordlys.core.eval.query_diff module
+nordlys.logic.elr.scorer_elr module
 ===================================
 
-.. automodule:: nordlys.core.eval.query_diff
+.. automodule:: nordlys.logic.elr.scorer_elr
     :members:
     :undoc-members:
     :show-inheritance:

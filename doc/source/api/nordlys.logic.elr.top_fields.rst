@@ -1,7 +1,7 @@
-nordlys.core.eval.query_diff module
+nordlys.logic.elr.top_fields module
 ===================================
 
-.. automodule:: nordlys.core.eval.query_diff
+.. automodule:: nordlys.logic.elr.top_fields
     :members:
     :undoc-members:
     :show-inheritance:

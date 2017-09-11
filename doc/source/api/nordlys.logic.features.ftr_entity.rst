@@ -1,7 +1,7 @@
-nordlys.core.data.facc.facc2mongo module
+nordlys.logic.features.ftr_entity module
 ========================================
 
-.. automodule:: nordlys.core.data.facc.facc2mongo
+.. automodule:: nordlys.logic.features.ftr_entity
     :members:
     :undoc-members:
     :show-inheritance:

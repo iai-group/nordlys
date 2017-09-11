@@ -1,7 +1,7 @@
-nordlys.logic.features.ftr_mention module
+nordlys.logic.fusion.fusion_scorer module
 =========================================
 
-.. automodule:: nordlys.logic.features.ftr_mention
+.. automodule:: nordlys.logic.fusion.fusion_scorer
     :members:
     :undoc-members:
     :show-inheritance:

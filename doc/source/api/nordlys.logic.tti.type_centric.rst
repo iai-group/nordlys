@@ -1,7 +1,7 @@
-nordlys.core.retrieval.elastic module
+nordlys.logic.tti.type_centric module
 =====================================
 
-.. automodule:: nordlys.core.retrieval.elastic
+.. automodule:: nordlys.logic.tti.type_centric
     :members:
     :undoc-members:
     :show-inheritance:

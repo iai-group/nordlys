@@ -1,7 +1,7 @@
-nordlys.core.ml.cross_validation module
+nordlys.core.utils.logging_utils module
 =======================================
 
-.. automodule:: nordlys.core.ml.cross_validation
+.. automodule:: nordlys.core.utils.logging_utils
     :members:
     :undoc-members:
     :show-inheritance:
