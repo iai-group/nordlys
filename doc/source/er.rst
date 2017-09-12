@@ -25,9 +25,6 @@ Benchmark results
 
 Below, we present retrieval results on the `DBpedia-Entity v2 collection <https://github.com/iai-group/DBpedia-Entity>`_ [:ref:`Hasibi et al., 2017 <ref_Hasibi2017>`], which uses DBpedia version 2015-10.
 
-The DBpedia index used XXX
-
-
 
 +--------+---------+----------+
 | Method | NDCG@10 | NDCG@100 |
