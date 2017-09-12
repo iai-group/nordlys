@@ -16,7 +16,7 @@ The following ELQ methods are implemented in Nordlys:
 Usage
 -----
 
-- :doc:`Command line usage <api/nordlys.services.el>`
+- :doc:`Command line usage <el_usage>`
 - :ref:`API usage <api_el>`
 
 
