@@ -42,13 +42,13 @@ Below, we present retrieval results on the `DBpedia-Entity v2 collection <https:
 
 
 
-The corresponding files may be found under `dbpedia-entity-v2`. Specifically:
+The corresponding files may be found under `data/dbpedia-entity-v2`. Specifically:
 
   - ``queries_stopped.json`` contains the search queries (using stopped versions from [:ref:`Hasibi et al., 2017 <ref_Hasibi2017>`])
   - ``config`` holds the config files for the above retrieval methods
-  - ``output`` contains the corresponding output files (i.e., "run files"). These files were produced by running ``python -m nordlys.core.retrieval.retrieval data/dbpedia-entity-v2/configs/retrieval_XXX.config.json``, where ``XXX`` stands for the retrieval method (bm25, lm, mlm or prms)
+  - ``runs`` contains the corresponding output files (i.e., "run files"). These files were produced by running ``python -m nordlys.core.retrieval.retrieval data/dbpedia-entity-v2/configs/retrieval_XXX.config.json``, where ``XXX`` stands for the retrieval method (bm25, lm, mlm or prms)
   - ``qrels-v2.txt`` is the file with the relevance judgments (i.e., "v2 qrels" in [:ref:`Hasibi et al., 2017 <ref_Hasibi2017>`])
-  - ``folds`` contains the folds to be used for supervised learning with cross-validation (note that the above methods do not).
+  - ``folds`` contains the folds to be used for supervised learning with cross-validation (note that the above methods do not use them).
 
 
 References
