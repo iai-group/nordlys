@@ -72,6 +72,3 @@ echo "Collections loaded"
 # remove tmp folder
 rm -rf $dir/tmp/
 
-# Load DBpedia to MongoDB
-cd ..
-python -m nordlys.core.data.dbpedia.dbpedia2mongo data/config/dbpedia2mongo.config.json
