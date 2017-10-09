@@ -4,6 +4,7 @@
 # DBpedia 2015-10 collection
 echo "############ Downloading DBpedia files needed by Nordlys ..."
 DIR=data/raw-data/dbpedia-2015-10/core-i18n/en
+rm  $DIR/*.bz2
 wget --directory-prefix=$DIR/ -i $DIR/nordlys_dbpedia_2015_10-raw_data_links-core.txt
 echo "############ Done."
 
