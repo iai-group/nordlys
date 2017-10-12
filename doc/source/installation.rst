@@ -63,7 +63,9 @@ To load the data to MongoDB, you need to run the following commands. Note that t
 | ``./scripts/load_mongo_dumps.sh mongo_dbpedia-2015-10.tar.bz2``       | All             |
 +-----------------------------------------------------------------------+-----------------+
 | ``./scripts/load_mongo_dumps.sh mongo_surface_forms_dbpedia.tar.bz2`` | Only EL and EC  |
+|                                                                       |                 |
 | ``./scripts/load_mongo_dumps.sh mongo_surface_forms_facc.tar.bz2``    |                 |
+|                                                                       |                 |
 | ``./scripts/load_mongo_dumps.sh mongo_fb2dbp-2015-10.tar.bz2``        |                 |
 +-----------------------------------------------------------------------+-----------------+
 | ``./scripts/load_mongo_dumps.sh mongo_word2vec-googlenews.tar.bz2``   | Only TTI        |
@@ -82,5 +84,5 @@ Run the following commands to build the indices for the mentioned functionalitie
 +--------------------------------------------+--------------------------+
 | ``./scripts/build_indices.sh types``       | TTI                      |
 +--------------------------------------------+--------------------------+
-| `./scripts/build_indices.sh dbpedia_uri``  | ER (only for ELR model)  |
+| ``./scripts/build_indices.sh dbpedia_uri`` | ER (only for ELR model)  |
 +--------------------------------------------+--------------------------+
