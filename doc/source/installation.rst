@@ -38,8 +38,7 @@ If you don't have pip yet, install it using ::
 
 Data are a crucial component of Nordlys.  Note that you may need only a certain subset of the data, depending on the required functionality.  See :doc:`this page <data>` for a detailed description.
 
-We use MongoDB and Elasticsearch for storing and indexing data.
-To load the data, you might download the raw collections from their originating sources. Alternatively, for some, we provide preprocessed versions for download.  The figure below shows an overview of data sources and their dependencies.  The raw data files may be deleted after they have been loaded into MongoDB and Elasticsearch.
+We use MongoDB and Elasticsearch for storing and indexing data. The figure below shows an overview of data sources and their dependencies. 
 
 .. figure::  figures/nordlys_load_data.png
    :align:   center
