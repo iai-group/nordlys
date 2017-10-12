@@ -19,29 +19,3 @@ load_collection () {
 
 echo "############ Loading Mongo collection ..."
 load_collection $1
-
-# # ---
-# # DBpedia 2015-10 collection
-# echo "############ Loading dbpedia-2015-10 collection ..."
-# load_collection mongo_dbpedia-2015-10.tar.bz2
-#
-#
-# # ---
-# # DBpedia surface forms collection
-# echo "############ Loading surface_forms_dbpedia collection ..."
-# load_collection mongo_surface_forms_dbpedia.tar.bz2
-#
-# # ---
-# # DBpedia surface forms collection
-# echo "############ Loading surface_forms_facc collection ..."
-# load_collection mongo_surface_forms_facc.tar.bz2
-#
-# # ---
-# # Freebase to DBpedia collection
-# echo "############ Loading fb2dbp-2015-10 collection ..."
-# load_collection mongo_fb2dbp-2015-10.tar.bz2
-#
-# # ---
-# # Freebase to DBpedia collection
-# echo "############ Loading word2vec-googlenews collection ..."
-# load_collection mongo_word2vec-googlenews.tar.bz2
