@@ -8,67 +8,40 @@ else
     echo "mongodb running!"
 fi
 
-# get current path of this script
-dir=$(pwd)
+load_collection () {
+	mkdir -p $(pwd)/tmp
+	dir=$(pwd)/tmp
+	wget http://iai.group/downloads/nordlys-v02/$1 -P $dir
+	tar -xjvf $dir/$1 -C $dir
+	mongorestore --db "nordlys-v02" $dir
+	rm -rf $dir
+}
 
-# make a tmp folder to store data
-mkdir -p $dir/tmp
+echo "############ Loading Mongo collection ..."
+load_collection $1
 
-# Download all mongodb collections
-echo "\n############ Start to download all mongodb collections"
-if [ -f $dir/tmp/mongo_surface_forms_dbpedia.tar.bz2 ]
-then
-    echo "$dir/tmp/mongo_surface_forms_dbpedia.tar.bz2 has been downloaded."
-else
-    wget http://iai.group/downloads/nordlys-v02/mongo_surface_forms_dbpedia.tar.bz2 -P $dir/tmp/
-fi
-
-if [ -f $dir/tmp/mongo_surface_forms_facc.tar.bz2 ]
-then
-    echo "$dir/tmp/mongo_surface_forms_facc.tar.bz2 has been downloaded."
-else
-    wget http://iai.group/downloads/nordlys-v02/mongo_surface_forms_facc.tar.bz2 -P $dir/tmp/
-fi
-
-if [ -f $dir/tmp/mongo_fb2dbp-2015-10.tar.bz2 ]
-then
-    echo "$dir/tmp/mongo_fb2dbp-2015-10.tar.bz2 has been downloaded."
-else
-    wget http://iai.group/downloads/nordlys-v02/mongo_fb2dbp-2015-10.tar.bz2 -P $dir/tmp/
-fi
-
-if [ -f $dir/tmp/mongo_word2vec-googlenews.tar.bz2 ]
-then
-    echo "$dir/tmp/mongo_word2vec-googlenews.tar.bz2 has been downloaded."
-else
-    wget http://iai.group/downloads/nordlys-v02/mongo_word2vec-googlenews.tar.bz2 -P $dir/tmp/
-fi
-
-echo "############ Mongodb collections download end"
-
-# uncompress data
-echo "\n############ Start to uncompress data"
-mkdir -p $dir/tmp/mongo_surface_forms_dbpedia
-tar -xjvf $dir/tmp/mongo_surface_forms_dbpedia.tar.bz2 -C $dir/tmp/mongo_surface_forms_dbpedia
-
-mkdir -p $dir/tmp/mongo_surface_forms_facc
-tar -xjvf $dir/tmp/mongo_surface_forms_facc.tar.bz2 -C $dir/tmp/mongo_surface_forms_facc
-
-mkdir -p $dir/tmp/mongo_fb2dbp-2015-10
-tar -xjvf $dir/tmp/mongo_fb2dbp-2015-10.tar.bz2 -C $dir/tmp/mongo_fb2dbp-2015-10
-
-mkdir -p $dir/tmp/mongo_word2vec-googlenews
-tar -xjvf $dir/tmp/mongo_word2vec-googlenews.tar.bz2 -C $dir/tmp/mongo_word2vec-googlenews
-echo "############ Data uncompressed"
-
-# load all collections into mongodb
-echo "Start to load collections into mongodb"
-mongorestore --db "nordlys-v02" $dir/tmp/mongo_surface_forms_dbpedia
-mongorestore --db "nordlys-v02" $dir/tmp/mongo_surface_forms_facc
-mongorestore --db "nordlys-v02" $dir/tmp/mongo_fb2dbp-2015-10
-mongorestore --db "nordlys-v02" $dir/tmp/mongo_word2vec-googlenews
-echo "Collections loaded"
-
-# remove tmp folder
-rm -rf $dir/tmp/
-
+# # ---
+# # DBpedia 2015-10 collection
+# echo "############ Loading dbpedia-2015-10 collection ..."
+# load_collection mongo_dbpedia-2015-10.tar.bz2
+#
+#
+# # ---
+# # DBpedia surface forms collection
+# echo "############ Loading surface_forms_dbpedia collection ..."
+# load_collection mongo_surface_forms_dbpedia.tar.bz2
+#
+# # ---
+# # DBpedia surface forms collection
+# echo "############ Loading surface_forms_facc collection ..."
+# load_collection mongo_surface_forms_facc.tar.bz2
+#
+# # ---
+# # Freebase to DBpedia collection
+# echo "############ Loading fb2dbp-2015-10 collection ..."
+# load_collection mongo_fb2dbp-2015-10.tar.bz2
+#
+# # ---
+# # Freebase to DBpedia collection
+# echo "############ Loading word2vec-googlenews collection ..."
+# load_collection mongo_word2vec-googlenews.tar.bz2

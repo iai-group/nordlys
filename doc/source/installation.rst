@@ -56,27 +56,32 @@ To load the data, you might download the raw collections from their originating 
 3.1 Load data to MongoDB
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-To load the data to MongoDB, you may choose to to load the raw/preprocessed data using Nordlys (3.1A) or load the provided MongoDB dumps directly (3.1B).
+To load the data to MongoDB, you need to run the following commands. Note that the first command is required for all Nordlys functionalities. Other commands are optional and you may run them if the mentioned functionality is needed.
 
-All scripts and config files use ``nordlys-v02`` as the name of the database.
-
-3.1A Load preprocessed data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Run ``./scripts/download_all.sh`` to download all data files.
-- Run ``./scripts/load_to_mongo.sh`` to load data into MongoDB.
-
-*If you already have a local copy of these collections, then comment out the unnecessary parts in `scripts/download_all.sh` and adjust the paths in `scripts/load_to_mongo.sh`.*
-
-3.1B Load MongoDB dumps
-^^^^^^^^^^^^^^^^^^^^^^^
-
-- Run ``./scripts/load_mongo_dumps.sh`` to load the dumps into MongoDB.
++-----------------------------------------------------------------------+-----------------+
+|Command                                                                |Functionality    |
++=======================================================================+=================+
+| ``./scripts/load_mongo_dumps.sh mongo_dbpedia-2015-10.tar.bz2``       | All             |
++-----------------------------------------------------------------------+-----------------+
+| ``./scripts/load_mongo_dumps.sh mongo_surface_forms_dbpedia.tar.bz2`` | Only EL and EC  |
+| ``./scripts/load_mongo_dumps.sh mongo_surface_forms_facc.tar.bz2``    |                 |
+| ``./scripts/load_mongo_dumps.sh mongo_fb2dbp-2015-10.tar.bz2``        |                 |
++-----------------------------------------------------------------------+-----------------+
+| ``./scripts/load_mongo_dumps.sh mongo_word2vec-googlenews.tar.bz2``   | Only TTI        |
++-----------------------------------------------------------------------+-----------------+
 
 
 3.2 Build Elastic indices
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Run ``./scripts/build_dbpedia_index.sh`` to build the ``dbpedia_2015_10`` index (required for entity ranking).
-- Run ``./scripts/build_elastic_indices.sh`` to build additional Elastic indices (optional, used for certain entity and type ranking methods).
-  - For this, the type-entity mapping file is needed (it is downloaded by ``./scripts/download_all.sh``; you may comment out the rest of the script just to get this file).
+Run the following commands to build the indices for the mentioned functionalities.
+
++--------------------------------------------+--------------------------+
+|Command                                     |Functionality             |
++============================================+==========================+
+| ``./scripts/build_indices.sh dbpedia``     | ER, EL, TTI              |
++--------------------------------------------+--------------------------+
+| ``./scripts/build_indices.sh types``       | TTI                      |
++--------------------------------------------+--------------------------+
+| `./scripts/build_indices.sh dbpedia_uri``  | ER (only for ELR model)  |
++--------------------------------------------+--------------------------+
