@@ -9,9 +9,10 @@ The following ELQ methods are implemented in Nordlys:
 
 - **CMNS**:  Thee baseline method that performs entity linking based on the overall popularity of entities as link targets, i.e., the commonness feature [:ref:`Hasibi et al., 2015 <ref_Hasibi2015>`].
 
--  **MLMcg-greedy**: A generative retrieval model proposed in [:ref:`Hasibi et al., 2015 <ref_Hasibi2015>`], that combines the commonness score with the textual similarity between the query and the entity [:ref:`Ogilvie and Callan, 2003 <ref_Ogilvie2003>`].
+- **LTR-greedy**: The recommended method (with respect to both efficiency and effectiveness) by Hasibi et al. [:ref:`Hasibi et al., 2016 <ref_Hasibi2017>`], which employs a learning-to-rank model with various textual and semantic similarity features. Please note that the implemented method in Nordlys is slightly different from the one presented in [:ref:`Hasibi et al., 2016 <ref_Hasibi2017>`] (i.e. the features and index). The corresponding files for this method are under `data/el`. Specifically:
 
-- **LTR-greedy**: The recommended method (with respect to both efficiency and effectiveness) by Hasibi et al. [:ref:`Hasibi et al., 2016 <ref_Hasibi2017>`], which employs a learning-to-rank model with various textual and semantic similarity features.
+  - ``config_ltr.json`` holds the config file
+  - ``model.txt`` is the trained model 
 
 Usage
 -----
@@ -19,26 +20,6 @@ Usage
 - :doc:`Command line usage <el_usage>`
 - :ref:`API usage <api_el>`
 
-
-Benchmark results
------------------
-
-Below, we present the results on the `Y-ERD collection <https://github.com/hasibi/EntityLinkingInQueries-ELQ>`_ [:ref:`Hasibi et al., 2015 <ref_Hasibi2015>`].
-
-
-+--------------+---------+----------+----------+
-| Method       | P       | R        | F        |
-+==============+=========+==========+==========+
-| MLMcg-greedy | 0.709   | 0.709    | 0.709    |
-+--------------+---------+----------+----------+
-| LTLR-greedy  | 0.786   | 0.787    | 0.787    |
-+--------------+---------+----------+----------+
-
-
-The corresponding files may be found under `el`. Specifically:
-
-  - ``config_ltr.json`` holds the config file for the LTR-greedy method
-  - ``model.txt`` is the trained model used for LTR-greedy model
 
 
 References
