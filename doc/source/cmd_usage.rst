@@ -10,6 +10,6 @@ Nodlys provides the following command line applications:
 - Entity-oriented applications 
    - :doc:`Entity catalog <api/nordlys.services.ec>`
    - :doc:`Entity retrieval <api/nordlys.services.er>`
-   - :doc:`Entity linking <api/nordlys.services.el>`
+   - :doc:`Entity linking <el_usage>`
    - :doc:`Target type identification <api/nordlys.services.tti>`
   
