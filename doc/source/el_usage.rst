@@ -10,7 +10,8 @@ Usage
 
   python -m nordlys.services.el -c <config_file> -q <query>
 
-If `-q <query>` is passed, it returns the results for the specified query and prints them in terminal.
+If `-q <query>` is passed, it returns the results for the specified query and prints them in terminal. Otherwise, it performs entity linking for the queries of ``query_file`` (specified in the ``config_file``).
+
 
 Config parameters
 -----------------
