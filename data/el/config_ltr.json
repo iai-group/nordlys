@@ -7,7 +7,8 @@
 	"ground_truth": "data/el/yerd/YERD-2015_10.tsv",
 	"kb_snapshot": "data/el/snapshot_2015_10.txt",
 	"query_file": "data/el/erd/queries_ERD.json",
-
+	"__query_file": "data/el/yerd/queries_YERD.json",
+	
 	"training_set": "data/el/train_YERD.json",
 	"test_set": "data/el/test_ERD.json",
 	"model_file": "data/el/model.txt",
@@ -23,7 +24,7 @@
     "category": "regression",
 	"parameters":{
 		"alpha": 0.1,
-		"tree": 1000,
+		"tree": 700,
 		"maxfeat": 2
 	}
 }
