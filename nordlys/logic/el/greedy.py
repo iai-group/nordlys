@@ -60,7 +60,7 @@ class Greedy(object):
         :return list of interpretations, where each interpretation is a dictionary {mention: (en_id, score), ..}
         """
         interpretations = [dict()]  # list of dictionaries {men: ins}
-        for ins in query_inss.get_all():
+        for ins in sorted(query_inss.get_all(), key=lambda item:item.score, reverse=True):
             added = False
             for inter in interpretations:
                 mentions = list(inter.keys())

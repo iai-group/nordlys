@@ -203,6 +203,11 @@ class LTR(object):
         features["pos1"] = ftr_entity_mention.pos1()
         ftr_sim_mention = FtrEntitySimilarity(m, e, self.__elastic)
         features["sim_m"] = self.__fcache.get_feature_val("sim", key, ftr_sim_mention.lm_score)
+        # features["sim_m_names"] = self.__fcache.get_feature_val("sim_names", key, ftr_sim_mention.lm_score, "names")
+        # features["sim_m_categories"] = self.__fcache.get_feature_val("sim_categories", key, ftr_sim_mention.lm_score, "categories")
+        # features["sim_m_similar"] = self.__fcache.get_feature_val("sim_similar", key, ftr_sim_mention.lm_score, "similar_entity_names")
+        # features["sim_m_related"] = self.__fcache.get_feature_val("sim_related", key, ftr_sim_mention.lm_score, "related_entity_names")
+        # features["sim_m_attributes"] = self.__fcache.get_feature_val("sim_attributes", key, ftr_sim_mention.lm_score, "attributes")
         # --- entity-query features ---
         ftr_entity_query = FtrEntityMention(e, q, self.__entity)
         features["qct"] = ftr_entity_query.mct()
@@ -211,6 +216,11 @@ class LTR(object):
         key = e + "_" + q
         ftr_sim_query = FtrEntitySimilarity(q, e, self.__elastic)
         features["sim_q"] = self.__fcache.get_feature_val("sim", key, ftr_sim_query.lm_score)
+        # features["sim_q_names"] = self.__fcache.get_feature_val("sim_names", key, ftr_sim_query.lm_score, "names")
+        # features["sim_q_categories"] = self.__fcache.get_feature_val("sim_categories", key, ftr_sim_query.lm_score, "categories")
+        # features["sim_q_similar"] = self.__fcache.get_feature_val("sim_similar", key, ftr_sim_query.lm_score, "similar_entity_names")
+        # features["sim_q_related"] = self.__fcache.get_feature_val("sim_related", key, ftr_sim_query.lm_score, "related_entity_names")
+        # features["sim_q_attributes"] = self.__fcache.get_feature_val("sim_attributes", key, ftr_sim_query.lm_score, "attributes")
         features["context_sim"] = self.__fcache.get_feature_val("context_sim", key, ftr_sim_query.context_sim, m)
         return features
 

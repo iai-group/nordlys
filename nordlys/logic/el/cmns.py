@@ -10,15 +10,17 @@ from collections import defaultdict
 
 import sys
 
+from nordlys.logic.el.el_utils import is_name_entity
 from nordlys.logic.entity.entity import Entity
 from nordlys.logic.query.mention import Mention
 from nordlys.logic.query.query import Query
 
 
 class Cmns(object):
-    def __init__(self, query, entity, cmns_th=0.1):
+    def __init__(self, query, entity, threshold=None, cmns_th=0.1):
         self.__query = query
         self.__entity = entity
+        self.__threshold = threshold
         self.__cmns_th = cmns_th
         self.__ngrams = None
         self.__ranked_ens = {}
@@ -62,7 +64,14 @@ class Cmns(object):
 
         for ngram in self.__ngrams[n]:
             if not self.__is_overlapping(ngram):
-                cand_ens = Mention(ngram, self.__entity, self.__cmns_th).get_cand_ens()
+                all_cand_ens = Mention(ngram, self.__entity, self.__cmns_th).get_cand_ens()
+                # Keeps only proper named entities (if applicable)
+                cand_ens = {}
+                for en_id, commonness in all_cand_ens.items():
+                    if not is_name_entity(en_id):
+                        continue
+                    cand_ens[en_id] = commonness
+
                 if len(cand_ens) > 0:
                     self.__ranked_ens[ngram] = cand_ens
                     self.__mentions.add(ngram)
@@ -76,7 +85,9 @@ class Cmns(object):
         linked_ens = []  # {}
         for men, ens in self.__ranked_ens.items():
             sorted_ens = sorted(ens.items(), key=lambda x: x[1], reverse=True)
-            linked_ens.append({"mention": men, "entity": sorted_ens[0][0], "score": sorted_ens[0][1]})
+            score = sorted_ens[0][1]
+            if score >= self.__threshold:
+                linked_ens.append({"mention": men, "entity": sorted_ens[0][0], "score": sorted_ens[0][1]})
             # linked_ens[men] = sorted_ens[0]
         return linked_ens
 

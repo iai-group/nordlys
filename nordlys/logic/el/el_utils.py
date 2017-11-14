@@ -33,9 +33,12 @@ def to_elq_eval(annotations, output_file):
 
     :param linked_ens: {qid:[{"mention":xx, "entity": yy, "score":zz}, ..], ..}
     """
+    uniq_annots = set()
     out_str = ""
     for qid, q_annots in sorted(annotations.items()):
-        for annot in q_annots:
-            out_str += qid + "\t1\t" + annot["entity"] + "\n"
+        for annot in q_annots["results"]:
+            if (qid, annot["entity"]) not in uniq_annots:
+                out_str += qid + "\t" + str(annot["score"]) + "\t" + annot["entity"] + "\n"
+                uniq_annots.add((qid, annot["entity"]))
     open(output_file, "w").write(out_str)
     PLOGGER.info("ELQ evaluation file: " + output_file)

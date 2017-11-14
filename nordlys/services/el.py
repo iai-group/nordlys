@@ -1,6 +1,6 @@
 """
 Entity Linking
-===============
+==============
 
 The command-line application for entity linking
 
@@ -101,8 +101,8 @@ class EL(object):
         if config["method"] == "ltr":
             if config.get("model_file", None) is None:
                 config["model_file"] = "data/el/model.txt"
-            if config.get("kb_snapshot", None) is None:
-                config["kb_snapshot"] = "data/el/snapshot_2015_10.txt"
+        if config.get("kb_snapshot", None) is None:
+            config["kb_snapshot"] = "data/el/snapshot_2015_10.txt"
         return config
 
     def __get_linker(self, query):
@@ -112,11 +112,11 @@ class EL(object):
         :return: entity linking object
         """
         if self.__method.lower() == "cmns":
-            return Cmns(query, self.__entity, self.__threshold)
+            return Cmns(query, self.__entity, threshold=self.__threshold)
         if self.__method.lower() == "ltr":
             if self.__model is None:
                 self.__model = pickle.load(open(self.__config["model_file"], "rb"))
-            return LTR(query, self.__entity, self.__elastic, self.__fcache, self.__model, self.__threshold)
+            return LTR(query, self.__entity, self.__elastic, self.__fcache, self.__model, threshold=self.__threshold)
         else:
             raise Exception("Unknown model " + self.__method)
 
@@ -146,7 +146,8 @@ class EL(object):
             queries = json.load(open(self.__query_file))
             for qid in sorted(queries):
                 results[qid] = self.link(queries[qid], qid)
-            json.dump(results, open(self.__output_file, "w"), indent=4, sort_keys=True)
+            to_elq_eval(results, self.__output_file)
+            # json.dump(results, open(self.__output_file, "w"), indent=4, sort_keys=True)
 
         # only ranking step
         if self.__config["step"] == "ranking":
@@ -155,7 +156,9 @@ class EL(object):
                 linker = self.__get_linker(Query(queries[qid], qid))
                 results[qid] = linker.rank_ens()
             ranked_inss = Instances(sum([inss.get_all() for inss in results.values()], []))
-            ranked_inss.to_json(self.__output_file)
+            ranked_inss.to_treceval(self.__output_file)
+            if self.__config.get("json_file", None):
+                ranked_inss.to_json(self.__config["json_file"])
 
         # only disambiguation step
         if self.__config["step"] == "disambiguation":
@@ -163,7 +166,9 @@ class EL(object):
             inss_by_query = inss.group_by_property("qid")
             for qid, q_inss in sorted(inss_by_query.items()):
                 linker = self.__get_linker("")
-                results[qid] = linker.disambiguate(Instances(q_inss))
+                results[qid] = {"results": linker.disambiguate(Instances(q_inss))}
+            if self.__config.get("json_file", None):
+                json.dump(open(self.__config["json_file"], "w"), results, indent=4, sort_keys=True)
             to_elq_eval(results, self.__output_file)
 
         PLOGGER.info("Output file: " + self.__output_file)
@@ -183,7 +188,7 @@ def main(args):
 
     if conf.get("gen_model", False):
         LTR.train(conf)
-    elif args.query:
+    if args.query:
         res = el.link(args.query)
         pprint(res)
     else:
@@ -191,3 +196,4 @@ def main(args):
 
 if __name__ == '__main__':
     main(arg_parser())
+

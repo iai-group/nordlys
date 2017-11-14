@@ -131,18 +131,12 @@ class Retrieval(object):
             if config.get("model", None) == "lm":
                 if config.get("fields", None) is None:
                     config["fields"] = Elastic.FIELD_CATCHALL
-                elif type(config["fields"]) != str:
-                    raise Exception("Only a single field is required for LM.")
             if config.get("model", None) == "mlm":
                 if config.get("fields", None) is None:
-                    config["fields"] = {Elastic.FIELD_CATCHALL: 1}
-                elif type(config["fields"]) != dict:
-                    raise Exception("A dictionary of fields and their weights is required for MLM.")
+                    config["fields"] = {"similar_entity_names": 0.2, "catchall": 0.8}
             if config.get("model", None) == "prms":
                 if config.get("fields", None) is None:
                     config["fields"] = [Elastic.FIELD_CATCHALL]
-                elif type(config["fields"]) != list:
-                    raise Exception("A list of fields is required for PRMS.")
         except Exception as e:
             PLOGGER.error("Error in config file: ", e)
             sys.exit(1)
