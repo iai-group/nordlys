@@ -57,19 +57,19 @@ We use MongoDB and Elasticsearch for storing and indexing data. The figure below
 
 To load the data to MongoDB, you need to run the following commands. Note that the first command is required for all Nordlys functionalities. Other commands are optional and you may run them if the mentioned functionality is needed.
 
-+-----------------------------------------------------------------------+-----------------+
-| Command                                                               | Functionality   |
-+=======================================================================+=================+
-| ``./scripts/load_mongo_dumps.sh mongo_dbpedia-2015-10.tar.bz2``       | All             |
-+-----------------------------------------------------------------------+-----------------+
-| ``./scripts/load_mongo_dumps.sh mongo_surface_forms_dbpedia.tar.bz2`` | EL and EC       |
-|                                                                       |                 |
-| ``./scripts/load_mongo_dumps.sh mongo_surface_forms_facc.tar.bz2``    |                 |
-|                                                                       |                 |
-| ``./scripts/load_mongo_dumps.sh mongo_fb2dbp-2015-10.tar.bz2``        |                 |
-+-----------------------------------------------------------------------+-----------------+
-| ``./scripts/load_mongo_dumps.sh mongo_word2vec-googlenews.tar.bz2``   | TTI             |
-+-----------------------------------------------------------------------+-----------------+
++-----------------------------------------------------------------------+------------------+
+| Command                                                               | Required for     |
++=======================================================================+==================+
+| ``./scripts/load_mongo_dumps.sh mongo_dbpedia-2015-10.tar.bz2``       | All              |
++-----------------------------------------------------------------------+------------------+
+| ``./scripts/load_mongo_dumps.sh mongo_surface_forms_dbpedia.tar.bz2`` | EL and EC        |
+|                                                                       |                  |
+| ``./scripts/load_mongo_dumps.sh mongo_surface_forms_facc.tar.bz2``    |                  |
+|                                                                       |                  |
+| ``./scripts/load_mongo_dumps.sh mongo_fb2dbp-2015-10.tar.bz2``        |                  |
++-----------------------------------------------------------------------+------------------+
+| ``./scripts/load_mongo_dumps.sh mongo_word2vec-googlenews.tar.bz2``   | TTI              |
++-----------------------------------------------------------------------+------------------+
 
 
 3.2 Build Elastic indices
@@ -78,7 +78,7 @@ To load the data to MongoDB, you need to run the following commands. Note that t
 Run the following commands to build the indices for the mentioned functionalities.
 
 +--------------------------------------------+--------------------------+
-| Command                                    | Functionality            |
+| Command                                    | Required for             |
 +============================================+==========================+
 | ``./scripts/build_indices.sh dbpedia``     | ER, EL, TTI              |
 +--------------------------------------------+--------------------------+
