@@ -6,9 +6,7 @@ Toy indexing example for testing purposes.
 
 :Authors: Krisztian Balog, Faegheh Hasibi
 """
-from nordlys.core.retrieval.retrieval import Retrieval
 from nordlys.core.retrieval.elastic import Elastic
-# from nordlys.core.utils.logging_utils import PLOGGER
 
 
 def main():
@@ -40,7 +38,8 @@ def main():
     elastic = Elastic(index_name)
     elastic.create_index(mappings, force=True)
     elastic.add_docs_bulk(docs)
-    # PLOGGER.info("index has been built")
+    print("index has been built")
+
 
 
 if __name__ == "__main__":

@@ -33,7 +33,7 @@ The following statistics can be obtained from this class:
 Efficiency considerations
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  - For efficiency reasons, we do not store term positions during indexing. To store them, see the corresponding mapping functions :func:`Elastic.analyzed_field`, :func:`Elastic.notanalyzed_field`, :func:`Elastic.notanalyzed_searchable_field`.
+  - For efficiency reasons, we do not store term positions during indexing. To store them, see the corresponding mapping functions :func:`Elastic.analyzed_field`, :func:`Elastic.notanalyzed_searchable_field`.
   - Use :py:mod:`ElasticCache <nordlys.core.retrieval.elastic_cache>` for getting index statistics. This module caches the statistics into memory and boosts efficeicny.
   - Mind that :py:mod:`ElasticCache <nordlys.core.retrieval.elastic_cache>` does not empty the cache!
 
@@ -74,20 +74,20 @@ class Elastic(object):
         if analyzer not in {Elastic.ANALYZER_STOP, Elastic.ANALYZER_STOP_STEM}:
             # PLOGGER.error("Error: Analyzer", analyzer, "is not valid.")
             exit(0)
-        return {"type": "string",
+        return {"type": "text",
                 "term_vector": "yes",
                 "analyzer": analyzer}
 
     @staticmethod
     def notanalyzed_field():
         """Returns the mapping for not-analyzed fields."""
-        return {"type": "string",
+        return {"type": "text",
                 "index": "not_analyzed"}
 
     @staticmethod
     def notanalyzed_searchable_field():
         """Returns the mapping for not-analyzed fields."""
-        return {"type": "string",
+        return {"type": "text",
                 "term_vector": "yes",
                 "analyzer": "keyword"}
 
@@ -390,7 +390,7 @@ class Elastic(object):
 if __name__ == "__main__":
     # example usage of index statistics
     doc_id = 1
-    field = "content"
+    field = "title"
     term = "gonna"
     es = Elastic("toy_index")
     pprint(es._get_termvector(doc_id, field=field, term_stats=True))
