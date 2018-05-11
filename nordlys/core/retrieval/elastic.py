@@ -113,7 +113,8 @@ class Elastic(object):
         """
         if query.strip() == "":
             return ""
-        tokens = self.__es.indices.analyze(index=self.__index_name, body=query, analyzer=analyzer)["tokens"]
+        body = {"analyzer": analyzer, "text": query}
+        tokens = self.__es.indices.analyze(index=self.__index_name, body=body)["tokens"]
         query_terms = []
         for t in sorted(tokens, key=lambda x: x["position"]):
             query_terms.append(t["token"])
