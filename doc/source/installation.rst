@@ -18,7 +18,7 @@ Before deploying Nordlys, make sure the following ones are installed on your mac
 
 - `Python Anaconda distribution <https://docs.continuum.io/anaconda/install>`_
 - `MongoDB <https://docs.mongodb.com/manual/installation/>`_
-- `Elasticsearch <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/_installation.html>`_
+- `Elasticsearch <https://www.elastic.co/guide/en/elasticsearch/reference/5.5/_installation.html>`_
 
 Then install Nodlys prerequisites using pip: ::
 
