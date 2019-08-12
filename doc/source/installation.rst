@@ -86,3 +86,14 @@ Run the following commands to build the indices for the mentioned functionalitie
 +--------------------------------------------+--------------------------+
 | ``./scripts/build_indices.sh dbpedia_uri`` | ER (only for ELR model)  |
 +--------------------------------------------+--------------------------+
+
+3.3 Dwnload remaining data files
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Run the following commands to download the data file needed for runing entity linking service
+
++---------------------------------------------------------------------------------------------+--------------+
+| Command                                                                                     | Required for |
++=============================================================================================+==============+
+| ``wget https://gustav1.ux.uis.no/downloads/nordlys-v02/snapshot_2015_10.txt  -P data/el``   | EL           |
++---------------------------------------------------------------------------------------------+--------------+
