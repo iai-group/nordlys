@@ -57,5 +57,5 @@ If possible, please also include the http://nordlys.cc/ URL in your paper.
 
 ## Contributors
 
-[Faegheh Hasibi](http://hasibi.com/), [Krisztian Balog](http://krisztianbalog.com), [Dario Garigliotti](https://www.uis.no/article.php?articleID=100898&categoryID=11198), [Shuo Zhang](https://www.uis.no/article.php?articleID=109646&categoryID=11198).
+[Faegheh Hasibi](http://hasibi.com/), [Krisztian Balog](http://krisztianbalog.com), [Dario Garigliotti](https://dariogarigliotti.github.io), [Shuo Zhang](https://www.uis.no/article.php?articleID=109646&categoryID=11198).
 
