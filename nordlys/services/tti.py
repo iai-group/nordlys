@@ -2,14 +2,14 @@
 Target Type Identification
 ==========================
 
-The command-line application for target type indentification.
+The command-line application for target type identification.
 
 Usage
 -----
 
 ::
 
-  python -m nordlys.services.er <config_file> -q <query>
+  python -m nordlys.services.tti <config_file> -q <query>
 
 If `-q <query>` is passed, it returns the results for the specified query and prints them in terminal.
 
