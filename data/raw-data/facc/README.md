@@ -1,11 +1,7 @@
 Processing FACC1
 ================
 
-This folder contains scripts for extracting (name variant, Freebase entity, count) triples from the Freebase-Annotated Clueweb Collection (FACC1).
-
-(http://lemurproject.org/clueweb09/FACC1/)
-
-(http://lemurproject.org/clueweb12/FACC1/)
+This folder contains scripts for extracting (name variant, Freebase entity, count) triples from the Freebase-Annotated Clueweb Collection (FACC1). (http://lemurproject.org/clueweb09/FACC1/), (http://lemurproject.org/clueweb12/FACC1/).
 
 The original files come compressed (.tgz) in an 8-column format (including ClueWeb docids, encoding, and offsets). 
 We only use the surface form (column 3) and linked Freebase entity (column 8) fields.
