@@ -10,6 +10,6 @@
     "dbpedia_2015_10"
   ],
   "tti_indices": [
-    "dbpedia_2015_10_types_bm25"
+    "dbpedia_2015_10_types"
   ]
 }
