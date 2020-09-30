@@ -120,7 +120,7 @@ def entity_linking():
     }
     el = EL(config, __entity, __elastic, __fcache)
     res = el.link(query)
-    PLOGGER.debug(res)
+    #PLOGGER.debug(res)
     return jsonify(**res)
 
 
@@ -143,9 +143,7 @@ def entity_types():
 @app.after_request
 def after_request(response):
     timestamp = strftime("[%Y-%m-%d %H:%M:%S]")
-    logger.info('%s %s %s %s %s %s',
-                timestamp, request.remote_addr, request.method,
-                request.scheme, request.full_path, response.status)
+    logger.info('%s %s %s %s %s',request.remote_addr, request.method, request.path, response.status, request.full_path.split("?")[1])
     return response
 
 
@@ -153,9 +151,7 @@ def after_request(response):
 def exceptions(e):
     tb = traceback.format_exc()
     timestamp = strftime("[%Y-%m-%d %H:%M:%S]")
-    logger.error('%s %s %s %s %s 5xx INTERNAL SERVER ERROR\n%s',
-                 timestamp, request.remote_addr, request.method,
-                 request.scheme, request.full_path, tb)
+    logger.error('%s %s %s %s %s %s',request.remote_addr, request.method, request.path, e.status_code, "Error", request.full_path.split("?")[1])
     return e.status_code
 
 
