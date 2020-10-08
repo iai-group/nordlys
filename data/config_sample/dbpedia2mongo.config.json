@@ -1,0 +1,29 @@
+{
+    "collection": "dbpedia-2015-10",
+    "operation": "build",
+    "path": "data/raw-data/dbpedia-2015-10_sample/",
+    "files": [
+		{"filename": "core-i18n/en/anchor_text_en.ttl.bz2"},
+		{"filename": "core-i18n/en/article_categories_en.ttl.bz2"},
+		{"filename": "core-i18n/en/disambiguations_en.ttl.bz2"},
+		{"filename": "core-i18n/en/disambiguations_en.ttl.bz2", "reverse": true},
+		{"filename": "core-i18n/en/freebase_links_en.ttl.bz2", "prefix": "fb:"},
+		{"filename": "core-i18n/en/geo_coordinates_mappingbased_en.ttl.bz2"},
+		{"filename": "core-i18n/en/homepages_en.ttl.bz2"},
+		{"filename": "core-i18n/en/images_en.ttl.bz2"},
+		{"filename": "core-i18n/en/infobox_properties_en.ttl.bz2"},
+		{"filename": "core-i18n/en/instance_types_transitive_en.ttl.bz2"},
+		{"filename": "core-i18n/en/labels_en.ttl.bz2"},
+		{"filename": "core-i18n/en/long_abstracts_en.ttl.bz2"},
+		{"filename": "core-i18n/en/mappingbased_literals_en.ttl.bz2"},
+		{"filename": "core-i18n/en/mappingbased_objects_en.ttl.bz2"},
+		{"filename": "core-i18n/en/out_degree_en.ttl.bz2"},
+		{"filename": "core-i18n/en/page_ids_en.ttl.bz2"},
+		{"filename": "core-i18n/en/page_links_en.ttl.bz2"},
+		{"filename": "core-i18n/en/persondata_en.ttl.bz2"},
+		{"filename": "core-i18n/en/short_abstracts_en.ttl.bz2"},
+		{"filename": "core-i18n/en/specific_mappingbased_properties_en.ttl.bz2"},
+		{"filename": "core-i18n/en/transitive_redirects_en.ttl.bz2"},
+		{"filename": "core-i18n/en/transitive_redirects_en.ttl.bz2", "reverse": true}
+     ]
+}

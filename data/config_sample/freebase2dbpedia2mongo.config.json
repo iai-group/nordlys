@@ -1,0 +1,5 @@
+{
+  "collection": "fb2dbp-2015-10",
+  "mapping_file": "data/raw-data/dbpedia-2015-10_sample/freebase2dbpedia/freebase_links_en.ttl.bz2",
+  "mapping_file_39": "data/raw-data/dbpedia-2015-10_sample/freebase2dbpedia/freebase_links_en.nt.bz2"
+}

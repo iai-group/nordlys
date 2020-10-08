@@ -1,0 +1,20 @@
+{
+  "index_name": "dbpedia_2015_10",
+  "first_pass": {
+    "num_docs": 1000
+  },
+  "model": "prms",
+  "num_docs": 1000,
+  "smoothing_method": "dirichlet",
+  "smoothing_param": 2000,
+  "fields": [
+    "names",
+    "categories",
+    "attributes",
+    "similar_entity_names",
+    "related_entity_names"
+  ],
+  "query_file": "data/config_sample/queries.json",
+  "output_file": "data/config_sample/ER_output.txt",
+  "run_id": "test"
+}

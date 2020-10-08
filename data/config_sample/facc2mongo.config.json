@@ -1,0 +1,6 @@
+{
+  "collection": "surface_forms_facc",
+  "path": "data/raw-data/facc",
+  "predicate": "facc12",
+  "lowercase": true
+}
