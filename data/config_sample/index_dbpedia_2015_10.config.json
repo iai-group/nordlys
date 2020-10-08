@@ -1,6 +1,5 @@
 {
   "index_name": "dbpedia_2015_10",
-
   "names": [
     "<foaf:name>",
     "<dbp:name>",
@@ -24,29 +23,23 @@
     "<dbp:names>",
     "<rdfs:label>"
   ],
-
   "categories": [
     "<dcterms:subject>"
   ],
-
   "similar_entity_names": [
     "!<dbo:wikiPageRedirects>",
     "!<dbo:wikiPageDisambiguates>",
     "<dbo:wikiPageWikiLinkText>"
   ],
-
-  "must_have":[
+  "must_have": [
     "<rdfs:comment>",
     "<rdfs:label>"
   ],
-
-  "blacklist":[
+  "blacklist": [
     "<dbo:wikiPageDisambiguates>",
     "<dbo:wikiPageRedirects>",
     "_id",
-
     "fb:<owl:sameAs>",
-
     "<dbo:capitalPosition>",
     "<dbo:governmentPosition>",
     "<dbo:highestPosition>",
@@ -61,18 +54,13 @@
     "<rdf:type>",
     "<geo:lat>",
     "<geo:long>",
-
     "<foaf:homepage>",
-
     "<dbo:thumbnail>",
     "<dc:rights>",
     "<foaf:depiction>",
     "<foaf:thumbnail>",
-
     "<dbo:wikiPageOutDegree>",
-
     "<dbo:wikiPageID>",
-
     "<dbo:Astronaut/timeInSpace>",
     "<dbo:Automobile/fuelCapacity>",
     "<dbo:Automobile/wheelbase>",
@@ -144,5 +132,4 @@
     "<dbo:Weapon/width>",
     "<dbo:Work/runtime>"
   ]
-
 }
