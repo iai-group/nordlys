@@ -38,7 +38,7 @@ If you don't have pip yet, install it using ::
 
 Data are a crucial component of Nordlys.  Note that you may need only a certain subset of the data, depending on the required functionality.  See :doc:`this page <data>` for a detailed description.
 
-We use MongoDB and Elasticsearch for storing and indexing data. The figure below shows an overview of data sources and their dependencies. 
+We use MongoDB and Elasticsearch for storing and indexing data. The figure below shows an overview of data sources and their dependencies.
 
 .. figure::  figures/nordlys_load_data.png
    :align:   center
@@ -74,6 +74,16 @@ To load the data to MongoDB, you need to run the following commands. Note that t
 
 3.2 Build Elastic indices
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+The Nordlys directory by default contains a minimal sample files folder from *DBpedia 2015-10*, which can be used for testing Nordlys on a local machine.
+
+Hence, before creating the indices, some files have to be downloaded by running the *Type-to-entity mapping sample* and *Freebase to DBpedia sample* blocks of `scripts/download_all.sh` script from the `nordlys` directory.
+
+Alternatively, you can run: ::
+
+./scripts/download_all.sh
+
+This will download all data raw files of original DBpedia collection required for Nordlys.
+
 
 Run the following commands to build the indices for the mentioned functionalities.
 
@@ -108,4 +118,3 @@ To run Nordlys smoothly the following points are to be considered:
     $ launchctl limit
 
 - Elasticsearch requires Java version 8.
-
