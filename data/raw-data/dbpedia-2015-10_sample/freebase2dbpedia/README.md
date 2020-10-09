@@ -9,7 +9,7 @@ The size of the two file (compressed) is about 49.8 and 106 MB.
 
 ## Getting the files
 
-Run the *Freebase to DBpedia* block of ```scripts/download_all.sh``` script from the `nordlys-v02` directory.
+Run the *Freebase to DBpedia sample* block of ```scripts/download_all.sh``` script from the `nordlys-v02` directory.
 
 Alternatively you can run:
 
