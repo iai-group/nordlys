@@ -517,13 +517,15 @@ def process_results(raw_results, service_label, protocol="http:/", server_hostna
 
     elif service_label is SERVICE_E_LINKING:
         query = raw_results.get("processed_query", {})
+        
         linked_results = raw_results.get("results", {})
 
         result_counter = 0
-        for linked_substr, result_l in sorted(linked_results.items(), reverse=True, key=lambda item: item[1][1]):
+        for result_l in sorted(linked_results,key=lambda k: k['score'], reverse=True):
+            
             result_counter += 1
-            entity_id = result_l[0]
-            score = result_l[1]
+            entity_id = result_l['entity']
+            score = result_l['score']
             unprefixed_doc_id = entity_id.split(":")[-1].split(">")[0]
             entity_url = "/".join([DBPEDIA_HOSTNAME, SERVICE_TO_DBPEDIA_SUBHOST[service_label], unprefixed_doc_id])
 
@@ -542,15 +544,13 @@ def process_results(raw_results, service_label, protocol="http:/", server_hostna
             if most_specific_type:
                 most_specific_type = most_specific_type.upper()
             abstract = __shorten_abstract(catalog_results.get("<dbo:abstract>", [""])[0], max_length=400)
-            formatted_result = query.replace(
-                linked_substr,
+            formatted_result = query.replace(unprefixed_doc_id.lower(),
                 "<a href=\"{}\" target=\"_blank\" id=\"elLink{}\" "
                 "onmouseover=\"showPop(\'elPop{}\', event);\""
                 " onmouseout=\"hidePop(\'elPop{}\');\""  # NOTE: important the blank between each event handler
-                ">"
-                "{}</a>".format(entity_url, result_counter, result_counter, result_counter, linked_substr))
+                ">""{}</a>".format(entity_url,result_counter, result_counter, result_counter, unprefixed_doc_id.lower()))
 
-            result = {RESULT_LINKED_SUBSTR_K: linked_substr,
+            result = {#RESULT_LINKED_SUBSTR_K: linked_substr,
                       RESULT_DOC_TITLE_K: unprefixed_doc_id.replace("_", " "),
                       RESULT_DOC_ID_K: entity_id[1:-1] if len(entity_id) > 1 else "",
                       RESULT_DOC_SNIPPET_K: abstract,
@@ -562,6 +562,7 @@ def process_results(raw_results, service_label, protocol="http:/", server_hostna
                       }
 
             results.append(result)
+            
 
     elif service_label is SERVICE_TTI:
 
