@@ -218,7 +218,7 @@ def worker(event, sleep):
     while True:
         try:
             event.wait(sleep)
-            api_handler.update_api_file()  # update the API key-qouta file
+            api_handler.update_api_file()  # update the API key-quota file
         except KeyboardInterrupt:
             break
 
@@ -235,5 +235,5 @@ if __name__ == "__main__":
     logger = logging.getLogger('nordlys.requests')
     logger.addHandler(handler.fh)
     logger.setLevel(logging.DEBUG)
-    update(60 * 20)  # update the API key-qouta file every 20 minutes
+    update(60 * 20)  # update the API key-quota file every 20 minutes
     app.run(host="0.0.0.0")
