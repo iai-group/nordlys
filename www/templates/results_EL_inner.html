@@ -3,46 +3,39 @@
     <div id="results" class="results">
 
         <div class="el-results">
-
-            {% for r in results %}
-
+          {% for r in results %}
             <div class="el-result">
                 <div class="el-result-title" id="elRes{{ loop.index0 + 1 }}">
-                    {{ r["el_formatted_result_to_show"] }}
-                    <span class="el-result-score">
-                        {{ r["doc_score"] }}
-                    </span>
-                </div>
-
-                <div class="pop-up" id="elPop{{ loop.index0 + 1 }}">
-                    <div class="pop-up-content">
-                        {% if r['doc_picture'] %}
-                            <div class="pop-up-pic">
-                                <img src="{{ r['doc_picture'] }}" class="img-responsive" alt="">
-                            </div>
-                        {% endif %}
-                        <div class="pop-up-header">
-                            <h5 id="elPopName{{ loop.index0 + 1 }}">{{ r["doc_title"] }}</h5>
-
-                            {% if r["doc_type"] %}
-                            <p class="el-popup-type">{{ r["doc_type"] }}</p>
-                            {% else %}
-                            <p class="el-popup-uri">{{ r["doc_id"] }}</p>
-                            {% endif %}
-
-                        </div>
-                        <p class="el-popup-abstract" id="elPopAbstract{{ loop.index0 + 1 }}">{{ r["doc_snippet"] }}</p>
-                    </div>
+                  <table class="el-result-score" style="background-color: #EAF2F8 !important;">
+                    <tr>
+                     <td style=" padding:3px;">{{ r["el_formatted_result_to_show"] }}</td>
+                     <td style=" padding:3px;">{{ r["doc_score"] }}</td>
+                    </tr>
+                  </table>
                 </div>
             </div>
+            <div class="pop-up" id="elPop{{ loop.index0 + 1 }}">
+                <div class="pop-up-content">
+                    {% if r['doc_picture'] %}
+                        <div class="pop-up-pic">
+                            <img src="{{ r['doc_picture'] }}" class="img-responsive" alt="">
+                        </div>
+                    {% endif %}
+                    <div class="pop-up-header">
+                        <h5 id="elPopName{{ loop.index0 + 1 }}">{{ r["doc_title"] }}</h5>
 
-            {% endfor %}
-        </div>
+                        {% if r["doc_type"] %}
+                        <p class="el-popup-type">{{ r["doc_type"] }}</p>
+                        {% else %}
+                        <p class="el-popup-uri">{{ r["doc_id"] }}</p>
+                        {% endif %}
 
+                    </div>
+                    <p class="el-popup-abstract" id="elPopAbstract{{ loop.index0 + 1 }}">{{ r["doc_snippet"] }}</p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
+  </div>
 
 {% endif %}
-
-
-
-
