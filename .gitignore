@@ -7,4 +7,5 @@ build/
 .project
 .pydevproject
 .idea
+.DS_Store
 
