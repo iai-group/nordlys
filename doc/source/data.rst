@@ -55,6 +55,7 @@ The table below provides an overview of the MongoDB collections that are used by
 
 
 .. _data_to_mongo:
+
 Building MongoDB sources from raw data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

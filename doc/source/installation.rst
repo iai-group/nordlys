@@ -131,7 +131,7 @@ The following files are needed for various services.  You may download them all 
 +-----------------------------+---------------------------------------------------------+--------------+
 | Freebase-to-DBpedia mapping | ``data/raw-data/dbpedia-2015-10/freebase2dbpedia``      | EL           |
 +-----------------------------+---------------------------------------------------------+--------------+
-| Entity snapshot             | ``data/el``                                             | EL:sup:`1`   |
+| Entity snapshot             | ``data/el``                                             | EL :sup:`1`  |
 +-----------------------------+---------------------------------------------------------+--------------+
 
 - :sup:`1` If entity annotations are to be limited to a specific set; this file contains the proper named entities in DBpedia 2015-10
@@ -143,15 +143,15 @@ The following files are needed for various services.  You may download them all 
 There are multiple :ref:`elastic_indices` created for supporting different services.
 Run the following commands from the main Nordlys folder to build the indices for the respective functionality.
 
-+--------------------------------------------+-------------------+---------------+
-| Command                                    | Source            |  Required for |
-+============================================+===================+===============+
-| ``./scripts/build_indices.sh dbpedia``     | MongoDB           | ER, EL, TTI   |
-+--------------------------------------------+-------------------+---------------+
-| ``./scripts/build_indices.sh types``       | Raw files:sup:`1` | TTI           |
-+--------------------------------------------+-------------------+---------------+
-| ``./scripts/build_indices.sh dbpedia_uri`` | MongoDB           |  ER:sup:`2`   |
-+--------------------------------------------+-------------------+---------------+
++--------------------------------------------+--------------------+---------------+
+| Command                                    | Source             |  Required for |
++============================================+====================+===============+
+| ``./scripts/build_indices.sh dbpedia``     | MongoDB            | ER, EL, TTI   |
++--------------------------------------------+--------------------+---------------+
+| ``./scripts/build_indices.sh types``       | Raw files :sup:`1` | TTI           |
++--------------------------------------------+--------------------+---------------+
+| ``./scripts/build_indices.sh dbpedia_uri`` | MongoDB            |  ER :sup:`2`  |
++--------------------------------------------+--------------------+---------------+
 
 - :sup:`1` DBpedia entity abstracts, Type-to-entity mapping file
 - :sup:`2` only for ELR model
