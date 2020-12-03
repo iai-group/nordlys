@@ -1,3 +1,5 @@
+.. _data_components:
+
 Data components
 ===============
 

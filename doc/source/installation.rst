@@ -82,7 +82,7 @@ Adjust the settings in ``config/elastic.json``, if needed.
 
 Data are a crucial component of Nordlys.  While most of the functionality is agnostic of the underlying knowledge base, there is built-in support for working with specific data sources.  This primarily means DBpedia, with associated resources from Freebase.
 
-Note that you may need only a certain subset of the data, depending on the required functionality.  See :ref:`data` for a detailed description.
+Note that you may need only a certain subset of the data, depending on the required functionality.  See :ref:`data_components` for a detailed description.
 
 The figure below shows an overview of data sources and their dependencies.
 
@@ -97,7 +97,7 @@ The figure below shows an overview of data sources and their dependencies.
 3.1 Load data to MongoDB
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can either load the data to MongoDB (i) from dumps that we made available or (ii) from the raw source files (DBpedia, FACC, Word2vec, etc.). Below, we discuss the former option. For the latter, see :ref:`data`. Note that processing from the raw sources takes significantly longer because of the nontrivial amount of data.
+You can either load the data to MongoDB (i) from dumps that we made available or (ii) from the raw source files (DBpedia, FACC, Word2vec, etc.). Below, we discuss the former option. For the latter, see :ref:`data_to_mongo`. Note that processing from the raw sources takes significantly longer because of the nontrivial amount of data.
 
 To load the data to MongoDB, you need to run the following commands from the main Nordlys folder. Note that the first dump is required for the core Nordlys functionality over DBpedia.  The other dumps are optional, depending on whether the respective functionality is needed.
 
@@ -131,8 +131,10 @@ The following files are needed for various services.  You may download them all 
 +-----------------------------+---------------------------------------------------------+--------------+
 | Freebase-to-DBpedia mapping | ``data/raw-data/dbpedia-2015-10/freebase2dbpedia``      | EL           |
 +-----------------------------+---------------------------------------------------------+--------------+
-| Entity snapshot             | ``data/el``                                             | EL           |
+| Entity snapshot             | ``data/el``                                             | EL:sup:`1`   |
 +-----------------------------+---------------------------------------------------------+--------------+
+
+- :sup:`1` If entity annotations are to be limited to a specific set; this file contains the proper named entities in DBpedia 2015-10
 
 
 3.3 Build Elastic indices
@@ -141,15 +143,15 @@ The following files are needed for various services.  You may download them all 
 There are multiple :ref:`elastic_indices` created for supporting different services.
 Run the following commands from the main Nordlys folder to build the indices for the respective functionality.
 
-+--------------------------------------------+------------------------+------------------+
-| Command                                    | Source                 |  Required for    |
-+============================================+========================+==================+
-| ``./scripts/build_indices.sh dbpedia``     | MongoDB                | ER, EL, TTI      |
-+--------------------------------------------+------------------------+------------------+
-| ``./scripts/build_indices.sh types``       | Raw files**+**:sup:`1` | TTI              |
-+--------------------------------------------+------------------------+------------------+
-| ``./scripts/build_indices.sh dbpedia_uri`` | MongoDB                |  ER**+**:sup:`2` |
-+--------------------------------------------+------------------------+------------------+
++--------------------------------------------+-------------------+---------------+
+| Command                                    | Source            |  Required for |
++============================================+===================+===============+
+| ``./scripts/build_indices.sh dbpedia``     | MongoDB           | ER, EL, TTI   |
++--------------------------------------------+-------------------+---------------+
+| ``./scripts/build_indices.sh types``       | Raw files:sup:`1` | TTI           |
++--------------------------------------------+-------------------+---------------+
+| ``./scripts/build_indices.sh dbpedia_uri`` | MongoDB           |  ER:sup:`2`   |
++--------------------------------------------+-------------------+---------------+
 
 - :sup:`1` DBpedia entity abstracts, Type-to-entity mapping file
 - :sup:`2` only for ELR model
