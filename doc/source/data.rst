@@ -65,7 +65,7 @@ To load DBpedia to MongoDB, run ::
 
     python -m nordlys.core.data.dbpedia.dbpedia2mongo data/config/dbpedia-2015-10/dbpedia2mongo.config.json
 
-.. note:: To use only the sample, as opposed to the full collection, change the value ``path`` in ``dbpedia2mongo.config.json``.
+.. note:: To use the DBpedia 2015-10 sample shipped with Nordlys, as opposed to the full collection, change the value ``path`` to ``data/raw-data/dbpedia-2015-10_sample/`` in ``dbpedia2mongo.config.json``.
 
 
 
