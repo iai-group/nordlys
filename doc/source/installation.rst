@@ -1,26 +1,33 @@
 Installation
 ============
 
-Nordlys is a general-purpose semantic search toolkit, which can be deployed on a local machine. There is built-in support for certain data collections, including DBpedia and Freebase. You may download these data sets and run a set of scripts for preprocessing and indexing them, as explained below. Alternatively, you may use the data dumps we made available; since those are huge, they are not on git but are available at a separate location (see below).
+Nordlys is a general-purpose semantic search toolkit, which can be used either as a Python package, as a command line tool, or as a service.
 
-1. Obtain source code
----------------------
+Data are a first-class citizen in Nordlys.  To make use of the full functionality, the required data backend (MongoDB and Elasticsearch) need to be set up and data collections need to be loaded into them.  There is built-in support for specific data collections, including DBpedia and Freebase. You may use the data dumps we prepared, or download, process and index these datasets from the raw sources.
+
+1 Installing the Nordlys package
+--------------------------------
+
+This step is required for all usages of Nordlys (i.e., either as a Python package, command line tool or service).
+
+1.1 Environment
+~~~~~~~~~~~~~~~
+
+Nordlys requires Python 3.5+ and a Python environment you can install packages in. We highly recommend using an `Anaconda Python distribution <https://docs.continuum.io/anaconda/install>`_.
+
+
+1.2 Obtain source code
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can clone the Nordlys repo using the following: ::
 
   $ git clone https://github.com/iai-group/nordlys.git
 
 
-2. Install prerequisites
-------------------------
+1.3 Install prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before deploying Nordlys, make sure the following ones are installed on your machine:
-
-- `Python Anaconda distribution <https://docs.continuum.io/anaconda/install>`_
-- `MongoDB <https://docs.mongodb.com/manual/installation/>`_
-- `Elasticsearch <https://www.elastic.co/guide/en/elasticsearch/reference/5.5/_installation.html>`_
-
-Then install Nordlys prerequisites using pip: ::
+Install Nordlys prerequisites using pip: ::
 
   $ pip install -r requirements.txt
 
@@ -32,11 +39,29 @@ If you don't have pip yet, install it using ::
 
       $ apt-get install python-lxml
 
-
-2.1 Configure MongoDB
+1.4 Test installation
 ~~~~~~~~~~~~~~~~~~~~~
 
-Adjust the settings in `config/mongo.json`, if needed.
+You may check if your installation has been successful by running any of the `command line services <cmd_usage>`_, e.g., from the root of your Nordlys folder issue ::
+
+    $ python -m nordlys.core.retrieval.retrieval
+
+Alternatively, you can try importing Nordlys into a Python project.  Make sure your local Nordlys copy is on the ``PYTHONPATH``.  Then, you may try, e.g., ``from nordlys.core.retrieval.scorer import Scorer``.
+
+Mind that this step is only to check the Python dependencies. It is rather limited what you can do with Nordlys without setting up data backed and loading the data components.
+
+
+2 Setting up data backend
+-------------------------
+
+We use MongoDB and Elasticsearch for storing and indexing data.  You can either connect to these services already running on some server or set these up on your local machine.
+
+2.1 MongoDB
+~~~~~~~~~~~
+
+If you need to install MongoDB yourself, follow the `instructions here <https://docs.mongodb.com/manual/installation/>`_.
+
+Adjust the settings in ``config/mongo.json``, if needed.
 
 If you're using macOS, you'll likely need to change the soft limit of maxfiles to at least 64000, for mongoDB to work properly. Check the maxfiles limit of your system using: ::
 
@@ -44,20 +69,22 @@ If you're using macOS, you'll likely need to change the soft limit of maxfiles t
 
 
 
-2.2 Configure Elasticsearch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.2 Elasticsearch
+~~~~~~~~~~~~~~~~~
 
-Adjust the settings in `config/elastic.json`, if needed.
+If you need to install Elasticsearch yourself, follow the `instructions here <https://www.elastic.co/guide/en/elasticsearch/reference/5.5/_installation.html>`_. Note that Elasticsearch requires Java version 8.
 
-Note that Elasticsearch requires Java version 8.
+Adjust the settings in ``config/elastic.json``, if needed.
 
 
-3. Load data
-------------
+3 Loading data components
+-------------------------
 
-Data are a crucial component of Nordlys.  Note that you may need only a certain subset of the data, depending on the required functionality.  See :doc:`this page <data>` for a detailed description.
+Data are a crucial component of Nordlys.  While most of the functionality is agnostic of the underlying knowledge base, there is built-in support for working with specific data sources.  This primarily means DBpedia, with associated resources from Freebase.
 
-We use MongoDB and Elasticsearch for storing and indexing data. The figure below shows an overview of data sources and their dependencies.
+Note that you may need only a certain subset of the data, depending on the required functionality.  See :doc:`this page <data>` for a detailed description.
+
+The figure below shows an overview of data sources and their dependencies.
 
 .. figure::  figures/nordlys_load_data.png
    :align:   center
@@ -66,15 +93,13 @@ We use MongoDB and Elasticsearch for storing and indexing data. The figure below
 
 .. note::
 
-  All scripts below are to be run from the nordlys main directory. ::
-
-    nordlys-v02$ ./scripts/scriptname.sh
-
 
 3.1 Load data to MongoDB
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-To load the data to MongoDB, you need to run the following commands. Note that the first command is required for all Nordlys functionalities. Other commands are optional and you may run them if the mentioned functionality is needed.
+You can either load the data to MongoDB (i) from dumps that we made available or (ii) from the raw source files (DBpedia, FACC, Word2vec, etc.). Below, we discuss the former option. For the latter, see `this page <data>`_. Note that processing from the raw sources takes significantly longer because of the nontrivial amount of data.
+
+To load the data to MongoDB, you need to run the following commands from the main Nordlys folder. Note that the first dump is required for the core Nordlys functionality over DBpedia.  The other dumps are optional, depending on whether the respective functionality is needed.
 
 +-----------------------------------------------------------------------+------------------+
 | Command                                                               | Required for     |
@@ -91,45 +116,42 @@ To load the data to MongoDB, you need to run the following commands. Note that t
 +-----------------------------------------------------------------------+------------------+
 
 
-3.2 Build Elastic indices
+3.2 Download auxiliary data files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following files are needed for various services.  You may download them all using ::
+
+    $ ./scripts/download_auxiliary.sh
+
+
++-----------------------------+---------------------------------------------------------+--------------|
+| Description                 | Location**+**:sup:`1`                                   | Required for |
++=============================+=========================================================+==============+
+| Type-to-entity mapping      | ``data/raw-data/dbpedia-2015-10/type2entity-mapping``   | TTI          |
++-----------------------------+---------------------------------------------------------+--------------|
+| Freebase-to-DBpedia mapping | ``data/raw-data/dbpedia-2015-10/freebase2dbpedia``      | EL           |
++-----------------------------+---------------------------------------------------------+--------------|
+| Entity snapshot             | ``data/el``                                             | EL           |
++-----------------------------+---------------------------------------------------------+--------------|
+
+- :sup:`1` It refers to the location relative to the main Nordlys folder where the file(s) get downloaded to
+
+
+3.3 Build Elastic indices
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-The Nordlys directory by default contains a minimal sample files folder from *DBpedia 2015-10*, which can be used for testing Nordlys on a local machine.
 
-Hence, before creating the indices, some files have to be downloaded by running the *Type-to-entity mapping sample* and *Freebase to DBpedia sample* blocks of `scripts/download_all.sh` script from the `nordlys` directory.
+There are multiple :ref:`elastic_indices` created for supporting different services.
+Run the following commands from the main Nordlys folder to build the indices for the respective functionality.
 
-Alternatively, you can run: ::
++--------------------------------------------+-------------------+---------------+
+| Command                                    | Source            |  Required for |
++============================================+===================+===============+
+| ``./scripts/build_indices.sh dbpedia``     | MongoDB           | ER, EL, TTI   |
++--------------------------------------------+-------------------+---------------+
+| ``./scripts/build_indices.sh types``       | Raw files:sup:`1` | TTI           |
++--------------------------------------------+-------------------+---------------+
+| ``./scripts/build_indices.sh dbpedia_uri`` | MongoDB            | ER:sup:`2`   |
++--------------------------------------------+-------------------+---------------+
 
-./scripts/download_all.sh
-
-This will download all data raw files of original DBpedia collection required for Nordlys.
-
-
-Run the following commands to build the indices for the mentioned functionalities.
-
-+--------------------------------------------+--------------------------+
-| Command                                    | Required for             |
-+============================================+==========================+
-| ``./scripts/build_indices.sh dbpedia``     | ER, EL, TTI              |
-+--------------------------------------------+--------------------------+
-| ``./scripts/build_indices.sh types``       | TTI                      |
-+--------------------------------------------+--------------------------+
-| ``./scripts/build_indices.sh dbpedia_uri`` | ER (only for ELR model)  |
-+--------------------------------------------+--------------------------+
-
-
-3.3 Download the remaining data files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Run the following commands to download the data file needed for running entity linking service
-
-+------------------------------------------------------------------------------------------+--------------+
-| Command                                                                                  | Required for |
-+==========================================================================================+==============+
-| ``wget https://gustav1.ux.uis.no/downloads/nordlys-v02/snapshot_2015_10.txt -P data/el`` | EL           |
-+------------------------------------------------------------------------------------------+--------------+
-
-
-3.4 Create folders for logging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Create a folder named ``logs`` and a sub-folder named ``api`` in Nordlys main directory, for the log files that'll be generated by the API.
+- :sup:`1` DBpedia entity abstracts, Type-to-entity mapping file
+- :sup:`2` only for ELR model

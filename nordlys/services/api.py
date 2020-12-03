@@ -7,21 +7,22 @@ This is the main console application for the Nordlys API.
 :Authors: Krisztian Balog, Faegheh Hasibi, Shuo Zhang
 """
 
-from flask import Flask, jsonify, request
-
+from nordlys.config import LOGGING_PATH, PLOGGER, ELASTIC_INDICES
 from nordlys.core.retrieval.elastic_cache import ElasticCache
+from nordlys.core.utils.logging_utils import RequestHandler
 from nordlys.logic.entity.entity import Entity
 from nordlys.logic.features.feature_cache import FeatureCache
 from nordlys.services.el import EL
 from nordlys.services.er import ER
 from nordlys.services.tti import TTI
 
-from nordlys.core.utils.logging_utils import RequestHandler
-import logging, traceback
-from time import strftime
-from nordlys.config import LOGGING_PATH, PLOGGER, ELASTIC_INDICES
+import logging
+import os
+import traceback
 
-# Variables
+from flask import Flask, jsonify, request
+from time import strftime
+
 DBPEDIA_INDEX = ELASTIC_INDICES[0]
 __entity = Entity()
 __elastic = ElasticCache(DBPEDIA_INDEX)
@@ -99,7 +100,8 @@ def retrieval():
         if request.args.get(param, None) is not None:
             config["first_pass"][param] = request.args.get(param)
 
-    for param in ["index_name", "start", "num_docs", "model", "fields", "smoothing_method", "smoothing_param"]:
+    for param in ["index_name", "start", "num_docs", "model", "fields",
+                  "smoothing_method", "smoothing_param"]:
         if request.args.get(param, None) is not None:
             config[param] = request.args.get(param)
 
@@ -131,7 +133,8 @@ def entity_types():
         return error("Query is not specified.")
 
     config = dict()
-    params = ["method", "num_docs", "start", "model", "ec_cutoff", "field", "smoothing_method", "smoothing_param"]
+    params = ["method", "num_docs", "start", "model", "ec_cutoff", "field",
+              "smoothing_method", "smoothing_param"]
     for param in params:
         if request.args.get(param, None) is not None:
             config[param] = request.args.get(param)
@@ -160,6 +163,9 @@ def exceptions(e):
 
 
 if __name__ == "__main__":
+    # Create logging dir if it doesn't exist
+    if not os.path.exists(os.sep.join([LOGGING_PATH, "api"])):
+        os.makedirs(os.sep.join([LOGGING_PATH, "api"]))
     handler = RequestHandler(LOGGING_PATH)
     logger = logging.getLogger('nordlys.requests')
     logger.addHandler(handler.fh)

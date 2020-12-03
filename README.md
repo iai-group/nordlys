@@ -1,5 +1,7 @@
 # Nordlys
 
+[![Documentation Status](https://readthedocs.org/projects/nordlys/badge/?version=latest)](https://nordlys.readthedocs.io/en/latest/?badge=latest)
+
 Entities (such as people, organizations, or products) are meaningful units for organizing information and can provide direct answers to many search queries.  Nordlys is a toolkit for entity-oriented and semantic search. 
 
 

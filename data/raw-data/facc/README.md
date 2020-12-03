@@ -36,10 +36,8 @@ The size of the files (compressed) is about 2.4 GB.
 To download the compressed file `ClueWeb12-FACC1-counts.bz2` which contains files of the counts pairs for (name variant, Freebase entity), run the *FACC* block of `scripts/download_all.sh` script from the `nordlys-v02` directory. After the download is completed, the file has to be extracted. 
 
 
-Alternatively from the `nordlys-v02` directory you can run:
+Alternatively you can run (from the main Nordlys folder):
 
 ```
-./scripts/download_all.sh
+./scripts/download_raw.sh
 ```
-
-This will download all data raw files needed for Nordlys.

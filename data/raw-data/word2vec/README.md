@@ -6,15 +6,8 @@ This file was obtained after post-processing the binary embeddings obtained from
 
 The size of this file (compressed) is about 1.3 GB.
 
-
-## Getting the files
-
-Run the *Word2Vec* block of ```scripts/download_all.sh``` script from the `nordlys-v02` directory.
-
-Alternatively you can run:
+To get this file, run (from the main Nordlys folder):
 
 ```
-./scripts/download_all.sh
+./scripts/download_raw.sh
 ```
-
-from the `nordlys-v02` directory. This will download all data raw files needed for Nordlys.
