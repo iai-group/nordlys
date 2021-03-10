@@ -76,11 +76,14 @@ If you need to install Elasticsearch yourself, follow the `instructions here <ht
 
 Adjust the settings in ``config/elastic.json``, if needed.
 
+Nordlys has been tested with Elasticsearch version 5.x (and would likely need updating for newer version).
 
 3 Loading data components
 -------------------------
 
 Data are a crucial component of Nordlys.  While most of the functionality is agnostic of the underlying knowledge base, there is built-in support for working with specific data sources.  This primarily means DBpedia, with associated resources from Freebase.
+
+Specifically, Nordlys is shipped with functionality designed around **DBpedia 2015-10**, and the dumps we provide are for that particular version. However, we provide config files and instructions for working with **DBpedia 2016-10**, should you prefer a newer version.
 
 Note that you may need only a certain subset of the data, depending on the required functionality.  See :ref:`data_components` for a detailed description.
 
@@ -143,15 +146,17 @@ The following files are needed for various services.  You may download them all 
 There are multiple :ref:`elastic_indices` created for supporting different services.
 Run the following commands from the main Nordlys folder to build the indices for the respective functionality.
 
-+--------------------------------------------+--------------------+---------------+
-| Command                                    | Source             |  Required for |
-+============================================+====================+===============+
-| ``./scripts/build_indices.sh dbpedia``     | MongoDB            | ER, EL, TTI   |
-+--------------------------------------------+--------------------+---------------+
-| ``./scripts/build_indices.sh types``       | Raw files :sup:`1` | TTI           |
-+--------------------------------------------+--------------------+---------------+
-| ``./scripts/build_indices.sh dbpedia_uri`` | MongoDB            |  ER :sup:`2`  |
-+--------------------------------------------+--------------------+---------------+
++--------------------------------------------+----------------------------+---------------+
+| Command                                    | Source                     |  Required for |
++============================================+============================+===============+
+| ``./scripts/build_dbpedia_index.sh core``  | MongoDB                    | ER, EL, TTI   |
++--------------------------------------------+----------------------------+---------------+
+| ``./scripts/build_dbpedia_index.sh types`` | Raw DBpedia files :sup:`1` | TTI           |
++--------------------------------------------+----------------------------+---------------+
+| ``./scripts/build_dbpedia_index.sh uri``   | MongoDB                    |  ER :sup:`2`  |
++--------------------------------------------+----------------------------+---------------+
 
-- :sup:`1` DBpedia entity abstracts, Type-to-entity mapping file
+- :sup:`1` Requires short entity abstracts and instance types files
 - :sup:`2` only for ELR model
+
+.. note:: To use the 2016-10 version of DBpedia, add ``2016-10`` as a 2nd argument to the above scripts.

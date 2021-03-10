@@ -6,6 +6,7 @@ http://downloads.dbpedia.org/2015-10/core-i18n/en/geo_coordinates_mappingbased_e
 http://downloads.dbpedia.org/2015-10/core-i18n/en/homepages_en.ttl.bz2
 http://downloads.dbpedia.org/2015-10/core-i18n/en/images_en.ttl.bz2
 http://downloads.dbpedia.org/2015-10/core-i18n/en/infobox_properties_en.ttl.bz2
+http://downloads.dbpedia.org/2015-10/core-i18n/en/instance_types_en.ttl.bz2
 http://downloads.dbpedia.org/2015-10/core-i18n/en/instance_types_transitive_en.ttl.bz2
 http://downloads.dbpedia.org/2015-10/core-i18n/en/labels_en.ttl.bz2
 http://downloads.dbpedia.org/2015-10/core-i18n/en/long_abstracts_en.ttl.bz2

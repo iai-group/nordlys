@@ -9,22 +9,22 @@ Entities (such as people, organizations, or products) are meaningful units for o
 
 Nordlys currently supports four entity-oriented tasks, which are core components in semantic search:
 
-- Entity cataloging
-- Entity retrieval
-- Entity linking in queries
-- Target type identification
+  * Entity cataloging
+  * Entity retrieval
+  * Entity linking in queries
+  * Target type identification
 
 
 ## Features
 
-- General-purpose information retrieval and machine learning components at its core
-- Implementations of various methods for the above entity-oriented search tasks (with more on their way)
-- Based on the DBpedia knowledge base (extendible to other knowledge bases)
-- Can used as a black box through a [RESTful API](http://api.nordlys.cc/)
-- Can be reached via a [graphical web user interface](http://gui.nordlys.cc/)
-- Can be deployed on a local server and used as a Python package or as a command line tool
-- Highly modular and [well documented](http://nordlys.readthedocs.io/) code, based on a 3-tier architecture
-- Open source project that is actively being developed
+  * General-purpose information retrieval and machine learning components at its core
+  * Implementations of various methods for the above entity-oriented search tasks (with more on their way)
+  * Based on the DBpedia knowledge base (extendable to other knowledge bases)
+  * Can used as a black box through a [RESTful API](http://api.nordlys.cc/)
+  * Can be reached via a [graphical web user interface](http://gui.nordlys.cc/)
+  * Can be deployed on a local server and used as a Python package or as a command line tool
+  * Highly modular and [well documented](http://nordlys.readthedocs.io/) code, based on a 3-tier architecture
+  * Open source project that is actively being developed
 
 
 ## Disclaimer
@@ -56,6 +56,9 @@ If you use the resources presented in this repository, please cite:
 
 If possible, please also include the http://nordlys.cc/ URL in your paper.
 
+## Changelog
+
+  * 2021 Mar 10: support for DBpedia 2016-10 added
 
 ## Contributors
 
