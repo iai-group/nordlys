@@ -29,7 +29,7 @@ class IndexerMongo(object):
 
     def __dump_docs_bulk(self, bulk_id, docs):
         """Dumps a bulk of indexable documents to a json file."""
-        contents = [doc for doc in docs]
+        contents = [doc for _, doc in docs.items()]
         json.dump(contents,
                   open("{}/{:05d}.json".format(self.__path, bulk_id), "w"),
                   indent=4, ensure_ascii=False)
