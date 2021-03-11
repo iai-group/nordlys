@@ -1,5 +1,5 @@
 {
-  "index_name": "dbpedia_2016_10",
+  "path": "data/anserini/dbpedia-2016-10",
 
   "names": [
     "<foaf:name>",

@@ -1,10 +1,10 @@
 """
-DBpedia Indexer
-===============
+Modification of the original DBpedia Indexer that generates JSON files to be
+later ingested by Anserini.
 
-Builds FSDM-based index for DBpedia.
+The index config file should contain a 'path' key with the location of
 
-:Author: Faegheh Hasibi
+:Author: Faegheh Hasibi, Krisztian Balog
 """
 import argparse
 import json
@@ -21,7 +21,7 @@ from nordlys.config import PLOGGER
 class IndexerDBpedia(object):
     def __init__(self, config, collection=MONGO_COLLECTION_DBPEDIA):
         self._config = config
-        self._index_name = config["index_name"]
+        self._path = config["path"]
         self._model = config.get("model", Elastic.BM25)
         self._collection = collection
         self._doc_content = defaultdict(list)
@@ -117,7 +117,7 @@ class IndexerDBpedia(object):
 
     def build(self):
         mappings = self.get_mappings()
-        indexer = IndexerMongo(self._index_name, mappings, MONGO_COLLECTION_DBPEDIA, model=self._model)
+        indexer = IndexerMongo(self._path, mappings, MONGO_COLLECTION_DBPEDIA, model=self._model)
         indexer.build(self.get_doc_content)
 
     def create_sample_file(self):
@@ -136,7 +136,7 @@ def main(args):
     config = FileUtils.load_config(args.config)
     indexer = IndexerDBpedia(config)
     indexer.build()
-    PLOGGER.info("Index build: " + config["index_name"])
+    PLOGGER.info("Indexable files dumped: " + config["path"])
     # indexer.create_sample_file()
 
 
