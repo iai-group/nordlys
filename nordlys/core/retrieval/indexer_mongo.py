@@ -56,7 +56,8 @@ class IndexerMongo(object):
                 continue
             docs.append({
                 "id": docid,
-                "contents": {f: " ".join(v) for f, v in doc.items()}
+                "contents": {f: " ".join(v) if type(v) is list else v
+                             for f, v in doc.items()}
             })
 
             i += 1
