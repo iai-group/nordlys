@@ -54,11 +54,9 @@ class IndexerMongo(object):
             doc = callback_get_doc_content(Mongo.unescape_doc(mdoc))
             if doc is None:
                 continue
-            docs.append({
-                "id": docid,
-                "contents": {f: " ".join(v) if type(v) is list else v
-                             for f, v in doc.items()}
-            })
+            doc["id"] = docid
+            docs.append({f: " ".join(v) if type(v) is list else v
+                         for f, v in doc.items()})
 
             i += 1
             if i % bulk_size == 0:
