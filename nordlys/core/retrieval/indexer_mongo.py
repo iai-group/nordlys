@@ -57,7 +57,7 @@ class IndexerMongo(object):
                 continue
             docs[docid] = {
                 "id": docid,
-                "content": doc
+                "contents": doc
             }
 
             i += 1
