@@ -50,7 +50,7 @@ from nordlys.config import ELASTIC_HOSTS, ELASTIC_SETTINGS
 
 
 class Elastic(object):
-    FIELD_CATCHALL = "catchall"
+    FIELD_CATCHALL = "contents"
     FIELD_ELASTIC_CATCHALL = "_all"
     DOC_TYPE = "doc"  # we don't make use of types
     ANALYZER_STOP_STEM = "english"
