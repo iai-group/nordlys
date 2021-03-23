@@ -55,8 +55,10 @@ class IndexerMongo(object):
             doc = callback_get_doc_content(Mongo.unescape_doc(mdoc))
             if doc is None:
                 continue
-            doc["id"] = docid
-            docs[docid] = doc
+            docs[docid] = {
+                "id": docid,
+                "content": doc
+            }
 
             i += 1
             if i % bulk_size == 0:
