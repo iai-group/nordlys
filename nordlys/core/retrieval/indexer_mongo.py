@@ -1,6 +1,6 @@
 """
 Modification of the original Mongo Indexer that generates JSON files to be
-later ingested by Anserini.
+later ingested by Anserini/Pyserini.
 
 
 To use this class, you need to implement :func:`callback_get_doc_content` function.
@@ -29,8 +29,7 @@ class IndexerMongo(object):
 
     def __dump_docs_bulk(self, bulk_id, docs):
         """Dumps a bulk of indexable documents to a json file."""
-        contents = [doc for _, doc in docs.items()]
-        json.dump(contents,
+        json.dump(docs,
                   open("{}/{:05d}.json".format(self.__path, bulk_id), "w"),
                   indent=4, ensure_ascii=False)
 
@@ -47,7 +46,7 @@ class IndexerMongo(object):
 
         i = 0
         bulk_id = 0
-        docs = dict()
+        docs = []
         for mdoc in self.__mongo.find_all(no_timeout=True):
             docid = Mongo.unescape(mdoc[Mongo.ID_FIELD])
 
@@ -55,16 +54,16 @@ class IndexerMongo(object):
             doc = callback_get_doc_content(Mongo.unescape_doc(mdoc))
             if doc is None:
                 continue
-            docs[docid] = {
+            docs.append({
                 "id": docid,
-                "contents": doc
-            }
+                "contents": " ".join(doc["catchall"])
+            })
 
             i += 1
             if i % bulk_size == 0:
                 self.__dump_docs_bulk(bulk_id, docs)
                 bulk_id += 1
-                docs = dict()
+                docs = []
                 PLOGGER.info(str(i / 1000) + "K documents indexed")
         # indexing the last bulk of documents
         self.__dump_docs_bulk(bulk_id, docs)
